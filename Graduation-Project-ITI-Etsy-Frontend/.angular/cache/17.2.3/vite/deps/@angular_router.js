@@ -7,7 +7,7 @@ import {
   PathLocationStrategy,
   Title,
   ViewportScroller
-} from "./chunk-SHDQOHSL.js";
+} from "./chunk-NKRQVUSQ.js";
 import {
   APP_BOOTSTRAP_LISTENER,
   APP_INITIALIZER,
@@ -110,9 +110,9 @@ import {
   ɵɵloadQuery,
   ɵɵqueryRefresh,
   ɵɵsanitizeUrlOrResourceUrl
-} from "./chunk-GVEG3H7B.js";
+} from "./chunk-QT62IOSF.js";
 
-// ../node_modules/@angular/router/fesm2022/router.mjs
+// node_modules/@angular/router/fesm2022/router.mjs
 var PRIMARY_OUTLET = "primary";
 var RouteTitleKey = Symbol("RouteTitle");
 var ParamsAsMap = class {
@@ -5493,7 +5493,7 @@ function mapToCanDeactivate(providers) {
 function mapToResolve(provider) {
   return (...params) => inject(provider).resolve(...params);
 }
-var VERSION = new Version("17.2.4");
+var VERSION = new Version("17.2.3");
 export {
   ActivatedRoute,
   ActivatedRouteSnapshot,
@@ -5576,7 +5576,7 @@ export {
 
 @angular/router/fesm2022/router.mjs:
   (**
-   * @license Angular v17.2.4
+   * @license Angular v17.2.3
    * (c) 2010-2022 Google LLC. https://angular.io/
    * License: MIT
    *)

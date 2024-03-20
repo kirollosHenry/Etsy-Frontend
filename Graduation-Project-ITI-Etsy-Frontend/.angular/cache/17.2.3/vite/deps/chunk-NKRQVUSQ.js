@@ -110,9 +110,9 @@ import {
   ɵɵinject,
   ɵɵinjectAttribute,
   ɵɵstyleProp
-} from "./chunk-GVEG3H7B.js";
+} from "./chunk-QT62IOSF.js";
 
-// ../node_modules/@angular/common/fesm2022/common.mjs
+// node_modules/@angular/common/fesm2022/common.mjs
 var _DOM = null;
 function getDOM() {
   return _DOM;
@@ -3674,7 +3674,7 @@ function isPlatformBrowser(platformId) {
 function isPlatformServer(platformId) {
   return platformId === PLATFORM_SERVER_ID;
 }
-var VERSION = new Version("17.2.4");
+var VERSION = new Version("17.2.3");
 var _ViewportScroller = class _ViewportScroller {
 };
 _ViewportScroller.ɵprov = ɵɵdefineInjectable({
@@ -4826,7 +4826,7 @@ function booleanOrDataUrlAttribute(value) {
   return booleanAttribute(value);
 }
 
-// ../node_modules/@angular/common/fesm2022/http.mjs
+// node_modules/@angular/common/fesm2022/http.mjs
 var HttpHandler = class {
 };
 var HttpBackend = class {
@@ -6974,7 +6974,7 @@ function appendMissingHeadersDetection(url, headers, headersToInclude) {
   });
 }
 
-// ../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs
+// node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs
 var GenericBrowserDomAdapter = class extends DomAdapter {
   constructor() {
     super(...arguments);
@@ -8744,7 +8744,7 @@ function provideClientHydration(...features) {
   }
   return makeEnvironmentProviders([typeof ngDevMode !== "undefined" && ngDevMode ? provideZoneJsCompatibilityDetector() : [], withDomHydration(), featuresKind.has(HydrationFeatureKind.NoHttpTransferCache) || hasHttpTransferCacheOptions ? [] : withHttpTransferCache({}), providers]);
 }
-var VERSION2 = new Version("17.2.4");
+var VERSION2 = new Version("17.2.3");
 var makeStateKey2 = makeStateKey;
 var TransferState2 = TransferState;
 
@@ -8798,23 +8798,23 @@ export {
 
 @angular/common/fesm2022/common.mjs:
   (**
-   * @license Angular v17.2.4
+   * @license Angular v17.2.3
    * (c) 2010-2022 Google LLC. https://angular.io/
    * License: MIT
    *)
 
 @angular/common/fesm2022/http.mjs:
   (**
-   * @license Angular v17.2.4
+   * @license Angular v17.2.3
    * (c) 2010-2022 Google LLC. https://angular.io/
    * License: MIT
    *)
 
 @angular/platform-browser/fesm2022/platform-browser.mjs:
   (**
-   * @license Angular v17.2.4
+   * @license Angular v17.2.3
    * (c) 2010-2022 Google LLC. https://angular.io/
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-SHDQOHSL.js.map
+//# sourceMappingURL=chunk-NKRQVUSQ.js.map
