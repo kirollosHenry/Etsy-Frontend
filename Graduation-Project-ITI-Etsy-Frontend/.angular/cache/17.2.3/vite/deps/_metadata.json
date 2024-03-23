@@ -1,49 +1,49 @@
 {
-  "hash": "02333754",
-  "configHash": "5eb5d38b",
+  "hash": "0e093a3a",
+  "configHash": "e9925d45",
   "lockfileHash": "204e8570",
-  "browserHash": "f81f2d7c",
+  "browserHash": "a095edb8",
   "optimized": {
+    "@angular/common/http": {
+      "src": "../../../../../node_modules/@angular/common/fesm2022/http.mjs",
+      "file": "@angular_common_http.js",
+      "fileHash": "0655f2c6",
+      "needsInterop": false
+    },
     "@angular/core": {
       "src": "../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "f1f81db7",
+      "fileHash": "9e4d0a18",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "44a93344",
+      "fileHash": "cc14d360",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "5c3e4deb",
-      "needsInterop": false
-    },
-    "bootstrap": {
-      "src": "../../../../../node_modules/bootstrap/dist/js/bootstrap.esm.js",
-      "file": "bootstrap.js",
-      "fileHash": "b06132f7",
+      "fileHash": "db1da104",
       "needsInterop": false
     },
     "bootstrap/js/dist/tooltip": {
       "src": "../../../../../node_modules/bootstrap/js/dist/tooltip.js",
       "file": "bootstrap_js_dist_tooltip.js",
-      "fileHash": "e4938a0f",
+      "fileHash": "e5b911b8",
       "needsInterop": true
     }
   },
   "chunks": {
-    "chunk-5IZUFEQR": {
-      "file": "chunk-5IZUFEQR.js"
+    "chunk-BH5BA4U4": {
+      "file": "chunk-BH5BA4U4.js"
     },
-    "chunk-NRIF3YNU": {
-      "file": "chunk-NRIF3YNU.js"
+    "chunk-S7EO42CX": {
+      "file": "chunk-S7EO42CX.js"
     },
-    "chunk-GG4ARHQG": {
-      "file": "chunk-GG4ARHQG.js"
+    "chunk-R4IA425F": {
+      "file": "chunk-R4IA425F.js"
     },
     "chunk-KW76NYFZ": {
       "file": "chunk-KW76NYFZ.js"
