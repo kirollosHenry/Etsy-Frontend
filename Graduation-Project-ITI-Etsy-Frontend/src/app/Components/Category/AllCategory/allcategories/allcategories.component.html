@@ -1,0 +1,22 @@
+@if(CategoryList.length > 0)
+{
+<div class="container">
+    <div class="row py-5 mt-5">
+        @for (Categoryitem of CategoryList; track $index ) {
+        <div class="col-md-3">
+            <div class="card mb-4 shadow-sm">
+                <img class="card-img-top" [src]="Categoryitem.id" alt="Base Category Card image"
+                style="height: 18rem;">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h4 class="card-title">{{Categoryitem.nameEN}}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        }@empty {
+        <h1>No Products to View</h1>
+        }
+    </div>
+</div>
+}

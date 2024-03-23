@@ -20,7 +20,7 @@ export class ProductListComponent implements OnInit , OnDestroy{
   constructor(private _ProductsService:ProductsService) {}
 
   ngOnInit(): void {
-    this.sub = this._ProductsService.GetAllProductsPagination(30,1).subscribe({
+    this.sub = this._ProductsService.GetAllProductsPagination(77,1).subscribe({
       next : (ProductDataAPI : IProductAPI) =>{
         this.ProductsList = ProductDataAPI.entities;
         console.log(this.ProductsList);
