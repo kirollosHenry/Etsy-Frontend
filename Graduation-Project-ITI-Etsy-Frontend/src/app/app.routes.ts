@@ -2,6 +2,8 @@ import { Routes } from '@angular/router';
 import { CartComponent } from './Components/cart/cart.component';
 import { ProductListComponent } from './Components/Products/product-list/product-list.component';
 import { ProductDetailsComponent } from './Components/Products/product-details/product-details.component';
+import { AllcategoriesComponent } from './Components/Category/AllCategory/allcategories/allcategories.component';
+import { BaseCategoryComponent } from './Components/BaseCategory/base-category/base-category.component';
 
 export const routes: Routes = [
 
@@ -13,6 +15,8 @@ export const routes: Routes = [
     {path:'Cart', component:CartComponent, title:'Cart'},
     {path:'Products', component:ProductListComponent, title:'Products'},
     {path:'Product/:id', component:ProductDetailsComponent, title:'Product Details'},
+    {path:'Category', component:AllcategoriesComponent, title:'Categories'},
+    {path:'BaseCategory', component:BaseCategoryComponent, title:'Base Category'},
     //{path:'login', component:LogInComponent, title:'Log in'},
     //{path:'userprofile', component:UserProfileComponent, title:'User Profile', canActivate:[userAuthGuard]},
     //{path:'register', component:RegisterComponent, title:'register'},
