@@ -3,13 +3,14 @@ import { ProductsService } from '../../../Services/Products/products.service';
 import { IProductAPI, Products } from '../../../Models/products';
 import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { StarComponent } from "../../SharedComponents/star/star.component";
 
 @Component({
-  selector: 'app-product-list',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './product-list.component.html',
-  styleUrl: './product-list.component.css'
+    selector: 'app-product-list',
+    standalone: true,
+    templateUrl: './product-list.component.html',
+    styleUrl: './product-list.component.css',
+    imports: [CommonModule, StarComponent]
 })
 export class ProductListComponent implements OnInit , OnDestroy{
   ProductsList: Products[]  = [];

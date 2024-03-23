@@ -9,9 +9,10 @@
                     <img class="card-img-top" [src]="ProductItem.productImage" alt="Card image cap"
                         style="height: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">{{ProductItem.productNameEN.slice(0,30) }}</h5>
-                        <p class="card-text">{{ProductItem.productPrice | currency:'EUR' }}</p>
-                        <p class="card-text">{{ProductItem.productRating}}</p>
+                        <h4 class="card-title">{{ProductItem.productNameEN.slice(0,30) }}</h4>
+                        <h6 class="card-title">{{ProductItem.productPrice | currency:'EUR' }}</h6>
+                        <p><app-star [rating]= "ProductItem.productRating" ></app-star></p>
+                        <h5 class="card-title">{{ProductItem.productPublisher}}</h5>
                         <a href="#" class="btn btn-primary">See More</a>
                     </div>
                 </div>
