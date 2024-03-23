@@ -4,13 +4,14 @@ import { IProductAPI, Products } from '../../../Models/products';
 import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { StarComponent } from "../../SharedComponents/star/star.component";
+import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-product-list',
     standalone: true,
     templateUrl: './product-list.component.html',
     styleUrl: './product-list.component.css',
-    imports: [CommonModule, StarComponent]
+    imports: [CommonModule, StarComponent,RouterModule]
 })
 export class ProductListComponent implements OnInit , OnDestroy{
   ProductsList: Products[]  = [];
