@@ -1,24 +1,33 @@
 export interface Products {
-    ProductId: number,
+    productId: number,
 
-    ProductNameEN: string,
+    productNameEN: string,
 
-    ProductNameAR: string,
+    productNameAR: string,
 
-    ProductPrice: number,
+    productPrice: number,
 
-    ProductStock: number,
+    productStock: number,
 
-    ProductRating: number,
+    productRating: number,
 
-    ProductPublisher: string,
+    productPublisher: string,
 
-    ProductDescriptionEN: string,
+    productDescriptionEN: string,
 
-    ProductDescriptionAR: string,
+    productDescriptionAR: string,
 
-    ProductImage: string,
+    productImage: string,
 
-    CategoryID: number
+    categoryID: number
+}
+
+export interface IProductAPI {
+    count : number ,
+
+    entities : Products[],
+
+    message : string
+
 }
 
