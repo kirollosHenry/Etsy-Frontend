@@ -1,20 +1,25 @@
-
 @if(ProductsList.length > 0)
 {
-    <div class="container">
-        <div class="row py-5">
-            @for (ProductItem of ProductsList; track $index ) {
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" [src]="ProductItem.ProductImage" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">{{ProductItem.ProductNameEN}}</h5>
-                    <p class="card-text">{{ProductItem.ProductPrice}}</p>
-                    <a href="#" class="btn btn-primary">See More</a>
+<div class="container">
+    <div class="row py-5 mt-5">
+        @for (ProductItem of ProductsList; track $index ) {
+        <div class="col-md-3">
+            <div class="card mb-4 shadow-sm">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" [src]="ProductItem.productImage" alt="Card image cap"
+                        style="height: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ProductItem.productNameEN.slice(0,30) }}</h5>
+                        <p class="card-text">{{ProductItem.productPrice | currency:'EUR' }}</p>
+                        <p class="card-text">{{ProductItem.productRating}}</p>
+                        <a href="#" class="btn btn-primary">See More</a>
+                    </div>
                 </div>
             </div>
-            }@empty {
-                <h1>No Products to View</h1>
-            }
         </div>
+        }@empty {
+        <h1>No Products to View</h1>
+        }
     </div>
+</div>
 }
