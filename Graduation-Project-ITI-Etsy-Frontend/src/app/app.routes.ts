@@ -11,8 +11,6 @@ export const routes: Routes = [
     
     //{path:'home', component:HomeComponent, title:'Home'},
     //{path:'about', component:AboutComponent, title:'About'},
-    {path:'BaseCategory', component:BaseCategoryComponent, title:'baseCategory'},
-    {path:'Category', component:BaseCategoryComponent, title:'Category'},
     {path:'Cart', component:CartComponent, title:'Cart'},
     {path:'Products', component:ProductListComponent, title:'Products'},
     {path:'Product/:id', component:ProductDetailsComponent, title:'Product Details'},
