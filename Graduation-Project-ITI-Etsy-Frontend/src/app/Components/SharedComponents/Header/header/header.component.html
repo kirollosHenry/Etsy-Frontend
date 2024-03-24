@@ -1,33 +1,285 @@
-<header class="p-3 text-bg-dark">
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
-        </a>
+<!-- loged in user -->
+@if(!isLoggedIn){
+<header class="p-3 mb-3 border-bottom headeraLL">
 
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-          <li><a routerLink="Cart" routerLinkActive="router-link-active"  class="nav-link px-2 text-white">Cart</a></li>
-          <li><a routerLink="Products" class="nav-link px-2 text-white">Products</a></li>
-          <li><a routerLink="Product/:id" class="nav-link px-2 text-white">Product Details</a></li>
-          <li><a routerLink="BaseCategory" class="nav-link px-2 text-white">Base Category</a></li>
-          <li><a routerLink="Category" class="nav-link px-2 text-white">Categories</a></li>
+  <div class="container">
+
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+          <use xlink:href="#bootstrap"></use>
+        </svg>
+      </a>
+
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+
+        <!-- Image Brand -->
+        <li>
+          <a routerLink="Cart" class="navbar-brand">
+            <img src="./../../../../../assets/image/Logo/logo2.png" width="60" height="32">
+          </a>
+        </li>
+
+        <!-- DropDown List Categories -->
+        <li class="nav-item dropdown">
+          <button type="button" class="wt-menu__trigger wt-btn wt-btn--transparent header-button wt-mr-xs-1 wt-btn--small btn
+              btn-light btnOfCtegories" aria-haspopup="true" [attr.aria-expanded]="isDropdownOpen ? 'true' : 'false'"
+            (click)="toggleDropdown()" id="navbarDropdownMenuLink" data-overlay-trigger-selector="overlay-trigger-ele">
+            <span class="etsy-icon wt-mr-xs-1 wt-icon--smaller ">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" fill="currentColor" class="bi bi-list"
+                viewBox="0 0 16 16" style="font-weight: bolder;">
+                <path fill-rule="evenodd"
+                  d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+              </svg>
+            </span>
+            Categories
+          </button>
+          <ul id="dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="display: none;">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Sotooote</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Search -->
+      <form class="d-flex flex-grow-1 ">
+        <input class="form-control me-2 SearchSectionForLogin" type="search" placeholder="Search for anything"
+          aria-label="Search">
+        <button class="btn btn-default btn-round btn-submit btnSearch rounded-circle" type="submit">
+          <i class="fa fa-search icon-lg "></i>
+        </button>
+      </form>
+
+
+
+      <!-- SignIN  -->
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 mb-md-0 ulOfSign">
+
+        <!-- hearct icon -->
+        <li class="IconHeaderLogedIn ">
+          <a routerLink="Cart" class="navbar-brand ">
+            <i class="fa-regular fa-heart " style="color: #000000;"></i>
+          </a>
+        </li>
+
+        <!-- bell  -->
+        <li class=" IconHeaderBell">
+          <div class="dropdown ">
+            <button class="btn dropdown-toggle" [attr.aria-expanded]="isDropdownOpenForBell ? 'true' : 'false'"
+              type="button" data-bs-toggle="dropdown" aria-expanded="false" (click)="toggleDropdownBell()">
+              <i class="fa-regular fa-bell"></i>
+            </button>
+            <ul id="bellDropdownMenu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
+              style="display: none;">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </div>
+  
+        </li>
+       
+        <!-- profile icon -->
+        <li class=" IconHeaderBell">
+        <div class="dropdown ">
+          <button type="button"  class=" btn d-block link-body-emphasis text-decoration-none dropdown-toggle" 
+          data-bs-toggle="dropdown" [attr.aria-expanded]="isDropdownOpenForProfile ? 'true' : 'false'"
+            aria-expanded="false"  (click)="toggleDropdownProfile()">
+            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+          </button>
+          <ul class="dropdown-menu text-small" id="profileDropdownMenu"
+          aria-labelledby="navbarDropdownMenuLink"
+              style="display: none;"
+              >
+            <li><a class="dropdown-item" href="#">New project...</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">Sign out</a></li>
+          </ul>
+        </div>
+        </li>
+
+
+        <!-- cart icon -->
+        <li class="IconHeaderLogedIn ">
+          <a routerLink="Cart" class="navbar-brand">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart2"
+              viewBox="0 0 16 16">
+              <path
+                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l1.25 5h8.22l1.25-5zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0" />
+            </svg>
+
+          </a>
+        </li>
+
+      </ul>
+
+      <!-- Another Section -->
+      <div class="d-flex container justify-content-center mt-2">
+        <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link btnOfCtegories" type="button" aria-current="page"routerLink="Cart">Home Deals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btnOfCtegories"routerLink="Cart">Home Favorites</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btnOfCtegories" routerLink="Cart">Fashion Finds</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btnOfCtegories" routerLink="Cart">Gift Guids</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btnOfCtegories" routerLink="Cart">Registry</a>
+          </li>
         </ul>
 
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
-        </form>
-
-        <div class="text-end">
-          @if(!isLoggedIn){
-          <button type="button" class="btn btn-outline-light me-2"  mat-flat-button color="primary"
-          [routerLink]="['/login']" >Login</button>
-          }@if(isLoggedIn){
-          <button type="button" class="btn btn-outline-light me-2" mat-flat-button color="primary"
-          (click)="onLogout()">Log Out</button>
-          }
-          <button type="button" class="btn btn-warning">Sign-up</button>
-        </div>
       </div>
+
+
     </div>
-  </header>
+  </div>
+
+
+</header>
+}
+@else {
+<header class="p-3 mb-3 border-bottom headeraLL">
+
+  <div class="container">
+
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+          <use xlink:href="#bootstrap"></use>
+        </svg>
+      </a>
+
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+
+        <!-- Image Brand -->
+        <li>
+          <a routerLink="Cart" class="navbar-brand">
+            <img src="./../../../../../assets/image/Logo/logo2.png" width="60" height="32">
+          </a>
+        </li>
+
+        <!-- DropDown List Categories -->
+        <li class="nav-item dropdown">
+          <button type="button" class="wt-menu__trigger wt-btn wt-btn--transparent header-button wt-mr-xs-1 wt-btn--small btn
+              btn-light btnOfCtegories" aria-haspopup="true" [attr.aria-expanded]="isDropdownOpen ? 'true' : 'false'"
+            (click)="toggleDropdown()" id="navbarDropdownMenuLink" data-overlay-trigger-selector="overlay-trigger-ele">
+            <span class="etsy-icon wt-mr-xs-1 wt-icon--smaller ">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" fill="currentColor" class="bi bi-list"
+                viewBox="0 0 16 16" style="font-weight: bolder;">
+                <path fill-rule="evenodd"
+                  d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+              </svg>
+            </span>
+            Categories
+          </button>
+          <ul id="dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="display: none;">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- Search -->
+      <form class="d-flex flex-grow-1 ">
+        <input class="form-control me-2 SearchSection" type="search" placeholder="Search for anything"
+          aria-label="Search">
+        <button class="btn btn-default btn-round btn-submit btnSearch rounded-circle" type="submit">
+          <i class="fa fa-search icon-lg "></i>
+        </button>
+      </form>
+
+
+
+      <!-- SignIN  -->
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 mb-md-0 ulOfSign">
+
+        <li class="nav-item dropdown me-2">
+
+          <a type="button" routerLink="/login" class=" header-button wt-mr-xs-1 wt-btn--small btn
+              btn-light btnOfCtegories">
+            Sign in
+        </a>
+
+        </li>
+
+        <li class="IconHeader ">
+          <a routerLink="Cart" class="navbar-brand ">
+            <i class="fa-regular fa-heart " style="color: #000000;"></i>
+          </a>
+        </li>
+
+        <li class="IconHeader ">
+          <a routerLink="Cart" class="navbar-brand">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart2"
+              viewBox="0 0 16 16">
+              <path
+                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l1.25 5h8.22l1.25-5zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0" />
+            </svg>
+
+          </a>
+        </li>
+
+      </ul>
+
+      <!-- Another Section -->
+      <div class="d-flex container justify-content-center mt-2">
+        <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link btnOfCtegories" type="button" aria-current="page" href="#">Home Deals</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btnOfCtegories" href="#">Home Favorites</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btnOfCtegories" href="#">Fashion Finds</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btnOfCtegories" href="#">Gift Guids</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btnOfCtegories" href="#">Registry</a>
+          </li>
+        </ul>
+
+      </div>
+
+
+    </div>
+  </div>
+
+
+</header>
+}
+
+
