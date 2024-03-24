@@ -19,7 +19,13 @@
         </form>
 
         <div class="text-end">
-          <button type="button" class="btn btn-outline-light me-2">Login</button>
+          @if(!isLoggedIn){
+          <button type="button" class="btn btn-outline-light me-2"  mat-flat-button color="primary"
+          [routerLink]="['/login']" >Login</button>
+          }@if(isLoggedIn){
+          <button type="button" class="btn btn-outline-light me-2" mat-flat-button color="primary"
+          (click)="onLogout()">Log Out</button>
+          }
           <button type="button" class="btn btn-warning">Sign-up</button>
         </div>
       </div>
