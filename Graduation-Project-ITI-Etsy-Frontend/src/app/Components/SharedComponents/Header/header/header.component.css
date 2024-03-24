@@ -46,14 +46,15 @@
 
 /* Search For Not log in */
 .SearchSection {
-  width: 850px !important;
+  width: 90%;
   border-radius: 30px;
   margin-left: 10px;
 }
 
 /* For logedin */
 .SearchSectionForLogin {
-  width: 780px !important;
+
+  width: 85%;
   border-radius: 30px;
   margin-left: 10px;
 }
@@ -123,9 +124,9 @@
 }
 
 @media (max-width: 768px) {
-  .SearchSection {
-    max-width: 500px;
-  }
+  /* .SearchSection {
+    max-width: 80%;
+  } */
 
   .btnSearch {
     height: 33px;
