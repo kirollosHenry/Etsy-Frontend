@@ -1,0 +1,143 @@
+.headeraLL {
+  font-family: "Graphik Webfont", "-apple-system", "Helvetica Neue",
+    "Droid Sans", "Arial", "sans-serif";
+}
+.btnOfCtegories {
+  border-radius: 20px;
+  background-color: white;
+  border: none;
+  font-size: small;
+  margin-left: 10px;
+  color: #222222;
+  /* font-weight: bold; */
+}
+.btnOfCtegories:hover {
+  background-color: rgb(240, 237, 237);
+}
+
+.dropdown-item {
+  text-decoration: none;
+  width: 300px;
+}
+
+.dropdown-item:hover {
+  text-decoration: underline;
+}
+
+.dropdown-menu {
+  position: absolute;
+  left: 100%;
+  transform: translate(-45%, 0);
+  display: none;
+  padding: 5px 0;
+  border-radius: 5px;
+  margin-top: 12px;
+  box-shadow: #222222a3;
+}
+
+.dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border: 5px solid transparent;
+}
+
+/* Search For Not log in */
+.SearchSection {
+  width: 850px !important;
+  border-radius: 30px;
+  margin-left: 10px;
+}
+
+/* For logedin */
+.SearchSectionForLogin {
+  width: 780px !important;
+  border-radius: 30px;
+  margin-left: 10px;
+}
+
+.btnSearch {
+  /* left: 73%; */
+  transform: translate(-130%, 0);
+  background-color: #f1641e;
+  color: white;
+  font-size: small;
+  height: 33px;
+  margin-top: 2.2px;
+  cursor: pointer;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+
+.btnSearch:hover {
+  border-radius: 0 50% 50% 0 !important;
+
+  opacity: 0.7;
+}
+
+.ulOfSign {
+  transform: translate(-35%, 0);
+}
+
+.IconHeader {
+  background-color: white;
+  /* color: black; */
+  padding: 5px 10px 0 10px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.IconHeader:hover {
+  background-color: rgba(81, 190, 233, 0.54);
+
+  color: rgb(5, 5, 116);
+}
+
+.IconHeaderLogedIn {
+  background-color: white;
+  padding:10px 10px 0 10px;
+
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.IconHeaderLogedIn:hover {
+  background-color: rgba(81, 190, 233, 0.54);
+
+  color: rgb(5, 5, 116);
+}
+.IconHeaderBell {
+  background-color: white;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.IconHeaderBell:hover {
+  background-color: rgba(81, 190, 233, 0.54);
+
+  color: rgb(5, 5, 116);
+}
+
+@media (max-width: 768px) {
+  .SearchSection {
+    max-width: 500px;
+  }
+
+  .btnSearch {
+    height: 33px;
+    font-size: x-small;
+    transform: translate(-130%, 0);
+  }
+}
+
+/*  */
+.btn-secondary.custom-hover {
+  /* Custom hover effect */
+  /* Adjust the styles as per your requirement */
+  background-color: #f1641e; /* Example background color */
+  color: white; /* Example text color */
+}
