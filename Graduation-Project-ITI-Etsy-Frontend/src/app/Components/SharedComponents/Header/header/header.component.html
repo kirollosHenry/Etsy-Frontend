@@ -1,6 +1,6 @@
 <!-- loged in user -->
-@if(!isLoggedIn){
-<header class="p-3 mb-3 border-bottom headeraLL">
+@if(isLoggedIn){
+<header class=" border-bottom headeraLL mb-0">
 
   <div class="container">
 
@@ -36,7 +36,7 @@
             Categories
           </button>
           <ul id="dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="display: none;">
-            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" routerLink="Products">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
@@ -144,10 +144,28 @@
             <a class="nav-link btnOfCtegories" routerLink="Cart">Gift Guids</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btnOfCtegories" routerLink="Cart">Registry</a>
+            <a class="nav-link btnOfCtegories" routerLink="Products">Registry</a>
           </li>
         </ul>
 
+<<<<<<< HEAD
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+        </form>
+
+        <div class="text-end">
+          @if(!isLoggedIn){
+          <button type="button" class="btn btn-outline-light me-2"  mat-flat-button color="primary"
+          [routerLink]="['/login']" >Login</button>
+          }@if(isLoggedIn){
+          <button type="button" class="btn btn-outline-light me-2" mat-flat-button color="primary"
+          (click)="onLogout()">Log Out</button>
+          }
+          <button type="button"mat-flat-button color="primary"
+          [routerLink]="['/login']">Sign-up</button>
+        </div>
+=======
+>>>>>>> f98db9a3334188a7661b7a7b7343ea4d216b7072
       </div>
 
 
@@ -194,7 +212,7 @@
             Categories
           </button>
           <ul id="dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="display: none;">
-            <li><a class="dropdown-item" href="#">Action</a></li>
+            
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
