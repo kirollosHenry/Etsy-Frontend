@@ -1,7 +1,8 @@
 export interface BaseCategory {
     id : number,
     nameEN : string,
-    nameAR : string
+    nameAR : string,
+    baseCategoryImage : string
 }
 
 
