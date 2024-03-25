@@ -11,6 +11,8 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { AuthService } from "../../Services/Authentication/auth.service";
 import { Login } from "../../Models/Accout/login";
 import { LoginResult } from "../../Models/Accout/login-result";
+import { ResgisterService } from "../../Services/Authentication/resgister.service";
+import { Register } from "../../Models/Accout/register";
 
 @Component({
   selector: "app-login",
@@ -23,19 +25,30 @@ export class LoginComponent implements OnInit {
   email: string="";
   password: string="";
   error!: string;
-  form!:FormGroup
+  form!:FormGroup;
+  formRegister!:FormGroup;
   activatedRoute: any;
+  showRegistrationForm: boolean = false;
+  emailRegister:string = "";
+  userNameRegister:string = "";
+  passwordRegister:string =""
   
  
-  constructor(private authService: AuthService, private router:Router ) { }
+  constructor(private authService: AuthService, private router:Router , private register :ResgisterService ) { }
   ngOnInit(){
     this.form = new FormGroup({
       email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required)
     });
+
+    this.formRegister = new FormGroup({
+      emailRegister: new FormControl('', Validators.required),
+      passwordRegister: new FormControl('', Validators.required),
+      userNameRegister: new FormControl('', Validators.required)
+  });
   }
 
-  onSubmit() {
+  Login() {
     var loginRequest = <Login>{};
     loginRequest.email = this.form.controls['email'].value;
     loginRequest.password = this.form.controls['password'].value;
@@ -59,30 +72,36 @@ export class LoginComponent implements OnInit {
     });   
   }
 
-  /* email!: string;
-  password!: string;
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private router: Router,
-    private formBuilder: FormBuilder,
-    private authService: AuthService
-  ) {} */
+  Register() {
+    var Request = <Register>{};
+    Request.Email = this.formRegister.controls['emailRegister'].value;
+    Request.Password = this.formRegister.controls['passwordRegister'].value;
+    Request.Username= this.formRegister.controls['userNameRegister'].value;
 
-  /* profileForm = this.formBuilder.group({
-    username: ["", Validators.required],
-    password: [""],
-  });
-
-  login!: Login;
-  onSubmit() {
-    this.authService.login(this.login).subscribe({
-      next: (response) => {
-        if (response.IsAuthenticated) {
-          console.log(response.message);
+    this.register.login(Request).subscribe({
+      next: (response: LoginResult) => {
+        if (response.isAuthenticated) {
+          // Handle successful authentication
+          console.log('Login successful');
+          console.log('Token:',response.token);
+          
+          this.router.navigate(['/Category']);
+          // Redirect or perform other actions here
         } else {
-          console.log("enail or password is wrong try again");
+          this.error =  'An unknown error occurred';
         }
       },
-    });
-  } */
+      error: error => {
+        this.error = 'An error occurred while logging in';
+      }
+    });   
+
+  }
+
+
+  toggleForm() {
+    this.showRegistrationForm = !this.showRegistrationForm;
+  
+  }
+  
 }
