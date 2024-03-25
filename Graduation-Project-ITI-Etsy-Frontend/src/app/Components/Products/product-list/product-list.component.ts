@@ -10,33 +10,64 @@ import { BrowserModule } from '@angular/platform-browser';
 
 
 @Component({
-    selector: 'app-product-list',
-    standalone: true,
-    templateUrl: './product-list.component.html',
-    styleUrl: './product-list.component.css',
-    imports: [CommonModule, StarComponent,RouterModule,
-      PaginatorModule
-    ] 
+  selector: 'app-product-list',
+  standalone: true,
+  templateUrl: './product-list.component.html',
+  styleUrl: './product-list.component.css',
+  imports: [CommonModule, StarComponent, RouterModule,
+    PaginatorModule
+  ]
 })
-export class ProductListComponent implements OnInit , OnDestroy{
-  ProductsList: Products[]  = [];
+export class ProductListComponent implements OnInit, OnDestroy {
+  ProductsList: Products[] = [];
+  FilterProductsListRelevance: Products[] = [];
+  FilterProductsListAscending: Products[] = [];
+  FilterProductsListDescending: Products[] = [];
+  FilterProductsListReviews: Products[] = [];
   sub!: Subscription;
 
-  constructor(private _ProductsService:ProductsService) {}
+  constructor(private _ProductsService: ProductsService) { }
 
   ngOnInit(): void {
-    this.sub = this._ProductsService.GetAllProductsPagination(77,1).subscribe({
-      next : (ProductDataAPI : IProductAPI) =>{
+    this.sub = this._ProductsService.GetAllProductsPagination(77, 1).subscribe({
+      next: (ProductDataAPI: IProductAPI) => {
         this.ProductsList = ProductDataAPI.entities;
-        console.log(this.ProductsList);
+        this.FilterProductsListRelevance = ProductDataAPI.entities;
       },
-      error : (response) => {
+      error: (response) => {
         console.log(response);
       }
     })
 
- 
-  
+    this.sub = this._ProductsService.GetProductsPriceAscending(1).subscribe({
+      next: (ProductDataAPI: IProductAPI) => {
+        this.FilterProductsListAscending = ProductDataAPI.entities;
+        console.log(this.ProductsList);
+      },
+      error: (response) => {
+        console.log(response);
+      }
+    })
+
+    this.sub = this._ProductsService.GetProductsPriceDescending(1).subscribe({
+      next: (ProductDataAPI: IProductAPI) => {
+        this.FilterProductsListDescending = ProductDataAPI.entities;
+        console.log(this.ProductsList);
+      },
+      error: (response) => {
+        console.log(response);
+      }
+    })
+
+    this.sub = this._ProductsService.GetProductsCustomerReview(1).subscribe({
+      next: (ProductDataAPI: IProductAPI) => {
+        this.FilterProductsListReviews = ProductDataAPI.entities;
+        console.log(this.ProductsList);
+      },
+      error: (response) => {
+        console.log(response);
+      }
+    })
   }
 
   ngOnDestroy(): void {
@@ -56,14 +87,31 @@ export class ProductListComponent implements OnInit , OnDestroy{
   }
 
   // Function for Pagination !
-  first:number=10;
-  rows:number=10;
+  first: number = 10;
+  rows: number = 10;
 
   onPageChange(event: any) {
     this.first = event.first;
     this.rows = event.rows;
-}
- 
+  }
 
+  //All Filters Products
+  FilterProduct(FilterBy: string) {
+    if (FilterBy == 'Relevance') {
+      this.ProductsList = this.FilterProductsListRelevance;
+    }
+    else if (FilterBy == 'Lowest') {
+      this.ProductsList = this.FilterProductsListAscending;
+    }
+    else if (FilterBy == 'Highest') {
+      this.ProductsList = this.FilterProductsListDescending;
+    }
+    else if (FilterBy == 'Reviews') {
+      this.ProductsList = this.FilterProductsListReviews;
+    }
+    else if (FilterBy == 'Recent') {
+      this.ProductsList = this.FilterProductsListRelevance;
+    }
+  }
 }
 
