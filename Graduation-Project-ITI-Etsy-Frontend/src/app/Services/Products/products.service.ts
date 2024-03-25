@@ -21,7 +21,15 @@ export class ProductsService {
     return this._HttpClient.get<any>(`${this.apiProductURL}/${ProductID}`)
   }
 
-  FilterProducts(MinPrice: number, MaxPrice: number, CategoryId: number): Observable<any> {
-    return this._HttpClient.get<any>(`${this.apiProductURL}/Filter/${MinPrice},${MaxPrice},${CategoryId}`)
+  GetProductsPriceAscending(ProductID: number): Observable<IProductAPI> {
+    return this._HttpClient.get<IProductAPI>(`${this.apiProductURL}/PriceAscending/${ProductID}`)
+  }
+
+  GetProductsPriceDescending(ProductID: number): Observable<IProductAPI> {
+    return this._HttpClient.get<IProductAPI>(`${this.apiProductURL}/PriceDescending/${ProductID}`)
+  }
+
+  GetProductsCustomerReview(ProductID: number): Observable<IProductAPI> {
+    return this._HttpClient.get<IProductAPI>(`${this.apiProductURL}/Reviews/${ProductID}`)
   }
 }
