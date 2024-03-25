@@ -4,8 +4,7 @@ body{
 
 
 .headerCard{
-    box-shadow: 0 20px 27px 0 rgba(0, 0, 0, 0) !important;
-    background-color:#D7E6F5 !important;
+        background-color:#D7E6F5 !important;
 }
 .card {
     box-shadow: 0 20px 27px 0 rgba(0, 0, 0, 0.05);
@@ -48,13 +47,19 @@ a {
     border: none !important;
 
 }
+.botn-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .btnCheckOut{
-    width: 300px;
+    width: 100%;
     border-radius: 20px;
     background-color: black;
     color: #ffffff;
-    display: inline-block; /* Display button as a block element */
 }
 
 
@@ -105,4 +110,18 @@ a {
 
 .cursorClass{
     cursor: pointer; 
+}
+
+.roundedBG{
+    border-radius: 50px; 
+    border: none;
+    padding: 8px;
+    font-weight: 700;
+    font-size: 12px;
+    background-color: rgba(255, 255, 255, 0.811);
+
+}
+.roundedBG:hover{
+    background-color: #F0F0F0;
+    transition: opacity 0.7s ease;
 }
