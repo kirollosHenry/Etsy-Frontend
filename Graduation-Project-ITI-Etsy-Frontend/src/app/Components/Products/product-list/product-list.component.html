@@ -1,26 +1,120 @@
-@if(ProductsList.length > 0)
-{
-<div class="container">
-    <div class="row py-5 mt-5">
-        @for (ProductItem of ProductsList; track $index ) {
-        <div class="col-md-3">
-            <div class="card mb-4 shadow-sm">
-                <div class="card" style="width: 18rem;">
-                    <img class="card-img-top" [src]="ProductItem.productImage" alt="Card image cap"
-                        style="height: 18rem;">
-                    <div class="card-body">
-                        <h4 class="card-title">{{ProductItem.productNameEN.slice(0,30) }}</h4>
-                        <h6 class="card-title">{{ProductItem.productPrice | currency:'EUR' }}</h6>
-                        <p><app-star [rating]= "ProductItem.productRating" ></app-star></p>
-                        <h5 class="card-title">{{ProductItem.productPublisher}}</h5>
-                        <a href="#" class="btn btn-primary">See More</a>
-                    </div>
+<div>
+
+    @if(ProductsList.length > 0)
+    {
+
+    <div class="container ProductsListSection mb-5">
+        <div class="row pt-2 justify-content-center ">
+
+
+            <div class="container d-flex justify-content-between mb-2">
+
+
+                <div class="dropdown Filterdropdown">
+                    <button class="btn btnOfFilter dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="fa-solid fa-sliders fa-sm" style="color: #000000;"></i>
+                        All Filters
+                    </button>
+                    <ul class="dropdown-menu" id="">
+                        <li><a class="dropdown-item" href="#">Relevance</a></li>
+                        <li><a class="dropdown-item" href="#">Lowest Price</a></li>
+                        <li><a class="dropdown-item" href="#">Highest Price</a></li>
+                        <li><a class="dropdown-item" href="#">Top Customer Reviews</a></li>
+                        <li><a class="dropdown-item" href="#">Most Recent</a></li>
+                    </ul>
                 </div>
+
+
+                <div class="dropdown Filterdropdown ">
+                    <small class="text-secondery me-2">( 14,048,963 results, with Ads)</small>
+                    <button class="btn btnOfFilter dropdown-toggle" (click)="toggleDropdown()" type="button"
+                        data-bs-toggle="dropdown" [attr.aria-expanded]="isDropdownOpen ? 'true' : 'false'"
+                        aria-expanded="false">
+                        Sorted By :
+                    </button>
+                    <ul class="dropdown-menu" id="filter-dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Relevance</a></li>
+                        <li><a class="dropdown-item" href="#">Lowest Price</a></li>
+                        <li><a class="dropdown-item" href="#">Highest Price</a></li>
+                        <li><a class="dropdown-item" href="#">Top Customer Reviews</a></li>
+                        <li><a class="dropdown-item" href="#">Most Recent</a></li>
+                    </ul>
+                </div>
+
             </div>
+
+
+
+
+            @for (ProductItem of ProductsList; track $index ) {
+            <div class="col-lg-3 col-md-4 col-sm-6 col-12 product-item mb-2">
+
+
+
+                <ul class="list-unstyled">
+                    <li class="ProductEffect ">
+                        <a routerLink="" class="d-flex flex-column text-decoration-none">
+
+                            <div>
+                                <img class="col-3 img-fluid imgOfProduct mb-1 mb-0" [src]="ProductItem.productImage"
+                                    alt="Card image cap" style="height: 14rem;">
+                            </div>
+                            <div class="">
+                                <h4 class="DescOfProduct mb-0">{{ProductItem.productDescriptionEN.slice(0,40) }}
+                                    {{ProductItem.productDescriptionEN.length > 40 ? '...' : '' }}
+                                </h4>
+                            </div>
+
+                            <div>
+                                <p class="StarOfProduct d-flex mb-0">
+                                    <app-star [rating]="ProductItem.productRating"></app-star>
+                                    <small class="text-secondary  ms-1">({{ProductItem.productRating}})</small>
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="CurrecyOfProduct mb-0">{{ProductItem.productPrice | currency:'EUR' }}</h4>
+                            </div>
+
+                            <div>
+                                <small class="text-secondary mb-0">
+
+                                    Ad by {{ProductItem.productPublisher}}
+                                </small>
+
+                            </div>
+
+
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            }@empty {
+            <h1>No Products to View</h1>
+            }
+
+
+            <div>
+
+                <div>
+                    <small class="txtPagination mt-2">There's so much more for you to discover</small>
+
+                    <div class="d-flex align-items-center justify-content-start">
+                        <div class="">
+                            <p-paginator (onPageChange)="onPageChange($event)" [first]="first" [rows]="rows" [totalRecords]="120"
+                                [showFirstLastIcon]="false"></p-paginator>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+
         </div>
-        }@empty {
-        <h1>No Products to View</h1>
-        }
+
+
     </div>
+    }
 </div>
-}

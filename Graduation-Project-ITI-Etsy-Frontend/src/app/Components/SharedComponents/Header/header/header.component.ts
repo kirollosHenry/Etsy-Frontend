@@ -12,7 +12,6 @@ import { ProductDetailsComponent } from "../../../Products/product-details/produ
 import { Router, RouterModule } from "@angular/router";
 import { Subject, takeUntil } from "rxjs";
 import { AuthService } from "../../../../Services/Authentication/auth.service";
-import $ from "jquery";
 
 @Component({
   selector: "app-header",
