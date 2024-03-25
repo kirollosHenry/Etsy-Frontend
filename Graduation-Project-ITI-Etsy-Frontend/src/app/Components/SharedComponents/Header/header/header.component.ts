@@ -4,19 +4,24 @@ import { CartComponent } from '../../../cart/cart.component';
 import { ProductListComponent } from '../../../Products/product-list/product-list.component';
 import { ProductDetailsComponent } from '../../../Products/product-details/product-details.component';
 import { Router, RouterModule } from '@angular/router';
-import { Subject, takeUntil } from 'rxjs';
+import { Subject, Subscription, takeUntil } from 'rxjs';
 import { AuthService } from '../../../../Services/Authentication/auth.service';
-import $ from 'jquery'; 
+import $ from 'jquery';
+import { Category } from '../../../../Models/category';
+import { CategoryService } from '../../../../Services/Category/category.service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [ FooterComponent, CartComponent, ProductListComponent, ProductDetailsComponent,RouterModule],
+  imports: [FooterComponent, CartComponent, ProductListComponent, ProductDetailsComponent, RouterModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit, OnDestroy {
+  CategoryList: Category[] = [];
+  sub!:Subscription;
 
+  
   isDropdownOpen: boolean = false;
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
@@ -26,7 +31,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     }
   }
-  
+
   isDropdownOpenForBell: boolean = false;
 
   toggleDropdownBell() {
@@ -52,29 +57,27 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private destroySubject = new Subject();
   isLoggedIn: boolean = false;
   constructor(private authService: AuthService,
-  private router: Router) {
-  this.authService.authStatus
-       .pipe(takeUntil(this.destroySubject))
-       .subscribe(result => {
-  this.isLoggedIn = result;
-       })
-   }
-  onLogout(): void {
-  this.authService.logout();
-  this.router.navigate(["/"]);
-   }
-  ngOnInit(): void {
-  this.isLoggedIn = this.authService.isAuthenticated();
-   }
-  ngOnDestroy() {
-  this.destroySubject.next(true);
-  this.destroySubject.complete();
-   }
-
-  
-
-
+    private router: Router , private _CategoryService: CategoryService) {
+    this.authService.authStatus
+      .pipe(takeUntil(this.destroySubject))
+      .subscribe(result => {
+        this.isLoggedIn = result;
+      })
   }
-
-  
- 
+  onLogout(): void {
+    this.authService.logout();
+    this.router.navigate(["/"]);
+  }
+  ngOnInit(): void {
+    this.isLoggedIn = this.authService.isAuthenticated();
+    this.sub = this._CategoryService.GetAllCategories().subscribe({
+      next : (Categories)=>{
+        this.CategoryList = Categories.entities;
+      }
+    })
+  }
+  ngOnDestroy() {
+    this.destroySubject.next(true);
+    this.destroySubject.complete();
+  }
+}

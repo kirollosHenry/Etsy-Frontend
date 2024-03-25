@@ -17,17 +17,14 @@ export class BaseCategoryComponent implements OnInit{
 
   constructor(private _BaseCategoryService : BaseCategoryService){}
  
-
   sub!: Subscription;
   ngOnInit(): void {
     this.sub = this._BaseCategoryService.GatAllBaseCategories().subscribe({
       next : (Categories)=>{
         this.BaseCategoryList = Categories.entities;
       }
-
     })
   }
-
 }
 
 //ddd
