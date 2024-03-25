@@ -1,0 +1,48 @@
+
+
+.AdditionFooter{
+    background-color:  #FFFBD8;
+
+}
+
+
+/* ============= */
+
+/* First Row */
+
+.txtWhatIs{
+    font-family: "Guardian-EgypTT", "Charter", "Charter Bitstream", "Cambria", "Noto Serif Light", "Droid Serif", "Georgia", "serif";
+    font-size:xx-large;
+    font-weight: 300px;
+    margin-bottom: 0;
+}
+
+
+
+/* Second Row */
+.textOfRow2{
+    margin-top: 0;
+    text-decoration: underline;
+    color: #222222;
+    font-size: x-small;
+}
+
+.btnOfAddition{
+    border: #222222 1px solid;
+    border-radius: 20px;
+}
+
+.btnOfAddition:hover{
+    border: #222222 1px solid;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.395);
+
+}
+
+
+.tooltip-link {
+   
+    text-decoration: none;
+    color: black;
+    border-bottom: black dashed 2px;
+    
+}
