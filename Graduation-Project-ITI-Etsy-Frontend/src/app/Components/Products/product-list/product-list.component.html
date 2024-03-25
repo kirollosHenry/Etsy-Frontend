@@ -34,18 +34,15 @@
                         Sorted By :
                     </button>
                     <ul class="dropdown-menu" id="filter-dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Relevance</a></li>
-                        <li><a class="dropdown-item" href="#">Lowest Price</a></li>
-                        <li><a class="dropdown-item" href="#">Highest Price</a></li>
-                        <li><a class="dropdown-item" href="#">Top Customer Reviews</a></li>
-                        <li><a class="dropdown-item" href="#">Most Recent</a></li>
+                        <li><a class="dropdown-item" (click)="FilterProduct('Relevance')">Relevance</a></li>
+                        <li><a class="dropdown-item" (click)="FilterProduct('Lowest')">Lowest Price</a></li>
+                        <li><a class="dropdown-item" (click)="FilterProduct('Highest')">Highest Price</a></li>
+                        <li><a class="dropdown-item" (click)="FilterProduct('Reviews')">Top Customer Reviews</a></li>
+                        <li><a class="dropdown-item" (click)="FilterProduct('Recent')">Most Recent</a></li>
                     </ul>
                 </div>
 
             </div>
-
-
-
 
             @for (ProductItem of ProductsList; track $index ) {
             <div class="col-lg-3 col-md-4 col-sm-6 col-12 product-item mb-2">
