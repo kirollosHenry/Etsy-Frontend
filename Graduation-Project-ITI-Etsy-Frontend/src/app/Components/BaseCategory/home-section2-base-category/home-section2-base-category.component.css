@@ -1,0 +1,50 @@
+/* the whole Section */
+
+.BaseCategoryitemHome2 {
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+/* ============== */
+/* The Header Txt */
+.textOfHeaderOfCatHome {
+  font-family: "Graphik Webfont", "-apple-system", "Helvetica Neue",
+    "Droid Sans", "Arial", "sans-serif";
+  font-weight: 500;
+}
+
+/* ============ */
+/* div of each base */
+.BaseCatEffect {
+  border: #d8d8d8 solid 1px;
+  border-radius: 20px;
+  /* width: 13rem; */
+  transition: all 0.5s ease;
+  width: 100%;
+  max-width: 13rem;
+}
+
+.BaseCatEffect:hover {
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.195);
+}
+
+/* ============= */
+/* image of base category */
+
+.imgOfBaseCategory {
+    width: 100%;
+    max-width: 13rem;
+    border-radius: 20px 20px 0 0;
+}
+
+/* ============ */
+/* text of base */
+.textOfBaseCategory {
+  font-family: "Graphik Webfont", "-apple-system", "Helvetica Neue",
+    "Droid Sans", "Arial", "sans-serif";
+  color: #2c2b2b;
+  font-size: medium;
+}
+
+/* responsive !! */
