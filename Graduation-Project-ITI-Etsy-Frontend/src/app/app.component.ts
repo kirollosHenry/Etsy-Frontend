@@ -10,13 +10,14 @@ import { AllcategoriesComponent } from "./Components/Category/AllCategory/allcat
 import { HomeProductsComponent } from './Components/Products/home-products/home-products.component';
 import { HomeSection2BaseCategoryComponent } from './Components/BaseCategory/home-section2-base-category/home-section2-base-category.component';
 import { HomeComponent } from './Components/home/home.component';
+import { HomeFooterAdditionNotLogInComponent } from './Components/SharedComponents/Header/Footer/home-footer-addition-not-log-in/home-footer-addition-not-log-in.component';
 
 @Component({
     selector: 'app-root',
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [HomeComponent, RouterOutlet,HomeProductsComponent, FooterComponent, HeaderComponent, CartComponent, ProductListComponent, ProductDetailsComponent, BaseCategoryComponent, AllcategoriesComponent]
+    imports: [HomeFooterAdditionNotLogInComponent, HomeComponent, RouterOutlet,HomeProductsComponent, FooterComponent, HeaderComponent, CartComponent, ProductListComponent, ProductDetailsComponent, BaseCategoryComponent, AllcategoriesComponent]
 })
 export class AppComponent {
   title = 'Graduation-Project-ITI-Etsy-Frontend';
