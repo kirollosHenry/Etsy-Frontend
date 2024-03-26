@@ -17,6 +17,10 @@ export class ProductsService {
     return this._HttpClient.get<IProductAPI>(`${this.apiProductURL}/${items},${page}`)
   }
 
+  GetAllProductsByCategory(CategoryId: number): Observable<IProductAPI> {
+    return this._HttpClient.get<IProductAPI>(`${this.apiProductURL}/FilterProduct/${CategoryId}`)
+  }
+
   GetOneProductByID(ProductID: number): Observable<any> {
     return this._HttpClient.get<any>(`${this.apiProductURL}/${ProductID}`)
   }

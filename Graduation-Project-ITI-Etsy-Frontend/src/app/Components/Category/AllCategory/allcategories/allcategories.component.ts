@@ -24,8 +24,7 @@ export class AllcategoriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.BaseCategoryId = params['id'];
-      //console.log(this.BaseCategoryId);
+      this.BaseCategoryId = params['categoryId'];
 
       this.sub = this._CategoryService.GetAllCategoriesByBaseCategoryId(this.BaseCategoryId).subscribe({
         next : (Categories)=>{
