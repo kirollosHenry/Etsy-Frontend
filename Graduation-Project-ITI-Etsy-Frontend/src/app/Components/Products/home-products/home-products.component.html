@@ -1,8 +1,8 @@
-<div  [ngClass]="{'WelcomeSection': isLoggedIn}" class="p-3 mb-0 mt-0">
+<div  [ngClass]="{'WelcomeSection': !isLoggedIn}" class="p-3 mb-0 mt-0">
 
-    <div class="container ">
+    <div class="container-fluid  " >
 
-        @if(isLoggedIn){
+        @if(!isLoggedIn){
         <!-- User Name !! -->
         <h1 class="txtHeaderWelcoming text-center"> Welcome to Etsy, Nada </h1>
         }@else {
@@ -19,7 +19,7 @@
 } -->
 @if(ProductsList.length > 0)
 {
-    <div  [ngClass]="{'SectionHome': isLoggedIn}">
+    <div  [ngClass]="{'SectionHome': !isLoggedIn}">
         <div class="container ProductsSectionHome mb-5">
             <div class="row pt-2 justify-content-center ">
                 @for (ProductItem of ProductsList.slice(15, 20); track $index ) {

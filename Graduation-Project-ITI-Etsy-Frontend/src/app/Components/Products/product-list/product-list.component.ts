@@ -1,22 +1,25 @@
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { ProductsService } from '../../../Services/Products/products.service';
-import { IProductAPI, Products } from '../../../Models/products';
-import { Subscription } from 'rxjs';
-import { CommonModule } from '@angular/common';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from "@angular/core";
+import { ProductsService } from "../../../Services/Products/products.service";
+import { IProductAPI, Products } from "../../../Models/products";
+import { Subscription } from "rxjs";
+import { CommonModule } from "@angular/common";
 import { StarComponent } from "../../SharedComponents/star/star.component";
-import { RouterModule } from '@angular/router';
-import { PaginatorModule } from 'primeng/paginator';
-import { BrowserModule } from '@angular/platform-browser';
-
+import { RouterModule } from "@angular/router";
+import { PaginatorModule } from "primeng/paginator";
+import { BrowserModule } from "@angular/platform-browser";
 
 @Component({
-  selector: 'app-product-list',
+  selector: "app-product-list",
   standalone: true,
-  templateUrl: './product-list.component.html',
-  styleUrl: './product-list.component.css',
-  imports: [CommonModule, StarComponent, RouterModule,
-    PaginatorModule
-  ]
+  templateUrl: "./product-list.component.html",
+  styleUrl: "./product-list.component.css",
+  imports: [CommonModule, StarComponent, RouterModule, PaginatorModule],
 })
 export class ProductListComponent implements OnInit, OnDestroy {
   ProductsList: Products[] = [];
@@ -26,7 +29,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   FilterProductsListReviews: Products[] = [];
   sub!: Subscription;
 
-  constructor(private _ProductsService: ProductsService) { }
+  constructor(private _ProductsService: ProductsService) {}
 
   ngOnInit(): void {
     this.sub = this._ProductsService.GetAllProductsPagination(77, 1).subscribe({
@@ -36,8 +39,8 @@ export class ProductListComponent implements OnInit, OnDestroy {
       },
       error: (response) => {
         console.log(response);
-      }
-    })
+      },
+    });
 
     this.sub = this._ProductsService.GetProductsPriceAscending(1).subscribe({
       next: (ProductDataAPI: IProductAPI) => {
@@ -46,8 +49,8 @@ export class ProductListComponent implements OnInit, OnDestroy {
       },
       error: (response) => {
         console.log(response);
-      }
-    })
+      },
+    });
 
     this.sub = this._ProductsService.GetProductsPriceDescending(1).subscribe({
       next: (ProductDataAPI: IProductAPI) => {
@@ -56,8 +59,8 @@ export class ProductListComponent implements OnInit, OnDestroy {
       },
       error: (response) => {
         console.log(response);
-      }
-    })
+      },
+    });
 
     this.sub = this._ProductsService.GetProductsCustomerReview(1).subscribe({
       next: (ProductDataAPI: IProductAPI) => {
@@ -66,15 +69,13 @@ export class ProductListComponent implements OnInit, OnDestroy {
       },
       error: (response) => {
         console.log(response);
-      }
-    })
+      },
+    });
   }
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
   }
-
-
 
   // For Dropdown List :
   isDropdownOpen: boolean = false;
@@ -85,6 +86,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
       dropdownMenu.style.display = this.isDropdownOpen ? "block" : "none";
     }
   }
+
 
   // Function for Pagination !
   first: number = 10;
@@ -97,21 +99,16 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
   //All Filters Products
   FilterProduct(FilterBy: string) {
-    if (FilterBy == 'Relevance') {
+    if (FilterBy == "Relevance") {
       this.ProductsList = this.FilterProductsListRelevance;
-    }
-    else if (FilterBy == 'Lowest') {
+    } else if (FilterBy == "Lowest") {
       this.ProductsList = this.FilterProductsListAscending;
-    }
-    else if (FilterBy == 'Highest') {
+    } else if (FilterBy == "Highest") {
       this.ProductsList = this.FilterProductsListDescending;
-    }
-    else if (FilterBy == 'Reviews') {
+    } else if (FilterBy == "Reviews") {
       this.ProductsList = this.FilterProductsListReviews;
-    }
-    else if (FilterBy == 'Recent') {
+    } else if (FilterBy == "Recent") {
       this.ProductsList = this.FilterProductsListRelevance;
     }
   }
 }
-
