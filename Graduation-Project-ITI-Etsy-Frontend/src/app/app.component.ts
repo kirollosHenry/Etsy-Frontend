@@ -17,7 +17,7 @@ import { HomeFooterAdditionNotLogInComponent } from './Components/SharedComponen
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [HomeFooterAdditionNotLogInComponent, HomeComponent, RouterOutlet,HomeProductsComponent, FooterComponent, HeaderComponent, CartComponent, ProductListComponent, ProductDetailsComponent, BaseCategoryComponent, AllcategoriesComponent]
+    imports: [AllcategoriesComponent, HomeFooterAdditionNotLogInComponent, HomeComponent, RouterOutlet,HomeProductsComponent, FooterComponent, HeaderComponent, CartComponent, ProductListComponent, ProductDetailsComponent, BaseCategoryComponent, AllcategoriesComponent]
 })
 export class AppComponent {
   title = 'Graduation-Project-ITI-Etsy-Frontend';

@@ -1,73 +1,80 @@
-
-
-
 /*  */
 
-.ProductsListSection{
-    width: 85%;
+.ProductsListSection {
+  width: 85%;
 }
-
 
 /* First Section Filter !! */
 
-.btnOfFilter{
+.Sortdropdown {
+  cursor: pointer;
+}
 
-    border: 1px solid black;
-    
-    border-radius: 30px;
-    transition: box-shadow 0.3s ease;
+.dropdown-menu {
+  /* padding: 5px 0; */
+  border-radius: 5px;
+
+  box-shadow: #222222a3;
+}
+
+.dropdown-item:active {
+  background-color: #7b7b7b;
+}
+
+.btnOfFilter {
+  border: 1px solid black;
+
+  border-radius: 30px;
+  transition: box-shadow 0.3s ease;
 }
 
 .btnOfFilter:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
-
 
 /* Second One Products */
 
-.imgOfProduct{
-    width: 100%; 
-    height: auto; 
-    display: block;
-    transition: box-shadow 0.3s ease;
-
+.imgOfProduct {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: box-shadow 0.3s ease;
 }
 
-.imgOfProduct:hover{
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-
+.imgOfProduct:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 /* texts of product  */
 
-.DescOfProduct{
-    font-family: "Graphik Webfont", "-apple-system", "Helvetica Neue", "Droid Sans", "Arial", "sans-serif";
-    color: #222222;
-    font-size: small;
-    text-overflow: ellipsis;
+.DescOfProduct {
+  font-family: "Graphik Webfont", "-apple-system", "Helvetica Neue",
+    "Droid Sans", "Arial", "sans-serif";
+  color: #222222;
+  font-size: small;
+  text-overflow: ellipsis;
 }
 
-.StarOfProduct{
-    font-size:small;
-    color: #222222;
-
+.StarOfProduct {
+  font-size: small;
+  color: #222222;
 }
 
-.CurrecyOfProduct{
-    color: #222222;
-font-size: medium;
+.CurrecyOfProduct {
+  color: #222222;
+  font-size: medium;
 }
-
 
 /* paginator */
 
 .p-paginator .p-paginator-pages .p-paginator-page-link:hover {
-    background-color: #f0f0f0;
-    color: #000000;
-    border-radius: 50%;
+  background-color: #f0f0f0;
+  color: #000000;
+  border-radius: 50%;
 }
 
-.txtPagination{
-    font-family: "Graphik Webfont", "-apple-system", "Helvetica Neue", "Droid Sans", "Arial", "sans-serif";
-    font-weight: 500px;
+.txtPagination {
+  font-family: "Graphik Webfont", "-apple-system", "Helvetica Neue",
+    "Droid Sans", "Arial", "sans-serif";
+  font-weight: 500px;
 }
