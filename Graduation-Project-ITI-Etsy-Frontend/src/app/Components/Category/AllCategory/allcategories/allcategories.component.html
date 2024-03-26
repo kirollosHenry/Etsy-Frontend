@@ -3,7 +3,7 @@
 <div class="container BaseCategoryitemHome mb-5">
 
     <!-- Name Of Category that user Choose !!!! Not Dynamic -->
-    <h1 class="text-center textOfHeaderOfCat "> Art & Collectibles </h1>
+    <h1 class="text-center textOfHeaderOfCat ">{{TitleCategory}}</h1>
 
     <!-- Not Found In Database -->
     <p class="text-center DescriptionOfCategory text-secondary mb-3">Custom artwork, portraits, and totally original paintings and prints to turn your home into a gallery</p>
@@ -22,7 +22,7 @@
                     <ul class="list-unstyled BaseCatEffect pt-2">
                         <li class="">
 
-                            <a routerLink="" class="text-decoration-none d-flex flex-column align-items-center">
+                            <a [routerLink]="['Products',Categoryitem.id]" class="text-decoration-none d-flex flex-column align-items-center">
 
                                 <div>
                                     <img class="card-img-top imgOfCategory" [src]="Categoryitem.categoryImage"
@@ -53,7 +53,7 @@
                     <ul class="list-unstyled BaseCatEffect pt-2">
                         <li class="">
 
-                            <a routerLink="" class="text-decoration-none d-flex flex-column align-items-center">
+                            <a [routerLink]="['Products',Categoryitem.id]" class="text-decoration-none d-flex flex-column align-items-center">
 
                                 <div>
                                     <img class="card-img-top imgOfCategory" [src]="Categoryitem.categoryImage"

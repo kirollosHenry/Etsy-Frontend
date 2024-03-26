@@ -87,30 +87,28 @@
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
           </div>
-  
+
         </li>
-       
+
         <!-- profile icon -->
         <li class=" IconHeaderBell">
-        <div class="dropdown ">
-          <button type="button"  class=" btn d-block link-body-emphasis text-decoration-none dropdown-toggle" 
-          data-bs-toggle="dropdown" [attr.aria-expanded]="isDropdownOpenForProfile ? 'true' : 'false'"
-            aria-expanded="false"  (click)="toggleDropdownProfile()">
-            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
-          </button>
-          <ul class="dropdown-menu text-small" id="profileDropdownMenu"
-          aria-labelledby="navbarDropdownMenuLink"
-              style="display: none;"
-              >
-            <li><a class="dropdown-item" href="#">New project...</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" href="#">Sign out</a></li>
-          </ul>
-        </div>
+          <div class="dropdown ">
+            <button type="button" class=" btn d-block link-body-emphasis text-decoration-none dropdown-toggle"
+              data-bs-toggle="dropdown" [attr.aria-expanded]="isDropdownOpenForProfile ? 'true' : 'false'"
+              aria-expanded="false" (click)="toggleDropdownProfile()">
+              <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+            </button>
+            <ul class="dropdown-menu text-small" id="profileDropdownMenu" aria-labelledby="navbarDropdownMenuLink"
+              style="display: none;">
+              <li><a class="dropdown-item" href="#">New project...</a></li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Sign out</a></li>
+            </ul>
+          </div>
         </li>
 
 
@@ -132,10 +130,10 @@
       <div class="d-flex container justify-content-center mt-2">
         <ul class="nav justify-content-center">
           <li class="nav-item">
-            <a class="nav-link btnOfCtegories" type="button" aria-current="page"routerLink="Cart">Home Deals</a>
+            <a class="nav-link btnOfCtegories" type="button" aria-current="page" routerLink="Cart">Home Deals</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btnOfCtegories"routerLink="Cart">Home Favorites</a>
+            <a class="nav-link btnOfCtegories" routerLink="Cart">Home Favorites</a>
           </li>
           <li class="nav-item">
             <a class="nav-link btnOfCtegories" routerLink="Cart">Fashion Finds</a>
@@ -148,24 +146,23 @@
           </li>
         </ul>
 
-<<<<<<< HEAD
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
-        </form>
+        <<<<<<< HEAD <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..."
+            aria-label="Search">
+          </form>
 
-        <div class="text-end">
-          @if(!isLoggedIn){
-          <button type="button" class="btn btn-outline-light me-2"  mat-flat-button color="primary"
-          [routerLink]="['/login']" >Login</button>
-          }@if(isLoggedIn){
-          <button type="button" class="btn btn-outline-light me-2" mat-flat-button color="primary"
-          (click)="onLogout()">Log Out</button>
-          }
-          <button type="button"mat-flat-button color="primary"
-          [routerLink]="['/login']">Sign-up</button>
-        </div>
-=======
->>>>>>> f98db9a3334188a7661b7a7b7343ea4d216b7072
+          <div class="text-end">
+            @if(!isLoggedIn){
+            <button type="button" class="btn btn-outline-light me-2" mat-flat-button color="primary"
+              [routerLink]="['/login']">Login</button>
+            }@if(isLoggedIn){
+            <button type="button" class="btn btn-outline-light me-2" mat-flat-button color="primary"
+              (click)="onLogout()">Log Out</button>
+            }
+            <button type="button" mat-flat-button color="primary" [routerLink]="['/login']">Sign-up</button>
+          </div>
+          =======
+          >>>>>>> f98db9a3334188a7661b7a7b7343ea4d216b7072
       </div>
 
 
@@ -212,18 +209,9 @@
             Categories
           </button>
           <ul id="dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="display: none;">
-            
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            @for (item of BaseCategoryList; track $index) {
+            <li><a class="dropdown-item" class="nav-link" [routerLink]="['Category',item.id]">{{item.nameEN}}</a></li>
+            }
           </ul>
         </li>
       </ul>
@@ -247,7 +235,7 @@
           <a type="button" routerLink="/login" class=" header-button wt-mr-xs-1 wt-btn--small btn
               btn-light btnOfCtegories">
             Sign in
-        </a>
+          </a>
 
         </li>
 
@@ -299,5 +287,3 @@
 
 </header>
 }
-
-
