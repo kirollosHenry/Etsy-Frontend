@@ -5,14 +5,16 @@ import { ProductDetailsComponent } from './Components/Products/product-details/p
 import { AllcategoriesComponent } from './Components/Category/AllCategory/allcategories/allcategories.component';
 import { BaseCategoryComponent } from './Components/BaseCategory/base-category/base-category.component';
 import { LoginComponent } from './Components/login/login.component';
+import { HomeComponent } from './Components/home/home.component';
 
 
 export const routes: Routes = [
 
     {path:'', redirectTo:'home', pathMatch:'full'},
     
-    //{path:'home', component:HomeComponent, title:'Home'},
+    {path:'home', component:HomeComponent, title:'Home'},
     //{path:'about', component:AboutComponent, title:'About'},
+
     {path:'Cart', component:CartComponent, title:'Cart'},
     {path:'Category/:categoryId/Products/:id', component:ProductListComponent, title:'Products'},
     {path:'Product/:id', component:ProductDetailsComponent, title:'Product Details'},

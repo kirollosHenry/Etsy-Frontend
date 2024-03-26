@@ -35,7 +35,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.CategoryId = params['id'];
-      debugger;
+      
     // this.sub = this._ProductsService.GetAllProductsPagination(77, 1).subscribe({
     //   next: (ProductDataAPI: IProductAPI) => {
     //     this.ProductsList = ProductDataAPI.entities;
