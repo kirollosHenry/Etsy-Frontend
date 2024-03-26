@@ -3,7 +3,7 @@ import { Category } from '../../../../Models/category';
 import { CategoryService } from '../../../../Services/Category/category.service';
 import { Subscription } from 'rxjs';
 import { ProductListComponent } from '../../../Products/product-list/product-list.component';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-allcategories',
@@ -14,24 +14,41 @@ import { RouterModule } from '@angular/router';
 })
 export class AllcategoriesComponent implements OnInit {
 
+  TitleCategory!: string;
+  BaseCategoryId: number =0;
   CategoryList: Category[] = [];
   showRemainCategories: boolean = false;
 
-  constructor(private _CategoryService: CategoryService) { }
+  constructor(private _CategoryService: CategoryService,private route: ActivatedRoute) { }
   sub!:Subscription;
 
   ngOnInit(): void {
-    this.sub = this._CategoryService.GetAllCategories().subscribe({
-      next : (Categories)=>{
-        this.CategoryList = Categories.entities;
-      }
-    })
-  }
+    this.route.params.subscribe(params => {
+      this.BaseCategoryId = params['id'];
+      //console.log(this.BaseCategoryId);
 
+      this.sub = this._CategoryService.GetAllCategoriesByBaseCategoryId(this.BaseCategoryId).subscribe({
+        next : (Categories)=>{
+          this.CategoryList = Categories.entities;
+          this.TitleCondition(this.BaseCategoryId);
+        }
+      })
+    });
+  }
 
   showMore() {
     this.showRemainCategories = !this.showRemainCategories; 
   }
-  
 
+  TitleCondition(BaseId:number) : void{
+    if(BaseId == 1){
+      this.TitleCategory = "Accessories";
+    }
+    else if(BaseId == 2){
+      this.TitleCategory = "Art & Collectibles";
+    }
+    else if(BaseId == 3){
+      this.TitleCategory = "Baby";
+    }
+  }
 }

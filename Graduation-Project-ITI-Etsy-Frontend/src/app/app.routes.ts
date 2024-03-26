@@ -16,7 +16,7 @@ export const routes: Routes = [
     {path:'Cart', component:CartComponent, title:'Cart'},
     {path:'Products', component:ProductListComponent, title:'Products'},
     {path:'Product/:id', component:ProductDetailsComponent, title:'Product Details'},
-    {path:'Category', component:AllcategoriesComponent, title:'Categories'},
+    {path:'Category/:id', component:AllcategoriesComponent, title:'Categories'},
     {path:'BaseCategory', component:BaseCategoryComponent, title:'Base Category'},
     {path:'login', component:LoginComponent, title:'Log in'},
     //{path:'userprofile', component:UserProfileComponent, title:'User Profile', canActivate:[userAuthGuard]},
