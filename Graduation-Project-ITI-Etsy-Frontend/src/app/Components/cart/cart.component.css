@@ -6,9 +6,7 @@ body{
 .headerCard{
         background-color:#D7E6F5 !important;
 }
-.card {
-    box-shadow: 0 20px 27px 0 rgba(0, 0, 0, 0.05);
-}
+
 .card {
     position: relative;
     display: flex;
@@ -17,7 +15,7 @@ body{
     word-wrap: break-word;
     background-color: #fff;
     background-clip: border-box;
-    border: 0 solid rgba(0, 0, 0, 0.024);
+    border: 0 solid rgba(0, 0, 0);
     border-radius: 1rem;
 }
 .text-reset {
@@ -40,7 +38,6 @@ a {
 
 .selectD{
     width: 60px !important;
-    margin-left: 10px;
 }
 
 .LineRemove {
@@ -116,7 +113,7 @@ a {
     border-radius: 50px; 
     border: none;
     padding: 8px;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 12px;
     background-color: rgba(255, 255, 255, 0.811);
 
