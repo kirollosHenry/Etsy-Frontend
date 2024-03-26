@@ -5,20 +5,18 @@ import { ProductDetailsComponent } from './Components/Products/product-details/p
 import { AllcategoriesComponent } from './Components/Category/AllCategory/allcategories/allcategories.component';
 import { BaseCategoryComponent } from './Components/BaseCategory/base-category/base-category.component';
 import { LoginComponent } from './Components/login/login.component';
-import { HomeComponent } from './Components/home/home.component';
 
 
 export const routes: Routes = [
 
     {path:'', redirectTo:'home', pathMatch:'full'},
     
-    {path:'home', component:HomeComponent, title:'Home'},
+    //{path:'home', component:HomeComponent, title:'Home'},
     //{path:'about', component:AboutComponent, title:'About'},
-
     {path:'Cart', component:CartComponent, title:'Cart'},
-    {path:'Category/:categoryId/Products/:id', component:ProductListComponent, title:'Products'},
+    {path:'Products', component:ProductListComponent, title:'Products'},
     {path:'Product/:id', component:ProductDetailsComponent, title:'Product Details'},
-    {path:'Category/:categoryId', component:AllcategoriesComponent, title:'Categories'},
+    {path:'Category', component:AllcategoriesComponent, title:'Categories'},
     {path:'BaseCategory', component:BaseCategoryComponent, title:'Base Category'},
     {path:'login', component:LoginComponent, title:'Log in'},
     //{path:'userprofile', component:UserProfileComponent, title:'User Profile', canActivate:[userAuthGuard]},

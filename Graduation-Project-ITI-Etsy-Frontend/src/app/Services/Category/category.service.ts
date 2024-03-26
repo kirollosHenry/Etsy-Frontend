@@ -16,9 +16,4 @@ export class CategoryService {
   {
     return this._HttpClient.get<ICategoryAPI>(`${this.categoryApiUrl}/Get`)
   }
-
-  GetAllCategoriesByBaseCategoryId(id:number):Observable<ICategoryAPI>
-  {
-    return this._HttpClient.get<ICategoryAPI>(`${this.categoryApiUrl}/${id}`)
-  }
 }

@@ -10,10 +10,8 @@ import { CartComponent } from "../../../cart/cart.component";
 import { ProductListComponent } from "../../../Products/product-list/product-list.component";
 import { ProductDetailsComponent } from "../../../Products/product-details/product-details.component";
 import { Router, RouterModule } from "@angular/router";
-import { Subject, Subscription, takeUntil } from "rxjs";
+import { Subject, takeUntil } from "rxjs";
 import { AuthService } from "../../../../Services/Authentication/auth.service";
-import { BaseCategoryService } from "../../../../Services/BaseCategory/base-category.service";
-import { BaseCategory } from "../../../../Models/base-category";
 
 @Component({
   selector: "app-header",
@@ -66,34 +64,20 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   private destroySubject = new Subject();
   isLoggedIn: boolean = false;
-  constructor(private authService: AuthService, private router: Router,private _BaseCategoryService: BaseCategoryService) {
+  constructor(private authService: AuthService, private router: Router) {
     this.authService.authStatus
       .pipe(takeUntil(this.destroySubject))
       .subscribe((result) => {
         this.isLoggedIn = result;
       });
   }
-
-  // ====================
-  // Dropdown List in Base Category 
-  BaseCategoryList: BaseCategory[] = [];
-  sub!: Subscription;
-
   onLogout(): void {
     this.authService.logout();
     this.router.navigate(["/"]);
   }
   ngOnInit(): void {
     this.isLoggedIn = this.authService.isAuthenticated();
-    this.sub = this._BaseCategoryService.GatAllBaseCategories().subscribe({
-      next: (Categories) => {
-        this.BaseCategoryList = Categories.entities;
-      },
-    });
   }
-
-
-
   ngOnDestroy() {
     this.destroySubject.next(true);
     this.destroySubject.complete();
