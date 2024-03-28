@@ -28,7 +28,6 @@ export class AllcategoriesComponent implements OnInit {
 
       this.sub = this._CategoryService.GetAllCategoriesByBaseCategoryId(this.BaseCategoryId).subscribe({
         next : (Categories)=>{
-          debugger;
           this.CategoryList = Categories.entities;
           this.TitleCondition(this.BaseCategoryId);
         }
