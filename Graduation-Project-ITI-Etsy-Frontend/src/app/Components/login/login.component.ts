@@ -14,6 +14,7 @@ import { Login } from "../../Models/Accout/login";
 import { LoginResult } from "../../Models/Accout/login-result";
 import { ResgisterService } from "../../Services/Authentication/resgister.service";
 import { Register } from "../../Models/Accout/register";
+import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: "app-login",
@@ -37,7 +38,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private register: ResgisterService
+    private register: ResgisterService,
+    public activeModal: NgbActiveModal
   ) {} //    private modalService: NgbModal
 
   ngOnInit() {
@@ -126,4 +128,12 @@ export class LoginComponent implements OnInit {
   //     this.modalRef.dismiss('Dismiss button clicked');
   //   }
   // }
+
+
+  // Modal !!
+  
+
+  closeModal() {
+    this.activeModal.dismiss('Cross click');
+  }
 }
