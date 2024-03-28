@@ -17,6 +17,7 @@ export const routes: Routes = [
 
     {path:'Cart', component:CartComponent, title:'Cart'},
     {path:'Category/:categoryId/Products/:id', component:ProductListComponent, title:'Products'},
+    {path:'Category/:categoryId/Products/:id/ProductDetails/:ProductId', component:ProductDetailsComponent, title:'Product Details'},
     {path:'Product/:id', component:ProductDetailsComponent, title:'Product Details'},
     {path:'Category/:categoryId', component:AllcategoriesComponent, title:'Categories'},
     {path:'BaseCategory', component:BaseCategoryComponent, title:'Base Category'},

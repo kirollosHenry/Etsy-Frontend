@@ -1,17 +1,24 @@
 import { AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { GalleriaModule } from 'primeng/galleria';
+import { ProductsService } from '../../../Services/Products/products.service';
+import { Products } from '../../../Models/products';
+import { Subscription } from 'rxjs';
+import { StarComponent } from "../../SharedComponents/star/star.component";
 
 @Component({
-  selector: 'app-product-details',
-  standalone: true,
-  imports: [RouterModule ,GalleriaModule],
-  templateUrl: './product-details.component.html',
-  styleUrl: './product-details.component.css'
+    selector: 'app-product-details',
+    standalone: true,
+    templateUrl: './product-details.component.html',
+    styleUrl: './product-details.component.css',
+    imports: [RouterModule, GalleriaModule, StarComponent]
 })
 
 export class ProductDetailsComponent implements OnInit {
 
+  ProductId!:number;
+  ProductDetails! : Products;
+  sub!:Subscription;
 
   // carousel
   images: any[] = []; 
@@ -32,7 +39,7 @@ export class ProductDetailsComponent implements OnInit {
     },
   ];
 
-  constructor() {
+  constructor(private _ProductsService:ProductsService,private route: ActivatedRoute) {
     this.images.push({
       itemImageSrc: 'assets/image/2.jpg',
       thumbnailImageSrc: 'assets/image/2.jpg',
@@ -69,7 +76,15 @@ export class ProductDetailsComponent implements OnInit {
 
   
   ngOnInit(): void {
-    this.activeItem = this.images[0];
+    this.route.params.subscribe(params => {
+      this.ProductId = params['ProductId'];
+    this.sub = this._ProductsService.GetOneProductByID(this.ProductId).subscribe({
+      next : (Product)=>{
+        this.ProductDetails = Product.entity;
+      }
+    })
+  });
+    //this.activeItem = this.images[0];
   }
 
   setActiveItem(item: any): void {
