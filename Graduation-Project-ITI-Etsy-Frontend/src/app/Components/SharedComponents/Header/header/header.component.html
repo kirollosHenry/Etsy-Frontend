@@ -36,18 +36,9 @@
             Categories
           </button>
           <ul id="dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="display: none;">
-            <li><a class="dropdown-item" routerLink="Products">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Sotooote</a></li>
+            @for (item of BaseCategoryList; track $index) {
+            <li><a class="dropdown-item nav-link" [routerLink]="['Category',item.id]">{{item.nameEN}}</a></li>
+            }
           </ul>
         </li>
       </ul>
@@ -210,7 +201,7 @@
           </button>
           <ul id="dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="display: none;">
             @for (item of BaseCategoryList; track $index) {
-            <li><a class="dropdown-item" class="nav-link" [routerLink]="['Category',item.id]">{{item.nameEN}}</a></li>
+            <li><a class="dropdown-item nav-link" [routerLink]="['Category',item.id]">{{item.nameEN}}</a></li>
             }
           </ul>
         </li>
