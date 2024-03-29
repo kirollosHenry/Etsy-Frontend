@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { FooterComponent } from './Components/SharedComponents/Header/Footer/footer/footer.component';
 import { HeaderComponent } from './Components/SharedComponents/Header/header/header.component';
@@ -12,17 +12,25 @@ import { HomeSection2BaseCategoryComponent } from './Components/BaseCategory/hom
 import { HomeComponent } from './Components/home/home.component';
 import { HomeFooterAdditionNotLogInComponent } from './Components/SharedComponents/Header/Footer/home-footer-addition-not-log-in/home-footer-addition-not-log-in.component';
 import { ProductsListAfterCategoryComponent } from './Components/Products/products-list-after-category/products-list-after-category.component';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
-    selector: 'app-root',
-    standalone: true,
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.css',
-    imports: [ProductsListAfterCategoryComponent, AllcategoriesComponent, HomeFooterAdditionNotLogInComponent, HomeComponent, RouterOutlet,HomeProductsComponent, FooterComponent, HeaderComponent, CartComponent, ProductListComponent, ProductDetailsComponent, BaseCategoryComponent, AllcategoriesComponent]
+  selector: 'app-root',
+  standalone: true,
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css',
+  imports: [ProductsListAfterCategoryComponent, AllcategoriesComponent, HomeFooterAdditionNotLogInComponent, HomeComponent, RouterOutlet, HomeProductsComponent, FooterComponent, HeaderComponent, CartComponent, ProductListComponent, ProductDetailsComponent, BaseCategoryComponent, AllcategoriesComponent]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Graduation-Project-ITI-Etsy-Frontend';
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
+
+  translateService = inject(TranslateService);
+  ngOnInit(): void {
+    this.translateService.setDefaultLang('en');
+  }
+
+
   isLoginPage(): boolean {
     return this.router.url === '/login';
   }

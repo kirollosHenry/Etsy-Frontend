@@ -1,0 +1,72 @@
+{
+    "header":{
+        "home Deals":"Home Deals",
+        "home Favorites": "Home Favorites",
+        "fashion Finds": "Fashion Finds",
+        "gift Guids": "Gift Guids",
+        "registry": "Registry"
+    },
+
+    "home-footer-addition":{
+        "what is Etsy?":"What is Etsy?",
+        "read our wonderfully weird story":"Read our wonderfully weird story",
+        "a community doing good":"A community doing good",
+        "etsy is a global online marketplace, where people come together to make, sell, buy, and collect unique items. We’re also a community pushing for positive change for small businesses, people, and the planet."
+        :"Etsy is a global online marketplace, where people come together to make, sell, buy, and collect unique items. We’re also a community pushing for positive change for small businesses, people, and the planet.",
+        "here are some of the ways we’re making a positive impact, together.":
+        "Here are some of the ways we’re making a positive impact, together.",
+        "support independent creators":"Support independent creators",
+        "there’s no Etsy warehouse – just millions of people selling the things they love. We make the whole process easy, helping you connect directly with makers to find something extraordinary.":
+        "There’s no Etsy warehouse – just millions of people selling the things they love. We make the whole process easy, helping you connect directly with makers to find something extraordinary.",
+        "peace of mind":"Peace of mind",
+        "your privacy is the highest priority of our dedicated team. And if you ever need assistance, we are always ready to step in for support.":
+        "Your privacy is the highest priority of our dedicated team. And if you ever need assistance, we are always ready to step in for support.",
+        "have a question? Well, we’ve got some answers.":"Have a question? Well, we’ve got some answers.",
+        "go to Help Center":" Go to Help Center"
+    },
+
+
+    "home-footer-addition-not-log-in":{
+        "yes! Send me exclusive offers, unique gift ideas, and personalized tips for shopping and selling on Etsy."
+        :"Yes! Send me exclusive offers, unique gift ideas, and personalized tips for shopping and selling on Etsy."
+    },
+    "footer":{
+        "etsy is powered by 100% renewable electricity.":"Etsy is powered by 100% renewable electricity.",
+        "download The Etsy APP":"Download The Etsy APP",
+        "Base Category":"Base Category",
+        "Accessories":"Accessories",
+        "Art & Collectibles":"Art & Collectibles",
+        "Baby":"Baby",
+        "Jewelry":"Jewelry",
+        "Accessoriess":"Accessories",
+        "Sunglasses & Eyewear":"Sunglasses & Eyewear",
+        "Keychains & Lanyards":"Keychains & Lanyards",
+        "Scarves & Wraps":"Scarves & Wraps",
+        "Hats & Caps":"Hats & Caps",
+        "Art & Collectibless":"Art & Collectibles",
+        "Painting":"Painting",
+        "Paintingg":"Painting",
+        "Prints":"Prints",
+        "Sculpture":"Sculpture",
+        "Help":"Help",
+        "Help center":"Help center",
+        "privacy setiings":"privacy setiings",
+        "Copyright :":"© 2024  Copyright :",
+        "Etsy, Inc.":"Etsy, Inc."
+
+    },
+
+
+    "home-products":{
+        "shop on-sale decor and so much more!":"Shop on-sale decor and so much more!"
+    },
+
+    "base-category":{
+        "shop by Category":"Shop by Category"
+    },
+
+    "home-section2-base-category":{
+        "shop our popular gift categories":"Shop our popular gift categories"
+    }
+ 
+}

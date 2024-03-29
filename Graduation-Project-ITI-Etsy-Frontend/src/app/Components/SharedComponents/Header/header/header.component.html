@@ -239,6 +239,10 @@
 
         </li>
 
+
+
+
+
         <li class="IconHeader ">
           <a routerLink="Cart" class="navbar-brand ">
             <i class="fa-regular fa-heart " style="color: #000000;"></i>
@@ -256,25 +260,32 @@
           </a>
         </li>
 
+
+        <li>
+          <select class="form-select" (change)="ChangeLang($event)" name="" id="" style="width: 30px;">
+            <option [selected]="lang==='en'" value="en">English</option>
+            <option [selected]="lang==='ar'" value="ar">العربيه</option>
+        </select>
+      </li>
       </ul>
 
       <!-- Another Section -->
       <div class="d-flex container justify-content-center mt-2">
         <ul class="nav justify-content-center">
           <li class="nav-item">
-            <a class="nav-link btnOfCtegories" type="button" aria-current="page" href="#">Home Deals</a>
+            <a class="nav-link btnOfCtegories" type="button" aria-current="page" href="#">{{'header.home Deals' | translate}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btnOfCtegories" href="#">Home Favorites</a>
+            <a class="nav-link btnOfCtegories" href="#">{{'header.home Favorites' | translate}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btnOfCtegories" href="#">Fashion Finds</a>
+            <a class="nav-link btnOfCtegories" href="#">{{'header.fashion Finds' | translate}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btnOfCtegories" href="#">Gift Guids</a>
+            <a class="nav-link btnOfCtegories" href="#">{{'header.gift Guids' | translate}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btnOfCtegories" href="#">Registry</a>
+            <a class="nav-link btnOfCtegories" href="#">{{'header.registry' | translate }}</a>
           </li>
         </ul>
 

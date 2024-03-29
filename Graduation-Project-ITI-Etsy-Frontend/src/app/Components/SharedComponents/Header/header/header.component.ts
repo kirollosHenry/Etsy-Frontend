@@ -14,6 +14,8 @@ import { Subject, Subscription, takeUntil } from "rxjs";
 import { AuthService } from "../../../../Services/Authentication/auth.service";
 import { BaseCategoryService } from "../../../../Services/BaseCategory/base-category.service";
 import { BaseCategory } from "../../../../Models/base-category";
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+
 
 @Component({
   selector: "app-header",
@@ -24,11 +26,15 @@ import { BaseCategory } from "../../../../Models/base-category";
     ProductListComponent,
     ProductDetailsComponent,
     RouterModule,
+    TranslateModule
   ],
   templateUrl: "./header.component.html",
   styleUrl: "./header.component.css",
 })
 export class HeaderComponent implements OnInit, OnDestroy {
+
+
+  lang:string ='';
   // ===============
   // For DownDrops :
 
@@ -66,7 +72,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   private destroySubject = new Subject();
   isLoggedIn: boolean = false;
-  constructor(private authService: AuthService, private router: Router,private _BaseCategoryService: BaseCategoryService) {
+  constructor(private authService: AuthService, private router: Router,private _BaseCategoryService: BaseCategoryService, private translateService:TranslateService) {
     this.authService.authStatus
       .pipe(takeUntil(this.destroySubject))
       .subscribe((result) => {
@@ -84,12 +90,23 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.router.navigate(["/"]);
   }
   ngOnInit(): void {
+    this.lang = localStorage.getItem('lang') || 'en';
+
     this.isLoggedIn = this.authService.isAuthenticated();
     this.sub = this._BaseCategoryService.GatAllBaseCategories().subscribe({
       next: (Categories) => {
         this.BaseCategoryList = Categories.entities;
       },
     });
+  }
+
+  ChangeLang(lang:any){
+    const selectedLanguage = lang.target.value;
+
+    localStorage.setItem('lang',selectedLanguage);
+
+    this.translateService.use(selectedLanguage);
+
   }
 
 

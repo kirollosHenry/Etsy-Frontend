@@ -1,11 +1,13 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Tooltip } from 'bootstrap';
+import { TranslateModule } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-home-footer-addition',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule,TranslateModule],
   templateUrl: './home-footer-addition.component.html',
   styleUrl: './home-footer-addition.component.css'
 })

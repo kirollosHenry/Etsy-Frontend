@@ -1,0 +1,69 @@
+{
+    "header":{
+        "home Deals":"عروض المنزل",
+        "home Favorites": "المفضلة الرئيسية",
+        "fashion Finds": "اكتشافات الموضة",
+        "gift Guids": "أدلة الهدايا",
+        "registry": "التسجيل"
+    },
+    "home-footer-addition":{
+        "what is Etsy?":"ما هو إيتسي؟",
+        "read our wonderfully weird story":"اقرأ قصتنا الغريبة الرائعة",
+        "a community doing good":"مجتمع يفعل الخير",
+        "etsy is a global online marketplace, where people come together to make, sell, buy, and collect unique items. We’re also a community pushing for positive change for small businesses, people, and the planet.":
+        "etsy .هو سوق عالمي عبر الإنترنت، حيث يجتمع الناس معًا لتصنيع وبيع وشراء وجمع عناصر فريدة. نحن أيضًا مجتمع يدفع من أجل التغيير الإيجابي للشركات الصغيرة والأشخاص والكوكب",
+        "here are some of the ways we’re making a positive impact, together.":
+        ".إليك بعض الطرق التي نحدث بها تأثيرًا إيجابيًا معًا",
+        "support independent creators":"دعم المبدعين المستقلين",
+        "there’s no Etsy warehouse – just millions of people selling the things they love. We make the whole process easy, helping you connect directly with makers to find something extraordinary.":
+        "لا يوجد مستودع Etsy -. فقط ملايين الأشخاص يبيعون الأشياء التي يحبونها. نحن نجعل العملية برمتها سهلة، مما يساعدك على التواصل مباشرة مع المصنعين للعثور على شيء غير عادي",
+        "peace of mind":"راحة البال",
+        "your privacy is the highest priority of our dedicated team. And if you ever need assistance, we are always ready to step in for support.":
+        "خصوصيتك هي الأولوية القصوى لفريقنا المتفاني. وإذا كنت بحاجة إلى المساعدة في أي وقت، فنحن دائمًا على استعداد للتدخل للحصول على الدعم.",
+        "have a question? Well, we’ve got some answers.":"هل لديك سؤال؟ حسنًا، لدينا بعض الإجابات.",
+        "go to Help Center":"اذهب إلى مركز المساعدة"
+    },
+    "home-footer-addition-not-log-in":{
+        "Yes! Send me exclusive offers, unique gift ideas, and personalized tips for shopping and selling on Etsy."
+        :"نعم! أرسل لي عروضًا حصرية وأفكار هدايا فريدة ونصائح مخصصة للتسوق والبيع على اتسى ."
+    },
+
+
+    "footer":{
+        "etsy is powered by 100% renewable electricity.":"يتم تشغيل اتسى بواسطة الكهرباء المتجددة بنسبة 100%.",
+        "download The Etsy APP":"قم بتنزيل تطبيق إيتسي",
+        "base Category":"الفئة الأساسية",
+        "accessories":"مُكَمِّلات",
+        "art & Collectibles":"الفن والمقتنيات",
+        "baby":"طفل",
+        "jewelry":"مجوهرات",
+        "accessoriess":"مُكَمِّلات",
+        "sunglasses & Eyewear":"النظارات الشمسية والنظارات",
+        "keychains & Lanyards":"سلاسل المفاتيح و اسهم",
+        "scarves & Wraps":"الأوشحة والأغطية",
+        "hats & Caps":"القبعات والكاب",
+        "art & Collectibless":"الفن والمقتنيات",
+        "painting":"تلوين",
+        "paintingg":"تلوين",
+        "prints":"مطبوعات",
+        "sculpture":"النحت",
+        "help":"مساعد",
+        "help center":"مركز المساعدة",
+        "privacy setiings":"إعدادات الخصوصية",
+        "copyright :":"© 2024 حقوق النشر :",
+        "etsy, Inc.":"شركة إيتسي"
+
+    },
+
+
+    "home-products":{
+        "shop on-sale decor and so much more!":"!تسوق للبيع الديكور وأكثر من ذلك بكثير"
+    },
+    "base-category":{
+        "shop by Category":"تسوق حسب الاقسام"
+    },
+
+    "home-section2-base-category":{
+        "shop our popular gift categories":"تسوق فئات الهدايا الشعبية لدينا"
+    }
+}

@@ -4,27 +4,32 @@ import { BaseCategoryService } from "../../../Services/BaseCategory/base-categor
 import { Subscription } from "rxjs";
 import { RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+
 
 @Component({
   selector: "app-base-category",
   standalone: true,
-  imports: [RouterModule , CommonModule],
+  imports: [RouterModule , CommonModule,TranslateModule],
   templateUrl: "./base-category.component.html",
   styleUrl: "./base-category.component.css",
 })
 export class BaseCategoryComponent implements OnInit {
-
+  lang:string ='';
 
   BaseCategoryList: BaseCategory[] = [];
   extendedBaseCategoryItems: BaseCategory[] = []; 
   showRemainProducts: boolean = false;
 
 
-  constructor(private _BaseCategoryService: BaseCategoryService ) {}
+  constructor(private _BaseCategoryService: BaseCategoryService,private translateService:TranslateService ) {}
 
   sub!: Subscription;
   ngOnInit(): void {
+    this.lang = localStorage.getItem('lang') || 'en';
+
     this.sub = this._BaseCategoryService.GatAllBaseCategories().subscribe({
+
       next: (Categories) => {
         this.BaseCategoryList = Categories.entities;
 
@@ -41,6 +46,19 @@ export class BaseCategoryComponent implements OnInit {
         }
       },
     });
+
+
+
+  
+  }
+
+  ChangeLang(lang:any){
+    const selectedLanguage = lang.target.value;
+
+    localStorage.setItem('lang',selectedLanguage);
+
+    this.translateService.use(selectedLanguage);
+
   }
 
 
