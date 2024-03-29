@@ -1,23 +1,26 @@
-
-
 <!-- ============================ -->
 
 <div class="modal-body">
   <!-- Close Button -->
-  <button type="button" class="close custom-close-button" data-dismiss="modal" aria-label="Close"
-    (click)="closeModal()">
+  <button
+    type="button"
+    class="close custom-close-button"
+    data-dismiss="modal"
+    aria-label="Close"
+    (click)="closeModal()"
+  >
     <span aria-hidden="true">&times;</span>
   </button>
 
+  @if(!showRegistrationForm){
   <!-- Header -->
   <div class="justify-content-between d-flex mb-3">
     <h5 class="modal-title mt-3 ms-2" style="font-size: medium">Sign in</h5>
 
-    <button class="btn btn-outline-dark mt-2 BtnOfRegsteration">
+    <button class="btn btn-outline-dark mt-2 BtnOfRegsteration" (click)="toggleForm()">
       Register
     </button>
   </div>
-  @if(!showRegistrationForm){
 
   <section class="vh-50">
     <div class="container h-100">
@@ -26,39 +29,83 @@
           <form [formGroup]="form" (ngSubmit)="Login()">
             <!-- Email input -->
             <div class="form-outline mb-2">
-              <label class="form-label pb-0" style="font-size: small; color: black" for="form1Example13">Email
-                address</label>
-              <input type="email" id="form1Example13" class="form-control form-control-xl" width="100%" required
-                formControlName="email" />
+              <label
+                class="form-label pb-0"
+                style="font-size: small; color: black"
+                for="form1Example13"
+                >Email address</label
+              >
+              <input
+                type="email"
+                id="form1Example13"
+                class="form-control form-control-xl"
+                width="100%"
+                required
+                formControlName="email"
+              />
             </div>
 
             <!-- Password input -->
             <div class="form-outline mb-4">
-              <label class="form-label" style="font-size: small; color: black" for="form1Example23">Password</label>
-              <input formControlName="password" required type="password" id="form1Example23"
-                class="form-control form-control-lg" />
+              <label
+                class="form-label"
+                style="font-size: small; color: black"
+                for="form1Example23"
+                >Password</label
+              >
+              <input
+                formControlName="password"
+                required
+                type="password"
+                id="form1Example23"
+                class="form-control form-control-lg"
+              />
             </div>
 
             <div class="d-flex justify-content-around align-items-center mb-4">
               <!-- Checkbox -->
-              <div class="form-check justify-content-between" style="cursor: pointer">
-                <input class="form-check-input" style="font-size: x-large; cursor: pointer" type="checkbox" value=""
-                  id="form1Example3" checked />
-                <label class="form-check-label pt-2" style="font-size: small; cursor: pointer" for="form1Example3">
+              <div
+                class="form-check justify-content-between"
+                style="cursor: pointer"
+              >
+                <input
+                  class="form-check-input"
+                  style="font-size: x-large; cursor: pointer"
+                  type="checkbox"
+                  value=""
+                  id="form1Example3"
+                  checked
+                />
+                <label
+                  class="form-check-label pt-2"
+                  style="font-size: small; cursor: pointer"
+                  for="form1Example3"
+                >
                   Stay signed in
                 </label>
               </div>
-              <a href="#!" class="text-secondary" style="font-size: x-small">Forgot password?</a>
+              <a href="#!" class="text-secondary" style="font-size: x-small"
+                >Forgot password?</a
+              >
             </div>
 
             <!-- Submit button -->
-            <button type="submit" class="btn btn-lg btn-block BtnOfSingin mb-3">
+            <button
+              type="submit"
+              class="btn btn-lg btn-block BtnOfSingin mb-3"
+              
+            >
               Sign in
             </button>
 
             <!-- Trouble signing in? -->
             <div class="justify-content-center text-center">
-              <a href="#!" class="text-secondary mb-2" style="font-size: x-small">Trouble signing in?</a>
+              <a
+                href="#!"
+                class="text-secondary mb-2"
+                style="font-size: x-small"
+                >Trouble signing in?</a
+              >
             </div>
 
             <div class="divider d-flex align-items-center my-2">
@@ -67,16 +114,31 @@
 
             <!-- Social Media -->
 
-            <a class="btn btn-outline-dark btn-lg btn-block BtnOfSocial" href="#!" role="button">
+            <a
+              class="btn btn-outline-dark btn-lg btn-block BtnOfSocial"
+              href="#!"
+              role="button"
+            >
               <i class="fab fa-google me-2"></i>Continue with Google
             </a>
 
-            <a class="btn btn-outline-dark btn-lg btn-block BtnOfSocial facebook" href="#!" role="button">
-              <i class="fa-brands fa-square-facebook me-2" style="color: #3c5a99"></i>
+            <a
+              class="btn btn-outline-dark btn-lg btn-block BtnOfSocial facebook"
+              href="#!"
+              role="button"
+            >
+              <i
+                class="fa-brands fa-square-facebook me-2"
+                style="color: #3c5a99"
+              ></i>
               Continue with Facebook
             </a>
 
-            <a class="btn btn-outline-dark btn-lg btn-block BtnOfSocial" href="#!" role="button">
+            <a
+              class="btn btn-outline-dark btn-lg btn-block BtnOfSocial"
+              href="#!"
+              role="button"
+            >
               <i class="fab fa-apple me-2"></i>Continue with Apple
             </a>
 
@@ -98,63 +160,133 @@
       </div>
     </div>
   </section>
-  }@if(showRegistrationForm){
-    <div class="card p-4">
-      <div class="card-body">
-        <h1>Register</h1>
-        <form [formGroup]="formRegister" (ngSubmit)="Register()">
-          <p class="text-muted">Make new Account your account</p>
-          <div class="input-group mb-4">
-            <!--   <span class="input-group-addon"
-              ><i class="fa fa-lock"></i
-            ></span> -->
-            <input type="test" formControlName="userNameRegister" required placeholder="Insert userName" />
-          </div>
-          <div class="input-group mb-3">
-            <!--  <span class="input-group-addon"
-              ><i class="fa fa-user"></i
-            ></span> -->
-            <input type="text" formControlName="emailRegister" required placeholder="Insert email" />
-          </div>
+  } 
+  @else if(showRegistrationForm){
+<!-- Register Form  -->
+  <!-- Header -->
+  <div >
+    <h5 class="modal-title mt-3 ms-2" style="font-size: large;">Create your account</h5>
+    <p class=" ms-2">Registration is easy.</p>
+  </div>
 
-          <div class="input-group mb-4">
-            <!--   <span class="input-group-addon"
-              ><i class="fa fa-lock"></i
-            ></span> -->
-            <input type="password" formControlName="passwordRegister" required placeholder="Insert Password"
-              placeholder="Password" />
-          </div>
-          <div class="row">
-            <div class="col-6">
-              <button type="submit" class="btn btn-primary px-4">
-                Register
-              </button>
+  <section class="vh-50">
+    <div class="container h-100">
+      <div class="row d-flex align-items-center justify-content-center h-80">
+        <div class="col-md-7 col-lg-12 col-xl-12">
+          <form [formGroup]="formRegister" (ngSubmit)="Register()">
+            <!-- Email input -->
+            <div class="form-outline mb-2">
+              <label
+                class="form-label pb-0"
+                style="font-size: small; color: black"
+                for="form2Example13"
+                >Email address</label
+              >
+              <input
+                type="email"
+                id="form2Example13"
+                class="form-control form-control-xl"
+                width="100%"
+                formControlName="emailRegister"
+                required
+              />
             </div>
-            <!-- <div class="col-6 text-right">
-              <button type="button" class="btn btn-link px-0">
-                Forgot password?
-              </button>
-            </div> -->
-          </div>
-        </form>
+
+            <!-- User NAME input -->
+            <div class="form-outline mb-2">
+              <label
+                class="form-label pb-0"
+                style="font-size: small; color: black"
+                for="form2Example14"
+                >User name</label
+              >
+              <input
+                type="email"
+                id="form2Example14"
+                class="form-control form-control-xl"
+                width="100%"
+                formControlName="userNameRegister"
+                required
+              />
+            </div>
+            <!-- Password input -->
+            <div class="form-outline mb-3">
+              <label
+                class="form-label"
+                style="font-size: small; color: black"
+                for="form2Example23"
+                >Password</label
+              >
+              <input
+                formControlName="passwordRegister"
+                required
+                type="password"
+                id="form2Example23"
+                class="form-control form-control-lg"
+              />
+            </div>
+
+            <!-- Policy  -->
+
+            <p style="font-size: small">
+              By clicking Continue with Google, Facebook, or Apple, you agree
+              to Etsy's
+              <a href="#">Terms of Use </a>and <a href="#">Privacy Policy</a>.
+            </p>
+
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-lg btn-block BtnOfSingin mb-3">
+              Register
+            </button>
+
+            <div class="divider d-flex align-items-center my-2">
+              <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+            </div>
+
+            <!-- Social Media -->
+
+            <a
+              class="btn btn-outline-dark btn-lg btn-block BtnOfSocial"
+              href="#!"
+              role="button"
+            >
+              <i class="fab fa-google me-2"></i>Continue with Google
+            </a>
+
+            <a
+              class="btn btn-outline-dark btn-lg btn-block BtnOfSocial facebook"
+              href="#!"
+              role="button"
+            >
+              <i
+                class="fa-brands fa-square-facebook me-2"
+                style="color: #3c5a99"
+              ></i>
+              Continue with Facebook
+            </a>
+
+            <a
+              class="btn btn-outline-dark btn-lg btn-block BtnOfSocial"
+              href="#!"
+              role="button"
+            >
+              <i class="fab fa-apple me-2"></i>Continue with Apple
+            </a>
+
+            <div>
+            
+              <p style="font-size: xx-small" class="">
+                Etsy may send you communications; you may change your
+                preferences in your account settings. We'll never post without
+                your permission.
+              </p>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-    }
-</div>
+  </section>
 
-<!-- 
-    <div class="card text-white bg-primary py-5 d-md-down-none" style="width: 44%">
-          <div class="card-body text-center">
-            <div>
-              <h2>Sign up</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </p>
-              <button type="button" class="btn btn-primary active mt-3" (click)="toggleForm()">
-                {{ showRegistrationForm ? "login " : "Register " }}
-              </button>
-            </div>
-          </div>
-        </div>
- -->
+  }
+</div>
