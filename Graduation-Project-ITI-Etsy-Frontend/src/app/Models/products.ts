@@ -28,6 +28,12 @@ export interface IProductAPI {
     entities : Products[],
 
     message : string
+}
 
+export interface IOneProductAPI {
+
+    entity : Products,
+
+    message : string
 }
 

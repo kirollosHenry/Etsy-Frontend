@@ -36,18 +36,9 @@
             Categories
           </button>
           <ul id="dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="display: none;">
-            <li><a class="dropdown-item" routerLink="Products">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Sotooote</a></li>
+            @for (item of BaseCategoryList; track $index) {
+            <li><a class="dropdown-item nav-link" [routerLink]="['Category',item.id]">{{item.nameEN}}</a></li>
+            }
           </ul>
         </li>
       </ul>
@@ -146,7 +137,7 @@
           </li>
         </ul>
 
-        <<<<<<< HEAD <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
           <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..."
             aria-label="Search">
           </form>
@@ -161,8 +152,7 @@
             }
             <button type="button" mat-flat-button color="primary" [routerLink]="['/login']">Sign-up</button>
           </div>
-          =======
-          >>>>>>> f98db9a3334188a7661b7a7b7343ea4d216b7072
+         
       </div>
 
 
@@ -210,7 +200,7 @@
           </button>
           <ul id="dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="display: none;">
             @for (item of BaseCategoryList; track $index) {
-            <li><a class="dropdown-item" class="nav-link" [routerLink]="['Category',item.id]">{{item.nameEN}}</a></li>
+            <li><a class="dropdown-item " [routerLink]="['Category',item.id]">{{item.nameEN}}</a></li>
             }
           </ul>
         </li>
@@ -232,8 +222,8 @@
 
         <li class="nav-item dropdown me-2">
 
-          <a type="button" routerLink="/login" class=" header-button wt-mr-xs-1 wt-btn--small btn
-              btn-light btnOfCtegories">
+          <a type="button"  class=" header-button wt-mr-xs-1 wt-btn--small btn
+              btn-light btnOfCtegories" (click)="openModal()">
             Sign in
           </a>
 

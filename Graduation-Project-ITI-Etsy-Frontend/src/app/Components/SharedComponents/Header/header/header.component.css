@@ -18,11 +18,17 @@
 .dropdown-item {
   text-decoration: none;
   width: 300px;
+  color: #222222;
+  background-color: white !important;
+
 }
 
 .dropdown-item:hover {
   text-decoration: underline;
+  background-color: rgb(240, 237, 237) !important;
+
 }
+
 
 .dropdown-menu {
   position: absolute;
@@ -33,6 +39,7 @@
   border-radius: 5px;
   margin-top: 12px;
   box-shadow: #222222;
+  background-color: white !important;
 }
 
 .dropdown-menu::before {

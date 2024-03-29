@@ -4,6 +4,7 @@ import {
   OnDestroy,
   OnInit,
   ViewChild,
+  ViewEncapsulation,
 } from "@angular/core";
 import { ProductsService } from "../../../Services/Products/products.service";
 import { IProductAPI, Products } from "../../../Models/products";
@@ -19,7 +20,9 @@ import { BrowserModule } from "@angular/platform-browser";
   standalone: true,
   templateUrl: "./product-list.component.html",
   styleUrl: "./product-list.component.css",
-  imports: [CommonModule, StarComponent, RouterModule, PaginatorModule],
+  imports: [CommonModule, StarComponent, RouterModule, PaginatorModule ],
+  encapsulation: ViewEncapsulation.None 
+
 })
 export class ProductListComponent implements OnInit, OnDestroy {
   CategoryId: number =0;
@@ -86,6 +89,9 @@ export class ProductListComponent implements OnInit, OnDestroy {
       },
     });
   })
+
+  this.loadProducts(this.itemsPerPage, this.pageIndex);
+      
   }
 
   ngOnDestroy(): void {
@@ -104,13 +110,38 @@ export class ProductListComponent implements OnInit, OnDestroy {
 
 
   // Function for Pagination !
-  first: number = 10;
-  rows: number = 10;
+
+
+  itemsPerPage: number = 28; 
+  pageIndex: number = 1; 
+  
+  
 
   onPageChange(event: any) {
-    this.first = event.first;
-    this.rows = event.rows;
+    this.pageIndex = event.page + 1; // Update current page index
+    this.loadProducts(this.itemsPerPage, this.pageIndex); // Load products for the new page
   }
+  
+  // Method to load products based on itemsPerPage and pageIndex
+  loadProducts(itemsPerPage: number, pageIndex: number) {
+    this.sub = this._ProductsService
+      .GetAllProductsPagination(itemsPerPage, pageIndex)
+      .subscribe({
+        next: (ProductDataAPI: IProductAPI) => {
+          this.ProductsList = ProductDataAPI.entities;
+          this.FilterProductsListRelevance = ProductDataAPI.entities;
+        },
+        error: (response) => {
+          console.log(response);
+        },
+      });
+  }
+
+
+ 
+  
+
+
 
   //All Filters Products
   FilterProduct(FilterBy: string) {

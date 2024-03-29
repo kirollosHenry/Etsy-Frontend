@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environment/environment';
-import { IProductAPI } from '../../Models/products';
+import { IOneProductAPI, IProductAPI } from '../../Models/products';
 
 
 @Injectable({
@@ -21,8 +21,8 @@ export class ProductsService {
     return this._HttpClient.get<IProductAPI>(`${this.apiProductURL}/FilterProduct/${CategoryId}`)
   }
 
-  GetOneProductByID(ProductID: number): Observable<any> {
-    return this._HttpClient.get<any>(`${this.apiProductURL}/${ProductID}`)
+  GetOneProductByID(ProductID: number): Observable<IOneProductAPI> {
+    return this._HttpClient.get<IOneProductAPI>(`${this.apiProductURL}/${ProductID}`)
   }
 
   GetProductsPriceAscending(ProductID: number): Observable<IProductAPI> {

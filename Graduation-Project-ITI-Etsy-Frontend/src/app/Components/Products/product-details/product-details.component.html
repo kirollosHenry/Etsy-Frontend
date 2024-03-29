@@ -6,97 +6,85 @@
         <div class="product-image">
           <div id="myCarousel-2" class="carousel slide">
             <div class="carousel-inner">
-              <p-galleria
-                [value]="images"
-                [responsiveOptions]="responsiveOptions"
-                [showThumbnailNavigators]="false"
-                [showItemNavigators]="true"
-                [numVisible]="5"
-                thumbnailsPosition="left"
-                [circular]="true"
-              >
+              <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [showThumbnailNavigators]="false"
+                [showItemNavigators]="true" [numVisible]="5" thumbnailsPosition="left" [circular]="true" >
                 <ng-template pTemplate="item" let-item>
-                  <img
-                    [src]="item.itemImageSrc"
-                    style="
+                  <img [src]="ProductDetails.productImage" style="
                       width: 760px;
                       height: 520px;
                       display: block;
                       border-radius: 8px;
-                    "
-                  />
+                     
+                    " />
                 </ng-template>
-                <ng-template
-                  pTemplate="thumbnail"
-                  let-item
-                  style="background-color: white !important"
-                >
-                  <div
-                    class="grid grid-nogutter justify-content-center"
-                    [ngClass]="{ 'active-thumbnail': item === activeItem }"
-                  >
-                    <img
-                      [src]="item.thumbnailImageSrc"
-                      style="
+                <ng-template pTemplate="thumbnail" let-item style="background-color: white !important">
+                  <div class="grid grid-nogutter justify-content-center"
+                    [ngClass]="{ 'active-thumbnail': item === activeItem }">
+                    <img [src]="item.thumbnailImageSrc" style="
                         width: 50px;
                         height: 50px;
                         display: block;
                         border-radius: 8px;
-                      "
-                      (click)="setActiveItem(item)"
-                    />
+                      " (click)="setActiveItem(item)" />
                   </div>
                 </ng-template>
               </p-galleria>
             </div>
 
-            <h2 class=" text-secondary mt-5">
-              <span class="fa fa-2x me-3">
-                <h5>109 reviews</h5>
-              </span>
+            <div class="  d-flex mt-5 ">
 
-              <i class="fa fa-star fa-2x text-dark"></i>
-              <i class="fa fa-star fa-2x text-dark"></i>
-              <i class="fa fa-star fa-2x text-dark"></i>
-              <i class="fa fa-star fa-2x text-dark"></i>
-              <i class="fa fa-star fa-2x text-muted"></i>
-            </h2>
+              <h2 class=" text-secondary d-flex">
+                <span class="fa fa-2x me-3">
+                  <h5>reviews</h5>
+                </span>
+                <div style="width: 100%;">
+                  <small style="font-size: small; " class="text-dark">
+                    <app-star [rating]="ProductDetails.productRating"></app-star>
+                  </small>
+
+                </div>
+              </h2>
+
+            </div>
+
+
+
           </div>
         </div>
       </div>
 
       <div class="col-md-4 col-md-offset-1 col-sm-12 col-xs-12">
         <div class="d-flex">
-          <h2 class="name text-success">USD 11.92+</h2>
-          <small
-            style="text-decoration: line-through"
-            class="text-secondary mt-2 ms-1"
-          >
-            USD 14.90+
+          <h2 class="name text-success">{{ProductDetails.productPrice | currency :'USD'}}</h2>
+          <small style="text-decoration: line-through" class="text-secondary mt-2 ms-1">
+            $ 14.90+
           </small>
         </div>
 
         <div>
           <small class="text-secondary" style="font-size: small">
-            Local taxes included (where applicable)
+            {{ProductDetails.productNameEN}}
           </small>
         </div>
 
         <div>
           <p class="mt-3" style="font-size: small">
-            Cute & Trendy Beautiful Heart shaped Sunglasses for any
-            occasion.Novelty heart sunglasses are sure to bring the funk. Stay
-            fun and flirty all festival long in these super cute hippie heart
-            sunglasses!. Translucent rimless sunglasses are a perfect rockabilly
-            accessory that will complete your boho outfit.
+            {{ProductDetails.productDescriptionEN}}
+            {{ProductDetails.productDescriptionEN}}
+            {{ProductDetails.productDescriptionEN}}
+            {{ProductDetails.productDescriptionEN}}
+            {{ProductDetails.productDescriptionEN}}
+          </p>
+          <p>
+            <br>
           </p>
         </div>
 
         <!-- Name Of Shop !!!!!Not  Dynamic  -->
         <div>
           <a>
-            <h5 class="decoration-none ShopName" >
-                LaLaCrystal
+            <h5 class="decoration-none ShopName">
+              {{ProductDetails.productPublisher}}
 
             </h5>
           </a>
@@ -115,13 +103,11 @@
             <small class="d-flex align-items-center">
               Style
               <i class="fa-solid fa-star fa-2xs " style="color: #a61a2e;"></i>
-            
+
             </small>
           </div>
 
-          <select
-            class="form-select selectD "
-            aria-label="Default select example ">
+          <select class="form-select selectD " aria-label="Default select example ">
 
             <option selected>1</option>
             <option value="2">2</option>
@@ -138,14 +124,11 @@
           <button class="btn btnCheckOut ">Add to Ccart</button>
         </div>
 
-        
+
         <div class="m-t-sm mt-3">
           <div class="form-group form-check">
             <label for="exampleCheck1" class="cursorClass">
-              <input
-                type="checkbox"
-                class="form-check-input"
-                id="exampleCheck1" />
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" />
               Add gift package
             </label>
           </div>
@@ -158,7 +141,7 @@
         </div>
 
 
-       
+
         <hr class="mt-5" />
 
         <div class="container mt-5 mb-5">
@@ -173,16 +156,12 @@
         <div class="container mt-5 mb-5">
           <div class="d-flex row">
             <div class="col-2 mt-3">
-              <i
-                class="fa-solid fa-handshake"
-                style="color: #164198; font-size: 35px"
-              ></i>
+              <i class="fa-solid fa-handshake" style="color: #164198; font-size: 35px"></i>
             </div>
             <div class="col-10">
-              <p>
-                Buy confidently with Etsy's Purchase Protection program for
-                buyers, get a full refund in the rare case your item doesn't
-                arrive, arrives damaged, or isn't as described.
+              <p style="font-size: small;">
+                Etsy Purchase Protection: Shop confidently on Etsy knowing if something goes wrong with an order, we've
+                got your back for all eligible purchases
               </p>
             </div>
 
@@ -195,8 +174,8 @@
                 <a href="#">Option 3</a>
               </div>
             </div>
-           
-            
+
+
             <div class="custom-dropdown mt-3">
               <button class="dropdown-toggle" (click)="toggleDropdown()">Shipping and return policies </button>
               <div class="dropdown-content" id="dropdownContent">
@@ -205,19 +184,19 @@
                 <a href="#">Option 3</a>
               </div>
             </div>
-            
 
 
-          <div class="custom-dropdown mt-3">
-            <button class="dropdown-toggle" (click)="toggleDropdown()">      
-              Meet your seller
-            </button>
-            <div class="dropdown-content" id="dropdownContent">
-              <a href="#">Option 1</a>
-              <a href="#">Option 2</a>
-              <a href="#">Option 3</a>
+
+            <div class="custom-dropdown mt-3">
+              <button class="dropdown-toggle" (click)="toggleDropdown()">
+                Meet your seller
+              </button>
+              <div class="dropdown-content" id="dropdownContent">
+                <a href="#">Option 1</a>
+                <a href="#">Option 2</a>
+                <a href="#">Option 3</a>
+              </div>
             </div>
-          </div>
 
 
           </div>

@@ -11,27 +11,33 @@
 }
 
 .dropdown-menu {
-  /* padding: 5px 0; */
   border-radius: 5px;
 
   box-shadow: #222222a3;
 }
 
-.dropdown-item:active {
-  background-color: #7b7b7b;
-}
 
 .btnOfFilter {
   border: 1px solid black;
-
+background-color: white !important;
   border-radius: 30px;
   transition: box-shadow 0.3s ease;
+  width: 100% !important;
+  
 }
 
 .btnOfFilter:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) !important;
 }
 
+.dropdown-item{
+  background-color: white !important;
+color: #222222 !important;
+}
+.dropdown-item:hover{
+  background-color: rgb(237, 232, 232) !important;
+
+}
 /* Second One Products */
 
 .imgOfProduct {
@@ -77,4 +83,31 @@
   font-family: "Graphik Webfont", "-apple-system", "Helvetica Neue",
     "Droid Sans", "Arial", "sans-serif";
   font-weight: 500px;
+}
+
+
+
+
+.pagination-item .p-paginator-page{
+  background-color: rgb(243, 237, 237) !important ;
+  border-radius: 50%;
+  color: #222222 !important;
+  margin: 0 2px;
+  font-size: small;
+  padding: 0;
+ 
+}
+
+
+/* Not Workin !!!!! T_T */
+.p-element .p-paginator-next .p-paginator-element:hover 
+{
+  background-color: rgb(243, 237, 237) !important ;
+  color: #222222 !important;
+  border-radius: 50% !important;
+
+}
+
+.active-page {
+  border: 1px solid #000000 !important;
 }

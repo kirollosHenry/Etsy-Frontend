@@ -15,18 +15,23 @@ import { AuthService } from "../../../../Services/Authentication/auth.service";
 import { BaseCategoryService } from "../../../../Services/BaseCategory/base-category.service";
 import { BaseCategory } from "../../../../Models/base-category";
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { NgbModal, NgbModalModule } from "@ng-bootstrap/ng-bootstrap";
+import { LoginComponent } from "../../../login/login.component";
 
 
 @Component({
   selector: "app-header",
   standalone: true,
   imports: [
+
     FooterComponent,
     CartComponent,
     ProductListComponent,
     ProductDetailsComponent,
     RouterModule,
-    TranslateModule
+    TranslateModule,
+    NgbModalModule,
+    LoginComponent
   ],
   templateUrl: "./header.component.html",
   styleUrl: "./header.component.css",
@@ -72,7 +77,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   private destroySubject = new Subject();
   isLoggedIn: boolean = false;
-  constructor(private authService: AuthService, private router: Router,private _BaseCategoryService: BaseCategoryService, private translateService:TranslateService) {
+  constructor(private modalService: NgbModal,private authService: AuthService, private router: Router,private _BaseCategoryService: BaseCategoryService, private translateService:TranslateService) {
     this.authService.authStatus
       .pipe(takeUntil(this.destroySubject))
       .subscribe((result) => {
@@ -115,4 +120,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.destroySubject.next(true);
     this.destroySubject.complete();
   }
+
+
+
+
+
+  // ====
+
+  openModal() {
+    const modalRef = this.modalService.open(LoginComponent);
+  }
+
+
+
 }
