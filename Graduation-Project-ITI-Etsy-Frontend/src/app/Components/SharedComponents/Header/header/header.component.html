@@ -200,7 +200,7 @@
           </button>
           <ul id="dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="display: none;">
             @for (item of BaseCategoryList; track $index) {
-            <li><a class="dropdown-item nav-link" [routerLink]="['Category',item.id]">{{item.nameEN}}</a></li>
+            <li><a class="dropdown-item " [routerLink]="['Category',item.id]">{{item.nameEN}}</a></li>
             }
           </ul>
         </li>
