@@ -39,15 +39,15 @@ export class ProductListComponent implements OnInit, OnDestroy {
     this.route.params.subscribe(params => {
       this.CategoryId = params['id'];
       
-    this.sub = this._ProductsService.GetAllProductsPagination(77, 1).subscribe({
-      next: (ProductDataAPI: IProductAPI) => {
-        this.ProductsList = ProductDataAPI.entities;
-        this.FilterProductsListRelevance = ProductDataAPI.entities;
-      },
-      error: (response) => {
-        console.log(response);
-      },
-    });
+    // this.sub = this._ProductsService.GetAllProductsPagination(77, 1).subscribe({
+    //   next: (ProductDataAPI: IProductAPI) => {
+    //     this.ProductsList = ProductDataAPI.entities;
+    //     this.FilterProductsListRelevance = ProductDataAPI.entities;
+    //   },
+    //   error: (response) => {
+    //     console.log(response);
+    //   },
+    // });
     
     this.sub = this._ProductsService.GetAllProductsByCategory(this.CategoryId).subscribe({
       next: (ProductDataAPI: IProductAPI) => {
