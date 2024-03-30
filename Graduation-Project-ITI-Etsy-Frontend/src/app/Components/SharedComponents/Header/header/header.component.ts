@@ -73,7 +73,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
   onLogout(): void {
     this.authService.logout();
-    this.router.navigate(["/"]);
+    this.router.navigate(["cart"]);
   }
   ngOnInit(): void {
     this.isLoggedIn = this.authService.isAuthenticated();

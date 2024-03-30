@@ -5,6 +5,7 @@ import { ProductDetailsComponent } from './Components/Products/product-details/p
 import { AllcategoriesComponent } from './Components/Category/AllCategory/allcategories/allcategories.component';
 import { BaseCategoryComponent } from './Components/BaseCategory/base-category/base-category.component';
 import { LoginComponent } from './Components/login/login.component';
+import { ProfileComponent } from './Components/profile/profile.component';
 
 
 export const routes: Routes = [
@@ -19,7 +20,7 @@ export const routes: Routes = [
     {path:'Category', component:AllcategoriesComponent, title:'Categories'},
     {path:'BaseCategory', component:BaseCategoryComponent, title:'Base Category'},
     {path:'login', component:LoginComponent, title:'Log in'},
-    //{path:'userprofile', component:UserProfileComponent, title:'User Profile', canActivate:[userAuthGuard]},
+    {path:'userprofile', component:ProfileComponent, title:'User Profile'}// canActivate:[userAuthGuard]},
     //{path:'register', component:RegisterComponent, title:'register'},
     
     //{path:'**', component:NotFoundComponent, title:'Not Found'}

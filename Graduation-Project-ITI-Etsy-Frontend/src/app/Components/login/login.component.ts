@@ -59,10 +59,15 @@ export class LoginComponent implements OnInit {
           // Handle successful authentication
           console.log('Login successful');
           console.log('Token:',response.token);
-          
+          if (response.customer) {
+            console.log('Email:', response.customer.email);
+          } else {
+            console.log('Customer data not found in response');
+          }
           this.router.navigate(['/Category']);
           // Redirect or perform other actions here
         } else {
+          
           this.error =  'An unknown error occurred';
         }
       },
