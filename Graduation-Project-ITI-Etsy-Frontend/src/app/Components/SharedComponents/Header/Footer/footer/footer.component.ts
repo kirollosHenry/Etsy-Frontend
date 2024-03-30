@@ -1,11 +1,13 @@
 import { AfterViewChecked, AfterViewInit, Component, OnInit, Renderer2 } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import Tooltip from 'bootstrap/js/dist/tooltip'; 
+import { TranslateModule } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, TranslateModule],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'
 })

@@ -1,0 +1,27 @@
+a:hover {
+  text-decoration: underline;
+  color: #222222;
+}
+
+/* Disable links */
+.disabled a {
+  pointer-events: none;
+  color: #999999; /* Change color to visually indicate it's disabled */
+}
+
+.firstAnchour {
+  color: #222222;
+  text-decoration: none;
+}
+
+.firstAnchour:hover {
+  text-decoration: underline;
+}
+
+/* Sec 2 */
+
+.HeaderTxt {
+  font-family: "Guardian-EgypTT", "Charter", "Charter Bitstream", "Cambria",
+    "Noto Serif Light", "Droid Serif", "Georgia", "serif";
+    font-weight:300;
+}

@@ -1,0 +1,58 @@
+/* The whole Section  */
+.BaseCategoryitemHome {
+  width: 70%;
+  height: 100%;
+}
+
+/* ============== */
+/* text in the top */
+
+.textOfHeaderOfCat {
+  font-family: "Guardian-EgypTT", "Charter", "Charter Bitstream", "Cambria",
+    "Noto Serif Light", "Droid Serif", "Georgia", "serif";
+
+  font-size: x-large;
+  font-weight:normal;
+}
+
+/* =============== */
+/* Base Category section */
+.imgOfCategory {
+  border-radius: 10px;
+}
+
+.textOfBaseCategory {
+  font-family: "Graphik Webfont", "-apple-system", "Helvetica Neue",
+    "Droid Sans", "Arial", "sans-serif";
+  color: #2c2b2b;
+  font-size: small;
+}
+
+.BaseCatEffect {
+  transition: all 0.5s ease;
+}
+
+.BaseCatEffect:hover {
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.395);
+  border-radius: 10px;
+}
+
+/* ================== */
+
+/* show more section */
+
+.btnOfBaseCat {
+  border-radius: 30px;
+  background-color: #0e0e0e17;
+  color: #222222;
+  cursor: pointer;
+  font-size: small;
+  font-weight: 500;
+}
+
+.btnOfBaseCat:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  background-color: #0807073c;
+  transition: 0.2s ease;
+
+}

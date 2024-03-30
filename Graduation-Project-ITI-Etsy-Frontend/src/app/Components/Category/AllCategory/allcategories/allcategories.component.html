@@ -1,22 +1,100 @@
-@if(CategoryList.length > 0)
-{
-<div class="container">
-    <div class="row py-5 mt-5">
-        @for (Categoryitem of CategoryList; track $index ) {
-        <div class="col-md-3">
-            <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" [src]="Categoryitem.categoryImage" alt="Base Category Card image"
-                style="height: 18rem;">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h4 class="card-title">{{Categoryitem.nameEN}}</h4>
-                    </div>
+
+
+<div class="container BaseCategoryitemHome mb-5">
+
+    <!-- Name Of Category that user Choose !!!! Not Dynamic -->
+    <h1 class="text-center textOfHeaderOfCat ">{{TitleCategory}}</h1>
+
+    <!-- Not Found In Database -->
+    <p class="text-center DescriptionOfCategory text-secondary mb-3">Custom artwork, portraits, and totally original paintings and prints to turn your home into a gallery</p>
+    
+    @if(CategoryList.length > 0)
+    {
+    <div class="container ">
+        <div class="row  justify-content-center">
+
+            @if(showRemainCategories){
+
+            @for (Categoryitem of CategoryList; track $index ) {
+            <div class="col-md-2 ">
+                <div class="row">
+
+                    <ul class="list-unstyled BaseCatEffect pt-2">
+                        <li class="">
+
+                            <a [routerLink]="['Products',Categoryitem.id]" class="text-decoration-none d-flex flex-column align-items-center">
+
+                                <div>
+                                    <img class="card-img-top imgOfCategory" [src]="Categoryitem.categoryImage"
+                                        alt="Base Category Card image" style="height: 14rem;">
+                                </div>
+
+                                <div class="text-center mt-2 ">
+                                    <p class="textOfBaseCategory">{{Categoryitem.nameEN}}</p>
+
+                                </div>
+
+
+                            </a>
+                        </li>
+                    </ul>
                 </div>
+
             </div>
+            }@empty {
+            <h1>No Categories to View</h1>
+            }
+
+            }@else {
+            @for (Categoryitem of CategoryList.slice(0,6); track $index ) {
+            <div class="col-md-2 ">
+                <div class="row">
+
+                    <ul class="list-unstyled BaseCatEffect pt-2">
+                        <li class="">
+
+                            <a [routerLink]="['Products',Categoryitem.id]" class="text-decoration-none d-flex flex-column align-items-center">
+
+                                <div>
+                                    <img class="card-img-top imgOfCategory" [src]="Categoryitem.categoryImage"
+                                        alt="Base Category Card image" style="height: 14rem;">
+                                </div>
+
+                                <div class="text-center mt-2 ">
+                                    <p class="textOfBaseCategory">{{Categoryitem.nameEN}}</p>
+
+                                </div>
+
+
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            }@empty {
+            <h1>No Categories to View</h1>
+            }
+
+            }
+
+
         </div>
-        }@empty {
-        <h1>No Products to View</h1>
-        }
+
+
     </div>
+
+    }
+
+    @if(CategoryList.length > 6)
+    {
+    <div class="justify-content-center text-center mb-5 " >
+
+        <button class="btn btnOfBaseCat" type="button" (click)="showMore()">
+            {{ showRemainCategories ? 'Show less' : 'Show more' }}
+        </button>
+    </div>
+    }
 </div>
-}
+
+<app-product-list></app-product-list>

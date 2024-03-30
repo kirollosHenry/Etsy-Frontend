@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "name": "graduation-project-iti-etsy-frontend",
   "version": "0.0.0",
@@ -42,3 +43,53 @@
     "typescript": "~5.3.2"
   }
 }
+=======
+{
+  "name": "graduation-project-iti-etsy-frontend",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^17.3.2",
+    "@angular/common": "^17.3.2",
+    "@angular/compiler": "^17.3.2",
+    "@angular/core": "^17.3.2",
+    "@angular/forms": "^17.3.2",
+    "@angular/platform-browser": "^17.3.2",
+    "@angular/platform-browser-dynamic": "^17.3.2",
+    "@angular/router": "^17.3.2",
+    "@fortawesome/fontawesome-free": "^6.5.1",
+    "@ng-bootstrap/ng-bootstrap": "^16.0.0",
+    "@ngx-translate/core": "^15.0.0",
+    "@ngx-translate/http-loader": "^8.0.0",
+    "bootstrap": "^5.3.3",
+    "font-awesome": "^4.7.0",
+    "ngx-translate-messageformat-compiler": "^7.0.0",
+    "primeng": "^17.12.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.3"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^17.3.2",
+    "@angular/cli": "^17.3.2",
+    "@angular/compiler-cli": "^17.3.2",
+    "@types/bootstrap": "^5.2.10",
+    "@types/jasmine": "~5.1.0",
+    "@types/jquery": "^3.5.29",
+    "jasmine-core": "~5.1.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "typescript": "~5.3.2"
+  }
+}
+>>>>>>> 3fd711c251abf782114bc0c7d5f893b04a306dc9

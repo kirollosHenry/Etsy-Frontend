@@ -6,16 +6,18 @@ import { ProductsService } from '../../../Services/Products/products.service';
 import { CommonModule } from '@angular/common';
 import { StarComponent } from '../../SharedComponents/star/star.component';
 import { AuthService } from '../../../Services/Authentication/auth.service';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-home-products',
   standalone: true,
-  imports: [CommonModule, StarComponent,RouterModule],
+  imports: [CommonModule, StarComponent,RouterModule, TranslateModule],
   templateUrl: './home-products.component.html',
   styleUrl: './home-products.component.css'
 })
 export class HomeProductsComponent implements OnInit,OnDestroy{
-
+  lang:string ='';
   // For products
   ProductsList: Products[]  = [];
   sub!: Subscription;
@@ -25,7 +27,7 @@ export class HomeProductsComponent implements OnInit,OnDestroy{
   private destroySubject = new Subject();
   isLoggedIn: boolean = false;
 
-  constructor(private _ProductsService:ProductsService ,private authService: AuthService, private router: Router) {
+  constructor(private _ProductsService:ProductsService ,private authService: AuthService, private router: Router, private translateService:TranslateService) {
 
 
     this.subForLog =  this.authService.authStatus
@@ -41,6 +43,10 @@ export class HomeProductsComponent implements OnInit,OnDestroy{
   ngOnInit(): void {
 
   
+    this.lang = localStorage.getItem('lang') || 'en';
+
+
+
     this.sub = this._ProductsService.GetAllProductsPagination(77,1).subscribe({
       next : (ProductDataAPI : IProductAPI) =>{
         this.ProductsList = ProductDataAPI.entities;
@@ -52,6 +58,15 @@ export class HomeProductsComponent implements OnInit,OnDestroy{
     })
 
     
+  }
+
+  ChangeLang(lang:any){
+    const selectedLanguage = lang.target.value;
+
+    localStorage.setItem('lang',selectedLanguage);
+
+    this.translateService.use(selectedLanguage);
+
   }
 
   ngOnDestroy(): void {

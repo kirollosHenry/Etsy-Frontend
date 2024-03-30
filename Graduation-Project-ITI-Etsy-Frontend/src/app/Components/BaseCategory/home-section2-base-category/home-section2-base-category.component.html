@@ -1,0 +1,52 @@
+<div class="container BaseCategoryitemHome2 mb-5">
+
+    <h2 class=" textOfHeaderOfCatHome mb-3 justify-content-between">{{'home-section2-base-category.shop our popular gift categories' | translate}}</h2>
+
+
+    @if(extendedBaseCategoryItems.length > 0)
+    {
+    <div class="container-fluid ">
+        <div class="row  justify-content-between">
+
+          
+            @for (BaseCategoryitem of extendedBaseCategoryItems; track $index ) {
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6  m-0">
+                    <div class="row">
+
+                    <ul class="list-unstyled  pt-2">
+                        <li class="BaseCatEffect">
+
+                            <a routerLink="" class="text-decoration-none d-flex flex-column align-items-center ">
+
+                                <div>
+                                    <img class="card-img-top imgOfBaseCategory" [src]="BaseCategoryitem.baseCategoryImage"
+                                        alt="Base Category Card image" style="height: 12rem;"  > 
+                                        <!--style="height: 12rem; width: 13rem;"  -->
+                                </div>
+
+                                <div class="text-center mt-3">
+                                    <p class="textOfBaseCategory">{{BaseCategoryitem.nameEN}}</p>
+
+                                </div>
+
+
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            }@empty {
+            <h1>No Products to View</h1>
+            }
+
+        
+        </div>
+
+
+    </div>
+    }
+
+
+
+</div>

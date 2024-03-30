@@ -36,18 +36,9 @@
             Categories
           </button>
           <ul id="dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="display: none;">
-            <li><a class="dropdown-item" routerLink="Products">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Sotooote</a></li>
+            @for (item of BaseCategoryList; track $index) {
+            <li><a class="dropdown-item nav-link" [routerLink]="['Category',item.id]">{{item.nameEN}}</a></li>
+            }
           </ul>
         </li>
       </ul>
@@ -87,11 +78,12 @@
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
           </div>
-  
+
         </li>
-       
+
         <!-- profile icon -->
         <li class=" IconHeaderBell">
+<<<<<<< HEAD
         <div class="dropdown ">
           <button type="button"  class=" btn d-block link-body-emphasis text-decoration-none dropdown-toggle" 
           data-bs-toggle="dropdown" [attr.aria-expanded]="isDropdownOpenForProfile ? 'true' : 'false'"
@@ -111,6 +103,25 @@
             <li><a class="dropdown-item" (click)="onLogout()">Sign out</a></li>
           </ul>
         </div>
+=======
+          <div class="dropdown ">
+            <button type="button" class=" btn d-block link-body-emphasis text-decoration-none dropdown-toggle"
+              data-bs-toggle="dropdown" [attr.aria-expanded]="isDropdownOpenForProfile ? 'true' : 'false'"
+              aria-expanded="false" (click)="toggleDropdownProfile()">
+              <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+            </button>
+            <ul class="dropdown-menu text-small" id="profileDropdownMenu" aria-labelledby="navbarDropdownMenuLink"
+              style="display: none;">
+              <li><a class="dropdown-item" href="#">New project...</a></li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Sign out</a></li>
+            </ul>
+          </div>
+>>>>>>> 3fd711c251abf782114bc0c7d5f893b04a306dc9
         </li>
 
 
@@ -132,10 +143,10 @@
       <div class="d-flex container justify-content-center mt-2">
         <ul class="nav justify-content-center">
           <li class="nav-item">
-            <a class="nav-link btnOfCtegories" type="button" aria-current="page"routerLink="Cart">Home Deals</a>
+            <a class="nav-link btnOfCtegories" type="button" aria-current="page" routerLink="Cart">Home Deals</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btnOfCtegories"routerLink="Cart">Home Favorites</a>
+            <a class="nav-link btnOfCtegories" routerLink="Cart">Home Favorites</a>
           </li>
           <li class="nav-item">
             <a class="nav-link btnOfCtegories" routerLink="Cart">Fashion Finds</a>
@@ -148,11 +159,16 @@
           </li>
         </ul>
 
+<<<<<<< HEAD
 <!-- <<<<<<< HEAD
+=======
+>>>>>>> 3fd711c251abf782114bc0c7d5f893b04a306dc9
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
-        </form>
+          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..."
+            aria-label="Search">
+          </form>
 
+<<<<<<< HEAD
         <div class="text-end">
           @if(!isLoggedIn){
           <button type="button" class="btn btn-outline-light me-2"  mat-flat-button color="primary"
@@ -166,6 +182,19 @@
         </div>
 =======
 >>>>>>> f98db9a3334188a7661b7a7b7343ea4d216b7072 -->
+=======
+          <div class="text-end">
+            @if(!isLoggedIn){
+            <button type="button" class="btn btn-outline-light me-2" mat-flat-button color="primary"
+              [routerLink]="['/login']">Login</button>
+            }@if(isLoggedIn){
+            <button type="button" class="btn btn-outline-light me-2" mat-flat-button color="primary"
+              (click)="onLogout()">Log Out</button>
+            }
+            <button type="button" mat-flat-button color="primary" [routerLink]="['/login']">Sign-up</button>
+          </div>
+         
+>>>>>>> 3fd711c251abf782114bc0c7d5f893b04a306dc9
       </div>
 
 
@@ -212,18 +241,9 @@
             Categories
           </button>
           <ul id="dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="display: none;">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
+            @for (item of BaseCategoryList; track $index) {
+            <li><a class="dropdown-item " [routerLink]="['Category',item.id]">{{item.nameEN}}</a></li>
+            }
           </ul>
         </li>
       </ul>
@@ -244,12 +264,16 @@
 
         <li class="nav-item dropdown me-2">
 
-          <a type="button" routerLink="/login" class=" header-button wt-mr-xs-1 wt-btn--small btn
-              btn-light btnOfCtegories">
+          <a type="button"  class=" header-button wt-mr-xs-1 wt-btn--small btn
+              btn-light btnOfCtegories" (click)="openModal()">
             Sign in
-        </a>
+          </a>
 
         </li>
+
+
+
+
 
         <li class="IconHeader ">
           <a routerLink="Cart" class="navbar-brand ">
@@ -268,25 +292,32 @@
           </a>
         </li>
 
+
+        <li>
+          <select class="form-select" (change)="ChangeLang($event)" name="" id="" style="width: 30px;">
+            <option [selected]="lang==='en'" value="en">English</option>
+            <option [selected]="lang==='ar'" value="ar">العربيه</option>
+        </select>
+      </li>
       </ul>
 
       <!-- Another Section -->
       <div class="d-flex container justify-content-center mt-2">
         <ul class="nav justify-content-center">
           <li class="nav-item">
-            <a class="nav-link btnOfCtegories" type="button" aria-current="page" href="#">Home Deals</a>
+            <a class="nav-link btnOfCtegories" type="button" aria-current="page" href="#">{{'header.home Deals' | translate}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btnOfCtegories" href="#">Home Favorites</a>
+            <a class="nav-link btnOfCtegories" href="#">{{'header.home Favorites' | translate}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btnOfCtegories" href="#">Fashion Finds</a>
+            <a class="nav-link btnOfCtegories" href="#">{{'header.fashion Finds' | translate}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btnOfCtegories" href="#">Gift Guids</a>
+            <a class="nav-link btnOfCtegories" href="#">{{'header.gift Guids' | translate}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btnOfCtegories" href="#">Registry</a>
+            <a class="nav-link btnOfCtegories" href="#">{{'header.registry' | translate }}</a>
           </li>
         </ul>
 
@@ -299,5 +330,3 @@
 
 </header>
 }
-
-

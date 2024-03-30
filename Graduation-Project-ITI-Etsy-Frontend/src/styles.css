@@ -1,8 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 /* Inside styles.css */
 
-@import url(./../node_modules/bootstrap/dist/css/bootstrap.min.css);
-@import url(./../node_modules/font-awesome/css/font-awesome.min.css);
 
 @import url(./../node_modules/primeng/resources/themes/lara-light-blue/theme.css);
 @import url(./../node_modules/primeng/resources/primeng.css);
+
+@import url(./../node_modules/bootstrap/dist/css/bootstrap.min.css);
+@import url(./../node_modules/font-awesome/css/font-awesome.min.css);
+
+@import './app/Components/Products/product-details/product-details.component.css';
+
+
+body{
+    background-color: white !important;
+  }
