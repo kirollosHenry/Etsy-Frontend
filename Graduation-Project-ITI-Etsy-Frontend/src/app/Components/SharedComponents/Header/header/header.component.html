@@ -1,10 +1,10 @@
 <!-- loged in user -->
 @if(isLoggedIn){
-<header class=" border-bottom headeraLL mb-0">
+<header class=" border-bottom headeraLL mb-0 pb-1">
 
   <div class="container">
 
-    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+    <div class="d-flex flex-wrap align-items-center justify-content-center ">
 
       <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
         <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
@@ -16,7 +16,7 @@
 
         <!-- Image Brand -->
         <li>
-          <a routerLink="Cart" class="navbar-brand">
+          <a routerLink="home" class="navbar-brand">
             <img src="./../../../../../assets/image/Logo/logo2.png" width="60" height="32">
           </a>
         </li>
@@ -33,11 +33,18 @@
                   d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
               </svg>
             </span>
-            Categories
+            {{'header.Category' | translate}}
           </button>
           <ul id="dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="display: none;">
             @for (item of BaseCategoryList; track $index) {
-            <li><a class="dropdown-item nav-link" [routerLink]="['Category',item.id]">{{item.nameEN}}</a></li>
+            <li><a class="dropdown-item nav-link" [routerLink]="['Category',item.id]">
+
+              @if (lang === 'en') {
+                <span> {{item.nameEN}} </span>
+                }@else if (lang === 'ar') {
+                  <span> {{item.nameAR}} </span>
+                }            
+            </a></li>
             }
           </ul>
         </li>
@@ -45,7 +52,8 @@
 
       <!-- Search -->
       <form class="d-flex flex-grow-1 ">
-        <input class="form-control me-2 SearchSectionForLogin" type="search" placeholder="Search for anything"
+        <input class="form-control me-2 SearchSectionForLogin" type="search" [placeholder]="'header.searchPlaceHolder' | translate" 
+
           aria-label="Search">
         <button class="btn btn-default btn-round btn-submit btnSearch rounded-circle" type="submit">
           <i class="fa fa-search icon-lg "></i>
@@ -55,73 +63,59 @@
 
 
       <!-- SignIN  -->
-      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 mb-md-0 ulOfSign">
+      <ul class="nav col-12 col-lg-auto me-lg-auto mt-md-2  mt-sm-2 justify-content-lg-start justify-content-md-center
+      justify-content-sm-center
+      mb-2 mb-md-0 ulOfSign">
 
         <!-- hearct icon -->
         <li class="IconHeaderLogedIn ">
-          <a routerLink="Cart" class="navbar-brand ">
+          <a routerLink="" class="">
             <i class="fa-regular fa-heart " style="color: #000000;"></i>
           </a>
         </li>
 
         <!-- bell  -->
-        <li class=" IconHeaderBell">
-          <div class="dropdown ">
-            <button class="btn dropdown-toggle" [attr.aria-expanded]="isDropdownOpenForBell ? 'true' : 'false'"
-              type="button" data-bs-toggle="dropdown" aria-expanded="false" (click)="toggleDropdownBell()">
+        <li>
+          <div class="dropdown" class=" ">
+            <button class="btn dropdown-toggle IconProfileLogedIN"
+              [attr.aria-expanded]="isDropdownOpenForBell ? 'true' : 'false'" type="button" data-bs-toggle="dropdown"
+              aria-expanded="false" (click)="toggleDropdownBell()">
               <i class="fa-regular fa-bell"></i>
             </button>
             <ul id="bellDropdownMenu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
               style="display: none;">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item"> Updates</a></li>
+
             </ul>
           </div>
 
         </li>
 
         <!-- profile icon -->
-        <li class=" IconHeaderBell">
-<<<<<<< HEAD
-        <div class="dropdown ">
-          <button type="button"  class=" btn d-block link-body-emphasis text-decoration-none dropdown-toggle" 
-          data-bs-toggle="dropdown" [attr.aria-expanded]="isDropdownOpenForProfile ? 'true' : 'false'"
-            aria-expanded="false"  (click)="toggleDropdownProfile()">
-            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
-          </button>
-          <ul class="dropdown-menu text-small" id="profileDropdownMenu"
-          aria-labelledby="navbarDropdownMenuLink"
-              style="display: none;"
-              >
-            <li><a class="dropdown-item" href="#">New project...</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item"    [routerLink]="['/userprofile']" >Profile</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" (click)="onLogout()">Sign out</a></li>
-          </ul>
-        </div>
-=======
+        <li class=" ">
           <div class="dropdown ">
-            <button type="button" class=" btn d-block link-body-emphasis text-decoration-none dropdown-toggle"
+            <button type="button"
+              class="IconProfileLogedIN btn d-block link-body-emphasis text-decoration-none dropdown-toggle"
               data-bs-toggle="dropdown" [attr.aria-expanded]="isDropdownOpenForProfile ? 'true' : 'false'"
               aria-expanded="false" (click)="toggleDropdownProfile()">
               <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
             </button>
             <ul class="dropdown-menu text-small" id="profileDropdownMenu" aria-labelledby="navbarDropdownMenuLink"
               style="display: none;">
-              <li><a class="dropdown-item" href="#">New project...</a></li>
-              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><a class="dropdown-item" href="#">Nada</a></li> <!-- User Name -->
+              <li><a class="dropdown-item" href="#">Purchases and Reviews</a></li>
+              <li><a class="dropdown-item" href="#">Messages</a></li>
+              <li><a class="dropdown-item" href="#">Special Offers</a></li>
+              <li><a class="dropdown-item" href="#">Etsy Registry</a></li>
+              <li><a class="dropdown-item" href="#">Sell On Etsy </a></li>
+              <li><a class="dropdown-item" href="#">Account Settings</a></li>
               <li><a class="dropdown-item" href="#">Profile</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="#">Sign out</a></li>
+              <li><a class="dropdown-item" (click)="onLogout()">Sign out</a></li>
             </ul>
           </div>
->>>>>>> 3fd711c251abf782114bc0c7d5f893b04a306dc9
         </li>
 
 
@@ -137,79 +131,74 @@
           </a>
         </li>
 
+
+        <!-- Localization -->
+        <li>
+          <select class="form-select ms-2" (change)="ChangeLang($event)" aria-label="Default select example" name=""
+            id="" style="width: 105px;">
+            <option selected [selected]="lang==='en'" value="en">English</option>
+            <option [selected]="lang==='ar'" value="ar">العربيه</option>
+          </select>
+        </li>
+
       </ul>
 
       <!-- Another Section -->
       <div class="d-flex container justify-content-center mt-2">
         <ul class="nav justify-content-center">
           <li class="nav-item">
-            <a class="nav-link btnOfCtegories" type="button" aria-current="page" routerLink="Cart">Home Deals</a>
+            <a class="nav-link btnOfCtegories" type="button" aria-current="page" routerLink="home">{{'header.home Deals'
+              |
+              translate}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btnOfCtegories" routerLink="Cart">Home Favorites</a>
+            <a class="nav-link btnOfCtegories" href="#">{{'header.home Favorites' | translate}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btnOfCtegories" routerLink="Cart">Fashion Finds</a>
+            <a class="nav-link btnOfCtegories" href="#">{{'header.fashion Finds' | translate}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btnOfCtegories" routerLink="Cart">Gift Guids</a>
+            <a class="nav-link btnOfCtegories" href="#">{{'header.gift Guids' | translate}}</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link btnOfCtegories" routerLink="Products">Registry</a>
+            <a class="nav-link btnOfCtegories" href="#">{{'header.registry' | translate }}</a>
           </li>
         </ul>
 
-<<<<<<< HEAD
-<!-- <<<<<<< HEAD
-=======
->>>>>>> 3fd711c251abf782114bc0c7d5f893b04a306dc9
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..."
-            aria-label="Search">
-          </form>
-
-<<<<<<< HEAD
-        <div class="text-end">
-          @if(!isLoggedIn){
-          <button type="button" class="btn btn-outline-light me-2"  mat-flat-button color="primary"
-          [routerLink]="['/login']" >Login</button>
-          }@if(isLoggedIn){
-          <button type="button" class="btn btn-outline-light me-2" mat-flat-button color="primary"
-          (click)="onLogout()">Log Out</button>
-          }
-          <button type="button"mat-flat-button color="primary"
-          [routerLink]="['/login']">Sign-up</button>
-        </div>
-=======
->>>>>>> f98db9a3334188a7661b7a7b7343ea4d216b7072 -->
-=======
-          <div class="text-end">
-            @if(!isLoggedIn){
-            <button type="button" class="btn btn-outline-light me-2" mat-flat-button color="primary"
-              [routerLink]="['/login']">Login</button>
-            }@if(isLoggedIn){
-            <button type="button" class="btn btn-outline-light me-2" mat-flat-button color="primary"
-              (click)="onLogout()">Log Out</button>
-            }
-            <button type="button" mat-flat-button color="primary" [routerLink]="['/login']">Sign-up</button>
-          </div>
-         
->>>>>>> 3fd711c251abf782114bc0c7d5f893b04a306dc9
       </div>
 
 
+      <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..."
+            aria-label="Search">
+        </form>
+
+        <div class="text-end">
+          @if(!isLoggedIn){
+          <button type="button" class="btn btn-outline-light me-2" mat-flat-button color="primary"
+            [routerLink]="['/login']">Login</button>
+          }@if(isLoggedIn){
+          <button type="button" class="btn btn-outline-light me-2" mat-flat-button color="primary"
+            (click)="onLogout()">Log Out</button>
+          }
+          <button type="button" mat-flat-button color="primary" [routerLink]="['/login']">Sign-up</button>
+        </div> -->
+
     </div>
+
+
   </div>
 
 
 </header>
 }
 @else {
-<header class="p-3 mb-3 border-bottom headeraLL">
+<!-- Not User "Visitor" -->
+<header class=" mb-0 pb-1 border-bottom headeraLL">
 
   <div class="container">
 
-    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+    <div class="d-flex flex-wrap align-items-center justify-content-center ">
 
       <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
         <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
@@ -221,7 +210,7 @@
 
         <!-- Image Brand -->
         <li>
-          <a routerLink="Cart" class="navbar-brand">
+          <a routerLink="home" class="navbar-brand">
             <img src="./../../../../../assets/image/Logo/logo2.png" width="60" height="32">
           </a>
         </li>
@@ -238,11 +227,19 @@
                   d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
               </svg>
             </span>
-            Categories
+            {{'header.Category' | translate}}
           </button>
           <ul id="dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="display: none;">
             @for (item of BaseCategoryList; track $index) {
-            <li><a class="dropdown-item " [routerLink]="['Category',item.id]">{{item.nameEN}}</a></li>
+            <li><a class="dropdown-item " [routerLink]="['Category',item.id]">
+
+                @if (lang === 'en') {
+                <span> {{item.nameEN}} </span>
+                }@else if (lang === 'ar') {
+                  <span> {{item.nameAR}} </span>
+                }
+
+              </a></li>
             }
           </ul>
         </li>
@@ -250,7 +247,8 @@
 
       <!-- Search -->
       <form class="d-flex flex-grow-1 ">
-        <input class="form-control me-2 SearchSection" type="search" placeholder="Search for anything"
+        <input class="form-control me-2 SearchSection" type="search"  [placeholder]="'header.searchPlaceHolder' | translate" 
+
           aria-label="Search">
         <button class="btn btn-default btn-round btn-submit btnSearch rounded-circle" type="submit">
           <i class="fa fa-search icon-lg "></i>
@@ -260,28 +258,24 @@
 
 
       <!-- SignIN  -->
-      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 mb-md-0 ulOfSign">
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 mb-md-0 ulOfSign mt-md-2  mt-sm-2 justify-content-center">
 
         <li class="nav-item dropdown me-2">
 
-          <a type="button"  class=" header-button wt-mr-xs-1 wt-btn--small btn
+          <a type="button" class=" header-button wt-mr-xs-1 wt-btn--small btn
               btn-light btnOfCtegories" (click)="openModal()">
-            Sign in
+            {{"header.Sign in"|translate}}
           </a>
 
         </li>
 
-
-
-
-
-        <li class="IconHeader ">
+        <li class="IconHeaderLogedIn ">
           <a routerLink="Cart" class="navbar-brand ">
             <i class="fa-regular fa-heart " style="color: #000000;"></i>
           </a>
         </li>
 
-        <li class="IconHeader ">
+        <li class="IconHeaderLogedIn ">
           <a routerLink="Cart" class="navbar-brand">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart2"
               viewBox="0 0 16 16">
@@ -292,20 +286,22 @@
           </a>
         </li>
 
-
+<!-- Localization -->
         <li>
-          <select class="form-select" (change)="ChangeLang($event)" name="" id="" style="width: 30px;">
-            <option [selected]="lang==='en'" value="en">English</option>
+          <select class="form-select  ms-2" (change)="ChangeLang($event)" name="" id="" style="width: 105px;">
+            <option selected [selected]="lang==='en'" value="en">English</option>
             <option [selected]="lang==='ar'" value="ar">العربيه</option>
-        </select>
-      </li>
+          </select>
+        </li>
       </ul>
 
       <!-- Another Section -->
       <div class="d-flex container justify-content-center mt-2">
         <ul class="nav justify-content-center">
           <li class="nav-item">
-            <a class="nav-link btnOfCtegories" type="button" aria-current="page" href="#">{{'header.home Deals' | translate}}</a>
+            <a class="nav-link btnOfCtegories" type="button" aria-current="page" routerLink="home">{{'header.home Deals'
+              |
+              translate}}</a>
           </li>
           <li class="nav-item">
             <a class="nav-link btnOfCtegories" href="#">{{'header.home Favorites' | translate}}</a>

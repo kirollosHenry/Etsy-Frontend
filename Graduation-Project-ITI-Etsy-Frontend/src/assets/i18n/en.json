@@ -1,72 +1,227 @@
 {
-    "header":{
-        "home Deals":"Home Deals",
-        "home Favorites": "Home Favorites",
-        "fashion Finds": "Fashion Finds",
-        "gift Guids": "Gift Guids",
-        "registry": "Registry"
+  "header": {
+    "Category": "Categories",
+    "home Deals": "Home Deals",
+    "home Favorites": "Home Favorites",
+    "fashion Finds": "Fashion Finds",
+    "gift Guids": "Gift Guids",
+    "registry": "Registry",
+    "searchPlaceHolder": "Search for anything",
+    "Sign in":"Sign in"
+  },
+
+  "home-footer-addition": {
+    "what is Etsy?": "What is Etsy?",
+    "read our wonderfully weird story": "Read our wonderfully weird story",
+    "a community doing good": "A community doing good",
+    "etsy is a global online marketplace, where people come together to make, sell, buy, and collect unique items. We’re also a community pushing for positive change for small businesses, people, and the planet.": "Etsy is a global online marketplace, where people come together to make, sell, buy, and collect unique items. We’re also a community pushing for positive change for small businesses, people, and the planet.",
+    "here are some of the ways we’re making a positive impact, together.": "Here are some of the ways we’re making a positive impact, together.",
+    "support independent creators": "Support independent creators",
+    "there’s no Etsy warehouse – just millions of people selling the things they love. We make the whole process easy, helping you connect directly with makers to find something extraordinary.": "There’s no Etsy warehouse – just millions of people selling the things they love. We make the whole process easy, helping you connect directly with makers to find something extraordinary.",
+    "peace of mind": "Peace of mind",
+    "your privacy is the highest priority of our dedicated team. And if you ever need assistance, we are always ready to step in for support.": "Your privacy is the highest priority of our dedicated team. And if you ever need assistance, we are always ready to step in for support.",
+    "have a question? Well, we’ve got some answers.": "Have a question? Well, we’ve got some answers.",
+    "go to Help Center": " Go to Help Center"
+  },
+
+  "home-footer-addition-not-log-in": {
+    "yes! Send me exclusive offers, unique gift ideas, and personalized tips for shopping and selling on Etsy.": "Yes! Send me exclusive offers, unique gift ideas, and personalized tips for shopping and selling on Etsy."
+  },
+
+  "footer": {
+    "etsy is powered by 100% renewable electricity.": "Etsy is powered by 100% renewable electricity.",
+    "download The Etsy APP": "Download The Etsy APP",
+    "Base Category": "Base Category",
+    "Accessories": "Accessories",
+    "Art & Collectibles": "Art & Collectibles",
+    "Baby": "Baby",
+    "Jewelry": "Jewelry",
+    "Accessoriess": "Accessories",
+    "Sunglasses & Eyewear": "Sunglasses & Eyewear",
+    "Keychains & Lanyards": "Keychains & Lanyards",
+    "Scarves & Wraps": "Scarves & Wraps",
+    "Hats & Caps": "Hats & Caps",
+    "Art & Collectibless": "Art & Collectibles",
+    "Painting": "Painting",
+    "Paintingg": "Painting",
+    "Prints": "Prints",
+    "Sculpture": "Sculpture",
+    "Help": "Help",
+    "Help center": "Help center",
+    "privacy setiings": "privacy setiings",
+    "Copyright :": "© 2024  Copyright :",
+    "Etsy, Inc.": "Etsy, Inc."
+  },
+
+  "home-products": {
+    "shop on-sale decor and so much more!": "Shop on-sale decor and so much more!"
+  },
+
+  "base-category": {
+    "shop by Category": "Shop by Category"
+  },
+
+  "home-section2-base-category": {
+    "shop our popular gift categories": "Shop our popular gift categories"
+  },
+
+  "AllcategoriesComponent": {
+    "DescriptionCategory": "Custom artwork, portraits, and totally original paintings and prints to turn your home into a gallery",
+    "categoryTitles": {
+      "Accessories": "Accessories",
+      "Art & Collectibles": "Art & Collectibles",
+      "Baby": "Baby"
     },
+    "items in your cart": "items in your cart",
+    "Buy confidently": "Buy confidently",
+    "with Etsy":"with Etsy's Purchase Protection program for buyers, get a full refund in the rare case your item doesn't arrive, arrives damaged, or isn't as described.",
+    "See eligibility":"See eligibility"
 
-    "home-footer-addition":{
-        "what is Etsy?":"What is Etsy?",
-        "read our wonderfully weird story":"Read our wonderfully weird story",
-        "a community doing good":"A community doing good",
-        "etsy is a global online marketplace, where people come together to make, sell, buy, and collect unique items. We’re also a community pushing for positive change for small businesses, people, and the planet."
-        :"Etsy is a global online marketplace, where people come together to make, sell, buy, and collect unique items. We’re also a community pushing for positive change for small businesses, people, and the planet.",
-        "here are some of the ways we’re making a positive impact, together.":
-        "Here are some of the ways we’re making a positive impact, together.",
-        "support independent creators":"Support independent creators",
-        "there’s no Etsy warehouse – just millions of people selling the things they love. We make the whole process easy, helping you connect directly with makers to find something extraordinary.":
-        "There’s no Etsy warehouse – just millions of people selling the things they love. We make the whole process easy, helping you connect directly with makers to find something extraordinary.",
-        "peace of mind":"Peace of mind",
-        "your privacy is the highest priority of our dedicated team. And if you ever need assistance, we are always ready to step in for support.":
-        "Your privacy is the highest priority of our dedicated team. And if you ever need assistance, we are always ready to step in for support.",
-        "have a question? Well, we’ve got some answers.":"Have a question? Well, we’ve got some answers.",
-        "go to Help Center":" Go to Help Center"
-    },
+    
+  },
 
+  "ProductListComponent": {
+    "All Filters": "All Filters",
+    "Relevance": "Relevance",
+    "Lowest Price": "Lowest Price",
+    "Highest Price": "Highest Price",
+    "Top Customer Reviews": "Top Customer Reviews",
+    "Most Recent": "Most Recent",
 
-    "home-footer-addition-not-log-in":{
-        "yes! Send me exclusive offers, unique gift ideas, and personalized tips for shopping and selling on Etsy."
-        :"Yes! Send me exclusive offers, unique gift ideas, and personalized tips for shopping and selling on Etsy."
-    },
-    "footer":{
-        "etsy is powered by 100% renewable electricity.":"Etsy is powered by 100% renewable electricity.",
-        "download The Etsy APP":"Download The Etsy APP",
-        "Base Category":"Base Category",
-        "Accessories":"Accessories",
-        "Art & Collectibles":"Art & Collectibles",
-        "Baby":"Baby",
-        "Jewelry":"Jewelry",
-        "Accessoriess":"Accessories",
-        "Sunglasses & Eyewear":"Sunglasses & Eyewear",
-        "Keychains & Lanyards":"Keychains & Lanyards",
-        "Scarves & Wraps":"Scarves & Wraps",
-        "Hats & Caps":"Hats & Caps",
-        "Art & Collectibless":"Art & Collectibles",
-        "Painting":"Painting",
-        "Paintingg":"Painting",
-        "Prints":"Prints",
-        "Sculpture":"Sculpture",
-        "Help":"Help",
-        "Help center":"Help center",
-        "privacy setiings":"privacy setiings",
-        "Copyright :":"© 2024  Copyright :",
-        "Etsy, Inc.":"Etsy, Inc."
+    "results": "( 14,048,963 results)",
 
-    },
+    "Sorted By": "Sorted By",
 
-
-    "home-products":{
-        "shop on-sale decor and so much more!":"Shop on-sale decor and so much more!"
-    },
-
-    "base-category":{
-        "shop by Category":"Shop by Category"
-    },
-
-    "home-section2-base-category":{
-        "shop our popular gift categories":"Shop our popular gift categories"
+    "productPublisher": {
+      "Matthew Garcia": "Matthew Garcia",
+      "Irina Dimitrova": "Irina Dimitrova",
+      "Vanz Michael Ferrer": "Vanz Michael Ferrer",
+      "Gail Edwards": "Gail Edwards",
+      "max": "max",
+      "That Lotus": "That Lotus",
+      "Sweet Message": "Sweet Message",
+      "LB Diamond Store": "LB Diamond Store",
+      "HappyPlushToyShop": "HappyPlushToyShop",
+      "Eddie": "Eddie",
+      "Stephanie Reeds": "Stephanie Reeds",
+      "Tf X": "Tf X",
+      "Linda van Zweden": "Linda van Zweden",
+      "Rolandas": "Rolandas",
+      "Cheyenne Compton": "Cheyenne Compton",
+      "Brahk": "Brahk",
+      "LushKeepsake": "LushKeepsake",
+      "laura": "laura",
+      "Anomaly": "Anomaly",
+      "Suzannah Joy": "Suzannah Joy",
+      "GG": "GG",
+      "Jianping Fan": "Jianping Fan",
+      "Hedi": "Hedi",
+      "Grant and Krysta Hertzog": "Grant and Krysta Hertzog",
+      "Anne": "Anne",
+      "Najwa Izzati": "Najwa Izzati",
+      "Abhishek Gupta": "Abhishek Gupta",
+      "Olivia": "Olivia",
+      "Lucia ERTLOVA-STEPANKOVA": "Lucia ERTLOVA-STEPANKOVA",
+      "Jay La": "Jay La",
+      "timothy moffitt": "timothy moffitt",
+      "Virág Tóth": "Virág Tóth",
+      "MYKHAILO": "MYKHAILO",
+      "Caroline Cromer": "Caroline Cromer",
+      "Chu": "Chu",
+      "Megan Mya": "Megan Mya",
+      "Krista Kim": "Krista Kim",
+      "Kevin": "Kevin",
+      "Becci Weightman": "Becci Weightman",
+      "April": "April",
+      "zulu": "zulu",
+      "Stephie Wan": "Stephie Wan",
+      "Svetla Koleva": "Svetla Koleva",
+      "Betsey English": "Betsey English",
+      "Claire Garland": "Claire Garland",
+      "Christine": "Christine",
+      "Halyna Korchomna": "Halyna Korchomna",
+      "Adri": "Adri",
+      "Rael Yaniv": "Rael Yaniv",
+      "Nina": "Nina"
     }
- 
+  },
+
+  "ProductDetailsComponent": {
+    "review": "reviews",
+
+    "productPublisher": {
+      "Matthew Garcia": "Matthew Garcia",
+      "Irina Dimitrova": "Irina Dimitrova",
+      "Vanz Michael Ferrer": "Vanz Michael Ferrer",
+      "Gail Edwards": "Gail Edwards",
+      "max": "max",
+      "That Lotus": "That Lotus",
+      "Sweet Message": "Sweet Message",
+      "LB Diamond Store": "LB Diamond Store",
+      "HappyPlushToyShop": "HappyPlushToyShop",
+      "Eddie": "Eddie",
+      "Stephanie Reeds": "Stephanie Reeds",
+      "Tf X": "Tf X",
+      "Linda van Zweden": "Linda van Zweden",
+      "Rolandas": "Rolandas",
+      "Cheyenne Compton": "Cheyenne Compton",
+      "Brahk": "Brahk",
+      "LushKeepsake": "LushKeepsake",
+      "laura": "laura",
+      "Anomaly": "Anomaly",
+      "Suzannah Joy": "Suzannah Joy",
+      "GG": "GG",
+      "Jianping Fan": "Jianping Fan",
+      "Hedi": "Hedi",
+      "Grant and Krysta Hertzog": "Grant and Krysta Hertzog",
+      "Anne": "Anne",
+      "Najwa Izzati": "Najwa Izzati",
+      "Abhishek Gupta": "Abhishek Gupta",
+      "Olivia": "Olivia",
+      "Lucia ERTLOVA-STEPANKOVA": "Lucia ERTLOVA-STEPANKOVA",
+      "Jay La": "Jay La",
+      "timothy moffitt": "timothy moffitt",
+      "Virág Tóth": "Virág Tóth",
+      "MYKHAILO": "MYKHAILO",
+      "Caroline Cromer": "Caroline Cromer",
+      "Chu": "Chu",
+      "Megan Mya": "Megan Mya",
+      "Krista Kim": "Krista Kim",
+      "Kevin": "Kevin",
+      "Becci Weightman": "Becci Weightman",
+      "April": "April",
+      "zulu": "zulu",
+      "Stephie Wan": "Stephie Wan",
+      "Svetla Koleva": "Svetla Koleva",
+      "Betsey English": "Betsey English",
+      "Claire Garland": "Claire Garland",
+      "Christine": "Christine",
+      "Halyna Korchomna": "Halyna Korchomna",
+      "Adri": "Adri",
+      "Rael Yaniv": "Rael Yaniv",
+      "Nina": "Nina"
+    },
+
+    "Returns & exchanges accepted": "Returns & exchanges accepted",
+
+    "Style": "Style",
+
+    "Buy it now": "Buy it now",
+
+    "Add to Cart": "Add to Cart",
+
+    "Add gift package": "Add gift package",
+
+    "Order": "Order today to get by Mar 27-Apr 2",
+
+    "Etsy offsets": "Etsy offsets carbon emissions from shipping and packaging on this purchase",
+
+    "Etsy Purchase Protections": "Etsy Purchase Protection: Shop confidently on Etsy knowing if something goes wrong with an order, we've got your back for all eligible purchases",
+
+    "Item Details": "Item Details",
+
+    "Shipping and return policies": "Shipping and return policies",
+
+    "Meet your seller": "Meet your seller"
+  }
 }

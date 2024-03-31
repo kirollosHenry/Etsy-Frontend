@@ -1,13 +1,14 @@
-
-
 <div class="container BaseCategoryitemHome mb-5">
 
     <!-- Name Of Category that user Choose !!!! Not Dynamic -->
-    <h1 class="text-center textOfHeaderOfCat ">{{TitleCategory}}</h1>
+    <h1 class="text-center textOfHeaderOfCat mt-3">{{'AllcategoriesComponent.categoryTitles.' + TitleCategory  | translate }}</h1>
 
     <!-- Not Found In Database -->
-    <p class="text-center DescriptionOfCategory text-secondary mb-3">Custom artwork, portraits, and totally original paintings and prints to turn your home into a gallery</p>
-    
+    <p class="text-center DescriptionOfCategory text-secondary mb-3">
+            {{ "AllcategoriesComponent.DescriptionCategory" | translate }}
+
+        </p>
+
     @if(CategoryList.length > 0)
     {
     <div class="container ">
@@ -22,7 +23,8 @@
                     <ul class="list-unstyled BaseCatEffect pt-2">
                         <li class="">
 
-                            <a [routerLink]="['Products',Categoryitem.id]" class="text-decoration-none d-flex flex-column align-items-center">
+                            <a [routerLink]="['Products',Categoryitem.id]"
+                                class="text-decoration-none d-flex flex-column align-items-center">
 
                                 <div>
                                     <img class="card-img-top imgOfCategory" [src]="Categoryitem.categoryImage"
@@ -30,7 +32,14 @@
                                 </div>
 
                                 <div class="text-center mt-2 ">
-                                    <p class="textOfBaseCategory">{{Categoryitem.nameEN}}</p>
+                                    <p class="textOfBaseCategory">
+                                        @if (lang === 'en') {
+                                        <span> {{Categoryitem.nameEN }}</span>
+                                        }
+                                        @else if (lang === 'ar') {
+                                        <span> {{Categoryitem.nameAR }}</span>
+                                        }
+                                    </p>
 
                                 </div>
 
@@ -53,7 +62,8 @@
                     <ul class="list-unstyled BaseCatEffect pt-2">
                         <li class="">
 
-                            <a [routerLink]="['Products',Categoryitem.id]" class="text-decoration-none d-flex flex-column align-items-center">
+                            <a [routerLink]="['Products',Categoryitem.id]"
+                                class="text-decoration-none d-flex flex-column align-items-center">
 
                                 <div>
                                     <img class="card-img-top imgOfCategory" [src]="Categoryitem.categoryImage"
@@ -61,7 +71,15 @@
                                 </div>
 
                                 <div class="text-center mt-2 ">
-                                    <p class="textOfBaseCategory">{{Categoryitem.nameEN}}</p>
+                                    <p class="textOfBaseCategory">
+
+                                        @if (lang === 'en') {
+                                        <span> {{Categoryitem.nameEN }}</span>
+                                        }
+                                        @else if (lang === 'ar') {
+                                        <span> {{Categoryitem.nameAR }}</span>
+                                        }
+                                    </p>
 
                                 </div>
 
@@ -88,7 +106,7 @@
 
     @if(CategoryList.length > 6)
     {
-    <div class="justify-content-center text-center mb-5 " >
+    <div class="justify-content-center text-center mb-5 ">
 
         <button class="btn btnOfBaseCat" type="button" (click)="showMore()">
             {{ showRemainCategories ? 'Show less' : 'Show more' }}

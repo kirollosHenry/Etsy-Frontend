@@ -26,7 +26,7 @@
     <div class="container h-100">
       <div class="row d-flex align-items-center justify-content-center h-80">
         <div class="col-md-7 col-lg-12 col-xl-12">
-          <form [formGroup]="form" (ngSubmit)="Login()">
+          <form [formGroup]="form"  (ngSubmit)="Login()" >
             <!-- Email input -->
             <div class="form-outline mb-2">
               <label
@@ -161,6 +161,8 @@
     </div>
   </section>
   } 
+
+  
   @else if(showRegistrationForm){
 <!-- Register Form  -->
   <!-- Header -->

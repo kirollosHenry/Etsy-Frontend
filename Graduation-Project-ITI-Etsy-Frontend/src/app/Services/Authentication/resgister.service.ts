@@ -40,10 +40,15 @@ export class ResgisterService {
            }
          }));
      }
+
+
+     
     logout() {
     localStorage.removeItem(this.tokenKey);
     this.setAuthStatus(false);
      }
+
+
     private setAuthStatus(isAuthenticated: boolean): void {
     this._authStatus.next(isAuthenticated);
      }

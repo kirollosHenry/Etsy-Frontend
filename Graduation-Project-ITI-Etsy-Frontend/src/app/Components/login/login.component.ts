@@ -24,6 +24,8 @@ import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
   styleUrl: "./login.component.css",
 })
 export class LoginComponent implements OnInit {
+
+  
   email: string = "";
   password: string = "";
   error!: string;
@@ -55,44 +57,71 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  Login() {
-    var loginRequest = <Login>{};
-    loginRequest.email = this.form.controls["email"].value;
-    loginRequest.password = this.form.controls["password"].value;
+//   Login() {
+//     var loginRequest = <Login>{};
+//     loginRequest.email = this.form.controls["email"].value;
+//     loginRequest.password = this.form.controls["password"].value;
 
-    this.authService.login(loginRequest).subscribe({
-      next: (response: LoginResult) => {
-        if (response.isAuthenticated) {
-          // Handle successful authentication
-<<<<<<< HEAD
-          console.log('Login successful');
-          console.log('Token:',response.token);
-          if (response.customer) {
-            console.log('Email:', response.customer.email);
-          } else {
-            console.log('Customer data not found in response');
-          }
-          this.router.navigate(['/Category']);
-          // Redirect or perform other actions here
-        } else {
+//     this.authService.login(loginRequest).subscribe({
+//       next: (response: LoginResult) => {
+//         if (response.isAuthenticated) {
+//           // Handle successful authentication
+// <<<<<<< HEAD
+//           console.log('Login successful');
+//           console.log('Token:',response.token);
+//           if (response.customer) {
+//             console.log('Email:', response.customer.email);
+//           } else {
+//             console.log('Customer data not found in response');
+//           }
+//           this.router.navigate(['/Category']);
+//           // Redirect or perform other actions here
+//         } else {
           
-          this.error =  'An unknown error occurred';
-=======
-          console.log("Login successful");
-          console.log("Token:", response.token);
+//           this.error =  'An unknown error occurred';
+// =======
+//           console.log("Login successful");
+//           console.log("Token:", response.token);
 
-          this.router.navigate(["/Category"]);
-          // Redirect or perform other actions here
-        } else {
-          this.error = "An unknown error occurred";
->>>>>>> 3fd711c251abf782114bc0c7d5f893b04a306dc9
-        }
-      },
-      error: (error) => {
-        this.error = "An error occurred while logging in";
-      },
-    });
-  }
+//           this.router.navigate(["/Category"]);
+//           // Redirect or perform other actions here
+//         } else {
+//           this.error = "An unknown error occurred";
+// >>>>>>> 3fd711c251abf782114bc0c7d5f893b04a306dc9
+//         }
+//       },
+//       error: (error) => {
+//         this.error = "An error occurred while logging in";
+//       },
+//     });
+//   }
+
+
+
+Login() {
+  var loginRequest = <Login>{};
+  loginRequest.email = this.form.controls['email'].value;
+  loginRequest.password = this.form.controls['password'].value;
+
+  this.authService.login(loginRequest).subscribe({
+    next: (response: LoginResult) => {
+      if (response.isAuthenticated) {
+        // Handle successful authentication
+        console.log('Login successful');
+        console.log('Token:',response.token);
+        this.activeModal.dismiss('Cross click');
+        this.router.navigate(['/Cart']);
+        
+        // Redirect or perform other actions here
+      } else {
+        this.error =  'An unknown error occurred';
+      }
+    },
+    error: error => {
+      this.error = 'An error occurred while logging in';
+    }
+  });   
+}
 
   Register() {
     var Request = <Register>{};
@@ -106,8 +135,8 @@ export class LoginComponent implements OnInit {
           // Handle successful authentication
           console.log("Login successful");
           console.log("Token:", response.token);
-
-          this.router.navigate(["/Category"]);
+          this.router.navigate(["/Cart"]);
+          this.activeModal.dismiss('Cross click');
           // Redirect or perform other actions here
         } else {
           this.error = "An unknown error occurred";
@@ -146,8 +175,6 @@ export class LoginComponent implements OnInit {
 
 
   // Modal !!
-  
-
   closeModal() {
     this.activeModal.dismiss('Cross click');
   }

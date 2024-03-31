@@ -15,8 +15,9 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
   styleUrl: "./base-category.component.css",
 })
 export class BaseCategoryComponent implements OnInit {
-  lang:string ='';
 
+  lang:string ='';
+  
   BaseCategoryList: BaseCategory[] = [];
   extendedBaseCategoryItems: BaseCategory[] = []; 
   showRemainProducts: boolean = false;
@@ -26,7 +27,9 @@ export class BaseCategoryComponent implements OnInit {
 
   sub!: Subscription;
   ngOnInit(): void {
-    this.lang = localStorage.getItem('lang') || 'en';
+
+    this.lang = localStorage.getItem("lang") || "en";
+    this.translateService.use(this.lang);
 
     this.sub = this._BaseCategoryService.GatAllBaseCategories().subscribe({
 
@@ -52,14 +55,14 @@ export class BaseCategoryComponent implements OnInit {
   
   }
 
-  ChangeLang(lang:any){
-    const selectedLanguage = lang.target.value;
+  // ChangeLang(lang:any){
+  //   const selectedLanguage = lang.target.value;
 
-    localStorage.setItem('lang',selectedLanguage);
+  //   localStorage.setItem('lang',selectedLanguage);
 
-    this.translateService.use(selectedLanguage);
+  //   this.translateService.use(selectedLanguage);
 
-  }
+  // }
 
 
 

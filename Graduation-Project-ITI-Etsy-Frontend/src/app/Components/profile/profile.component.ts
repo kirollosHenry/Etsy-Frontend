@@ -4,7 +4,6 @@ import { UserDto } from '../../Models/Accout/UserDto';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
-
 @Component({
   selector: 'app-profile',
   standalone: true,
@@ -20,7 +19,6 @@ export class ProfileComponent implements OnInit {
    editProfile() {
     this.editing = !this.editing;
   }
-
   saveProfile() {
     // You can add logic here to save the updated profile data
     this.editing = false;

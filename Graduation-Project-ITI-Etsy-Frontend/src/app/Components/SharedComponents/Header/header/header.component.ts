@@ -14,16 +14,15 @@ import { Subject, Subscription, takeUntil } from "rxjs";
 import { AuthService } from "../../../../Services/Authentication/auth.service";
 import { BaseCategoryService } from "../../../../Services/BaseCategory/base-category.service";
 import { BaseCategory } from "../../../../Models/base-category";
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from "@ngx-translate/core";
 import { NgbModal, NgbModalModule } from "@ng-bootstrap/ng-bootstrap";
 import { LoginComponent } from "../../../login/login.component";
-
+import { TranslationLangService } from "../../../../Services/translation/translationLang.service";
 
 @Component({
   selector: "app-header",
   standalone: true,
   imports: [
-
     FooterComponent,
     CartComponent,
     ProductListComponent,
@@ -32,14 +31,14 @@ import { LoginComponent } from "../../../login/login.component";
     TranslateModule,
     NgbModalModule,
     LoginComponent
+    
   ],
   templateUrl: "./header.component.html",
   styleUrl: "./header.component.css",
 })
 export class HeaderComponent implements OnInit, OnDestroy {
+  lang: string = "";
 
-
-  lang:string ='';
   // ===============
   // For DownDrops :
 
@@ -77,7 +76,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   private destroySubject = new Subject();
   isLoggedIn: boolean = false;
-  constructor(private modalService: NgbModal,private authService: AuthService, private router: Router,private _BaseCategoryService: BaseCategoryService, private translateService:TranslateService) {
+  constructor(
+    private modalService: NgbModal,
+    private authService: AuthService,
+    private router: Router,
+    private _BaseCategoryService: BaseCategoryService,
+    private translationService: TranslationLangService
+    
+  ) {
     this.authService.authStatus
       .pipe(takeUntil(this.destroySubject))
       .subscribe((result) => {
@@ -86,16 +92,18 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   // ====================
-  // Dropdown List in Base Category 
+  // Dropdown List in Base Category
   BaseCategoryList: BaseCategory[] = [];
   sub!: Subscription;
 
   onLogout(): void {
     this.authService.logout();
-    this.router.navigate(["cart"]);
+    this.router.navigate(["/"]);
   }
+
   ngOnInit(): void {
-    this.lang = localStorage.getItem('lang') || 'en';
+
+    this.lang = localStorage.getItem("lang") || "en";
 
     this.isLoggedIn = this.authService.isAuthenticated();
     this.sub = this._BaseCategoryService.GatAllBaseCategories().subscribe({
@@ -105,32 +113,37 @@ export class HeaderComponent implements OnInit, OnDestroy {
     });
   }
 
-  ChangeLang(lang:any){
-    const selectedLanguage = lang.target.value;
+  // ChangeLang(lang:any){
+  //   const selectedLanguage = lang.target.value;
+  //   localStorage.setItem('lang',selectedLanguage);
+  //   this.translateService.use(selectedLanguage);
+  // }
 
-    localStorage.setItem('lang',selectedLanguage);
 
-    this.translateService.use(selectedLanguage);
 
+
+  // Localization!!
+  
+  
+  ChangeLang(event: any) {
+    const selectedLanguage = event?.target?.value;
+    if (selectedLanguage) {
+      this.lang = selectedLanguage;
+      localStorage.setItem('lang', selectedLanguage);
+      this.translationService.setLanguage(selectedLanguage);
+      window.location.reload();
+    }
   }
-
-
+  
 
   ngOnDestroy() {
     this.destroySubject.next(true);
     this.destroySubject.complete();
   }
 
-
-
-
-
   // ====
 
   openModal() {
     const modalRef = this.modalService.open(LoginComponent);
   }
-
-
-
 }

@@ -17,23 +17,28 @@ export class ProductsService {
     return this._HttpClient.get<IProductAPI>(`${this.apiProductURL}/${items},${page}`)
   }
 
-  GetAllProductsByCategory(CategoryId: number): Observable<IProductAPI> {
-    return this._HttpClient.get<IProductAPI>(`${this.apiProductURL}/FilterProduct/${CategoryId}`)
+  GetAllProductsByCategory(CategoryId: number,items: number, page: number): Observable<IProductAPI> {
+    return this._HttpClient.get<IProductAPI>(`${this.apiProductURL}/FilterProduct/${CategoryId}/${items},${page}`)
   }
 
   GetOneProductByID(ProductID: number): Observable<IOneProductAPI> {
     return this._HttpClient.get<IOneProductAPI>(`${this.apiProductURL}/${ProductID}`)
   }
 
-  GetProductsPriceAscending(ProductID: number): Observable<IProductAPI> {
-    return this._HttpClient.get<IProductAPI>(`${this.apiProductURL}/PriceAscending/${ProductID}`)
+  GetProductsPriceAscending(ProductID: number,items: number, page: number): Observable<IProductAPI> {
+    return this._HttpClient.get<IProductAPI>(`${this.apiProductURL}/PriceAscending/${ProductID}/${items},${page}`)
   }
 
-  GetProductsPriceDescending(ProductID: number): Observable<IProductAPI> {
-    return this._HttpClient.get<IProductAPI>(`${this.apiProductURL}/PriceDescending/${ProductID}`)
+  GetProductsPriceDescending(ProductID: number,items: number, page: number): Observable<IProductAPI> {
+    return this._HttpClient.get<IProductAPI>(`${this.apiProductURL}/PriceDescending/${ProductID}/${items},${page}`)
   }
 
-  GetProductsCustomerReview(ProductID: number): Observable<IProductAPI> {
-    return this._HttpClient.get<IProductAPI>(`${this.apiProductURL}/Reviews/${ProductID}`)
+  GetProductsCustomerReview(ProductID: number,items: number, page: number): Observable<IProductAPI> {
+    return this._HttpClient.get<IProductAPI>(`${this.apiProductURL}/Reviews/${ProductID}/${items},${page}`)
+  }
+
+  GatProductsByName(ProductName : string) : Observable<IOneProductAPI>
+  {
+    return this._HttpClient.get<IOneProductAPI>(`${this.apiProductURL}/${ProductName}`)
   }
 }

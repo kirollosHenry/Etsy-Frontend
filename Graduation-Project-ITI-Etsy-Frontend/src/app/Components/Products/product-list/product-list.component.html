@@ -3,7 +3,7 @@
     @if(ProductsList.length > 0)
     {
 
-    <div class="container ProductsListSection mb-5">
+    <div class="container ProductsListSection mb-5 mt-3">
         <div class="row pt-2 justify-content-center ">
 
 
@@ -14,31 +14,38 @@
                     <button class="btn btnOfFilter dropdown-toggle" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         <i class="fa-solid fa-sliders fa-sm" style="color: #000000;"></i>
-                        All Filters
+                        {{"ProductListComponent.All Filters" | translate}}
                     </button>
                     <ul class="dropdown-menu" id="">
-                        <li><a class="dropdown-item">Relevance</a></li>
-                        <li><a class="dropdown-item">Lowest Price</a></li>
-                        <li><a class="dropdown-item">Highest Price</a></li>
-                        <li><a class="dropdown-item">Top Customer Reviews</a></li>
-                        <li><a class="dropdown-item">Most Recent</a></li>
+                        <li><a class="dropdown-item"> {{"ProductListComponent.Relevance"|translate}}</a></li>
+                        <li><a class="dropdown-item"> {{"ProductListComponent.Lowest Price"|translate}}</a></li>
+                        <li><a class="dropdown-item"> {{"ProductListComponent.Highest Price"|translate}}</a></li>
+                        <li><a class="dropdown-item"> {{"ProductListComponent.Top Customer Reviews"|translate}}</a></li>
+                        <li><a class="dropdown-item"> {{"ProductListComponent.Most Recent"|translate}}</a></li>
                     </ul>
                 </div>
 
 
                 <div class="dropdown Sortdropdown d-flex">
-                    <small class="text-secondery me-2 mt-2" style="font-size: smaller; width: 150%;">( 14,048,963
-                        results)</small>
+                    <small class="text-secondery me-2 mt-2" style="font-size: smaller; width: 150%;">
+                        {{"ProductListComponent.results"|translate}}
+                    </small>
                     <button class="btn btnOfFilter dropdown-toggle" (click)="toggleDropdown()" type="button"
                         data-bs-toggle="dropdown">
-                        Sorted By :
+                        {{"ProductListComponent.Sorted By"|translate}}
                     </button>
                     <ul class="dropdown-menu" id="filter-dropdown-menu">
-                        <li><a class="dropdown-item" (click)="FilterProduct('Relevance')">Relevance</a></li>
-                        <li><a class="dropdown-item" (click)="FilterProduct('Lowest')">Lowest Price</a></li>
-                        <li><a class="dropdown-item" (click)="FilterProduct('Highest')">Highest Price</a></li>
-                        <li><a class="dropdown-item" (click)="FilterProduct('Reviews')">Top Customer Reviews</a></li>
-                        <li><a class="dropdown-item" (click)="FilterProduct('Recent')">Most Recent</a></li>
+                        <li><a class="dropdown-item"
+                                (click)="FilterProduct('Relevance')">{{"ProductListComponent.Relevance"|translate}}</a>
+                        </li>
+                        <li><a class="dropdown-item" (click)="FilterProduct('Lowest')">{{"ProductListComponent.Lowest
+                                Price"|translate}}</a></li>
+                        <li><a class="dropdown-item" (click)="FilterProduct('Highest')"> {{"ProductListComponent.Highest
+                                Price"|translate}}</a></li>
+                        <li><a class="dropdown-item" (click)="FilterProduct('Reviews')"> {{"ProductListComponent.Top
+                                Customer Reviews"|translate}}</a></li>
+                        <li><a class="dropdown-item" (click)="FilterProduct('Recent')"> {{"ProductListComponent.Most
+                                Recent"|translate}}</a></li>
                     </ul>
                 </div>
 
@@ -56,7 +63,14 @@
                                     alt="Card image cap" style="height: 14rem;">
                             </div>
                             <div class="">
-                                <h4 class="DescOfProduct mb-0">{{ProductItem.productDescriptionEN.slice(0,40) }}
+                                <h4 class="DescOfProduct mb-0">
+                                    @if (lang === 'en') {
+                                    <span> {{ProductItem.productNameEN.slice(0,20) }}</span>
+                                    }
+                                    @else if (lang === 'ar') {
+                                    <span> {{ProductItem.productNameAR.slice(0,50) }}</span>
+                                    }
+
                                     {{ProductItem.productDescriptionEN.length > 40 ? '...' : '' }}
                                 </h4>
                             </div>
@@ -68,13 +82,25 @@
                                 </p>
                             </div>
                             <div>
-                                <h4 class="CurrecyOfProduct mb-0">{{ProductItem.productPrice | currency:'EUR' }}</h4>
+                                <h4 class="CurrecyOfProduct mb-0">
+                                    {{ lang === 'ar' ? (ProductItem.productPrice | currency:'EGP':true:'1.2-2') :
+                                    (ProductItem.productPrice | currency:'EUR') }}
+
+                                </h4>
                             </div>
 
                             <div>
                                 <small class="text-secondary mb-0">
 
-                                    Ad by {{ProductItem.productPublisher}}
+                                    @if (lang === 'en') {
+                                    <span> Ad by
+                                        {{ 'ProductListComponent.productPublisher.' + ProductItem.productPublisher| translate }}
+                                    </span>
+                                    }
+                                    @else if (lang === 'ar') {
+                                        <span>   إعلان بواسطة {{"ProductListComponent.productPublisher."+ ProductItem.productPublisher|translate }} </span>
+                                    }
+
                                 </small>
 
                             </div>
@@ -93,8 +119,9 @@
                     <small class="txtPagination mt-2">There's so much more for you to discover</small>
                     <div class="d-flex align-items-center justify-content-start">
                         <div class="me-0 pagination-icons">
-                            <p-paginator class="pagination-item"  (onPageChange)="onPageChange($event)" [first]="pageIndex" [rows]="itemsPerPage"
-                                [totalRecords]="70" [showFirstLastIcon]="false" class="pagination-item">
+                            <p-paginator class="pagination-item" (onPageChange)="onPageChange($event)"
+                                [first]="pageIndex" [rows]="itemsPerPage" [totalRecords]="70"
+                                [showFirstLastIcon]="false" class="pagination-item">
                             </p-paginator>
                         </div>
                     </div>

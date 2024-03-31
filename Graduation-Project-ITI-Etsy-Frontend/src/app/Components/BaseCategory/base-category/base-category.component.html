@@ -1,90 +1,77 @@
 <div class="container BaseCategoryitemHome mb-5">
+    <h1 class="text-center textOfHeaderOfCat mb-3">
+        {{ "base-category.shop by Category" | translate }}
+    </h1>
 
-    <h1 class="text-center textOfHeaderOfCat mb-3"> {{'base-category.shop by Category' | translate}} </h1>
+    @if(extendedBaseCategoryItems.length > 0) {
+    <div class="container">
+        <div class="row justify-content-center">
+            @if(!showRemainProducts){ @for (BaseCategoryitem of
+            extendedBaseCategoryItems.slice(0,12); track $index ) {
+            <div class="col-md-2">
+                <div class="row">
+                    <ul class="list-unstyled BaseCatEffect pt-2">
+                        <li class="">
+                            <a routerLink="" class="text-decoration-none d-flex flex-column align-items-center">
+                                <div>
+                                    <img class="card-img-top imgOfCategory" [src]="BaseCategoryitem.baseCategoryImage"
+                                        alt="Base Category Card image" style="height: 14rem" />
+                                </div>
 
+                                <div class="text-center mt-2">
+                                    <p class="textOfBaseCategory">
+                                        @if (lang === 'en') {
+                                        <span> {{BaseCategoryitem.nameEN }}</span>
+                                        }
+                                        @else if (lang === 'ar') {
+                                        <span> {{BaseCategoryitem.nameAR }}</span>
+                                        }
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            }@empty {
+            <h1>No Products to View</h1>
+            } }@else { @for (BaseCategoryitem of
+            extendedBaseCategoryItems.slice(0,17); track $index ) {
+            <div class="col-md-2">
+                <div class="row">
+                    <ul class="list-unstyled BaseCatEffect pt-2">
+                        <li class="">
+                            <a routerLink="" class="text-decoration-none d-flex flex-column align-items-center">
+                                <div>
+                                    <img class="card-img-top imgOfCategory" [src]="BaseCategoryitem.baseCategoryImage"
+                                        alt="Base Category Card image" style="height: 14rem" />
+                                </div>
 
-    @if(extendedBaseCategoryItems.length > 0)
-    {
-    <div class="container ">
-        <div class="row  justify-content-center">
-
-            @if(!showRemainProducts){
-                @for (BaseCategoryitem of   extendedBaseCategoryItems.slice(0,12); track $index ) {
-                    <div class="col-md-2 " >
-                        <div class="row">
-        
-                            <ul class="list-unstyled BaseCatEffect pt-2">
-                                <li class="">
-        
-                                    <a routerLink="" class="text-decoration-none d-flex flex-column align-items-center">
-        
-                                        <div>
-                                            <img class="card-img-top imgOfCategory" [src]="BaseCategoryitem.baseCategoryImage"
-                                                alt="Base Category Card image" style="height: 14rem;">
-                                        </div>
-        
-                                        <div class="text-center mt-2 ">
-                                            <p class="textOfBaseCategory">{{BaseCategoryitem.nameEN}}</p>
-        
-                                        </div>
-        
-        
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-        
-                    </div>
-                    }@empty {
-                    <h1>No Products to View</h1>
-                    }
-        
-            }@else {
-                @for (BaseCategoryitem of   extendedBaseCategoryItems.slice(0,17); track $index ) {
-                    <div class="col-md-2 " >
-                        <div class="row">
-        
-                            <ul class="list-unstyled BaseCatEffect pt-2">
-                                <li class="">
-        
-                                    <a routerLink="" class="text-decoration-none d-flex flex-column align-items-center">
-        
-                                        <div>
-                                            <img class="card-img-top imgOfCategory" [src]="BaseCategoryitem.baseCategoryImage"
-                                                alt="Base Category Card image" style="height: 14rem;">
-                                        </div>
-        
-                                        <div class="text-center mt-2 ">
-                                            <p class="textOfBaseCategory">{{BaseCategoryitem.nameEN}}</p>
-        
-                                        </div>
-        
-        
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-        
-                    </div>
-                    }@empty {
-                    <h1>No Products to View</h1>
-                    }
-        
-            }
-          
-
+                                <div class="text-center mt-2">
+                                    <p class="textOfBaseCategory">
+                                        @if (lang === 'en') {
+                                        <span> {{BaseCategoryitem.nameEN }}</span>
+                                        }
+                                        @else if (lang === 'ar') {
+                                        <span> {{BaseCategoryitem.nameAR }}</span>
+                                        }
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            }@empty {
+            <h1>No Products to View</h1>
+            } }
         </div>
-
-        
     </div>
     }
 
-
-
     <div class="justify-content-center text-center mb-5">
-
         <button class="btn btnOfBaseCat" type="button" (click)="showMore()">
-            {{ showRemainProducts ? 'Show less' : 'Show more (5)' }}
+            {{ showRemainProducts ? "Show less" : "Show more (5)" }}
         </button>
     </div>
 </div>

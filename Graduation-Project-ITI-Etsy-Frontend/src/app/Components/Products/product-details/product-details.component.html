@@ -7,7 +7,7 @@
           <div id="myCarousel-2" class="carousel slide">
             <div class="carousel-inner">
               <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [showThumbnailNavigators]="false"
-                [showItemNavigators]="true" [numVisible]="5" thumbnailsPosition="left" [circular]="true" >
+                [showItemNavigators]="true" [numVisible]="5" thumbnailsPosition="left" [circular]="true">
                 <ng-template pTemplate="item" let-item>
                   <img [src]="ProductDetails.productImage" style="
                       width: 760px;
@@ -35,8 +35,12 @@
 
               <h2 class=" text-secondary d-flex">
                 <span class="fa fa-2x me-3">
-                  <h5>reviews</h5>
+
+
+                  <h5>{{"ProductDetailsComponent.review"|translate}}</h5>
                 </span>
+
+
                 <div style="width: 100%;">
                   <small style="font-size: small; " class="text-dark">
                     <app-star [rating]="ProductDetails.productRating"></app-star>
@@ -53,38 +57,68 @@
         </div>
       </div>
 
-      <div class="col-md-4 col-md-offset-1 col-sm-12 col-xs-12">
+      <div class="col-md-4  col-md-offset-1 col-sm-12 col-xs-12">
         <div class="d-flex">
-          <h2 class="name text-success">{{ProductDetails.productPrice | currency :'USD'}}</h2>
+          <h2 class="name text-success">
+
+            {{ lang === 'ar' ? (ProductDetails.productPrice | currency:'EGP':'symbol':'1.2-2') :
+            (ProductDetails.productPrice| currency:'EUR':'symbol':'1.2-2') }}
+
+          </h2>
           <small style="text-decoration: line-through" class="text-secondary mt-2 ms-1">
-            $ 14.90+
+            {{ lang === 'ar' ? ( 14.90 | currency:'EGP':'symbol':'1.2-2') : (14.90 | currency:'EUR':'symbol':'1.2-2') }}
           </small>
         </div>
 
         <div>
           <small class="text-secondary" style="font-size: small">
-            {{ProductDetails.productNameEN}}
+
+            @if (lang === 'en') {
+            <span>
+              {{ ProductDetails.productNameEN| translate }}
+            </span>
+            }
+            @else if (lang === 'ar') {
+            <span>
+              {{ ProductDetails.productNameAR| translate }}
+            </span>
+            }
+
           </small>
         </div>
 
-        <div>
-          <p class="mt-3" style="font-size: small">
-            {{ProductDetails.productDescriptionEN}}
-            {{ProductDetails.productDescriptionEN}}
-            {{ProductDetails.productDescriptionEN}}
-            {{ProductDetails.productDescriptionEN}}
-            {{ProductDetails.productDescriptionEN}}
+        <div class="my-3">
+          <p  style="font-size: small">
+
+            @if (lang === 'en') {
+              <span>
+                {{ ProductDetails.productDescriptionEN| translate }}
+                {{ ProductDetails.productDescriptionEN| translate }}
+                {{ ProductDetails.productDescriptionEN| translate }}
+                {{ ProductDetails.productDescriptionEN| translate }}
+              </span>
+              }
+              @else if (lang === 'ar') {
+              <span>
+                {{ ProductDetails.productDescriptionAR| translate }}
+                {{ ProductDetails.productDescriptionAR| translate }}
+                {{ ProductDetails.productDescriptionAR| translate }}
+                {{ ProductDetails.productDescriptionAR| translate }}
+                {{ ProductDetails.productDescriptionAR| translate }}
+              </span>
+              }
+
           </p>
-          <p>
-            <br>
-          </p>
+        
         </div>
 
+        <br>
         <!-- Name Of Shop !!!!!Not  Dynamic  -->
-        <div>
+        <div class="mt-3 ">
           <a>
             <h5 class="decoration-none ShopName">
-              {{ProductDetails.productPublisher}}
+
+              {{"ProductDetailsComponent.productPublisher." +ProductDetails.productPublisher |translate}}
 
             </h5>
           </a>
@@ -92,16 +126,15 @@
 
         <div>
           <small>
-            <i class="fa-solid fa-check " style="color: #416cda;"></i>
-            Returns & exchanges accepted
-
+            <i class="fa-solid fa-check " style="color: #416cda;"></i>        
+            {{"ProductDetailsComponent.Returns & exchanges accepted"|translate}}
           </small>
         </div>
 
         <div class=" mt-3">
           <div>
             <small class="d-flex align-items-center">
-              Style
+              {{"ProductDetailsComponent.Style"|translate}}
               <i class="fa-solid fa-star fa-2xs " style="color: #a61a2e;"></i>
 
             </small>
@@ -117,11 +150,11 @@
         </div>
 
         <div class="d-flex   mt-4">
-          <button class="btn btn-outline-dark btnBuying">Buy it now</button>
+          <button class="btn btn-outline-dark btnBuying">{{"ProductDetailsComponent.Buy it now"|translate}}</button>
         </div>
 
         <div class="d-flex mt-3 ">
-          <button class="btn btnCheckOut ">Add to Ccart</button>
+          <button class="btn btnCheckOut ">{{"ProductDetailsComponent.Add to Cart"|translate}}</button>
         </div>
 
 
@@ -129,7 +162,8 @@
           <div class="form-group form-check">
             <label for="exampleCheck1" class="cursorClass">
               <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-              Add gift package
+
+                {{"ProductDetailsComponent.Add gift package"|translate}}
             </label>
           </div>
         </div>
@@ -137,7 +171,7 @@
 
         <div class="d-flex mt-3">
           <i class="fa-solid fa-calendar-week me-2" style="color: #000000"></i>
-          <p>Order today to get by Mar 27-Apr 2</p>
+          <p>{{"ProductDetailsComponent.Order"|translate}}</p>
         </div>
 
 
@@ -147,8 +181,7 @@
         <div class="container mt-5 mb-5">
           <div class=" ">
             <div class="CardStleSucces p-3">
-              Etsy offsets carbon emissions from shipping and packaging on this
-              purchase
+              {{"ProductDetailsComponent.Etsy offsets"|translate}}
             </div>
           </div>
         </div>
@@ -160,14 +193,13 @@
             </div>
             <div class="col-10">
               <p style="font-size: small;">
-                Etsy Purchase Protection: Shop confidently on Etsy knowing if something goes wrong with an order, we've
-                got your back for all eligible purchases
+                {{"ProductDetailsComponent.Etsy Purchase Protections"|translate}}
               </p>
             </div>
 
 
             <div class="custom-dropdown mt-3">
-              <button class="dropdown-toggle" (click)="toggleDropdown()">Item Details </button>
+              <button class="dropdown-toggle" (click)="toggleDropdown()">{{"ProductDetailsComponent.Item Details"|translate}}</button>
               <div class="dropdown-content" id="dropdownContent">
                 <a href="#">Option 1</a>
                 <a href="#">Option 2</a>
@@ -177,7 +209,7 @@
 
 
             <div class="custom-dropdown mt-3">
-              <button class="dropdown-toggle" (click)="toggleDropdown()">Shipping and return policies </button>
+              <button class="dropdown-toggle" (click)="toggleDropdown()">{{"ProductDetailsComponent.Shipping and return policies"|translate}} </button>
               <div class="dropdown-content" id="dropdownContent">
                 <a href="#">Option 1</a>
                 <a href="#">Option 2</a>
@@ -189,7 +221,7 @@
 
             <div class="custom-dropdown mt-3">
               <button class="dropdown-toggle" (click)="toggleDropdown()">
-                Meet your seller
+                {{"ProductDetailsComponent.Meet your seller"|translate}}
               </button>
               <div class="dropdown-content" id="dropdownContent">
                 <a href="#">Option 1</a>

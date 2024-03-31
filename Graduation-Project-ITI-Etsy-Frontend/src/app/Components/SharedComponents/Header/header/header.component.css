@@ -53,7 +53,7 @@
 
 /* Search For Not log in */
 .SearchSection {
-  width: 90%;
+  width: 110%;
   border-radius: 30px;
   margin-left: 10px;
 }
@@ -61,7 +61,7 @@
 /* For logedin */
 .SearchSectionForLogin {
 
-  width: 85%;
+  width: 100%;
   border-radius: 30px;
   margin-left: 10px;
 }
@@ -85,9 +85,9 @@
   opacity: 0.7;
 }
 
-.ulOfSign {
-  transform: translate(-35%, 0);
-}
+/* .ulOfSign {
+  transform: translate(-20%, 0);
+} */
 
 .IconHeader {
   background-color: white;
@@ -105,7 +105,7 @@
 }
 
 .IconHeaderLogedIn {
-  background-color: white;
+  background-color: white !important;
   padding:10px 10px 0 10px;
 
   border-radius: 50%;
@@ -114,38 +114,67 @@
 }
 
 .IconHeaderLogedIn:hover {
-  background-color: rgba(81, 190, 233, 0.54);
+  background-color: rgba(81, 190, 233, 0.54) !important;
 
   color: rgb(5, 5, 116);
 }
 .IconHeaderBell {
-  background-color: white;
+  background-color: white !important;
   border-radius: 50px;
   transition: all 0.3s ease;
   cursor: pointer;
 }
 .IconHeaderBell:hover {
-  background-color: rgba(81, 190, 233, 0.54);
+  background-color: rgba(81, 190, 233, 0.54) !important;
 
   color: rgb(5, 5, 116);
 }
 
-@media (max-width: 768px) {
-  /* .SearchSection {
-    max-width: 80%;
-  } */
 
-  .btnSearch {
-    height: 33px;
-    font-size: x-small;
-    transform: translate(-130%, 0);
-  }
+
+
+.IconProfileLogedIN{
+  background-color: white !important;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-/*  */
+.IconProfileLogedIN:hover {
+  background-color: rgba(81, 190, 233, 0.54) !important;
+
+  color: rgb(5, 5, 116);
+}
+
+
 .btn-secondary.custom-hover {
   /* Custom hover effect */
   /* Adjust the styles as per your requirement */
   background-color: #f1641e; /* Example background color */
   color: white; /* Example text color */
+}
+
+
+/* responsive */
+
+
+
+
+@media (max-width: 580px) {
+ 
+}
+
+@media (max-width: 800px) {
+  .btnSearch {
+    height: 33px;
+    font-size: x-small;
+    transform: translate(-130%, 0);
+  }
+  /* .ulOfSign {
+    transform: translate(0, 0);
+  } */
+}
+
+@media (max-width: 1000px) {
+ 
 }

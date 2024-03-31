@@ -1,10 +1,14 @@
 {
     "header":{
+        "Category":"الفئات",
         "home Deals":"عروض المنزل",
         "home Favorites": "المفضلة الرئيسية",
         "fashion Finds": "اكتشافات الموضة",
         "gift Guids": "أدلة الهدايا",
-        "registry": "التسجيل"
+        "registry": "التسجيل",
+        "searchPlaceHolder":"البحث عن أى شئ" ,
+        "Sign in":"تسجيل الدخول"
+
     },
     "home-footer-addition":{
         "what is Etsy?":"ما هو إيتسي؟",
@@ -23,11 +27,11 @@
         "have a question? Well, we’ve got some answers.":"هل لديك سؤال؟ حسنًا، لدينا بعض الإجابات.",
         "go to Help Center":"اذهب إلى مركز المساعدة"
     },
+
     "home-footer-addition-not-log-in":{
         "Yes! Send me exclusive offers, unique gift ideas, and personalized tips for shopping and selling on Etsy."
         :"نعم! أرسل لي عروضًا حصرية وأفكار هدايا فريدة ونصائح مخصصة للتسوق والبيع على اتسى ."
     },
-
 
     "footer":{
         "etsy is powered by 100% renewable electricity.":"يتم تشغيل اتسى بواسطة الكهرباء المتجددة بنسبة 100%.",
@@ -55,7 +59,6 @@
 
     },
 
-
     "home-products":{
         "shop on-sale decor and so much more!":"!تسوق للبيع الديكور وأكثر من ذلك بكثير"
     },
@@ -65,5 +68,180 @@
 
     "home-section2-base-category":{
         "shop our popular gift categories":"تسوق فئات الهدايا الشعبية لدينا"
+    },
+
+    "AllcategoriesComponent":{
+        "DescriptionCategory":"أعمال فنية مخصصة وصور شخصية ولوحات ومطبوعات أصلية تمامًا لتحويل منزلك إلى معرض",
+        "categoryTitles": {
+            "Accessories": "إكسسوارات",
+            "Art & Collectibles": "الفن والمقتنيات",
+            "Baby": "الطفل"
+        
+        }  ,
+        
+        "items in your cart":"العناصر الموجودة في سلة التسوق الخاصة بك",
+        "Buy confidently":"اشتري بثقة",
+        "with Etsy" : "مع برنامج حماية المشتريات من ايتسى للمشترين، احصل على استرداد كامل المبلغ في حالة نادرة لم يصل العنصر الخاص بك، أو وصل تالفًا، أو لم يكن كما هو موصوف.",
+
+        "See eligibility":"انظر الأهلية"
+
+    },
+
+    "ProductListComponent":{
+        "All Filters":"جميع المرشحات",
+
+        "Relevance":"الملاءمة",
+        "Lowest Price":"أدنى سعر",
+        "Highest Price":"أعلى سعر",
+        "Top Customer Reviews":"أهم تقييمات العملاء",
+        "Most Recent":"الأحدث",
+
+
+        "results":"( 14,048,963 النتائج)",
+
+        "Sorted By":"مرتبة حسب",
+
+        "productPublisher":{
+            "Matthew Garcia":"ماثيو جارسيا",
+            "Irina Dimitrova":"إيرينا ديميتروفا",
+            "Vanz Michael Ferrer":"فانز مايكل فيرير",
+            "Gail Edwards":"غيل إدواردز",
+            "max":"ماكس",
+            "That Lotus":"تلك اللوتس",
+            "Sweet Message":"رسالة حلوة",
+            "LB Diamond Store":"ال بى ألماس",
+            "HappyPlushToyShop":"جرعة سعادة",
+            "Eddie":"إيدي",
+            "Stephanie Reeds":"ستيفاني ريدز",
+            "Tf X":"تى اف اكس",
+            "Linda van Zweden":"ليندا فان زويدن",
+            "Rolandas":"رولانداس",
+            "Cheyenne Compton":"شايان كومبتون",
+            "Brahk":"براك",
+            "LushKeepsake":"لوشكيبساك",
+            "laura":"لورا",
+            "Anomaly":"انومالى",
+            "Suzannah Joy":"سوزانا جوي",
+            "GG":"جى جى",
+            "Jianping Fan":"Jianping Fan",
+            "Hedi":"هيدي",
+            "Grant and Krysta Hertzog":"جرانت وكريستا هيرتزوج",
+            "Anne":"انى",
+            "Najwa Izzati":"نجوى عزتي",
+            "Abhishek Gupta":"أبهيشيك غوبتا",
+            "Olivia":"أوليفيا",
+            "Lucia ERTLOVA-STEPANKOVA":"لوسيا إرتلوفا-ستيبانكوفا",
+            "Jay La":"جاي لا",
+            "timothy moffitt":"تيموثي موفيت",
+            "Virág Tóth":"فيراج توث",
+            "MYKHAILO":"ميخايلو",
+            "Caroline Cromer":"كارولين كرومر",
+            "Chu":"تشو",
+            "Megan Mya":"ميغان ميا",
+            "Krista Kim":"كريستا كيم",
+            "Kevin":"كيفن",
+            "Becci Weightman":"بيكي ويتمان",
+            "April":"ابريل",
+            "zulu":"زولو",
+            "Stephie Wan":"ستيفي وان",
+            "Svetla Koleva":"سفيتلا كوليفا",
+            "Betsey English":"بيتسي الإنجليزية",
+            "Claire Garland":"كلير جارلاند",
+            "Christine":"كريستين",
+            "Halyna Korchomna":"هالينا كورشومن",
+            "Adri":"أدري",
+            "Rael Yaniv":"رائيل يانيف",
+            "Nina": "نينا"
+
+        }
+
+
+    },
+
+
+    "ProductDetailsComponent":{
+        "review":"مراجعات" ,   
+        
+        
+        "productPublisher":{
+            "Matthew Garcia":"ماثيو جارسيا",
+            "Irina Dimitrova":"إيرينا ديميتروفا",
+            "Vanz Michael Ferrer":"فانز مايكل فيرير",
+            "Gail Edwards":"غيل إدواردز",
+            "max":"ماكس",
+            "That Lotus":"تلك اللوتس",
+            "Sweet Message":"رسالة حلوة",
+            "LB Diamond Store":"ال بى ألماس",
+            "HappyPlushToyShop":"جرعة سعادة",
+            "Eddie":"إيدي",
+            "Stephanie Reeds":"ستيفاني ريدز",
+            "Tf X":"تى اف اكس",
+            "Linda van Zweden":"ليندا فان زويدن",
+            "Rolandas":"رولانداس",
+            "Cheyenne Compton":"شايان كومبتون",
+            "Brahk":"براك",
+            "LushKeepsake":"لوشكيبساك",
+            "laura":"لورا",
+            "Anomaly":"انومالى",
+            "Suzannah Joy":"سوزانا جوي",
+            "GG":"جى جى",
+            "Jianping Fan":"Jianping Fan",
+            "Hedi":"هيدي",
+            "Grant and Krysta Hertzog":"جرانت وكريستا هيرتزوج",
+            "Anne":"انى",
+            "Najwa Izzati":"نجوى عزتي",
+            "Abhishek Gupta":"أبهيشيك غوبتا",
+            "Olivia":"أوليفيا",
+            "Lucia ERTLOVA-STEPANKOVA":"لوسيا إرتلوفا-ستيبانكوفا",
+            "Jay La":"جاي لا",
+            "timothy moffitt":"تيموثي موفيت",
+            "Virág Tóth":"فيراج توث",
+            "MYKHAILO":"ميخايلو",
+            "Caroline Cromer":"كارولين كرومر",
+            "Chu":"تشو",
+            "Megan Mya":"ميغان ميا",
+            "Krista Kim":"كريستا كيم",
+            "Kevin":"كيفن",
+            "Becci Weightman":"بيكي ويتمان",
+            "April":"ابريل",
+            "zulu":"زولو",
+            "Stephie Wan":"ستيفي وان",
+            "Svetla Koleva":"سفيتلا كوليفا",
+            "Betsey English":"بيتسي الإنجليزية",
+            "Claire Garland":"كلير جارلاند",
+            "Christine":"كريستين",
+            "Halyna Korchomna":"هالينا كورشومن",
+            "Adri":"أدري",
+            "Rael Yaniv":"رائيل يانيف",
+            "Nina": "نينا"
+
+        },
+
+        "Returns & exchanges accepted":"مقبول الإرجاع والاستبدال",
+
+
+        "Style":"النمط",
+
+        "Buy it now":"اشتريه الآن",
+
+        "Add to Cart":"أضف إلى العربة",
+
+        "Add gift package":"إضافة كهدية",
+
+        "Order":"اطلب اليوم للحصول بحلول 27 مارس - 2 أبريل",
+
+        "Etsy offsets": "تقوم ايتسى بتعويض انبعاثات الكربون الناتجة عن الشحن والتعبئة عند عملية الشراء هذه.",
+
+        "Etsy Purchase Protections":" حماية مشتريات ايتسي: تسوق بثقة على ايتسى مع العلم أنه إذا حدث خطأ ما في الطلب، فإننا ندعمك لجميع المشتريات المؤهلة",
+        
+        "Item Details":"تفاصيل العنصر",
+
+        "Shipping and return policies":"سياسات الشحن والإرجاع",
+
+        "Meet your seller":"تعرف على البائع الخاص بك"
+ 
+
     }
+
+
 }

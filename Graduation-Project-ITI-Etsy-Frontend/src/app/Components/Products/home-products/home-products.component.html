@@ -1,15 +1,16 @@
-<div  [ngClass]="{'WelcomeSection': isLoggedIn}" class="p-3 mb-0 mt-0">
+<div [ngClass]="{'WelcomeSection': isLoggedIn}" class="p-3 mb-0 mt-0">
 
-    <div class="container-fluid  " >
+    <div class="container-fluid  ">
 
         @if(isLoggedIn){
         <!-- User Name !! -->
         <h1 class="txtHeaderWelcoming text-center"> Welcome to Etsy, Nada </h1>
         }@else {
-        <h1 class="txtHeaderWelcoming text-center"> {{'home-products.shop on-sale decor and so much more!' | translate }} </h1>
+        <h1 class="txtHeaderWelcoming text-center"> {{'home-products.shop on-sale decor and so much more!' | translate
+            }} </h1>
         }
     </div>
-    
+
 </div>
 
 
@@ -19,36 +20,43 @@
 } -->
 @if(ProductsList.length > 0)
 {
-    <div  [ngClass]="{'SectionHome': isLoggedIn}">
-        <div class="container ProductsSectionHome mb-5">
-            <div class="row pt-2 justify-content-center ">
-                @for (ProductItem of ProductsList.slice(15, 20); track $index ) {
-                <div class="col-md-2 product-item">
-                    <ul class="list-unstyled">
-                        <li class="ProductEffect">
+<div [ngClass]="{'SectionHome': isLoggedIn}">
+    <div class="container ProductsSectionHome mb-5">
+        <div class="row pt-2 justify-content-center ">
+            @for (ProductItem of ProductsList.slice(15, 20); track $index ) {
+            <div class="col-md-2 product-item">
+                <ul class="list-unstyled">
+                    <li class="ProductEffect">
 
 
-                            <!-- Routing to the product details NOT FINISHED !! -->
-                            <a  class="d-flex flex-column align-items-center text-decoration-none">
-                                <div>
-                                    <img class=" img-fluid imgOfCard mb-3" [src]="ProductItem.productImage"
-                                        alt="Card image cap">
-                                </div>
-                                <div class="text-center">
-                                    <h4 class="textOfProduct">{{ProductItem.productNameEN.slice(0,20) }}</h4>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                }
-                @empty {
-                <div class="col-md-2 text-center">
-                    <h1>No Products to View</h1>
-                </div>
-                }
+                        <!-- Routing to the product details NOT FINISHED !! -->
+                        <a class="d-flex flex-column align-items-center text-decoration-none" style="cursor: pointer;;">
+                            <div>
+                                <img class=" img-fluid imgOfCard mb-3" [src]="ProductItem.productImage"
+                                    alt="Card image cap">
+                            </div>
+                            <div class="text-center">
+                                <h4 class="textOfProduct">
+                                    @if (lang === 'en') {
+                                    <span> {{ProductItem.productNameEN.slice(0,20) }}</span>
+                                    }
+                                    @else if (lang === 'ar') {
+                                    <span> {{ProductItem.productNameAR.slice(0,18) }}</span>
+                                    }
+                                </h4>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
             </div>
+            }
+            @empty {
+            <div class="col-md-2 text-center">
+                <h1>No Products to View</h1>
+            </div>
+            }
         </div>
     </div>
+</div>
 
 }
