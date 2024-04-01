@@ -1,0 +1,97 @@
+<div class="container">
+
+    @if(BaseCategoryObj != null)
+    {
+        <div class="container ">
+            <div class="row  justify-content-center">
+                        <div class="col-md-2 " >
+                            <div class="row">
+                                <ul class="list-unstyled BaseCatEffect pt-2">
+                                    <li class="">
+            
+                                        <a routerLink="" class="text-decoration-none d-flex flex-column align-items-center">
+            
+                                            <div>
+                                                <img class="card-img-top imgOfCategory" [src]="BaseCategoryObj.baseCategoryImage"
+                                                    alt="Base Category Card image" style="height: 14rem;">
+                                            </div>
+            
+                                            <div class="text-center mt-2 ">
+                                                <p class="textOfBaseCategory">{{BaseCategoryObj.nameEN}}</p>
+            
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    }
+
+    @if(CategoryObj != null)
+    {
+    <div class="container ">
+        <div class="row  justify-content-center">
+            <div class="col-md-2 ">
+                <div class="row">
+                    <ul class="list-unstyled BaseCatEffect pt-2">
+                        <li class="">
+                            <!-- routerLink]="['Products',CategoryObj.id]" -->
+                            <a class="text-decoration-none d-flex flex-column align-items-center">
+                                <div>
+                                    <img class="card-img-top imgOfCategory" [src]="CategoryObj.categoryImage"
+                                        alt="Base Category Card image" style="height: 14rem;">
+                                </div>
+                                <div class="text-center mt-2 ">
+                                    <p class="textOfBaseCategory">{{CategoryObj.nameEN}}</p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+
+    @if (ProductObj!=null) {
+    <div class="col-lg-3 col-md-4 col-sm-6 col-12 product-item mb-2">
+        <ul class="list-unstyled">
+            <li class="ProductEffect ">
+                <!-- [routerLink]="['ProductDetails',ProductObj.productId]" -->
+                <a class="d-flex flex-column text-decoration-none">
+
+                    <div>
+                        <img class="col-3 img-fluid imgOfProduct mb-1 mb-0" [src]="ProductObj.productImage"
+                            alt="Card image cap" style="height: 14rem;">
+                    </div>
+                    <div class="">
+                        <h4 class="DescOfProduct mb-0">{{ProductObj.productDescriptionEN.slice(0,40) }}
+                            {{ProductObj.productDescriptionEN.length > 40 ? '...' : '' }}
+                        </h4>
+                    </div>
+
+                    <div>
+                        <p class="StarOfProduct d-flex mb-0">
+                            <app-star [rating]="ProductObj.productRating"></app-star>
+                            <small class="text-secondary  ms-1">({{ProductObj.productRating}})</small>
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="CurrecyOfProduct mb-0">{{ProductObj.productPrice | currency:'EUR' }}</h4>
+                    </div>
+
+                    <div>
+                        <small class="text-secondary mb-0">
+
+                            Ad by {{ProductObj.productPublisher}}
+                        </small>
+
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+    }
+</div>
