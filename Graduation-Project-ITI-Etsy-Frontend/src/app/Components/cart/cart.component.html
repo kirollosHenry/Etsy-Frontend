@@ -3,7 +3,7 @@
     <div class="ibox container mt-2">
         <div class="container mt-2 mb-5">
             <div class="ibox-title">
-            <h4> <span><strong>1</strong> {{"AllcategoriesComponent.items in your cart"|translate}} </span> </h4>
+            <h4> <span><strong>{{NumberOfCarts}}</strong> {{"AllcategoriesComponent.items in your cart"|translate}} </span> </h4>
         </div>
             <div class="card headerCard">
                 <div class="card-body ">
@@ -22,7 +22,9 @@
         <div class="row">
             <div class="col-lg-8">
 
-                <!-- Details  l-->
+
+                @for (item of CartsList; track $index) {
+                    <!-- Details  l-->
                 <div class="card mb-4" >
                     <div class="card-body " style=" border: .5px solid #E2E2E2; border-radius: 3%;" >
 
@@ -31,15 +33,14 @@
                                 <tr>
                                     <td>
                                         <div class="col d-flex mb-2 test">
-
                                             <div class="col-md-3 ">
-                                                <img src="https://images.unsplash.com/photo-1575936123452-b67c3203c357?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1hZ2V8ZW58MHx8MHx8fDA%3D"
+                                                <img [src]="item.productImage"
                                                     class="img-fluid CardImage card-img-top" alt="Card image cap">
                                             </div>
                                             <div class="col-md-9  ms-3 card-body">
                                                 <h6 class="small mb-0">
                                                     <a href="#" class="text-reset card-title">
-                                                        Smartwatch IP68 Waterproof GPS
+                                                        {{item.productNameEN}}
                                                     </a>
                                                 </h6>
 
@@ -70,7 +71,7 @@
                                     <td></td>
                                     <td class="text-end ">
                                         <h6><a href="" style="color: black; font-weight: 300;">Contact shop</a></h6>
-                                        <h5>USD 2.32</h5>
+                                        <h5>USD {{item.productPrice}}</h5>
                                     </td>
                                 </tr>
 
@@ -113,7 +114,7 @@
 
                     </div>
                 </div>
-
+                }
 
             </div>
             <!-- Shipping information -->
