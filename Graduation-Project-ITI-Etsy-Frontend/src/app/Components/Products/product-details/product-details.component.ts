@@ -176,15 +176,14 @@ export class ProductDetailsComponent implements OnInit {
   list: number[] = this.getNumbersArray(this.Stock);
 
   NavigateToCart(productId: number) {
-    const customerId = "8233ab40-de84-4eb6-b478-a7f47c5e73c5";
 
     const queryParams = {
       productId: productId,
-      customerId: customerId,
       quantity: this.selectedQuantity,
     };
   
     this.router.navigate(['/Cart'], { queryParams: queryParams });
+
   }
   
   

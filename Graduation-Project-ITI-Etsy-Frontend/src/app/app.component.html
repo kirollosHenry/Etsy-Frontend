@@ -1,8 +1,14 @@
+<div [dir]="lang === 'ar' ? 'rtl' : 'ltr'">
+
 <!-- @if(!isLoginPage()){ -->
-<app-header></app-header>
+    <app-header></app-header>
 <!-- } -->
 
 <router-outlet></router-outlet>
+
+
 <!-- @if(!isLoginPage()){ -->
 <app-footer></app-footer>
 <!-- } -->
+
+</div>

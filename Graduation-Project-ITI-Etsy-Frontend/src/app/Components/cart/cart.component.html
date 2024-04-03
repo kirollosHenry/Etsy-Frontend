@@ -1,199 +1,227 @@
 <div class="container-fluid mb-5">
-
-    <div class="ibox container mt-2">
-        <div class="container mt-2 mb-5">
-            <div class="ibox-title">
-            <h4> <span><strong>{{NumberOfCarts}}</strong> {{"AllcategoriesComponent.items in your cart"|translate}} </span> </h4>
+  <div class="ibox container mt-2">
+    <div class="container mt-2 mb-5">
+      <div class="ibox-title">
+        <h4>
+          <span><strong>{{ NumberOfCarts }}</strong>
+            {{ "AllcategoriesComponent.items in your cart" | translate }}
+          </span>
+        </h4>
+      </div>
+      <div class="card headerCard">
+        <div class="card-body">
+          <i class="fa-solid fa-handshake fa-2xl me-2" style="color: #164198"></i>
+          <span style="font-size: 14px">
+            <span style="font-weight: bold">
+            {{ "AllcategoriesComponent.Buy confidently" | translate }}</span>
+            {{ "AllcategoriesComponent.with Etsy" | translate }}
+            <a href="" style="color: black; text-decoration: underline">
+              {{ "AllcategoriesComponent.See eligibility" | translate }}
+            </a></span>
         </div>
-            <div class="card headerCard">
-                <div class="card-body ">
-                    <i class="fa-solid fa-handshake fa-2xl me-2" style="color: #164198;"></i>
-                    <span  style="font-size: 14px;"> <span style="font-weight: bold;">{{"AllcategoriesComponent.Buy confidently"|translate}}</span> 
-                    {{"AllcategoriesComponent.with Etsy"|translate}} <a href="" style="color: black; text-decoration: underline;">
-                         
-                        {{"AllcategoriesComponent.See eligibility"|translate}}
-                        </a></span>
-                   
-                </div>
-            </div>
-        </div>
-
-        <!-- Main content -->
-        <div class="row">
-            <div class="col-lg-8">
-
-
-                @for (item of CartsList; track $index) {
-                    <!-- Details  l-->
-                <div class="card mb-4" >
-                    <div class="card-body " style=" border: .5px solid #E2E2E2; border-radius: 3%;" >
-
-                        <table class="table shoping-cart-table ">
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="col d-flex mb-2 test">
-                                            <div class="col-md-3 ">
-                                                <img [src]="item.productImage"
-                                                    class="img-fluid CardImage card-img-top" alt="Card image cap">
-                                            </div>
-                                            <div class="col-md-9  ms-3 card-body">
-                                                <h6 class="small mb-0">
-                                                    <a href="#" class="text-reset card-title">
-                                                        {{item.productNameEN}}
-                                                    </a>
-                                                </h6>
-
-                                                <!-- <p class="small mt-3 text-secondary card-title"><i class="fa-solid fa-download me-1" style="color: #164198;"></i>Instant Download</p>
-                                                <p class="small text-secondary card-title">1 JPG, 1 PDF, 1 PNG included</p> -->
-                                                 <p class="small  text-secondary card-title mt-2">Size: 0-3 months UK kids'</p>
-
-                                                <div class="d-flex">
-                                                    <select class="form-select selectD"
-                                                        aria-label="Default select example" >
-                                                        @for(item of getNumbersArray(quantity); track item; ) {
-                                                            <option [value]="item">{{item}}</option>
-                                                            }
-                                                    </select>
-
-                                                    <button class="ms-1"style="background-color: white; border: none; "><i class="fa-solid fa-edit me-1" style="color: black;"></i><span style="text-decoration: underline;">Edit</span></button>
-                                                </div>
-
-                                                <div class="m-t-sm mt-2">
-                                                    <button class="roundedBG me-2">Save for later</button>
-                                                    <button class="roundedBG">Remove</button>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </td>
-                                    <td></td>
-                                    <td class="text-end ">
-                                        <h6><a href="" style="color: black; font-weight: 300;">Contact shop</a></h6>
-                                        <h5>USD {{item.productPrice}}</h5>
-                                    </td>
-                                </tr>
-
-
-                            </tbody>
-                            <tfoot>
-
-                                <tr class="">
-                                    <td colspan="2">  <button class="roundedBG " style="font-weight: 300; font-size: 12px;"> <i class="fa-solid fa-archive me-2"
-                                       ></i>Apply shop coupon code</button></td>
-                                    <td class=" text-end" style="font-weight: 300; font-size: 12px;">Shipping: <span style="color: green;">FREE</span></td>
-                                </tr>
-
-                               
-                                <tr>
-                                    <td colspan="2"><button class="roundedBG "> <i class="fa-solid fa-plus me-1" style="color: black;"></i>Add a note to ScollianHouse</button></td>
-                                    <td class="text-end " style="font-size:x-small;">Estimated delivery: <span style="border-bottom:1px dashed ;">May 1-13</span> 
-                                        <div>from Turkey</div></td>
-                                </tr>
-
-                                <tr class="">
-                                    <td colspan="2">
-                                        <div class="m-t-sm" >
-                                            <div class="form-group form-check">
-                                                <label for="exampleCheck1" class="cursorClass" style="font-weight: 600; font-size: 12px;">
-                                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                                    <i class="fa fa-gift"></i>
-                                                    Add gift package
-                                                </label>
-                                                <div style="font-weight: 300; font-size: 12px;">Let them know it’s headed their way with a gift teaser you can send instantly.</div>
-                                            </div>
-                                    
-                                        </div>
-                                        </td>
-                                  
-                                </tr>
-
-                            </tfoot>
-                        </table>
-
-                    </div>
-                </div>
-                }
-
-            </div>
-            <!-- Shipping information -->
-
-            <div class="col-lg-4">
-                <div class="cart-payment-section ">
-                    <div class="wt-mt-xs-1">
-                        <h6 class="wt-text-title-01 ">How you'll pay</h6>
-
-                        <div class="card ">
-
-                            <table class="table shoping-cart-table ">
-                                <tbody>
-
-                                    <tr>
-
-                                        <td  colspan="2">
-                                            <div class="form-check mb-2">
-                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" disabled>
-                                                <label class="form-check-label  ms-2" for="exampleRadios2">
-                                                    <i class="fa-brands fa-cc-visa fa-2xl" style="color: #085996;"></i>
-                                                    <i class="fa-brands fa-apple-pay fa-2xl ms-2" style="color: #085996;"></i>
-                                                </label>
-                                               </div>
-                                            <div class="form-check mb-2" >
-                                                <input class="form-check-input dark"  type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-                                                <label class="form-check-label ms-2" for="exampleRadios1">
-                                                    <i class="fa-brands fa-cc-paypal fa-2xl" style="color: #085996;"></i>   
-                                                </label>
-                                              </div>
-                                              
-                                              <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
-                                                <label class="form-check-label  ms-2" for="exampleRadios3">
-                                                    <i class="fa-brands fa-google-pay fa-2xl" style="color: #085996;"></i>
-                                                </label>
-                                              </div>
-                                        </td>
-                                       
-                                          
-                                    </tr>
-
-                                    <tr >
-                                        <td><h6>Item(s) total</h6></td>
-                                        <td class="text-end">USD 2.32</td>
-                                    </tr>
-
-                                    <tr class="">
-                                        <td colspan="2"> <h6>Total (1 item) </h6>
-                                     <span>VAT included</span> </td>
-                                    </tr>
-
-
-                                </tbody>
-                                <tfoot style="width: 100%;">
-                                    <td colspan="2">
-                                        <button class="btn btnCheckOut justify-content-center">Processed to checkout</button>
-                                    </td>
-                                    
-                                </tfoot>
-                               
-                            </table>
-
-
-
-                        </div>
-                    <div>
-                        <button class="roundedBG mt-3 mb-3" style="font-weight: 300; font-size: 15px;"> <i class="fa-solid fa-archive me-2"
-                                style="color: #164198;"></i>Apply Etsy coupon code</button>
-                                <div class="text-center">     <div> Local taxes included (where applicable)</div>
-                                  <div> * Additional duties and taxes may apply</div> </div>
-                           
-                    
-                    </div>
-                    </div>
-                   
-                </div> 
-            </div>
-
-        </div><div class="container justify-content-center text-center pt-5"><i class="fa-solid fa-tree me-2"></i>Etsy offsets carbon emissions from every delivery</div>
+      </div>
     </div>
+
+    <!-- Main content -->
+    <div class="row">
+      <div class="col-lg-8">
+        @for (item of CartsList; track $index) {
+        <!-- Details  l-->
+        <div class="card mb-4">
+          <div class="card-body" style="border: 0.5px solid #e2e2e2; border-radius: 3%">
+            <table class="table shoping-cart-table">
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="col d-flex mb-2 test">
+                      <div class="col-md-3">
+                        <img [src]="item.productImage" class="img-fluid CardImage card-img-top" alt="Card image cap" />
+                      </div>
+                      <div class="col-md-9 ms-3 card-body">
+                        <h6 class="small mb-0">
+                          <a href="#" class="text-reset card-title">
+                            @if (lang === 'en') {
+                            <span>
+                              {{ item.productNameEN | translate }}
+                            </span>
+                            } @else if (lang === 'ar') {
+                            <span>
+                              {{ item.productNameAR | translate }}
+                            </span>
+                            }
+                          </a>
+                        </h6>
+
+                        <!-- <p class="small mt-3 text-secondary card-title"><i class="fa-solid fa-download me-1" style="color: #164198;"></i>Instant Download</p>
+                                                <p class="small text-secondary card-title">1 JPG, 1 PDF, 1 PNG included</p> -->
+                        <p class="small text-secondary card-title mt-2">
+                          {{"CartComponent.size"|translate}} </p>
+
+                        <div class="d-flex">
+                          <select class="form-select selectD" aria-label="Default select example">
+                            @for(item of getNumbersArray(item.productStock);
+                            track item; ) {
+                            <option [value]="item">{{ item }}</option>
+                            }
+                          </select>
+
+                          <button class="ms-1" style="background-color: white; border: none">
+                            <i class="fa-solid fa-edit me-1" style="color: black"></i><span
+                              style="text-decoration: underline">{{"CartComponent.Edit"|translate}}</span>
+                          </button>
+                        </div>
+
+                        <div class="m-t-sm mt-2">
+                          <button class="roundedBG me-2">{{"CartComponent.Save for later"|translate}}</button>
+                          <button class="roundedBG">{{"CartComponent.Remove"|translate}}</button>
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                  <td></td>
+                  <td class="text-end">
+                    <h6>
+                      <a href="" style="color: black; font-weight: 300">{{"CartComponent.Contact shop"|translate}}</a>
+                    </h6>
+                    <h5>
+                      {{ lang === 'ar' ? ( item.productPrice| currency:'EGP':'symbol':'1.2-2') : (item.productPrice |
+                      currency:'EUR':'symbol':'1.2-2') }}
+                    </h5>
+                  </td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr class="">
+                  <td colspan="2">
+                    <button class="roundedBG" style="font-weight: 300; font-size: 12px">
+                      <i class="fa-solid fa-archive me-2"></i>
+                      {{ "CartComponent.Apply shop coupon code"|translate}} 
+                    
+                    </button>
+                  </td>
+                  <td class="text-end" style="font-weight: 300; font-size: 12px">
+                    {{"CartComponent.Shipping:"|translate}} <span style="color: green">
+                      {{"CartComponent.FREE"| translate}}</span>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td colspan="2">
+                    <button class="roundedBG">
+                      <i class="fa-solid fa-plus me-1" style="color: black"></i>
+                      {{"CartComponent.Add a note to ScollianHouse"|translate}}
+                    </button>
+                  </td>
+
+                  <td class="text-end" style="font-size: x-small">
+                    {{"CartComponent.Estimated delivery:"|translate}}
+                    <span style="border-bottom: 1px dashed">May 1-13</span>
+                    <div>{{"CartComponent.from Turkey"|translate}}</div>
+                  </td>
+                  
+                </tr>
+
+                <tr class="">
+                  <td colspan="2">
+                    <div class="m-t-sm">
+                      <div class="form-group form-check">
+                        <label for="exampleCheck1" class="cursorClass" style="font-weight: 600; font-size: 12px">
+                          <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+                          <i class="fa fa-gift"></i>
+                          {{"CartComponent.Add gift package"|translate}}
+                        </label>
+                        <div style="font-weight: 300; font-size: 12px">
+                          {{"CartComponent.Let them"|translate}}
+                        </div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+        }
+      </div>
+      <!-- Shipping information -->
+
+      <div class="col-lg-4">
+        <div class="cart-payment-section">
+          <div class="wt-mt-xs-1">
+            <h6 class="wt-text-title-01">{{"CartComponent.How you'll pay"|translate}}</h6>
+
+            <div class="card">
+              <table class="table shoping-cart-table">
+                <tbody>
+                  <tr>
+                    <td colspan="2">
+                      <div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"
+                          value="option2" disabled />
+                        <label class="form-check-label ms-2" for="exampleRadios2">
+                          <i class="fa-brands fa-cc-visa fa-2xl" style="color: #085996"></i>
+                          <i class="fa-brands fa-apple-pay fa-2xl ms-2" style="color: #085996"></i>
+                        </label>
+                      </div>
+                      <div class="form-check mb-2">
+                        <input class="form-check-input dark" type="radio" name="exampleRadios" id="exampleRadios1"
+                          value="option1" />
+                        <label class="form-check-label ms-2" for="exampleRadios1">
+                          <i class="fa-brands fa-cc-paypal fa-2xl" style="color: #085996"></i>
+                        </label>
+                      </div>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3"
+                          value="option3" disabled />
+                        <label class="form-check-label ms-2" for="exampleRadios3">
+                          <i class="fa-brands fa-google-pay fa-2xl" style="color: #085996"></i>
+                        </label>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td>
+                      <h6>{{"CartComponent.Item(s) total"|translate}}</h6>
+                    </td>
+                    <!-- make it dynamic the total price !! -->
+                    <td class="text-end"> {{ lang === 'ar' ? ( 2.33| currency:'EGP':'symbol':'1.2-2') :
+                     (2.33 | currency:'EUR':'symbol':'1.2-2') }}</td>
+                  </tr>
+
+                  <tr class="">
+                    <td colspan="2">
+                      <h6> {{ NumberOfCarts }} {{"CartComponent.Total items"|translate}}</h6>
+                      <span>{{"CartComponent.VAT included"|translate}}</span>
+                    </td>
+                  </tr>
+                </tbody>
+                <tfoot style="width: 100%">
+                  <td colspan="2">
+                    <button class="btn btnCheckOut justify-content-center">
+                      {{"CartComponent.Processed to checkout"|translate}}
+                    </button>
+                  </td>
+                </tfoot>
+              </table>
+            </div>
+            <div>
+              <button class="roundedBG mt-3 mb-3" style="font-weight: 300; font-size: 15px">
+                <i class="fa-solid fa-archive me-2" style="color: #164198"></i>
+                {{"CartComponent.Apply Etsy coupon code"|translate}}
+              </button>
+              <div class="text-center">
+                <div>{{"CartComponent.Local taxes included (where applicable)"|translate}}</div>
+                <div>*{{"CartComponent. Additional duties and taxes may apply"|translate}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container justify-content-center text-center pt-5">
+      <i class="fa-solid fa-tree me-2"></i>
+      {{"CartComponent.Etsy offsets carbon emissions from every delivery"|translate}}    </div>
+  </div>
 </div>

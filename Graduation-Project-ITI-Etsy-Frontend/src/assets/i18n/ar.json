@@ -36,23 +36,21 @@
     "footer":{
         "etsy is powered by 100% renewable electricity.":"يتم تشغيل اتسى بواسطة الكهرباء المتجددة بنسبة 100%.",
         "download The Etsy APP":"قم بتنزيل تطبيق إيتسي",
-        "base Category":"الفئة الأساسية",
-        "accessories":"مُكَمِّلات",
-        "art & Collectibles":"الفن والمقتنيات",
-        "baby":"طفل",
-        "jewelry":"مجوهرات",
-        "accessoriess":"مُكَمِّلات",
-        "sunglasses & Eyewear":"النظارات الشمسية والنظارات",
-        "keychains & Lanyards":"سلاسل المفاتيح و اسهم",
-        "scarves & Wraps":"الأوشحة والأغطية",
-        "hats & Caps":"القبعات والكاب",
-        "art & Collectibless":"الفن والمقتنيات",
-        "painting":"تلوين",
-        "paintingg":"تلوين",
-        "prints":"مطبوعات",
-        "sculpture":"النحت",
-        "help":"مساعد",
-        "help center":"مركز المساعدة",
+        "Base Category":"الفئة الأساسية",
+        "Accessories":"مُكَمِّلات",
+        "Art & Collectibles":"الفن والمقتنيات",
+        "Baby":"طفل",
+        "Jewelry":"مجوهرات",
+        "Sunglasses & Eyewear":"النظارات الشمسية والنظارات",
+        "Keychains & Lanyards":"سلاسل المفاتيح و اسهم",
+        "Scarves & Wraps":"الأوشحة والأغطية",
+        "Hats & Caps":"القبعات والكاب",
+        "Painting":"تلوين",
+        "Paintingg":"تلوين",
+        "Prints":"مطبوعات",
+        "Sculpture":"النحت",
+        "Help":"مساعد",
+        "Help center":"مركز المساعدة",
         "privacy setiings":"إعدادات الخصوصية",
         "copyright :":"© 2024 حقوق النشر :",
         "etsy, Inc.":"شركة إيتسي"
@@ -241,7 +239,60 @@
         "Meet your seller":"تعرف على البائع الخاص بك"
  
 
-    }
+    },
 
+    "CartComponent":{
+
+        "size":"المقاس: 0-3 أشهر للأطفال في المملكة المتحدة",
+        "Edit":"تعديل",
+        "Remove":"حذف",
+        "Save for later": "احفظ لوقت لاحق",
+        "Contact shop":"اتصل بالمتجر",
+        "Apply shop coupon code":"تطبيق رمز قسيمة المتجر",
+        "Add a note to ScollianHouse":"أضف ملاحظة إلى سوليلين",
+        "FREE":"مجانى",
+        "Shipping:":"الشحن:",
+        "Let them":"دعهم يعرفون أن الأمر في طريقهم إلى طريقهم من خلال هدية تشويقية يمكنك إرسالها على الفور.",
+        "Add gift package":"إضافة باقة هدايا",
+        "from Turkey":"من تركيا",
+        "Estimated delivery:":"التسليم المقدر:",
+        "How you'll pay":"كيف ستدفع",
+        "Item(s) total":"إجمالي العناصر",
+        "Total items": "الإجمالي عنصر",
+        "Apply Etsy coupon code":"تطبيق رمز قسيمة ايتسي",
+        "Processed to checkout":"تمت المعالجة إلى الخروج",
+        "VAT included":"شامل ضريبة القيمة المضافة",
+        "Etsy offsets carbon emissions from every delivery":"ايستي يعوض انبعاثات الكربون من كل عملية تسليم",
+        " Additional duties and taxes may apply":" قد يتم تطبيق رسوم وضرائب إضافية",
+        "Local taxes included (where applicable)":"شامل الضرائب المحلية (حيثما ينطبق ذلك)"
+
+
+        
+    },
+
+     
+  "LoginComponent":{
+
+    "Sign in":"تسجيل الدخول",
+    "Password":"كلمة المرور",
+    "Email address":"عنوان البريد الإلكتروني",
+    "Register":"تسجيل",
+    "Trouble signing in?":"هل تواجه مشكلة في تسجيل الدخول؟",
+    "Forgot password?":"هل نسيت كلمة المرور؟",
+    "Stay signed in":"البقاء مسجلاً الدخول",
+    "OR":"أو",
+    "Etsy may send":"قد ترسل إيتسي اتصالات إليك؛ ويمكنك تغيير تفضيلاتك في إعدادات حسابك. لن ننشر أبدًا دون إذنك.",
+    "Privacy Policy":"سياسة الخصوصية",
+    "and":"و",
+    "Terms of Use":"شروط الاستخدام",
+    "By clicking":"بالنقر على جوجل أو فاسبوك أو ابل فإنك توافق على ايتسى",
+    "Continue with Apple":"المتابعة مع أبل",
+    "Continue with Facebook":"متابعة عبر فيسبوك",
+    "Continue with Google":"متابعة مع جوجل",
+    "Registration is easy.":"التسجيل سهل.",
+    "Create your account":"إنشاء حسابك",
+    "User name":"اسم المستخدم"
+
+  }
 
 }

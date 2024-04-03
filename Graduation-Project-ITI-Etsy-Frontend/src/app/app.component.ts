@@ -12,22 +12,27 @@ import { HomeSection2BaseCategoryComponent } from './Components/BaseCategory/hom
 import { HomeComponent } from './Components/home/home.component';
 import { HomeFooterAdditionNotLogInComponent } from './Components/SharedComponents/Header/Footer/home-footer-addition-not-log-in/home-footer-addition-not-log-in.component';
 import { ProductsListAfterCategoryComponent } from './Components/Products/products-list-after-category/products-list-after-category.component';
-import { TranslateService } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [ProductsListAfterCategoryComponent, AllcategoriesComponent, HomeFooterAdditionNotLogInComponent, HomeComponent, RouterOutlet, HomeProductsComponent, FooterComponent, HeaderComponent, CartComponent, ProductListComponent, ProductDetailsComponent, BaseCategoryComponent, AllcategoriesComponent]
+  imports: [TranslateModule, ProductsListAfterCategoryComponent, AllcategoriesComponent, HomeFooterAdditionNotLogInComponent, HomeComponent, RouterOutlet, HomeProductsComponent, FooterComponent, HeaderComponent, CartComponent, ProductListComponent, ProductDetailsComponent, BaseCategoryComponent, AllcategoriesComponent]
 })
 export class AppComponent implements OnInit {
   title = 'Graduation-Project-ITI-Etsy-Frontend';
-  constructor(private router: Router) { }
+  lang: string = "en";
+
+  constructor(private router: Router ) { }
 
   translateService = inject(TranslateService);
   ngOnInit(): void {
     this.translateService.setDefaultLang('en');
+    this.lang = localStorage.getItem("lang") || "en";
+    this.translateService.use(this.lang);
+    
   }
 
 

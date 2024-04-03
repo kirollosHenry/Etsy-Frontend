@@ -15,10 +15,10 @@
   @if(!showRegistrationForm){
   <!-- Header -->
   <div class="justify-content-between d-flex mb-3">
-    <h5 class="modal-title mt-3 ms-2" style="font-size: medium">Sign in</h5>
+    <h5 class="modal-title mt-3 ms-2" style="font-size: medium">{{"LoginComponent.Sign in"|translate}}</h5>
 
     <button class="btn btn-outline-dark mt-2 BtnOfRegsteration" (click)="toggleForm()">
-      Register
+      {{"LoginComponent.Register"|translate}}
     </button>
   </div>
 
@@ -32,9 +32,9 @@
               <label
                 class="form-label pb-0"
                 style="font-size: small; color: black"
-                for="form1Example13"
-                >Email address</label
-              >
+                for="form1Example13">
+                {{"LoginComponent.Email address"|translate}}
+                </label>
               <input
                 type="email"
                 id="form1Example13"
@@ -50,9 +50,9 @@
               <label
                 class="form-label"
                 style="font-size: small; color: black"
-                for="form1Example23"
-                >Password</label
-              >
+                for="form1Example23">
+                {{"LoginComponent.Password"|translate}}
+                </label >
               <input
                 formControlName="password"
                 required
@@ -81,11 +81,11 @@
                   style="font-size: small; cursor: pointer"
                   for="form1Example3"
                 >
-                  Stay signed in
+                  {{"LoginComponent.Stay signed in"|translate}}
                 </label>
               </div>
               <a href="#!" class="text-secondary" style="font-size: x-small"
-                >Forgot password?</a
+                >{{"LoginComponent.Forgot password?"|translate}}</a
               >
             </div>
 
@@ -95,7 +95,7 @@
               class="btn btn-lg btn-block BtnOfSingin mb-3"
               
             >
-              Sign in
+              {{"LoginComponent.Sign in"|translate}}
             </button>
 
             <!-- Trouble signing in? -->
@@ -104,12 +104,12 @@
                 href="#!"
                 class="text-secondary mb-2"
                 style="font-size: x-small"
-                >Trouble signing in?</a
+                >{{"LoginComponent.Trouble signing in?"|translate}}</a
               >
             </div>
 
             <div class="divider d-flex align-items-center my-2">
-              <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+              <p class="text-center fw-bold mx-3 mb-0 text-muted">{{"LoginComponent.OR"|translate}}</p>
             </div>
 
             <!-- Social Media -->
@@ -117,9 +117,10 @@
             <a
               class="btn btn-outline-dark btn-lg btn-block BtnOfSocial"
               href="#!"
-              role="button"
-            >
-              <i class="fab fa-google me-2"></i>Continue with Google
+              role="button">
+              <i class="fab fa-google me-2"></i>
+              
+              {{"LoginComponent.Continue with Google"|translate}}
             </a>
 
             <a
@@ -131,7 +132,8 @@
                 class="fa-brands fa-square-facebook me-2"
                 style="color: #3c5a99"
               ></i>
-              Continue with Facebook
+              {{"LoginComponent.Continue with Facebook"|translate}}
+
             </a>
 
             <a
@@ -139,20 +141,24 @@
               href="#!"
               role="button"
             >
-              <i class="fab fa-apple me-2"></i>Continue with Apple
+              <i class="fab fa-apple me-2"></i>
+              
+              {{"LoginComponent.Continue with Apple"|translate}}
+
             </a>
 
             <div>
               <p style="font-size: small">
-                By clicking Continue with Google, Facebook, or Apple, you agree
-                to Etsy's
-                <a href="#">Terms of Use </a>and <a href="#">Privacy Policy</a>.
+                
+                {{"LoginComponent.By clicking"|translate}}
+
+                <a href="#">{{"LoginComponent.Terms of Use"|translate}} </a>{{"LoginComponent.and"|translate}} 
+                <a href="#">{{"LoginComponent.Privacy Policy"|translate}}</a>.
               </p>
 
               <p style="font-size: xx-small" class="">
-                Etsy may send you communications; you may change your
-                preferences in your account settings. We'll never post without
-                your permission.
+               
+                {{"LoginComponent.Etsy may send"|translate}}
               </p>
             </div>
           </form>
@@ -167,8 +173,8 @@
 <!-- Register Form  -->
   <!-- Header -->
   <div >
-    <h5 class="modal-title mt-3 ms-2" style="font-size: large;">Create your account</h5>
-    <p class=" ms-2">Registration is easy.</p>
+    <h5 class="modal-title mt-3 ms-2" style="font-size: large;">{{"LoginComponent.Create your account"|translate}}</h5>
+    <p class=" ms-2">{{"LoginComponent.Registration is easy."|translate}}</p>
   </div>
 
   <section class="vh-50">
@@ -182,7 +188,7 @@
                 class="form-label pb-0"
                 style="font-size: small; color: black"
                 for="form2Example13"
-                >Email address</label
+                >{{"LoginComponent.Email address"|translate}}</label
               >
               <input
                 type="email"
@@ -200,7 +206,7 @@
                 class="form-label pb-0"
                 style="font-size: small; color: black"
                 for="form2Example14"
-                >User name</label
+                >{{"LoginComponent.User name"|translate}}</label
               >
               <input
                 type="email"
@@ -217,7 +223,7 @@
                 class="form-label"
                 style="font-size: small; color: black"
                 for="form2Example23"
-                >Password</label
+                >{{"LoginComponent.Password"|translate}}</label
               >
               <input
                 formControlName="passwordRegister"
@@ -231,19 +237,23 @@
             <!-- Policy  -->
 
             <p style="font-size: small">
-              By clicking Continue with Google, Facebook, or Apple, you agree
-              to Etsy's
-              <a href="#">Terms of Use </a>and <a href="#">Privacy Policy</a>.
+              {{"LoginComponent.By clicking"|translate}}
+              <a href="#">{{"LoginComponent.Terms of Use"|translate}} </a>{{"LoginComponent.and"|translate}} 
+              <a href="#">{{"LoginComponent.Privacy Policy"|translate}}</a>.
+            
             </p>
 
 
             <!-- Submit button -->
             <button type="submit" class="btn btn-lg btn-block BtnOfSingin mb-3">
-              Register
+              {{"LoginComponent.Register"|translate}}
+
             </button>
 
             <div class="divider d-flex align-items-center my-2">
-              <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+              <p class="text-center fw-bold mx-3 mb-0 text-muted">         
+                     <p class="text-center fw-bold mx-3 mb-0 text-muted">{{"LoginComponent.OR"|translate}}
+             </p>
             </div>
 
             <!-- Social Media -->
@@ -253,7 +263,8 @@
               href="#!"
               role="button"
             >
-              <i class="fab fa-google me-2"></i>Continue with Google
+              <i class="fab fa-google me-2"></i>
+              {{"LoginComponent.Continue with Google"|translate}}
             </a>
 
             <a
@@ -265,7 +276,7 @@
                 class="fa-brands fa-square-facebook me-2"
                 style="color: #3c5a99"
               ></i>
-              Continue with Facebook
+              {{"LoginComponent.Continue with Facebook"|translate}}
             </a>
 
             <a
@@ -273,15 +284,14 @@
               href="#!"
               role="button"
             >
-              <i class="fab fa-apple me-2"></i>Continue with Apple
+              <i class="fab fa-apple me-2"></i>
+              {{"LoginComponent.Continue with Apple"|translate}}
             </a>
 
             <div>
             
               <p style="font-size: xx-small" class="">
-                Etsy may send you communications; you may change your
-                preferences in your account settings. We'll never post without
-                your permission.
+                {{"LoginComponent.Etsy may send"|translate}}
               </p>
             </div>
           </form>

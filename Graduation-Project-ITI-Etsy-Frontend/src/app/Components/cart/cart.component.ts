@@ -5,16 +5,19 @@ import { Subscription } from "rxjs";
 import { GetAllCartDTO, ICartAPI } from "../../Models/cart";
 import { ActivatedRoute } from "@angular/router";
 import { FormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: "app-cart",
   standalone: true,
-  imports: [TranslateModule , FormsModule ],
+  imports: [TranslateModule , FormsModule ,CommonModule],
   templateUrl: "./cart.component.html",
   styleUrl: "./cart.component.css",
 })
+
+
 export class CartComponent implements OnInit {
-  CustomerId: string = "9b1e9185-7f14-4ad0-83b5-69f4c6beb990";
+  CustomerId: string = "c8cc4212-b621-4a65-a363-c9cc677e5bac";
   sub!: Subscription;
   CartsList: GetAllCartDTO[] = [];
   NumberOfCarts!: number;
@@ -22,8 +25,7 @@ export class CartComponent implements OnInit {
 
 
   productId !: number ;
-  customerIdFromProduct!: string;
-  quantity!: number;
+  quantityUserChoose!: number;
 
 
   constructor(
@@ -41,13 +43,12 @@ export class CartComponent implements OnInit {
     // Get parameters From Product Details 
     this.route.queryParams.subscribe((params) => {
       this.productId = params["productId"]; 
-      this.customerIdFromProduct = params["customerId"]; 
-      this.quantity = params["quantity"]; 
+      this.quantityUserChoose = params["quantity"]; 
     });
 
     
     //GetAllCarts
-    this.sub = this._CartService.GetAllCarts(this.customerIdFromProduct).subscribe({
+    this.sub = this._CartService.GetAllCarts(this.CustomerId).subscribe({
       next: (CartsDateAPI: ICartAPI) => {
         this.CartsList = CartsDateAPI.entities;
         this.NumberOfCarts = CartsDateAPI.count;

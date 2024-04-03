@@ -15,14 +15,17 @@ import { LoginResult } from "../../Models/Accout/login-result";
 import { ResgisterService } from "../../Services/Authentication/resgister.service";
 import { Register } from "../../Models/Accout/register";
 import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
+import { TranslateModule, TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-login",
   standalone: true,
-  imports: [NgFor, ReactiveFormsModule, JsonPipe],
+  imports: [NgFor, ReactiveFormsModule, JsonPipe,TranslateModule],
   templateUrl: "./login.component.html",
   styleUrl: "./login.component.css",
 })
+
+
 export class LoginComponent implements OnInit {
 
   
@@ -37,14 +40,21 @@ export class LoginComponent implements OnInit {
   userNameRegister: string = "";
   passwordRegister: string = "";
 
+  lang: string = "en";
+
   constructor(
     private authService: AuthService,
     private router: Router,
     private register: ResgisterService,
-    public activeModal: NgbActiveModal
+    public activeModal: NgbActiveModal,
+    private translateService: TranslateService,
   ) {} //    private modalService: NgbModal
 
   ngOnInit() {
+
+    this.lang = localStorage.getItem("lang") || "en";
+    this.translateService.use(this.lang);
+
     this.form = new FormGroup({
       email: new FormControl("", Validators.required),
       password: new FormControl("", Validators.required),

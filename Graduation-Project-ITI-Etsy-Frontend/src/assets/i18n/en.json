@@ -36,7 +36,6 @@
     "Art & Collectibles": "Art & Collectibles",
     "Baby": "Baby",
     "Jewelry": "Jewelry",
-    "Accessoriess": "Accessories",
     "Sunglasses & Eyewear": "Sunglasses & Eyewear",
     "Keychains & Lanyards": "Keychains & Lanyards",
     "Scarves & Wraps": "Scarves & Wraps",
@@ -223,5 +222,62 @@
     "Shipping and return policies": "Shipping and return policies",
 
     "Meet your seller": "Meet your seller"
+  },
+
+  "CartComponent":{
+    "size":"Size: 0-3 months UK kids",
+    "Edit":"Edit",
+    "Save for later":"Save for later",
+    "Remove":"Remove",
+    "Contact shop":"Contact shop",
+    "Apply shop coupon code":"Apply shop coupon code",
+    "Add a note to ScollianHouse":"Add a note to ScollianHouse",
+    "FREE":"FREE",
+    "Shipping:":"Shipping:",
+    "Let them":"Let them know it’s headed their way with a gift teaser you can send instantly.",
+    "Add gift package":"Add gift package",
+    "from Turkey":"from Turkey",
+    "Estimated delivery:":"Estimated delivery:",
+    "How you'll pay":"How you'll pay",
+    "Item(s) total":"Item(s) total",
+    "Total items": "Total items",
+    "Apply Etsy coupon code":"Apply Etsy coupon code",
+    "Processed to checkout":"Processed to checkout",
+    "VAT included":"VAT included",
+    "Etsy offsets carbon emissions from every delivery":"Etsy offsets carbon emissions from every delivery",
+    " Additional duties and taxes may apply":" Additional duties and taxes may apply",
+    "Local taxes included (where applicable)":"Local taxes included (where applicable)"
+    
+
+    
+        
+  },
+
+
+  "LoginComponent":{
+
+    "Sign in":"Sign in",
+    "Password":"Password",
+    "Email address":"Email address",
+    "Register":"Register",
+    "Trouble signing in?":"Trouble signing in?",
+    "Forgot password?":"Forgot password?",
+    "Stay signed in":"Stay signed in",
+    "OR":"OR",
+    "Etsy may send":" Etsy may send you communications; you may change your preferences in your account settings. We'll never post without your permission.",
+    "Privacy Policy":"Privacy Policy",
+    "and":"and",
+    "Terms of Use":"Terms of Use",
+    "By clicking":"By clicking Continue with Google, Facebook, or Apple, you agree to Etsy's",
+    "Continue with Apple":"Continue with Apple",
+    "Continue with Facebook":"Continue with Facebook",
+    "Continue with Google":"Continue with Google",
+    "Registration is easy.":"Registration is easy.",
+    "Create your account":"Create your account",
+    "User name":"User name"
+    
   }
+
+
+
 }
