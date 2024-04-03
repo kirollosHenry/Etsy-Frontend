@@ -50,12 +50,12 @@
 
                                                 <div class="d-flex">
                                                     <select class="form-select selectD"
-                                                        aria-label="Default select example ">
-                                                        <option selected>1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
+                                                        aria-label="Default select example" >
+                                                        @for(item of getNumbersArray(quantity); track item; ) {
+                                                            <option [value]="item">{{item}}</option>
+                                                            }
                                                     </select>
+
                                                     <button class="ms-1"style="background-color: white; border: none; "><i class="fa-solid fa-edit me-1" style="color: black;"></i><span style="text-decoration: underline;">Edit</span></button>
                                                 </div>
 
