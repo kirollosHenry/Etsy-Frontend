@@ -7,7 +7,14 @@ export interface BaseCategory {
 
 
 export interface IBaseCategoryAPI {
+    entity: BaseCategory
     count : number,
     entities : BaseCategory[],
     message :string
+}
+
+export interface IOneBaseCategoryAPI {
+    entity : BaseCategory,
+
+    message : string
 }
