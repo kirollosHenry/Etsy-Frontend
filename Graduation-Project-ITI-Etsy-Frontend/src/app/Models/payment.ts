@@ -2,6 +2,6 @@ export interface Payment {
     paymentId?: number;
     totalPrice: number;
     response: string;
-    customerId?: number;
+    customerId?: string;
     orderId?: number;
 }

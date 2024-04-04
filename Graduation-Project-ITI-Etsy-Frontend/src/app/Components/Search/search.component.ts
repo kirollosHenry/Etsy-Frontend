@@ -37,7 +37,6 @@ constructor(private _BaseCategoryService: BaseCategoryService, private _Category
 
     this.sub = this._SearchService.currentMessage.subscribe({
         next : (message)=> {
-            debugger;
             this.Message = message;
             this.getAllServices(this.Message);
         }

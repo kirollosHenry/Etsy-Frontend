@@ -7,6 +7,10 @@ import { ActivatedRoute } from "@angular/router";
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { Payment } from "../../Models/payment";
+import { OrderService } from "../../Services/Order/order.service";
+import { Order } from "../../Models/order";
+import { PaymentService } from "../../Services/Payment/payment.service";
+
 declare var paypal: any; 
 @Component({
   selector: "app-cart",
@@ -19,6 +23,25 @@ declare var paypal: any;
 
 export class CartComponent implements OnInit {
   CustomerId: string = "da679192-b569-458e-a077-452761c0e30a";
+
+  OrderObj: Order = {       // Abanoub: Test Order Object since make it dynamic 
+    ordersId : 0,
+    address: 'Mitghamer Egypt',
+    totalPrice: 200,
+    orderedAt: '2024-04-04T22:01:53.290Z',
+    arrivedOn: '2024-04-07T22:01:53.290Z',
+    customerId:'da679192-b569-458e-a077-452761c0e30a'
+  };
+
+  PaymentObj: Payment = {
+    paymentId : 0,
+    totalPrice: 2000,
+    response: 'COMPLETED',
+    customerId: 'da679192-b569-458e-a077-452761c0e30a',
+    orderId:2
+  }
+
+
   sub!: Subscription;
   CartsList: GetAllCartDTO[] = [];
   NumberOfCarts!: number;
@@ -34,15 +57,17 @@ export class CartComponent implements OnInit {
   @ViewChild('paypalModal') paypalModal: any;
 
   amountPrice:number = 10; 
-  payment: Payment = {
-    totalPrice: this.amountPrice, 
-    response: ''
-  };
+  // payment: Payment = {
+  //   totalPrice: this.amountPrice, 
+  //   response: ''
+  // };
 
   constructor(
     private translateService: TranslateService,
     private _CartService: CartService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private _OrderService: OrderService,
+    private _PaymentService: PaymentService
   ) {}
 
   ngOnInit(): void {
@@ -85,7 +110,6 @@ export class CartComponent implements OnInit {
       },
       
         createOrder: (data: any, actions: any) => {
-          // console.log("Create Order *********************");
           return actions.order.create({
             purchase_units:[
               {
@@ -104,20 +128,34 @@ export class CartComponent implements OnInit {
           });
         },
         onApprove: (data: any, actions: any) => {
-          // console.log("onApprove *********************");
           return actions.order.capture().then((details: any) => {
             if(details.status === "COMPLETED")
             {
-              debugger;
               console.log('Payment details:', details);
-              //Create Order Services
 
-              //Create Payment Services
+              //Create Order Services
+              this.sub = this._OrderService.CreateOrder(this.OrderObj).subscribe({
+                next: (response:any)=>{
+                  console.log("Create Order: ",response);
+                  this.PaymentObj.orderId = response.ordersId;
+                  //Create Payment Services
+                }
+              })
+              debugger;
+                  //Create Payment Services
+              this.sub = this._PaymentService.CreatePayment(this.PaymentObj).subscribe({
+                next: (response)=>{
+                  console.log("Create Payment: ",response);
+              }
+            })
+              
 
               //Delete Cart By CustomerId
               this.sub = this._CartService.DeleteCart(this.CustomerId).subscribe();
+
+
               // Go to Confirm Modal
-              this.paypalModal.show();;
+              //this.paypalModal.show();;
               
             }
             
