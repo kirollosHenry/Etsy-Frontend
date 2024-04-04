@@ -30,6 +30,9 @@ export class CartComponent implements OnInit {
   totalPrice: number = 0;
   ////// PayPal //////
   @ViewChild('paypalButtonContainer', { static: true }) paypalButtonContainer!: ElementRef;
+
+  @ViewChild('paypalModal') paypalModal: any;
+
   amountPrice:number = 10; 
   payment: Payment = {
     totalPrice: this.amountPrice, 
@@ -113,8 +116,11 @@ export class CartComponent implements OnInit {
 
               //Delete Cart By CustomerId
               this.sub = this._CartService.DeleteCart(this.CustomerId).subscribe();
+              // Go to Confirm Modal
+              this.paypalModal.show();;
+              
             }
-           
+            
             // this.router.navigate(['/success']);
           });
         },
@@ -142,4 +148,9 @@ export class CartComponent implements OnInit {
 onQuantityChange(): void {
   this.calculateTotalPrice();
 }
+
+//PayPal Confirm Modal Show
+openPayPalModal() {
+  this.paypalModal.show();
+} 
 }
