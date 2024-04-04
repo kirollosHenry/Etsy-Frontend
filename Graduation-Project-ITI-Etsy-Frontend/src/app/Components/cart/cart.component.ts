@@ -26,6 +26,7 @@ export class CartComponent implements OnInit {
 
   productId !: number ;
   quantityUserChoose!: number;
+  totalPrice: number = 0;
 
 
   constructor(
@@ -50,8 +51,15 @@ export class CartComponent implements OnInit {
     //GetAllCarts
     this.sub = this._CartService.GetAllCarts(this.CustomerId).subscribe({
       next: (CartsDateAPI: ICartAPI) => {
-        this.CartsList = CartsDateAPI.entities;
+        // this.CartsList = CartsDateAPI.entities;
+        this.CartsList = CartsDateAPI.entities.map(cart => ({
+          ...cart,
+          quantity: cart.quantity 
+        }));
+
         this.NumberOfCarts = CartsDateAPI.count;
+        this.calculateTotalPrice();
+
       },
       error: (response) => {
         console.log(response);
@@ -59,15 +67,23 @@ export class CartComponent implements OnInit {
     });
 
 
-
   }
 
 
   //Select List 
-
   getNumbersArray(max: number): number[] {
     return Array.from({ length: max }, (_, index) => index + 1);
   }
 
+  //total price
+  calculateTotalPrice(): void {
+    this.totalPrice = this.CartsList.reduce((total, cartItem) => {
+      return total + (cartItem.productPrice * cartItem.quantity);
+    }, 0);
+  }
+
+  onQuantityChange(): void {
+    this.calculateTotalPrice();
+  }
   
 }

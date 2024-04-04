@@ -30,7 +30,10 @@
 
     "home-footer-addition-not-log-in":{
         "Yes! Send me exclusive offers, unique gift ideas, and personalized tips for shopping and selling on Etsy."
-        :"نعم! أرسل لي عروضًا حصرية وأفكار هدايا فريدة ونصائح مخصصة للتسوق والبيع على اتسى ."
+        :"نعم! أرسل لي عروضًا حصرية وأفكار هدايا فريدة ونصائح مخصصة للتسوق والبيع على اتسى .",
+        "Subscribe":"اشترك",
+        "Enter Your Email":"أدخل بريدك الإلكترونى"
+    
     },
 
     "footer":{
@@ -257,7 +260,7 @@
         "from Turkey":"من تركيا",
         "Estimated delivery:":"التسليم المقدر:",
         "How you'll pay":"كيف ستدفع",
-        "Item(s) total":"إجمالي العناصر",
+        "Total price":"إجمالي السعر",
         "Total items": "الإجمالي عنصر",
         "Apply Etsy coupon code":"تطبيق رمز قسيمة ايتسي",
         "Processed to checkout":"تمت المعالجة إلى الخروج",

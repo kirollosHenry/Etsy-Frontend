@@ -10,22 +10,39 @@
   
 
 .btnSearch {
-    /* left: 73%; */
     transform: translate(-100%, 0);
     background-color: #ffffff;
     color: black;
     font-size: small;
     border-radius: 0 30px 30px 0 !important;
-text-align: center;
+    text-align: center;
     cursor: pointer;
-    /* justify-content: space-between; */
-    transition: all 0.3s ease;
+    transition: all 0.3s ease;  
   }
   
   .btnSearch:hover {
+    color: white;
+    background-color: black;
+      border-radius: 0 30px  30px 0 !important;
+  
+    }
+
+    /* When it rtl */
+  .btnSearchRtl {
+    transform: translate(100%, 0);
+    background-color: #ffffff;
+    color: black;
+    font-size: small;
+    border-radius: 30px 0 0 30px !important;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;  
+  }
+  
+  .btnSearchRtl:hover {
   color: white;
   background-color: black;
-    border-radius: 0 30px  30px 0 !important;
+  border-radius: 30px 0 0 30px !important;
 
   }
 
