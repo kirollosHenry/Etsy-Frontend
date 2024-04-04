@@ -134,6 +134,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       window.location.reload();
     }
   }
+
   
 
   ngOnDestroy() {
