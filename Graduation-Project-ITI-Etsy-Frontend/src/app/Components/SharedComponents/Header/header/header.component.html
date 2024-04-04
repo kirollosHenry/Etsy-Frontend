@@ -247,11 +247,11 @@
 
       <!-- Search -->
       <form class="d-flex flex-grow-1 ">
-        <input class="form-control me-2 SearchSection" type="search"  [placeholder]="'header.searchPlaceHolder' | translate" 
-
-          aria-label="Search">
-        <button class="btn btn-default btn-round btn-submit btnSearch rounded-circle"  type="submit">
-          <i class="fa fa-search icon-lg "></i>
+        <input class="form-control me-2 SearchSection" type="search"  [placeholder]="'header.searchPlaceHolder'  | translate" 
+          aria-label="Search" #filter>
+          
+        <button class="btn btn-default btn-round btn-submit btnSearch rounded-circle" (click)="filterResults(filter.value)" type="button">
+          <i class="fa fa-search icon-lg " ></i>
         </button>
       </form>
 

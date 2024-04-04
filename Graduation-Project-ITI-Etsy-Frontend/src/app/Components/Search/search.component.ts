@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 import { BaseCategoryService } from '../../Services/BaseCategory/base-category.service';
 import { CategoryService } from '../../Services/Category/category.service';
 import { ProductsService } from '../../Services/Products/products.service';
+import { SearchService } from '../../Services/Search/search.service';
 
 
 
@@ -27,31 +28,44 @@ BaseCategoryobj!:BaseCategory;
 CategoryObj!: Category;
 ProductObj!: Products;
 
+Message! : string;
 
 
 sub!:Subscription;
-constructor(private _BaseCategoryService: BaseCategoryService, private _CategoryService: CategoryService, private _ProductsService: ProductsService){}
+constructor(private _BaseCategoryService: BaseCategoryService, private _CategoryService: CategoryService, private _ProductsService: ProductsService,private _SearchService : SearchService){}
   ngOnInit(): void {
-    this.sub = this._BaseCategoryService.GatBaseCategoriesByName("baby").subscribe({
-      next: (BaseCategory) => {
-          this.BaseCategoryobj = BaseCategory.entity;
-      }
-  })
 
-  this.sub = this._CategoryService.GatCategoriesByName("Sunglasses").subscribe({
-      next: (CategoryAPI) => {
-          this.CategoryObj = CategoryAPI.entity;
-          
-      }
-  })
+    this.sub = this._SearchService.currentMessage.subscribe({
+        next : (message)=> {
+            debugger;
+            this.Message = message;
+            this.getAllServices(this.Message);
+        }
+    })
 
-  this.sub = this._ProductsService.GatProductsByName("Alleyesonmeeyewear").subscribe({
-      next: (Product) => {
-          this.ProductObj = Product.entity;
-      }
-  })
-  
+    
   } 
+
+  getAllServices(message: string): void {
+    this.sub = this._BaseCategoryService.GatBaseCategoriesByName(message).subscribe({
+        next: (BaseCategory) => {
+            this.BaseCategoryobj = BaseCategory.entity;
+        }
+    })
+  
+    this.sub = this._CategoryService.GatCategoriesByName(message).subscribe({
+        next: (CategoryAPI) => {
+            this.CategoryObj = CategoryAPI.entity;
+            
+        }
+    })
+  
+    this.sub = this._ProductsService.GatProductsByName(message).subscribe({
+        next: (Product) => {
+            this.ProductObj = Product.entity;
+        }
+    })
+  }
  }
 
 

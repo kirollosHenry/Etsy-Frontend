@@ -18,6 +18,7 @@ import { TranslateModule, TranslateService } from "@ngx-translate/core";
 import { NgbModal, NgbModalModule } from "@ng-bootstrap/ng-bootstrap";
 import { LoginComponent } from "../../../login/login.component";
 import { TranslationLangService } from "../../../../Services/translation/translationLang.service";
+import { SearchService } from "../../../../Services/Search/search.service";
 
 @Component({
   selector: "app-header",
@@ -81,7 +82,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private authService: AuthService,
     private router: Router,
     private _BaseCategoryService: BaseCategoryService,
-    private translationService: TranslationLangService
+    private translationService: TranslationLangService,
+    private _SearchService : SearchService
     
   ) {
     this.authService.authStatus
@@ -95,6 +97,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   // Dropdown List in Base Category
   BaseCategoryList: BaseCategory[] = [];
   sub!: Subscription;
+
+  // Message Saearch
+  Message! : string;
 
   onLogout(): void {
     this.authService.logout();
@@ -111,6 +116,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
         this.BaseCategoryList = Categories.entities;
       },
     });
+
+   
+
   }
 
   // ChangeLang(lang:any){
@@ -146,5 +154,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   openModal() {
     const modalRef = this.modalService.open(LoginComponent);
+  }
+
+
+  // function to get Message search from header
+  filterResults(text: string):void {
+    if (!text) {
+       // Search:
+        this._SearchService.changeMessage(text);
+    }
+    debugger;
+     this._SearchService.changeMessage(text);
   }
 }
