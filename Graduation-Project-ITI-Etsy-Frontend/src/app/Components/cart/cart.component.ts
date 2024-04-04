@@ -27,7 +27,7 @@ export class CartComponent implements OnInit {
 
   productId !: number ;
   quantityUserChoose!: number;
-
+  totalPrice: number = 0;
   ////// PayPal //////
   @ViewChild('paypalButtonContainer', { static: true }) paypalButtonContainer!: ElementRef;
   amountPrice:number = 10; 
@@ -56,8 +56,15 @@ export class CartComponent implements OnInit {
     //GetAllCarts
     this.sub = this._CartService.GetAllCarts(this.CustomerId).subscribe({
       next: (CartsDateAPI: ICartAPI) => {
-        this.CartsList = CartsDateAPI.entities;
+        // this.CartsList = CartsDateAPI.entities;
+        this.CartsList = CartsDateAPI.entities.map(cart => ({
+          ...cart,
+          quantity: cart.quantity 
+        }));
+
         this.NumberOfCarts = CartsDateAPI.count;
+        this.calculateTotalPrice();
+
       },
       error: (response) => {
         console.log(response);
@@ -114,6 +121,15 @@ export class CartComponent implements OnInit {
   }
 
 
+ //total price
+ calculateTotalPrice(): void {
+  this.totalPrice = this.CartsList.reduce((total, cartItem) => {
+    return total + (cartItem.productPrice * cartItem.quantity);
+  }, 0);
+}
 
+onQuantityChange(): void {
+  this.calculateTotalPrice();
+}
   
 }

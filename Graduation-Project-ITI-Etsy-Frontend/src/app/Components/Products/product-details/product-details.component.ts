@@ -17,6 +17,7 @@ import { AddCartDTO, ICartAPI } from "../../../Models/cart";
 import { CartService } from "../../../Services/Cart/cart.service";
 import { FormsModule } from "@angular/forms";
 import { CartComponent } from "../../cart/cart.component";
+import { HttpResponse } from "@angular/common/http";
 
 @Component({
   selector: "app-product-details",
@@ -40,8 +41,7 @@ export class ProductDetailsComponent implements OnInit {
   Stock!: number;
 
   //Adding Cart
-  CartSub!: Subscription;
-  CartDetails!: AddCartDTO;
+ 
   selectedQuantity: number = 1;
 
   // carousel
@@ -115,31 +115,11 @@ export class ProductDetailsComponent implements OnInit {
             this.ProductDetails = Product.entity;
             this.Stock = Product.entity.productStock;
             this.list = this.getNumbersArray(this.Stock);
-
           },
         });
 
-      //AddCart
-      //    const cartItem: AddCartDTO = {
-      //     productId: this.ProductId,
-      //     customerId: "test",
-      //     quantity: this.selectedQuantity,
-      //   };
-
-      // this.CartSub = this._cartService.AddToCart(cartItem).subscribe({
-      //   next: (CartsDateAPI: AddCartDTO) => {
-      //     this.CartDetails = CartsDateAPI;
-      //     console.log('Item added to cart:', CartsDateAPI);
-      //     this.router.navigate(['/cart'], { queryParams: { cartItem: JSON.stringify(CartComponent) } });
-
-      //   },
-      //   error: (response) => {
-      //     console.log(response);
-      //   },
-      // });
     });
 
-    //this.activeItem = this.images[0];
   }
 
   setActiveItem(item: any): void {
@@ -169,22 +149,36 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   //Cart
+
+  // Function to make array of 1 to number i put
   getNumbersArray(max: number): number[] {
     return Array.from({ length: max }, (_, index) => index + 1);
   }
 
   list: number[] = this.getNumbersArray(this.Stock);
 
+  //TO Add Cart and Navigate to Cart Component
   NavigateToCart(productId: number) {
-
-    const queryParams = {
-      productId: productId,
-      quantity: this.selectedQuantity,
+    const cartItem: AddCartDTO = {
+      CartID: 0,
+      ProductId: productId,
+      CustomerId: "c8cc4212-b621-4a65-a363-c9cc677e5bac",
+      Quantity: this.selectedQuantity,
     };
-  
-    this.router.navigate(['/Cart'], { queryParams: queryParams });
 
+
+    this._cartService.AddToCart(cartItem).subscribe({
+      next: () => {
+        this.router.navigate(["/Cart"], {
+          queryParams: {
+            productId: cartItem.ProductId,
+            quantity: cartItem.Quantity,
+          },
+        });
+      },
+      error: (error) => {
+        console.log("Error occurred:", error);
+      },
+    });
   }
-  
-  
 }

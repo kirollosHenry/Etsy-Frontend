@@ -18,6 +18,7 @@ import { TranslateModule, TranslateService } from "@ngx-translate/core";
 import { NgbModal, NgbModalModule } from "@ng-bootstrap/ng-bootstrap";
 import { LoginComponent } from "../../../login/login.component";
 import { TranslationLangService } from "../../../../Services/translation/translationLang.service";
+import { CommonModule } from "@angular/common";
 
 @Component({
   selector: "app-header",
@@ -30,8 +31,8 @@ import { TranslationLangService } from "../../../../Services/translation/transla
     RouterModule,
     TranslateModule,
     NgbModalModule,
-    LoginComponent
-    
+    LoginComponent,
+    CommonModule 
   ],
   templateUrl: "./header.component.html",
   styleUrl: "./header.component.css",
@@ -113,18 +114,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     });
   }
 
-  // ChangeLang(lang:any){
-  //   const selectedLanguage = lang.target.value;
-  //   localStorage.setItem('lang',selectedLanguage);
-  //   this.translateService.use(selectedLanguage);
-  // }
-
-
-
-
   // Localization!!
-  
-  
   ChangeLang(event: any) {
     const selectedLanguage = event?.target?.value;
     if (selectedLanguage) {
@@ -134,6 +124,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       window.location.reload();
     }
   }
+
   
 
   ngOnDestroy() {

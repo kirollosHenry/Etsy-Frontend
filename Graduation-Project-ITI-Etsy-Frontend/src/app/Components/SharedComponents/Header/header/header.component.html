@@ -37,12 +37,12 @@
           </button>
           <ul id="dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="display: none;">
             @for (item of BaseCategoryList; track $index) {
-            <li><a class="dropdown-item nav-link" [routerLink]="['Category',item.id]">
-
+            <li><a class="dropdown-item nav-link" [routerLink]="['Category',item.id]"
+              [ngStyle]="{ 'text-align': lang === 'ar' ? 'start' : 'left' }">
               @if (lang === 'en') {
                 <span> {{item.nameEN}} </span>
                 }@else if (lang === 'ar') {
-                  <span> {{item.nameAR}} </span>
+                  <span > {{item.nameAR}} </span>
                 }            
             </a></li>
             }
@@ -55,7 +55,8 @@
         <input class="form-control me-2 SearchSectionForLogin" type="search" [placeholder]="'header.searchPlaceHolder' | translate" 
 
           aria-label="Search">
-        <button class="btn btn-default btn-round btn-submit btnSearch rounded-circle" type="submit">
+        <button class="btn btn-default btn-round btn-submit  rounded-circle" 
+        type="submit" [ngClass]="{ 'btnSearchRTL': lang === 'ar', 'btnSearch': lang === 'en' }">
           <i class="fa fa-search icon-lg "></i>
         </button>
       </form>
@@ -231,7 +232,8 @@
           </button>
           <ul id="dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="display: none;">
             @for (item of BaseCategoryList; track $index) {
-            <li><a class="dropdown-item " [routerLink]="['Category',item.id]">
+            <li><a class="dropdown-item " [routerLink]="['Category',item.id]"
+              [ngStyle]="{ 'text-align': lang === 'ar' ? 'start' : 'left' }">
 
                 @if (lang === 'en') {
                 <span> {{item.nameEN}} </span>
@@ -250,7 +252,8 @@
         <input class="form-control me-2 SearchSection" type="search"  [placeholder]="'header.searchPlaceHolder' | translate" 
 
           aria-label="Search">
-        <button class="btn btn-default btn-round btn-submit btnSearch rounded-circle" type="submit">
+        <button class="btn btn-default btn-round btn-submit rounded-circle" type="submit"
+        [ngClass]="{ 'btnSearchRTL': lang === 'ar', 'btnSearch': lang === 'en' }">
           <i class="fa fa-search icon-lg "></i>
         </button>
       </form>

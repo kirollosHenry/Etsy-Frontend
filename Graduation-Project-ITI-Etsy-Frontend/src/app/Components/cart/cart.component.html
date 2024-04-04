@@ -58,9 +58,9 @@
                           {{"CartComponent.size"|translate}} </p>
 
                         <div class="d-flex">
-                          <select class="form-select selectD" aria-label="Default select example">
-                            @for(item of getNumbersArray(item.productStock);
-                            track item; ) {
+                          <select class="form-select selectD" aria-label="Default select example" 
+                          [(ngModel)]="item.quantity" (change)="onQuantityChange()">
+                            @for(item of getNumbersArray(item.productStock);track item; ) {
                             <option [value]="item">{{ item }}</option>
                             }
                           </select>
@@ -84,8 +84,8 @@
                       <a href="" style="color: black; font-weight: 300">{{"CartComponent.Contact shop"|translate}}</a>
                     </h6>
                     <h5>
-                      {{ lang === 'ar' ? ( item.productPrice| currency:'EGP':'symbol':'1.2-2') : (item.productPrice |
-                      currency:'EUR':'symbol':'1.2-2') }}
+                      {{ lang === 'ar' ? ( item.productPrice  * item.quantity| currency:'EGP':'symbol':'1.2-2') :
+                       (item.productPrice  * item.quantity| currency:'EUR':'symbol':'1.2-2') }}
                     </h5>
                   </td>
                 </tr>
@@ -183,11 +183,11 @@
 
                   <tr>
                     <td>
-                      <h6>{{"CartComponent.Item(s) total"|translate}}</h6>
+                      <h6>{{"CartComponent.Total price"|translate}}</h6>
                     </td>
                     <!-- make it dynamic the total price !! -->
-                    <td class="text-end"> {{ lang === 'ar' ? ( 2.33| currency:'EGP':'symbol':'1.2-2') :
-                     (2.33 | currency:'EUR':'symbol':'1.2-2') }}</td>
+                    <td class="text-end"> {{ lang === 'ar' ? ( totalPrice| currency:'EGP':'symbol':'1.2-2') :
+                     (totalPrice | currency:'EUR':'symbol':'1.2-2') }}</td>
                   </tr>
 
                   <tr class="">

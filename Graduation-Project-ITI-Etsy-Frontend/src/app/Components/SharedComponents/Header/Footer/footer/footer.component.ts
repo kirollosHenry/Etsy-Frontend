@@ -1,7 +1,7 @@
 import { AfterViewChecked, AfterViewInit, Component, OnInit, Renderer2 } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import Tooltip from 'bootstrap/js/dist/tooltip'; 
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -11,7 +11,16 @@ import { TranslateModule } from '@ngx-translate/core';
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'
 })
-export class FooterComponent implements AfterViewInit { 
+export class FooterComponent implements AfterViewInit ,OnInit{
+  
+  lang: string = "en";
+
+  constructor(private translateService: TranslateService){}
+
+  ngOnInit(): void {
+    this.lang = localStorage.getItem("lang") || "en";
+    this.translateService.use(this.lang);
+    } 
 
   contentOfTooltip : string = "Etsy’s 100% renewable electricity commitment includes the electricity used by the data centers that host Etsy.com, the Sell on Etsy app, and the Etsy app, as well as the electricity that powers Etsy’s global offices and employees working remotely from home in the US." ;
   
@@ -26,7 +35,6 @@ export class FooterComponent implements AfterViewInit {
   }
   
 
- 
   
 
 }
