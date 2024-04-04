@@ -162,7 +162,7 @@ export class ProductDetailsComponent implements OnInit {
     const cartItem: AddCartDTO = {
       CartID: 0,
       ProductId: productId,
-      CustomerId: "c8cc4212-b621-4a65-a363-c9cc677e5bac",
+      CustomerId: "da679192-b569-458e-a077-452761c0e30a",
       Quantity: this.selectedQuantity,
     };
 
