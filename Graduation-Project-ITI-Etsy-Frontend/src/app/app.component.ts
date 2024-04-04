@@ -21,6 +21,11 @@ import { SearchComponent } from "./Components/search/search.component";
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
     imports: [TranslateModule, ProductsListAfterCategoryComponent, AllcategoriesComponent, HomeFooterAdditionNotLogInComponent, HomeComponent, RouterOutlet, HomeProductsComponent, FooterComponent, HeaderComponent, CartComponent, ProductListComponent, ProductDetailsComponent, BaseCategoryComponent, AllcategoriesComponent, SearchComponent]
+    selector: 'app-root',
+    standalone: true,
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css',
+    imports: [TranslateModule, ProductsListAfterCategoryComponent, AllcategoriesComponent, HomeFooterAdditionNotLogInComponent, HomeComponent, RouterOutlet, HomeProductsComponent, FooterComponent, HeaderComponent, CartComponent, ProductListComponent, ProductDetailsComponent, BaseCategoryComponent, AllcategoriesComponent, SearchComponent]
 })
 export class AppComponent implements OnInit {
   title = 'Graduation-Project-ITI-Etsy-Frontend';

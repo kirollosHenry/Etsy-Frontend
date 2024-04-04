@@ -1,4 +1,10 @@
 
+
+
+.footerclass{
+  direction: inherit !important;
+}
+
 .roundedBG{
     border-radius: 50px; 
     /* padding: 10px;

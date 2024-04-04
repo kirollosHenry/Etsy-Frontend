@@ -20,10 +20,11 @@
                         <form class="d-flex flex-grow-1 ttt">
 
                             <input class="form-control me-2 SearchSectionForLogin" type="search"
-                                placeholder="Enter your email" aria-label="Search">
-                            <button class="btn btn-submit btnSearch text-center "  type="submit">
+                              aria-label="Search" [placeholder]="'home-footer-addition-not-log-in.Enter Your Email' | translate">
+                            <button class="btn btn-submit btnSearchRtl text-center"
+                             [ngClass]="{ 'btnSearchRtl': lang === 'ar', 'btnSearch': lang === 'en' }"  type="submit">
                                 <p>
-                                    Subscribe
+                                    {{"home-footer-addition-not-log-in.Subscribe"|translate}}
                                 </p>
                             </button>
                         </form>

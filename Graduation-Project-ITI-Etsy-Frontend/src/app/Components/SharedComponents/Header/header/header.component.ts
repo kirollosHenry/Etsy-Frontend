@@ -19,6 +19,8 @@ import { NgbModal, NgbModalModule } from "@ng-bootstrap/ng-bootstrap";
 import { LoginComponent } from "../../../login/login.component";
 import { TranslationLangService } from "../../../../Services/translation/translationLang.service";
 import { SearchService } from "../../../../Services/Search/search.service";
+import { CommonModule } from "@angular/common";
+
 
 @Component({
   selector: "app-header",
@@ -31,8 +33,8 @@ import { SearchService } from "../../../../Services/Search/search.service";
     RouterModule,
     TranslateModule,
     NgbModalModule,
-    LoginComponent
-    
+    LoginComponent,
+    CommonModule 
   ],
   templateUrl: "./header.component.html",
   styleUrl: "./header.component.css",
@@ -131,8 +133,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
 
   // Localization!!
-  
-  
   ChangeLang(event: any) {
     const selectedLanguage = event?.target?.value;
     if (selectedLanguage) {

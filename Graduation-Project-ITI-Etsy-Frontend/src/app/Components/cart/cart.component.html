@@ -58,9 +58,9 @@
                           {{"CartComponent.size"|translate}} </p>
 
                         <div class="d-flex">
-                          <select class="form-select selectD" aria-label="Default select example">
-                            @for(item of getNumbersArray(item.productStock);
-                            track item; ) {
+                          <select class="form-select selectD" aria-label="Default select example" 
+                          [(ngModel)]="item.quantity" (change)="onQuantityChange()">
+                            @for(item of getNumbersArray(item.productStock);track item; ) {
                             <option [value]="item">{{ item }}</option>
                             }
                           </select>
@@ -84,8 +84,8 @@
                       <a href="" style="color: black; font-weight: 300">{{"CartComponent.Contact shop"|translate}}</a>
                     </h6>
                     <h5>
-                      {{ lang === 'ar' ? ( item.productPrice| currency:'EGP':'symbol':'1.2-2') : (item.productPrice |
-                      currency:'EUR':'symbol':'1.2-2') }}
+                      {{ lang === 'ar' ? ( item.productPrice  * item.quantity| currency:'EGP':'symbol':'1.2-2') :
+                       (item.productPrice  * item.quantity| currency:'EUR':'symbol':'1.2-2') }}
                     </h5>
                   </td>
                 </tr>
@@ -183,11 +183,11 @@
 
                   <tr>
                     <td>
-                      <h6>{{"CartComponent.Item(s) total"|translate}}</h6>
+                      <h6>{{"CartComponent.Total price"|translate}}</h6>
                     </td>
                     <!-- make it dynamic the total price !! -->
-                    <td class="text-end"> {{ lang === 'ar' ? ( 2.33| currency:'EGP':'symbol':'1.2-2') :
-                     (2.33 | currency:'EUR':'symbol':'1.2-2') }}</td>
+                    <td class="text-end"> {{ lang === 'ar' ? ( totalPrice| currency:'EGP':'symbol':'1.2-2') :
+                     (totalPrice | currency:'EUR':'symbol':'1.2-2') }}</td>
                   </tr>
 
                   <tr class="">
@@ -199,9 +199,12 @@
                 </tbody>
                 <tfoot style="width: 100%">
                   <td colspan="2">
-                    <button class="btn btnCheckOut justify-content-center">
-                      {{"CartComponent.Processed to checkout"|translate}}
-                    </button>
+                    <!-- PayPal Button    I Comment this code to resolve its design -->
+                    <div #paypalButtonContainer> 
+                      <!-- <button class="btn btnCheckOut justify-content-center">
+                        {{"CartComponent.Processed to checkout"|translate}}
+                      </button> -->
+                    </div>
                   </td>
                 </tfoot>
               </table>
@@ -225,3 +228,33 @@
       {{"CartComponent.Etsy offsets carbon emissions from every delivery"|translate}}    </div>
   </div>
 </div>
+
+
+
+
+<!-- PayPal Modal Confirm -->
+
+<div class="modal" tabindex="-1" id="paypalModal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg" alt="PayPal Logo">
+        <h5 class="modal-title text-center">Thank You for Your Payment!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="text-center font-weight-bold">Your payment via PayPal has been successfully processed.</p>
+        <p class="text-center">Thank you for choosing <span style="color: #007bff; font-style: italic;">PayPal</span> for your transaction.;</p>
+        <div class="text-center">
+          <img src="https://sm.pcmag.com/t/pcmag_uk/review/p/paypal/paypal_kzfp.1920.png" alt="PayPal Checkmark" style="width: 50%;" class="mx-auto d-block">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

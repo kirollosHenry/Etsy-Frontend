@@ -1,14 +1,21 @@
-import { ApplicationConfig, importProvidersFrom } from '@angular/core';
+import { APP_INITIALIZER, ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { AppTranslateModule } from './app-translate.module';
+import { TranslationLangService } from './Services/translation/translationLang.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes),provideHttpClient(withFetch()),
     importProvidersFrom(HttpClientModule),
-  importProvidersFrom(AppTranslateModule.forRoot())
-  
-  ]
+  importProvidersFrom(AppTranslateModule.forRoot()),
+
+  {
+    provide: APP_INITIALIZER,
+    useFactory: (translationService: TranslationLangService) => () => translationService.init(),
+    deps: [TranslationLangService],
+    multi: true
+  }
+]
 };

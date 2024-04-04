@@ -25,7 +25,9 @@
   },
 
   "home-footer-addition-not-log-in": {
-    "yes! Send me exclusive offers, unique gift ideas, and personalized tips for shopping and selling on Etsy.": "Yes! Send me exclusive offers, unique gift ideas, and personalized tips for shopping and selling on Etsy."
+    "yes! Send me exclusive offers, unique gift ideas, and personalized tips for shopping and selling on Etsy.": "Yes! Send me exclusive offers, unique gift ideas, and personalized tips for shopping and selling on Etsy.",
+    "Subscribe":"Subscribe",
+    "Enter Your Email":"Enter Your Email"
   },
 
   "footer": {
@@ -239,7 +241,7 @@
     "from Turkey":"from Turkey",
     "Estimated delivery:":"Estimated delivery:",
     "How you'll pay":"How you'll pay",
-    "Item(s) total":"Item(s) total",
+    "Total price":"Total price",
     "Total items": "Total items",
     "Apply Etsy coupon code":"Apply Etsy coupon code",
     "Processed to checkout":"Processed to checkout",

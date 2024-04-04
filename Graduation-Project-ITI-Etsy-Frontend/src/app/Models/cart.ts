@@ -1,8 +1,8 @@
 export interface AddCartDTO {
-    cartID: number,
-    productId : number,
-    customerId: string,
-    quantity: number
+    CartID: number,
+    ProductId: number,
+    CustomerId: string,
+    Quantity: number
 }
 
 
