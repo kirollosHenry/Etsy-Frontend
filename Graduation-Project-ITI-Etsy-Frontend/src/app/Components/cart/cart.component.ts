@@ -92,7 +92,7 @@ export class CartComponent implements OnInit {
                   breakdown: {
                     item_total: {
                       currency_code: "USD",
-                      value: "10.00"
+                      value: this.amountPrice.toString()
                     }
                   }
                 }
@@ -103,7 +103,18 @@ export class CartComponent implements OnInit {
         onApprove: (data: any, actions: any) => {
           // console.log("onApprove *********************");
           return actions.order.capture().then((details: any) => {
-            // console.log('Payment details:', details);
+            if(details.status === "COMPLETED")
+            {
+              debugger;
+              console.log('Payment details:', details);
+              //Create Order Services
+
+              //Create Payment Services
+
+              //Delete Cart By CustomerId
+              this.sub = this._CartService.DeleteCart(this.CustomerId).subscribe();
+            }
+           
             // this.router.navigate(['/success']);
           });
         },
@@ -131,5 +142,4 @@ export class CartComponent implements OnInit {
 onQuantityChange(): void {
   this.calculateTotalPrice();
 }
-  
 }

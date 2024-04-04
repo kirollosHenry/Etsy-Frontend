@@ -19,4 +19,8 @@ export class CartService {
   GetAllCarts(CustomerId : string) : Observable<ICartAPI>{
     return this._HttpClient.get<ICartAPI>(`${this.apiCartURL}/${CustomerId}`);
   }
+
+  DeleteCart(CustomerId : string) : Observable<ICartAPI>{
+    return this._HttpClient.get<ICartAPI>(`${this.apiCartURL}/Delete/${CustomerId}`);
+  }
 }
