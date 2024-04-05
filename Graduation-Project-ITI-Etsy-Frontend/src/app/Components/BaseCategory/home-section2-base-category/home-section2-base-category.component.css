@@ -19,10 +19,9 @@
 .BaseCatEffect {
   border: #d8d8d8 solid 1px;
   border-radius: 20px;
-  /* width: 13rem; */
   transition: all 0.5s ease;
-  width: 100%;
-  max-width: 13rem;
+  width: 130%;
+  max-width: 16rem;
 }
 
 .BaseCatEffect:hover {
@@ -34,8 +33,12 @@
 
 .imgOfBaseCategory {
     width: 100%;
-    max-width: 13rem;
+    max-width: 17rem;
+    
     border-radius: 20px 20px 0 0;
+    object-fit: cover;
+    overflow: hidden;
+    
 }
 
 /* ============ */
@@ -48,3 +51,19 @@
 }
 
 /* responsive !! */
+
+@media screen and (max-width: 992px) {
+  .BaseCatEffect {
+    width: 100%;
+    justify-content: center;
+  }
+  
+}
+
+
+@media screen and (max-width: 768px) {
+  .textOfHeaderOfCatHome {
+    font-size: 18px; 
+    text-align: center;
+  }
+}

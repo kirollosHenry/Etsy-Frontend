@@ -68,3 +68,15 @@
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
 
 }
+
+
+
+/* Responsive */
+
+
+@media screen and (max-width: 768px) {
+  .txtHeaderWelcoming {
+    font-size: 1.3rem; 
+    text-align: center;
+  }
+}

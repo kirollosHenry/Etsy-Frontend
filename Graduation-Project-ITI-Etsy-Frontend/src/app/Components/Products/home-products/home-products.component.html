@@ -4,7 +4,7 @@
 
         @if(isLoggedIn){
         <!-- User Name !! -->
-        <h1 class="txtHeaderWelcoming text-center"> Welcome to Etsy, Nada </h1>
+        <h1 class="txtHeaderWelcoming text-center"> {{"home-products.Welcome to Etsy"|translate}}, Nada </h1>
         }@else {
         <h1 class="txtHeaderWelcoming text-center"> {{'home-products.shop on-sale decor and so much more!' | translate
             }} </h1>
@@ -23,14 +23,14 @@
 <div [ngClass]="{'SectionHome': isLoggedIn}">
     <div class="container ProductsSectionHome mb-5">
         <div class="row pt-2 justify-content-center ">
-            @for (ProductItem of ProductsList.slice(15, 20); track $index ) {
-            <div class="col-md-2 product-item">
+            @for (ProductItem of ProductsList.slice(49, 55); track $index ) {
+            <div class="col-lg-2  col-md-4 col-sm-4 col-6 product-item">
                 <ul class="list-unstyled">
                     <li class="ProductEffect">
 
 
                         <!-- Routing to the product details NOT FINISHED !! -->
-                        <a class="d-flex flex-column align-items-center text-decoration-none" style="cursor: pointer;;">
+                        <a [routerLink]="['ProductDetails', ProductItem.productId]" class="d-flex flex-column align-items-center text-decoration-none" style="cursor: pointer;;">
                             <div>
                                 <img class=" img-fluid imgOfCard mb-3" [src]="ProductItem.productImage"
                                     alt="Card image cap">

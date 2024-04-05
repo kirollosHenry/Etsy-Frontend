@@ -36,17 +36,6 @@ export class BaseCategoryComponent implements OnInit {
       next: (Categories) => {
         this.BaseCategoryList = Categories.entities;
 
-        const itemsToAdd = 17 - this.BaseCategoryList.length;
-        this.extendedBaseCategoryItems = [...this.BaseCategoryList];
-        for (let i = 0; i < itemsToAdd; i++) {
-          const defaultBaseCategory: BaseCategory = {
-            id: 232312,
-            nameEN: this.BaseCategoryList[0].nameEN,
-            nameAR: this.BaseCategoryList[0].nameAR,
-            baseCategoryImage: this.BaseCategoryList[0].baseCategoryImage,
-          };
-          this.extendedBaseCategoryItems.push(defaultBaseCategory);
-        }
       },
     });
 

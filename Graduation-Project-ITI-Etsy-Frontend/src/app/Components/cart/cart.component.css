@@ -1,123 +1,118 @@
-body{
-    background:#eeee;
+body {
+  background: #eeee;
 }
 
-
-.headerCard{
-        background-color:#D7E6F5 !important;
+.headerCard {
+  background-color: rgb(204, 235, 255) !important;
 }
 
 .card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 0 solid rgba(0, 0, 0);
-    border-radius: 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 0 solid rgba(0, 0, 0);
+  border-radius: 1rem;
+  box-shadow: none !important;
+
 }
 .text-reset {
-    --bs-text-opacity: 1;
-    color: inherit!important;
+  --bs-text-opacity: 1;
+  color: inherit !important;
 }
 a {
-    color: #5465ff;
-    text-decoration: none;
+  color: #5465ff;
+  text-decoration: none;
 }
 
-
-.CardImage{
-    border-radius: 10px;
-    width: 200px;
-    height: 170px;
+.CardImage {
+  border-radius: 10px;
+  width: 200px;
+  height: 170px;
 }
 
-
-
-.selectD{
-    width: 67px !important;
+.selectD {
+  width: 67px !important;
 }
 
 .LineRemove {
-    border: none !important;
-
+  border: none !important;
 }
-.botn-container{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.btnCheckOut{
-    width: 100%;
-    border-radius: 20px;
-    background-color: black;
-    color: #ffffff;
+.botn-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.btnCheckOut {
+  width: 100%;
+  border-radius: 20px;
+  background-color: black;
+  color: #ffffff;
+}
 
-.btnCheckOut:hover{
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add box shadow */
-    opacity: 0.8; /* Reduce opacity */
+.btnCheckOut:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add box shadow */
+  opacity: 0.8; /* Reduce opacity */
 }
 
 /* for payment */
-.form-check-input[type="radio"]{
-    width: 24px; /* Adjust width */
-    height: 24px; /* Adjust height */
-
+.form-check-input[type="radio"] {
+  width: 24px; /* Adjust width */
+  height: 24px; /* Adjust height */
 }
 
-
-.form-check-input[type="radio"]:checked{
-   
-    background-color: black;
-    border-color: black;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add box shadow */
-
+.form-check-input[type="radio"]:checked {
+  background-color: black;
+  border-color: black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add box shadow */
 }
-
 
 /* fot gift */
 
-.form-check-input[type="checkbox"]:checked{
-   
-    background-color: black;
-    border-color: black;
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0); 
-
+.form-check-input[type="checkbox"]:checked {
+  background-color: black;
+  border-color: black;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
 }
 
-.form-check-input[type="checkbox"]::after{
-   
-    background-color: black;
-    border-color: black;
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0); 
-
+.form-check-input[type="checkbox"]::after {
+  background-color: black;
+  border-color: black;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
 }
 
 .form-check-input[type="checkbox"] {
-    box-shadow: 0 0 0 rgba(0, 0, 0, 0); 
-    border-color: rgba(187, 187, 187, 0.572);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  border-color: rgba(187, 187, 187, 0.572);
 }
 
-.cursorClass{
-    cursor: pointer; 
+.cursorClass {
+  cursor: pointer;
 }
-.roundedBG{
-    border-radius: 50px; 
-    border: none;
-    padding: 8px;
-    font-weight: 600;
-    font-size: 12px;
-    background-color: rgba(255, 255, 255, 0.811);
+.roundedBG {
+  border-radius: 50px;
+  border: none;
+  padding: 8px;
+  font-weight: 600;
+  font-size: 12px;
+  background-color: rgba(255, 255, 255, 0.811);
+}
+.roundedBG:hover {
+  background-color: #f0f0f0;
+  transition: opacity 0.7s ease;
+}
 
-}
-.roundedBG:hover{
-    background-color: #F0F0F0;
-    transition: opacity 0.7s ease;
+/* Cart Empty !!! */
+
+.CartEmpty{
+    font-family: "Guardian-EgypTT", "Charter", "Charter Bitstream", "Cambria", "Noto Serif Light", "Droid Serif", "Georgia", "serif";
+    font-weight:lighter;
+    line-height: 1.1;
+    font-size: 35px;
+    letter-spacing: .46515px;
 }

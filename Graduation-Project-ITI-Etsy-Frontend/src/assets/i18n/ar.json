@@ -61,7 +61,8 @@
     },
 
     "home-products":{
-        "shop on-sale decor and so much more!":"!تسوق للبيع الديكور وأكثر من ذلك بكثير"
+        "shop on-sale decor and so much more!":"!تسوق للبيع الديكور وأكثر من ذلك بكثير",
+        "Welcome to Etsy":"مرحبا بك فى إيتسي"
     },
     "base-category":{
         "shop by Category":"تسوق حسب الاقسام"
@@ -267,7 +268,8 @@
         "VAT included":"شامل ضريبة القيمة المضافة",
         "Etsy offsets carbon emissions from every delivery":"ايستي يعوض انبعاثات الكربون من كل عملية تسليم",
         " Additional duties and taxes may apply":" قد يتم تطبيق رسوم وضرائب إضافية",
-        "Local taxes included (where applicable)":"شامل الضرائب المحلية (حيثما ينطبق ذلك)"
+        "Local taxes included (where applicable)":"شامل الضرائب المحلية (حيثما ينطبق ذلك)",
+        "Your cart is empty.":"عربة التسوق فارغة."
 
 
         

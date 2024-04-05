@@ -1,30 +1,29 @@
-<div class="container BaseCategoryitemHome2 mb-5">
+<div class="container BaseCategoryitemHome2 mb-5 mt5">
 
-    <h2 class=" textOfHeaderOfCatHome mb-3 justify-content-between">
+    <h2 class=" textOfHeaderOfCatHome mb-3">
         {{ 'home-section2-base-category.shop our popular gift categories' | translate }}
     </h2>
 
 
-    @if(extendedBaseCategoryItems.length > 0)
+    @if(BaseCategoryList.length > 0)
     {
     <div class="container-fluid ">
-        <div class="row  justify-content-between">
+        <div class="row justify-content-between">
 
 
-            @for (BaseCategoryitem of extendedBaseCategoryItems; track $index ) {
-            <div class="col-lg-2 col-md-3 col-sm-4 col-6  m-0">
+            @for (BaseCategoryitem of BaseCategoryList.slice(0,5); track $index ) {
+            <div class="col-lg-2 col-md-4 col-sm-6 col-xs-12  ">
                 <div class="row">
 
-                    <ul class="list-unstyled  pt-2">
+                    <ul class="list-unstyled  pt-2 ">
                         <li class="BaseCatEffect">
 
-                            <a routerLink="" class="text-decoration-none d-flex flex-column align-items-center ">
+                            <a [routerLink]="[ 'Category',BaseCategoryitem.id]" class="text-decoration-none d-flex flex-column  ">
 
                                 <div>
-                                    <img class="card-img-top imgOfBaseCategory"
+                                    <img class="card-img-top imgOfBaseCategory "
                                         [src]="BaseCategoryitem.baseCategoryImage" alt="Base Category Card image"
                                         style="height: 12rem;">
-                                    <!--style="height: 12rem; width: 13rem;"  -->
                                 </div>
 
                                 <div class="text-center mt-3">

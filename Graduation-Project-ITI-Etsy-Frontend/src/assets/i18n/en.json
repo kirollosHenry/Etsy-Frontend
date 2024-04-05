@@ -55,7 +55,8 @@
   },
 
   "home-products": {
-    "shop on-sale decor and so much more!": "Shop on-sale decor and so much more!"
+    "shop on-sale decor and so much more!": "Shop on-sale decor and so much more!",
+    "Welcome to Etsy":"Welcome to Etsy"
   },
 
   "base-category": {
@@ -248,7 +249,8 @@
     "VAT included":"VAT included",
     "Etsy offsets carbon emissions from every delivery":"Etsy offsets carbon emissions from every delivery",
     " Additional duties and taxes may apply":" Additional duties and taxes may apply",
-    "Local taxes included (where applicable)":"Local taxes included (where applicable)"
+    "Local taxes included (where applicable)":"Local taxes included (where applicable)",
+    "Your cart is empty.":"Your cart is empty."
     
 
     
