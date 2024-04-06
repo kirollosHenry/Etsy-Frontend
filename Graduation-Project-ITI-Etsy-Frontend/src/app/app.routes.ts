@@ -14,29 +14,29 @@ import { userAuthGuard } from './Components/Guard/user-auth.guard';
 
 export const routes: Routes = [
 
-    {path:'', redirectTo:'home', pathMatch:'full'},
-    
-    {path:'home', component:HomeComponent, title:'Home'},
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
+
+    { path: 'home', component: HomeComponent, title: 'Home' },
     //{path:'about', component:AboutComponent, title:'About'},
 
-    {path:'Cart', component:CartComponent, title:'Cart' , canActivate:[userAuthGuard]},
-    {path:'Category/:categoryId/Products/:id', component:ProductListComponent, title:'Products'},
-    {path:'Category/:categoryId/Products/:id/ProductDetails/:ProductId', component:ProductDetailsComponent, title:'Product Details'},
-    {path:'Product/:id', component:ProductDetailsComponent, title:'Product Details'},
-    {path:'Category/:categoryId', component:AllcategoriesComponent, title:'Categories'},
-    {path:'BaseCategory', component:BaseCategoryComponent, title:'Base Category'},
-    {path:'login', component:LoginComponent, title:'Log in'},
-    {path:'search', component:SearchComponent, title:'Etsy Search'},
-    {path: 'home/Category/:categoryId', component: AllcategoriesComponent , title:'Categories'},
-    {path:'home/Category/:categoryId/Products/:id', component:ProductListComponent, title:'Products'},
-    {path:'home/Category/:categoryId/Products/:id/ProductDetails/:ProductId', component:ProductDetailsComponent, title:'Product Details'},
-    {path:'home/ProductDetails/:ProductId', component:ProductDetailsComponent, title:'Product Details'},
-    {path:'Confirm', component:ConfirmComponent, title:'Confirm Payment',canActivate:[userAuthGuard]},
+    { path: 'Cart', component: CartComponent, title: 'Cart', /*,canActivate:[userAuthGuard]*/ },
+    { path: 'Category/:categoryId/Products/:id', component: ProductListComponent, title: 'Products' },
+    { path: 'Category/:categoryId/Products/:id/ProductDetails/:ProductId', component: ProductDetailsComponent, title: 'Product Details' },
+    { path: 'Product/:id', component: ProductDetailsComponent, title: 'Product Details' },
+    { path: 'Category/:categoryId', component: AllcategoriesComponent, title: 'Categories' },
+    { path: 'BaseCategory', component: BaseCategoryComponent, title: 'Base Category' },
+    { path: 'login', component: LoginComponent, title: 'Log in' },
+    { path: 'search', component: SearchComponent, title: 'Etsy Search' },
+    { path: 'home/Category/:categoryId', component: AllcategoriesComponent, title: 'Categories' },
+    { path: 'home/Category/:categoryId/Products/:id', component: ProductListComponent, title: 'Products' },
+    { path: 'home/Category/:categoryId/Products/:id/ProductDetails/:ProductId', component: ProductDetailsComponent, title: 'Product Details' },
+    { path: 'home/ProductDetails/:ProductId', component: ProductDetailsComponent, title: 'Product Details' },
+    { path: 'Confirm', component: ConfirmComponent, title: 'Confirm Payment'/*,canActivate:[userAuthGuard]*/ },
 
 
     //{path:'userprofile', component:UserProfileComponent, title:'User Profile', canActivate:[userAuthGuard]},
     //{path:'register', component:RegisterComponent, title:'register'},
-    
+
     //{path:'**', component:NotFoundComponent, title:'Not Found'}
 
 ];
