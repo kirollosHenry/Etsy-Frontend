@@ -127,7 +127,7 @@
                           <button class="roundedBG me-2">
                             {{ "CartComponent.Save for later" | translate }}
                           </button>
-                          <button class="roundedBG" (click)="deleteCart()">
+                          <button class="roundedBG" (click)="deleteCart(item.cartID)">
                             {{ "CartComponent.Remove" | translate }}
                           </button>
                         </div>

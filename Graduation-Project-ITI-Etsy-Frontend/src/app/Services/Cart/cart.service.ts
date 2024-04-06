@@ -21,6 +21,10 @@ export class CartService {
   }
 
   DeleteCart(CustomerId : string) : Observable<ICartAPI>{
-    return this._HttpClient.get<ICartAPI>(`${this.apiCartURL}/Delete/${CustomerId}`);
+    return this._HttpClient.delete<ICartAPI>(`${this.apiCartURL}/Delete/${CustomerId}`);
+  }
+
+  DeleteCartById(CartId : number) : Observable<ICartAPI>{
+    return this._HttpClient.delete<ICartAPI>(`${this.apiCartURL}/DeleteCartId/${CartId}`);
   }
 }

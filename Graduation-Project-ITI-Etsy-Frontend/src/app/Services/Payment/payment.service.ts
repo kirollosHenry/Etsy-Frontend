@@ -15,6 +15,6 @@ export class PaymentService {
 
 
   CreatePayment(PaymentObj: Payment): Observable<Payment> {
-    return this._HttpClient.post<Payment>(this.apiPaymentURL, PaymentObj);
+    return this._HttpClient.post<Payment>(`${this.apiPaymentURL}create`, PaymentObj);
   }
 }

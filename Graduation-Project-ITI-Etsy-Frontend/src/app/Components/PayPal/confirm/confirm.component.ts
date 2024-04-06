@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-confirm',
@@ -7,6 +7,12 @@ import { Component } from '@angular/core';
   templateUrl: './confirm.component.html',
   styleUrl: './confirm.component.css'
 })
-export class ConfirmComponent {
+export class ConfirmComponent implements OnInit {
+  
+  @ViewChild("paypalModalConfirm") loginFormContent!: ElementRef;
+
+  ngOnInit(): void {
+    this.loginFormContent.nativeElement;
+  }
 
 }
