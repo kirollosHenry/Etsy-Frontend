@@ -4,21 +4,27 @@ import { LoginResult } from '../../Models/Accout/login-result';
 import { Login } from '../../Models/Accout/login';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { UserService } from './user.service';
+import { environment } from '../../../environment/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  private AccountApiUrl = environment.AccountApiUrl;
+
   private tokenKey: string = "token";
   private _authStatus = new BehaviorSubject<boolean>(false);
   public authStatus = this._authStatus.asObservable();
+  get UserState () : boolean{
+    return this.isAuthenticated();
+  }
   isAuthenticated() : boolean {
     return this.getToken() !== null;
   }
   getToken() : string | null {
     return localStorage.getItem(this.tokenKey);
   }
-  private baseUrl: string ="http://localhost:5104"
+  //private baseUrl: string ="http://localhost:5104"
   constructor(private http: HttpClient ,private userService: UserService) { }
 
  /*  login(login1 : Login) :Observable<LoginResult> {
@@ -32,7 +38,7 @@ export class AuthService {
     this.setAuthStatus(true);
      }
     login(item: Login): Observable<LoginResult> {
-    var url = `${this.baseUrl}/api/Account/Login`;
+    var url = `${this.AccountApiUrl}/Login`;
     return this.http.post<LoginResult>(url, item)
          .pipe(tap(loginResult => {
     if (loginResult.isAuthenticated && loginResult.token) {

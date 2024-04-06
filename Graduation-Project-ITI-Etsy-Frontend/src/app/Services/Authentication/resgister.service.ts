@@ -3,11 +3,15 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable ,tap } from 'rxjs';
 import { LoginResult } from '../../Models/Accout/login-result';
 import { Register } from '../../Models/Accout/register';
+import { environment } from '../../../environment/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ResgisterService {
+
+  private AccountApiUrl = environment.AccountApiUrl;
+
   private tokenKey: string = "token";
   private _authStatus = new BehaviorSubject<boolean>(false);
   public authStatus = this._authStatus.asObservable();
@@ -17,7 +21,7 @@ export class ResgisterService {
   getToken() : string | null {
     return localStorage.getItem(this.tokenKey);
   }
-  private baseUrl: string ="http://localhost:5104"
+  //private baseUrl: string ="http://localhost:5104"
   constructor(private http: HttpClient) { }
 
  /*  login(login1 : Login) :Observable<LoginResult> {
@@ -31,7 +35,7 @@ export class ResgisterService {
     this.setAuthStatus(true);
      }
     login(item: Register): Observable<LoginResult> {
-    var url = `${this.baseUrl}/api/Account/register`;
+    var url = `${this.AccountApiUrl}/register`;
     return this.http.post<LoginResult>(url, item)
          .pipe(tap(loginResult => {
     if (loginResult.isAuthenticated && loginResult.token) {

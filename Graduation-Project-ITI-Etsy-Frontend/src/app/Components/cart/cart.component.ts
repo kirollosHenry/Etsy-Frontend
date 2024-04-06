@@ -228,6 +228,22 @@ export class CartComponent implements OnInit {
   deleteCart(CartId : number): void {
     this.sub = this._CartService.DeleteCartById(CartId).subscribe(() => {
     });
+    this.sub = this._CartService.GetAllCarts(this.CustomerId).subscribe({
+      next: (CartsDateAPI: ICartAPI) => {
+        // this.CartsList = CartsDateAPI.entities;
+        this.CartsList = CartsDateAPI.entities.map(cart => ({
+          ...cart,
+          quantity: cart.quantity
+        }));
+
+        this.NumberOfCarts = CartsDateAPI.count;
+        this.calculateTotalPrice();
+
+      },
+      error: (response) => {
+        console.log(response);
+      },
+    });
   }
 
   // Function to update deliverTime

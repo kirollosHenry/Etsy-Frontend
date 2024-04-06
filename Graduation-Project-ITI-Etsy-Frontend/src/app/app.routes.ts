@@ -9,6 +9,7 @@ import { HomeComponent } from './Components/home/home.component';
 import { SearchComponent } from './Components/Search/search.component';
 import { HomeSection2BaseCategoryComponent } from './Components/BaseCategory/home-section2-base-category/home-section2-base-category.component';
 import { ConfirmComponent } from './Components/PayPal/confirm/confirm.component';
+import { userAuthGuard } from './Components/Guard/user-auth.guard';
 
 
 export const routes: Routes = [
@@ -18,7 +19,7 @@ export const routes: Routes = [
     {path:'home', component:HomeComponent, title:'Home'},
     //{path:'about', component:AboutComponent, title:'About'},
 
-    {path:'Cart', component:CartComponent, title:'Cart'},
+    {path:'Cart', component:CartComponent, title:'Cart' , canActivate:[userAuthGuard]},
     {path:'Category/:categoryId/Products/:id', component:ProductListComponent, title:'Products'},
     {path:'Category/:categoryId/Products/:id/ProductDetails/:ProductId', component:ProductDetailsComponent, title:'Product Details'},
     {path:'Product/:id', component:ProductDetailsComponent, title:'Product Details'},
@@ -30,7 +31,7 @@ export const routes: Routes = [
     {path:'home/Category/:categoryId/Products/:id', component:ProductListComponent, title:'Products'},
     {path:'home/Category/:categoryId/Products/:id/ProductDetails/:ProductId', component:ProductDetailsComponent, title:'Product Details'},
     {path:'home/ProductDetails/:ProductId', component:ProductDetailsComponent, title:'Product Details'},
-    {path:'Confirm', component:ConfirmComponent, title:'Confirm Payment'},
+    {path:'Confirm', component:ConfirmComponent, title:'Confirm Payment',canActivate:[userAuthGuard]},
 
 
     //{path:'userprofile', component:UserProfileComponent, title:'User Profile', canActivate:[userAuthGuard]},
