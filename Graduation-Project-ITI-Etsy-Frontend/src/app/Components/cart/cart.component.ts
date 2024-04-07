@@ -60,14 +60,7 @@ export class CartComponent implements OnInit , AfterViewInit {
 
 
   //Add Order 
-  OrderObj: Order = {       // Abanoub: Test Order Object since make it dynamic 
-    ordersId: 0,
-    address: 'Safaga Egypt',
-    totalPrice: 200,
-    orderedAt: "2024-04-04T22:01:53.290Z",  //Not Updated Yet
-    arrivedOn: "2024-04-04T22:01:53.290Z",
-    customerId: 'da679192-b569-458e-a077-452761c0e30a'
-  };
+  OrderObj!: Order 
 
   PaymentObj!: Payment ;
 
@@ -249,6 +242,14 @@ export class CartComponent implements OnInit , AfterViewInit {
               console.log('Payment details:', details);
 
               //Create Order Services
+              this.OrderObj = {       // Abanoub: Test Order Object since make it dynamic 
+                ordersId: 0,
+                address: 'Cairo Egypt',
+                totalPrice: this.totalPrice,
+                orderedAt: "2024-04-04T22:01:53.290Z",  //Not Updated Yet
+                arrivedOn: "2024-04-04T22:01:53.290Z",
+                customerId: 'da679192-b569-458e-a077-452761c0e30a'
+              };
               this.sub = this._OrderService.CreateOrder(this.OrderObj).subscribe({
                 next: (response: any) => {
                   console.log("Create Order: ", response);
@@ -256,12 +257,11 @@ export class CartComponent implements OnInit , AfterViewInit {
                   //Create Payment Services
                   this.PaymentObj = {    // Abanoub: Test Payment Object since make it dynamic 
                     paymentID: 0,
-                    totalPrice: 2000,
+                    totalPrice: response.totalPrice,
                     response: 'COMPLETED',
                     customerId: 'da679192-b569-458e-a077-452761c0e30a',
                     orderId: response.ordersId
                   }
-                  debugger;
                   //Create Payment Services
                   this.sub = this._PaymentService.CreatePayment(this.PaymentObj).subscribe({
                     next: (response) => {
@@ -269,7 +269,6 @@ export class CartComponent implements OnInit , AfterViewInit {
                     },
                     error: (rsponce)=>{
                       console.log("Error in Payment: ",rsponce);
-                      
                     }
                   })
                 },
