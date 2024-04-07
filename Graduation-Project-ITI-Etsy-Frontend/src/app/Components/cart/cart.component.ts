@@ -248,7 +248,6 @@ export class CartComponent implements OnInit , AfterViewInit {
             if (details.status === "COMPLETED") {
               console.log('Payment details:', details);
 
-              //debugger;
               //Create Order Services
               this.sub = this._OrderService.CreateOrder(this.OrderObj).subscribe({
                 next: (response: any) => {
@@ -256,13 +255,13 @@ export class CartComponent implements OnInit , AfterViewInit {
                   //this.PaymentObj.orderId = response.ordersId;
                   //Create Payment Services
                   this.PaymentObj = {    // Abanoub: Test Payment Object since make it dynamic 
-                    paymentId: 0,
+                    paymentID: 0,
                     totalPrice: 2000,
                     response: 'COMPLETED',
                     customerId: 'da679192-b569-458e-a077-452761c0e30a',
                     orderId: response.ordersId
                   }
-                  //debugger;
+                  debugger;
                   //Create Payment Services
                   this.sub = this._PaymentService.CreatePayment(this.PaymentObj).subscribe({
                     next: (response) => {
