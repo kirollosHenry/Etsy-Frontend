@@ -19,7 +19,7 @@ export const routes: Routes = [
     { path: 'home', component: HomeComponent, title: 'Home' },
     //{path:'about', component:AboutComponent, title:'About'},
 
-    { path: 'Cart', component: CartComponent, title: 'Cart', /*,canActivate:[userAuthGuard]*/ },
+    { path: 'Cart', component: CartComponent, title: 'Cart', canActivate:[userAuthGuard]},
     { path: 'Category/:categoryId/Products/:id', component: ProductListComponent, title: 'Products' },
     { path: 'Category/:categoryId/Products/:id/ProductDetails/:ProductId', component: ProductDetailsComponent, title: 'Product Details' },
     { path: 'Product/:id', component: ProductDetailsComponent, title: 'Product Details' },
