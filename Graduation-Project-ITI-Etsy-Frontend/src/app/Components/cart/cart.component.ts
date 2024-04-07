@@ -64,18 +64,12 @@ export class CartComponent implements OnInit , AfterViewInit {
     ordersId: 0,
     address: 'Safaga Egypt',
     totalPrice: 200,
-    orderedAt: this.currentTimeForOrder,  //Not Updated Yet
-    arrivedOn: this.DeliveredTimeForOrder,
+    orderedAt: "2024-04-04T22:01:53.290Z",  //Not Updated Yet
+    arrivedOn: "2024-04-04T22:01:53.290Z",
     customerId: 'da679192-b569-458e-a077-452761c0e30a'
   };
 
-  PaymentObj: Payment = {    // Abanoub: Test Payment Object since make it dynamic 
-    paymentId: 0,
-    totalPrice: 2000,
-    response: 'COMPLETED',
-    customerId: 'da679192-b569-458e-a077-452761c0e30a',
-    orderId: 2
-  }
+  PaymentObj!: Payment ;
 
 
   CartsList: GetAllCartDTO[] = [];
@@ -217,75 +211,91 @@ export class CartComponent implements OnInit , AfterViewInit {
 
   }
   ngAfterViewInit(): void {
-    paypal.Buttons(
-          {
-            style: {
-              display: 'inline-block',
-              layout: 'horizontal',
-              color: 'blue',
-              shape: 'rect',
-              label: 'paypal',
-            },
-    
-            createOrder: (data: any, actions: any) => {
-              return actions.order.create({
-                purchase_units: [
-                  {
-                    amount: {
-                      value: this.totalPrice.toString(),
-                      currency_code: 'USD',
-                      breakdown: {
-                        item_total: {
-                          currency_code: "USD",
-                          value: this.totalPrice.toString()
-                        }
-                      }
+   paypal.Buttons(
+      {
+        style: {
+          display: 'inline-block',
+          layout: 'horizontal',
+          color: 'blue',
+          shape: 'rect',
+          label: 'paypal',
+        },
+
+        createOrder: (data: any, actions: any) => {
+          return actions.order.create({
+            purchase_units: [
+              {
+                amount: {
+                  value: this.totalPrice.toString(),
+                  currency_code: 'USD',
+                  breakdown: {
+                    item_total: {
+                      currency_code: "USD",
+                      value: this.totalPrice.toString()
                     }
                   }
-                ]
-              });
-            },
-            onApprove: (data: any, actions: any) => {
-              return actions.order.capture().then((details: any) => {
-                if (details.status === "COMPLETED") {
-                  console.log('Payment details:', details);
-    
+                }
+              }
+            ]
+          });
+        },
+        onApprove: (data: any, actions: any) => {
+
+          // For Test Unsuccessful modal !! 
+          // return Promise.reject('Simulated error');
+
+          return actions.order.capture().then((details: any) => {
+            if (details.status === "COMPLETED") {
+              console.log('Payment details:', details);
+
+              //debugger;
+              //Create Order Services
+              this.sub = this._OrderService.CreateOrder(this.OrderObj).subscribe({
+                next: (response: any) => {
+                  console.log("Create Order: ", response);
+                  //this.PaymentObj.orderId = response.ordersId;
+                  //Create Payment Services
+                  this.PaymentObj = {    // Abanoub: Test Payment Object since make it dynamic 
+                    paymentId: 0,
+                    totalPrice: 2000,
+                    response: 'COMPLETED',
+                    customerId: 'da679192-b569-458e-a077-452761c0e30a',
+                    orderId: response.ordersId
+                  }
                   //debugger;
-                  //Create Order Services
-                  this.sub = this._OrderService.CreateOrder(this.OrderObj).subscribe({
-                    next: (response: any) => {
-                      console.log("Create Order: ", response);
-                      this.PaymentObj.orderId = response.ordersId;
-                      //Create Payment Services
-                      debugger;
-                      //Create Payment Services
-                      this.sub = this._PaymentService.CreatePayment(this.PaymentObj).subscribe({
-                        next: (response) => {
-                          console.log("Create Payment: ", response);
-                        }
-                      })
+                  //Create Payment Services
+                  this.sub = this._PaymentService.CreatePayment(this.PaymentObj).subscribe({
+                    next: (response) => {
+                      console.log("Create Payment: ", response);
                     },
-                    error: (error)=>{
-                      console.log("Error in Create Order ",error);
+                    error: (rsponce)=>{
+                      console.log("Error in Payment: ",rsponce);
                       
                     }
                   })
-    
-                  //Delete Cart By CustomerId
-                  this.sub = this._CartService.DeleteCart(this.CustomerId).subscribe();
+                },
+                error: (error)=>{
+                  console.log("Error in Create Order ",error);
                   
-                  //debugger;
-                  //this.modalService.open(ConfirmComponent);
-                  this.router.navigate(['/Confirm']);
-    
                 }
-              });
-            },
-            onError: (err: any) => {
-              console.log('Error creating PayPal order:', err);
+              })
+
+              //Delete Cart By CustomerId
+              this.sub = this._CartService.DeleteCart(this.CustomerId).subscribe();
+              
+              // When Success , Modal open ^^
+              this.openModal();
+            
             }
-          }
-        ).render(this.paypalButtonContainer.nativeElement);
+          });
+        },
+        onError: (err: any) => {
+          
+          console.log('Error creating PayPal order:', err);
+          this.openUnsuccessModal();
+        }
+      }
+    ).render(this.paypalButtonContainer.nativeElement);
   }
 
   // renderPayPalButton(): void {

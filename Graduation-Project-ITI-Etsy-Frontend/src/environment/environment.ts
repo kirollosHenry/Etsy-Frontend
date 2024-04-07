@@ -5,5 +5,5 @@ export const environment = {
     CategoryApiUrl: 'http://16.171.140.138/estyservice/api/Category',
     OrderApiUrl: 'http://16.171.140.138/estyservice/api/Order',
     CartApiUrl: 'http://16.171.140.138/estyservice/api/Cart',
-    PaymentApiUrl: 'http://16.171.140.138/estyservice/api/payments/'
+    PaymentApiUrl: 'http://16.171.140.138/estyservice/api/payments'
 }
