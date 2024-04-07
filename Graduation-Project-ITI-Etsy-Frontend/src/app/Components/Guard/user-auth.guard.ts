@@ -1,18 +1,20 @@
 import { CanActivateFn, Router } from '@angular/router';
 import { AuthService } from '../../Services/Authentication/auth.service';
 import { inject } from '@angular/core';
+import { LoginComponent } from '../login/login.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 export const userAuthGuard: CanActivateFn = (route, state) => {
-  const UserAuthService= inject(AuthService);
+  const UserAuthService = inject(AuthService);
   const router = inject(Router);
-  if(UserAuthService.UserState)
-  {
+  const modalService = inject(NgbModal);
+
+  if (UserAuthService.UserState) {
     return true;
   }
-  else
-  {
-    alert("Please Log in");
-    //router.navigate(['home']);
+  else {
+    const modalRef = modalService.open(LoginComponent);
+    //router.navigate(['/Cart']);      // Navigate to cart show error (Cart already is added so we must navigate)
     return false;
   }
 };

@@ -120,7 +120,7 @@ Login() {
         console.log('Login successful');
         console.log('Token:',response.token);
         this.activeModal.dismiss('Cross click');
-        this.router.navigate(['/Cart']);
+        //this.router.navigate(['/Cart']);
         
         // Redirect or perform other actions here
       } else {
@@ -145,7 +145,7 @@ Login() {
           // Handle successful authentication
           console.log("Login successful");
           console.log("Token:", response.token);
-          this.router.navigate(["/Cart"]);
+          //this.router.navigate(["/Cart"]);
           this.activeModal.dismiss('Cross click');
           // Redirect or perform other actions here
         } else {

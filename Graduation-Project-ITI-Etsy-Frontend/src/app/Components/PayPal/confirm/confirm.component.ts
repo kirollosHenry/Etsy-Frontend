@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import { Router } from "@angular/router";
 import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 import { TranslateModule, TranslateService } from "@ngx-translate/core";
 
@@ -16,7 +17,8 @@ export class ConfirmComponent implements OnInit {
 
   constructor(
     public activeModal: NgbActiveModal,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private router : Router
   ) {}
   ngOnInit(): void {
     // Localization
@@ -28,5 +30,6 @@ export class ConfirmComponent implements OnInit {
 
   closeModal() {
     this.activeModal.dismiss("Cross click");
+    this.router.navigate(['/home']); 
   }
 }
