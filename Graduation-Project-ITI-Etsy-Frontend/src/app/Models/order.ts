@@ -5,9 +5,9 @@ export interface Order {
 
     totalPrice: number,
 
-    orderedAt: string,
+    orderedAt: Date,
 
-    arrivedOn: string,
+    arrivedOn: Date,
 
     customerId: string
 }

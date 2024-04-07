@@ -53,8 +53,8 @@ export class CartComponent implements OnInit , AfterViewInit {
   currentTime: Date = new Date();
   deliverTime!: Date;
 
-  currentTimeForOrder: string = this.currentTime ? this.datePipe.transform(this.currentTime, 'yyyy-MM-ddTHH:mm:ss.SSSZ')! : '';
-  DeliveredTimeForOrder: string = this.currentTime ? this.datePipe.transform(this.currentTime, 'yyyy-MM-ddTHH:mm:ss.SSSZ')! : '';; // DeliveredTimeForOrder return undefined
+  currentTimeForOrder: string = this.currentTime ? this.datePipe.transform(this.currentTime, "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")! : '';
+  DeliveredTimeForOrder: string = this.currentTime ? this.datePipe.transform(this.currentTime, "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")! : ''; // DeliveredTimeForOrder return undefined
 
   deliverTimeForShowing: string = '';
 
@@ -246,8 +246,8 @@ export class CartComponent implements OnInit , AfterViewInit {
                 ordersId: 0,
                 address: 'Cairo Egypt',
                 totalPrice: this.totalPrice,
-                orderedAt: "2024-04-04T22:01:53.290Z",  //Not Updated Yet
-                arrivedOn: "2024-04-04T22:01:53.290Z",
+                orderedAt: this.currentTime,  //Not Updated Yet
+                arrivedOn:this.deliverTime,
                 customerId: 'da679192-b569-458e-a077-452761c0e30a'
               };
               this.sub = this._OrderService.CreateOrder(this.OrderObj).subscribe({
