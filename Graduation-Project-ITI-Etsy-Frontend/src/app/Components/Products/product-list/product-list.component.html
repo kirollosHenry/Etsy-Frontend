@@ -1,12 +1,14 @@
 <div>
     @if(ProductsList.length > 0) {
 
-    <div class="container ProductsListSection mb-5 mt-3">
+    <div class="container ProductsListSection mb-5 mt-4">
         <div class="row pt-2 justify-content-center">
+
+
             <div class="container d-flex justify-content-between mb-2">
 
                 <!-- Filter  -->
-                <div class="dropdown " [ngClass]="{ 'Filterdropdown': lang === 'ar'}">
+                <div class="dropdown FilterdropdownEg" [ngClass]="{ 'Filterdropdown': lang === 'ar'}">
                     <button class="btn btnOfFilter dropdown-toggle" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         <i class="fa-solid fa-sliders fa-sm" style="color: #000000"></i>
@@ -14,65 +16,61 @@
                     </button>
                     <ul class="dropdown-menu" id="">
                         <li>
-                            <a class="dropdown-item">
-                                {{ "ProductListComponent.Relevance" | translate }}</a>
+                            <a class="dropdown-item"
+                            [ngStyle]="{ 'text-align': lang === 'ar' ? 'start' : 'left' }">
+                                {{ "ProductListComponent.Relevance" | translate }}
+                            </a>
                         </li>
-                        <li>
-                            <a class="dropdown-item">
-                                {{ "ProductListComponent.Lowest Price" | translate }}</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item">
-                                {{ "ProductListComponent.Highest Price" | translate }}</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item">
-                                {{ "ProductListComponent.Top Customer Reviews" | translate }}</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item">
-                                {{ "ProductListComponent.Most Recent" | translate }}</a>
-                        </li>
+                    
                     </ul>
                 </div>
 
                 <!-- Sort  -->
                 <div class="dropdown Sortdropdown d-flex">
-                    <small class="text-secondery me-2 mt-2" style="font-size: smaller; width: 150%"
+                    <!-- Text  -->
+                    <small class="text-secondery me-2 mt-2 TxtOfSort" style="font-size: smaller; width: 150%"
                     [ngClass]="{ 'ms-2': lang === 'ar'}">
                         {{ "ProductListComponent.results" | translate }}
                     </small>
+
+                    <!-- Sort List -->
                     <button class="btn btnOfFilter dropdown-toggle" (click)="toggleDropdown()" type="button"
                         data-bs-toggle="dropdown">
                         {{ "ProductListComponent.Sorted By" | translate }}
                     </button>
                     <ul class="dropdown-menu" id="filter-dropdown-menu">
                         <li>
-                            <a class="dropdown-item" (click)="FilterProduct('Relevance')">{{
-                                "ProductListComponent.Relevance" | translate
-                                }}</a>
+                            <a class="dropdown-item"
+                             (click)="FilterProduct('Relevance');toggleDropdown()"
+                             [ngStyle]="{ 'text-align': lang === 'ar' ? 'start' : 'left' }">
+                            {{"ProductListComponent.Relevance" | translate}}
+                            
+                            </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" (click)="FilterProduct('Lowest')">{{
-                                "ProductListComponent.Lowest
-                                Price" | translate
-                                }}</a>
+                            <a class="dropdown-item" (click)="FilterProduct('Lowest')"
+                            [ngStyle]="{ 'text-align': lang === 'ar' ? 'start' : 'left' }">
+                            {{"ProductListComponent.Lowest Price" | translate }}
+                        </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" (click)="FilterProduct('Highest')">
+                            <a class="dropdown-item" (click)="FilterProduct('Highest')"
+                            [ngStyle]="{ 'text-align': lang === 'ar' ? 'start' : 'left' }">
                                 {{
                                 "ProductListComponent.Highest
                                 Price" | translate
                                 }}</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" (click)="FilterProduct('Reviews')">
+                            <a class="dropdown-item" (click)="FilterProduct('Reviews')"
+                            [ngStyle]="{ 'text-align': lang === 'ar' ? 'start' : 'left' }">
                                 {{
                                 "ProductListComponent.Top Customer Reviews" | translate
                                 }}</a>
                         </li>
                         <li>
-                            <a class="dropdown-item" (click)="FilterProduct('Recent')">
+                            <a class="dropdown-item" (click)="FilterProduct('Recent')"
+                            [ngStyle]="{ 'text-align': lang === 'ar' ? 'start' : 'left' }">
                                 {{
                                 "ProductListComponent.Most
                                 Recent" | translate
@@ -86,8 +84,8 @@
 
             @for (ProductItem of ProductsList; track $index ) {
             <div class="col-lg-3 col-md-4 col-sm-6 col-12 product-item mb-2">
-                <ul class="list-unstyled">
-                    <li class="ProductEffect">
+                <ul class="list-unstyled p-0">
+                    <li class="ProductEffect ">
                         <a [routerLink]="['ProductDetails', ProductItem.productId]"
                             class="d-flex flex-column text-decoration-none">
                             <div>
@@ -155,19 +153,22 @@
             <h1>No Products to View</h1>
             }
 
-            <div class="mt-3 pagination-container">
+            <div class="mt-5 pagination-container">
                 <div>
-                    <small class="txtPagination mt-2">There's so much more for you to discover</small>
-                    <div class="d-flex align-items-center justify-content-start">
-                        <div class="me-0 pagination-icons">
-                            <p-paginator class="pagination-item" (onPageChange)="onPageChange($event)"
-                                [first]="pageIndex" [rows]="itemsPerPage" [totalRecords]="70"
+                    <small class="txtPagination mt-2">{{"ProductListComponent.There's so much more for you to discover"|translate}}</small>
+                    <div class="d-flex  justify-content-start">
+                        <div class="me-0 pagination-icons" >
+                            <p-paginator class="pagination-item" 
+                                (onPageChange)="paginate($event)"
+                                [first]="pageIndex" [rows]="itemsPerPage" [totalRecords]="20"
                                 [showFirstLastIcon]="false" class="pagination-item">
                             </p-paginator>
                         </div>
                     </div>
                 </div>
             </div>
+
+
         </div>
     </div>
     }

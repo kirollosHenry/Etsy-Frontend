@@ -3,7 +3,7 @@ import { Category } from "../../../../Models/category";
 import { CategoryService } from "../../../../Services/Category/category.service";
 import { Subscription } from "rxjs";
 import { ProductListComponent } from "../../../Products/product-list/product-list.component";
-import { ActivatedRoute, RouterModule } from "@angular/router";
+import { ActivatedRoute, Router, RouterModule } from "@angular/router";
 import { TranslateModule, TranslateService } from "@ngx-translate/core";
 
 @Component({
@@ -23,7 +23,9 @@ export class AllcategoriesComponent implements OnInit {
   constructor(
     private _CategoryService: CategoryService,
     private route: ActivatedRoute,
-    private translateService: TranslateService
+    private translateService: TranslateService ,
+    private router: Router,
+
   ) {}
   sub!: Subscription;
 
@@ -59,4 +61,6 @@ export class AllcategoriesComponent implements OnInit {
       this.TitleCategory = "Baby";
     }
   }
+
+
 }

@@ -54,11 +54,11 @@ export class ProductDetailsComponent implements OnInit {
     },
     {
       breakpoint: "768px",
-      numVisible: 5,
+      numVisible: 4,
     },
     {
       breakpoint: "560px",
-      numVisible: 2,
+      numVisible: 0,
     },
   ];
 
@@ -69,34 +69,9 @@ export class ProductDetailsComponent implements OnInit {
     private _cartService: CartService,
     private router: Router
   ) {
-    this.images.push({
-      itemImageSrc: "assets/image/2.jpg",
-      thumbnailImageSrc: "assets/image/2.jpg",
-    });
-    this.images.push({
-      itemImageSrc: "assets/image/1.jpg",
-      thumbnailImageSrc: "assets/image/1.jpg",
-    });
-    this.images.push({
-      itemImageSrc: "assets/image/3.jpg",
-      thumbnailImageSrc: "assets/image/3.jpg",
-    });
-    this.images.push({
-      itemImageSrc: "assets/image/4.jpg",
-      thumbnailImageSrc: "assets/image/4.jpg",
-    });
-    this.images.push({
-      itemImageSrc: "assets/image/4.jpg",
-      thumbnailImageSrc: "assets/image/4.jpg",
-    });
-    this.images.push({
-      itemImageSrc: "assets/image/4.jpg",
-      thumbnailImageSrc: "assets/image/4.jpg",
-    });
-    this.images.push({
-      itemImageSrc: "assets/image/4.jpg",
-      thumbnailImageSrc: "assets/image/4.jpg",
-    });
+
+    this.images = [];
+   
   }
 
   activeItem: any;
@@ -115,6 +90,25 @@ export class ProductDetailsComponent implements OnInit {
             this.ProductDetails = Product.entity;
             this.Stock = Product.entity.productStock;
             this.list = this.getNumbersArray(this.Stock);
+
+
+            // Initialize images array
+            this.images.push({
+              itemImageSrc:  this.ProductDetails.productImage,
+              thumbnailImageSrc:  this.ProductDetails.productImage,
+            });
+            this.images.push({
+              itemImageSrc: this.ProductDetails.productImage,
+              thumbnailImageSrc: this.ProductDetails.productImage,
+            });
+            this.images.push({
+              itemImageSrc: this.ProductDetails.productImage,
+              thumbnailImageSrc: this.ProductDetails.productImage,
+            });
+            this.images.push({
+              itemImageSrc: this.ProductDetails.productImage,
+              thumbnailImageSrc:this.ProductDetails.productImage,
+            });
           },
         });
 
@@ -127,12 +121,10 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   //droplist in down
+  isDropdownOpen: boolean = false;
 
   toggleDropdown() {
-    const dropdownContent = document.getElementById("dropdownContent");
-    if (dropdownContent) {
-      dropdownContent.classList.toggle("show");
-    }
+    this.isDropdownOpen = !this.isDropdownOpen;
   }
 
   @HostListener("window:click", ["$event"])

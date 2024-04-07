@@ -155,7 +155,9 @@
             "Rael Yaniv":"رائيل يانيف",
             "Nina": "نينا"
 
-        }
+        },
+
+        "There's so much more for you to discover":"هناك الكثير لتكتشفه"
 
 
     },
@@ -298,6 +300,25 @@
     "Create your account":"إنشاء حسابك",
     "User name":"اسم المستخدم"
 
+  },
+  
+  "UnsuccesfullyComponent":{
+    "Oops! Payment":"أُووبس! الدفع",
+    "Unsuccessful":"غير ناجح",
+    "Your payment via PayPal could not be processed.":". لا يمكن معالجة دفعتك عبر بايبال",
+    "We're sorry for any inconvenience caused. Please try again later.":"نأسف على أي إزعاج سببناه لك. الرجاء معاودة المحاولة في وقت لاحق.",
+    "Close":"إغلاق"
+  },
+
+
+  "ConfirmComponent":{
+    "Thank You for Your Payment!":"شكرا للدفع!",
+    "Your payment via PayPal has been successfully processed.":"تمت معالجة دفعتك عبر بايبال بنجاح.",
+    "Thank you for choosing":"شكرا لاختيارك" ,
+    "PayPal":"بايبال",
+
+    "for your transaction.":"لمعاملتك."
   }
+
 
 }

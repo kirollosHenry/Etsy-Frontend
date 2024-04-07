@@ -56,38 +56,34 @@ export class ProductListComponent implements OnInit, OnDestroy {
       this.CategoryId = params["id"];
     })
 
-    this.loadProducts(this.itemsPerPage, this.pageIndex);
+    //Pagination
+    this.loadProducts();
 
   }
 
-  ngOnDestroy(): void {
-    this.sub.unsubscribe();
-  }
 
   // For Dropdown List :
   isDropdownOpen: boolean = false;
+
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
-    const dropdownMenu = document.getElementById("filter-dropdown-menu");
-    if (dropdownMenu) {
-      dropdownMenu.style.display = this.isDropdownOpen ? "block" : "none";
-    }
   }
 
-  // Function for Pagination !
-
+  // Functions for Pagination !
   itemsPerPage: number = 8;
-  pageIndex: number = 1;
+  pageIndex: number = 0;
 
-  onPageChange(event: any) {
-    this.pageIndex = event.page + 1; // Update current page index
-    this.loadProducts(this.itemsPerPage, this.pageIndex); // Load products for the new page
+  paginate(event: any) {
+ 
+    this.pageIndex = event.page +1;
+    this.loadProducts(); 
   }
-
+  
+  
  // Method to load products based on itemsPerPage and pageIndex
- loadProducts(itemsPerPage: number, pageIndex: number) {
+ loadProducts() {
     
-  this.sub = this._ProductsService.GetAllProductsByCategory(this.CategoryId,itemsPerPage,pageIndex).subscribe({
+  this.sub = this._ProductsService.GetAllProductsByCategory(this.CategoryId,this.itemsPerPage,this.pageIndex).subscribe({
     next: (ProductDataAPI: IProductAPI) => {
           this.ProductsList = ProductDataAPI.entities;
           this.FilterProductsListRelevance = ProductDataAPI.entities;
@@ -97,7 +93,8 @@ export class ProductListComponent implements OnInit, OnDestroy {
         },
   });
   
-  this.sub = this._ProductsService.GetProductsPriceAscending(this.CategoryId,itemsPerPage,pageIndex).subscribe({
+
+  this.sub = this._ProductsService.GetProductsPriceAscending(this.CategoryId,this.itemsPerPage,this.pageIndex).subscribe({
     next: (ProductDataAPI: IProductAPI) => {
       this.FilterProductsListAscending = ProductDataAPI.entities;
       console.log(this.ProductsList);
@@ -107,7 +104,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
     },
   });
 
-  this.sub = this._ProductsService.GetProductsPriceDescending(this.CategoryId,itemsPerPage,pageIndex).subscribe({
+  this.sub = this._ProductsService.GetProductsPriceDescending(this.CategoryId,this.itemsPerPage,this.pageIndex).subscribe({
     next: (ProductDataAPI: IProductAPI) => {
       this.FilterProductsListDescending = ProductDataAPI.entities;
       console.log(this.ProductsList);
@@ -117,7 +114,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
     },
   });
 
-  this.sub = this._ProductsService.GetProductsCustomerReview(this.CategoryId,itemsPerPage,pageIndex).subscribe({
+  this.sub = this._ProductsService.GetProductsCustomerReview(this.CategoryId,this.itemsPerPage,this.pageIndex).subscribe({
     next: (ProductDataAPI: IProductAPI) => {
       this.FilterProductsListReviews = ProductDataAPI.entities;
       console.log(this.ProductsList);
@@ -142,4 +139,19 @@ export class ProductListComponent implements OnInit, OnDestroy {
       this.ProductsList = this.FilterProductsListRelevance;
     }
   }
+  
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
+
+}
+
+
+
+interface PageEvent {
+  first: number;
+  rows: number;
+  page: number;
+  pageCount: number;
 }

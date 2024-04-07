@@ -1,8 +1,5 @@
-/*  Filter Button */
 
-.Filterdropdown{
-  margin-right: 3.5%;
-}
+
 
 .ProductsListSection {
   width: 85%;
@@ -23,7 +20,7 @@
 
 .btnOfFilter {
   border: 1px solid black;
-background-color: white !important;
+  background-color: white !important;
   border-radius: 30px;
   transition: box-shadow 0.3s ease;
   width: 100% !important;
@@ -32,11 +29,13 @@ background-color: white !important;
 
 .btnOfFilter:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid black !important;
+
 }
 
 .dropdown-item{
   background-color: white !important;
-color: #222222 !important;
+  color: #222222 !important;
 }
 .dropdown-item:hover{
   background-color: rgb(237, 232, 232) !important;
@@ -49,10 +48,11 @@ color: #222222 !important;
   height: auto;
   display: block;
   transition: box-shadow 0.3s ease;
+  border-radius: 3px !important;
 }
 
-.imgOfProduct:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+.ProductEffect:hover .imgOfProduct {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); 
 }
 
 /* texts of product  */
@@ -89,8 +89,14 @@ color: #222222 !important;
   font-weight: 500px;
 }
 
+.p-paginator{
+
+  margin-top:20px ;
+  padding: 0%;
+}
 
 
+/* Numbers */
 
 .pagination-item .p-paginator-page{
   background-color: rgb(243, 237, 237) !important ;
@@ -98,13 +104,22 @@ color: #222222 !important;
   color: #222222 !important;
   margin: 0 2px;
   font-size: small;
-  padding: 0;
  
+  height: 40px;
 }
 
 
-/* Not Workin !!!!! T_T */
-.p-element .p-paginator-next .p-paginator-element:hover 
+/* Next & Prev */
+.p-paginator-next ,.p-paginator-prev{
+  background-color: rgb(243, 237, 237) !important ;
+  border-radius: 50%;
+  color: #222222 !important;
+  margin: 0 2px;
+  font-size: small;
+  height: 40px;
+
+}
+.p-paginator-next:hover 
 {
   background-color: rgb(243, 237, 237) !important ;
   color: #222222 !important;
@@ -112,6 +127,28 @@ color: #222222 !important;
 
 }
 
-.active-page {
-  border: 1px solid #000000 !important;
+.p-paginator-prev:hover 
+{
+  background-color: rgb(243, 237, 237) !important ;
+  color: #222222 !important;
+  border-radius: 50% !important;
+
 }
+
+/* Responsive */
+
+@media screen and (max-width: 570px) {
+.FilterdropdownEg{
+  display: none;
+}
+ 
+.TxtOfSort{
+  display: none;
+
+}
+.pagination-item .p-paginator-page{
+  display: none;
+
+}
+}
+

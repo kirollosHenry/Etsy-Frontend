@@ -1,31 +1,26 @@
-<div class="container m-5">
+<div class="container m-5 ">
   <!-- product -->
-  <div class="product-content product-wrap clearfix product-deatil">
+  <div class="product-content product-wrap clearfix product-deatil " [ngClass]="{'arabic-padding': lang === 'ar'}">
     <div class="row">
-      <div class="col-md-8 col-sm-12 col-xs-12">
+
+      <div class="col-lg-8 col-md-12 col-sm-12 col-12">
+        
         <div class="product-image">
           <div id="myCarousel-2" class="carousel slide">
             <div class="carousel-inner">
               <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [showThumbnailNavigators]="false"
                 [showItemNavigators]="true" [numVisible]="5" thumbnailsPosition="left" [circular]="true">
+
                 <ng-template pTemplate="item" let-item>
-                  <img [src]="ProductDetails.productImage" style="
-                      width: 760px;
-                      height: 520px;
-                      display: block;
-                      border-radius: 8px;
-                     
-                    " />
+               
+                  <img [src]="ProductDetails.productImage" class="img-fluid rounded" /> 
                 </ng-template>
+
                 <ng-template pTemplate="thumbnail" let-item style="background-color: white !important">
                   <div class="grid grid-nogutter justify-content-center"
                     [ngClass]="{ 'active-thumbnail': item === activeItem }">
-                    <img [src]="item.thumbnailImageSrc" style="
-                        width: 50px;
-                        height: 50px;
-                        display: block;
-                        border-radius: 8px;
-                      " (click)="setActiveItem(item)" />
+                  
+                    <img [src]="item.thumbnailImageSrc"  class="img-fluid rounded thumbnail-image " (click)="setActiveItem(item)" />
                   </div>
                 </ng-template>
               </p-galleria>
@@ -57,7 +52,7 @@
         </div>
       </div>
 
-      <div class="col-md-4  col-md-offset-1 col-sm-12 col-xs-12">
+      <div class="col-lg-4  col-lg-offset-1 col-md-12  col-sm-12 col-xs-12">
         <div class="d-flex">
           <h2 class="name text-success">
 
@@ -95,13 +90,10 @@
                 {{ ProductDetails.productDescriptionEN| translate }}
                 {{ ProductDetails.productDescriptionEN| translate }}
                 {{ ProductDetails.productDescriptionEN| translate }}
-                {{ ProductDetails.productDescriptionEN| translate }}
               </span>
               }
               @else if (lang === 'ar') {
               <span>
-                {{ ProductDetails.productDescriptionAR| translate }}
-                {{ ProductDetails.productDescriptionAR| translate }}
                 {{ ProductDetails.productDescriptionAR| translate }}
                 {{ ProductDetails.productDescriptionAR| translate }}
                 {{ ProductDetails.productDescriptionAR| translate }}
@@ -190,7 +182,7 @@
 
         <div class="container mt-5 mb-5">
           <div class="d-flex row">
-            <div class="col-2 mt-3">
+            <div class="col-2 mt-3 mt-md-1 mt-sm-0">
               <i class="fa-solid fa-handshake" style="color: #164198; font-size: 35px"></i>
             </div>
             <div class="col-10">
@@ -200,43 +192,47 @@
             </div>
 
 
-            <div class="custom-dropdown mt-3">
-              <button class="dropdown-toggle" (click)="toggleDropdown()">{{"ProductDetailsComponent.Item Details"|translate}}</button>
-              <div class="dropdown-content" id="dropdownContent">
-                <a href="#">Option 1</a>
-                <a href="#">Option 2</a>
-                <a href="#">Option 3</a>
-              </div>
-            </div>
-
-
-            <div class="custom-dropdown mt-3">
-              <button class="dropdown-toggle" (click)="toggleDropdown()">{{"ProductDetailsComponent.Shipping and return policies"|translate}} </button>
-              <div class="dropdown-content" id="dropdownContent">
-                <a href="#">Option 1</a>
-                <a href="#">Option 2</a>
-                <a href="#">Option 3</a>
-              </div>
-            </div>
-
-
-
-            <div class="custom-dropdown mt-3">
-              <button class="dropdown-toggle" (click)="toggleDropdown()">
-                {{"ProductDetailsComponent.Meet your seller"|translate}}
+            <div class="custom-dropdown mt-3 dropdown">
+              <button class="dropdown-toggle" type="button" id="dropdownMenuButton"
+              (click)="toggleDropdown()" data-bs-toggle="dropdown" aria-expanded="false">
+                  {{ "ProductDetailsComponent.Item Details" | translate }}
               </button>
-              <div class="dropdown-content" id="dropdownContent">
-                <a href="#">Option 1</a>
-                <a href="#">Option 2</a>
-                <a href="#">Option 3</a>
-              </div>
-            </div>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <li><a class="dropdown-item">1</a></li>
+              </ul>
+          </div>
+
+
+          <div class="custom-dropdown mt-3 dropdown">
+            <button class="dropdown-toggle" type="button" id="dropdownMenuButton2"
+            (click)="toggleDropdown()" data-bs-toggle="dropdown" aria-expanded="false">
+            {{"ProductDetailsComponent.Shipping and return policies"|translate}} 
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item">2</a></li>
+            </ul>
+        </div>
+
+
+        <div class="custom-dropdown mt-3 dropdown">
+          <button class="dropdown-toggle" type="button" id="dropdownMenuButton3"
+          (click)="toggleDropdown()" data-bs-toggle="dropdown" aria-expanded="false">
+          {{"ProductDetailsComponent.Meet your seller"|translate}}
+        </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <li><a class="dropdown-item">3</a></li>
+          </ul>
+      </div>
+
+
+
 
 
           </div>
         </div>
       </div>
     </div>
+
   </div>
   <!-- end product -->
 </div>

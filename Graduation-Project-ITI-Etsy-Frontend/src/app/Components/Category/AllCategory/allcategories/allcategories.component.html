@@ -1,7 +1,7 @@
 <div class="container BaseCategoryitemHome mb-5">
 
     <!-- Name Of Category that user Choose !!!! Not Dynamic -->
-    <h1 class="text-center textOfHeaderOfCat mt-3">{{'AllcategoriesComponent.categoryTitles.' + TitleCategory  | translate }}</h1>
+    <h1 class=" text-center textOfHeaderOfCat mt-3">{{'AllcategoriesComponent.categoryTitles.' + TitleCategory  | translate }}</h1>
 
     <!-- Not Found In Database -->
     <p class="text-center DescriptionOfCategory text-secondary mb-3">
@@ -17,14 +17,14 @@
             @if(showRemainCategories){
 
             @for (Categoryitem of CategoryList; track $index ) {
-            <div class="col-md-2 ">
+            <div class="col-md-2  col-sm-6">
                 <div class="row">
 
                     <ul class="list-unstyled BaseCatEffect pt-2">
                         <li class="">
 
                             <a [routerLink]="['Products',Categoryitem.id]"
-                                class="text-decoration-none d-flex flex-column align-items-center">
+                                class="text-decoration-none d-flex flex-column ">
 
                                 <div>
                                     <img class="card-img-top imgOfCategory" [src]="Categoryitem.categoryImage"
@@ -56,14 +56,14 @@
 
             }@else {
             @for (Categoryitem of CategoryList.slice(0,6); track $index ) {
-            <div class="col-md-2 ">
+            <div class="col-md-2  col-sm-6">
                 <div class="row">
 
                     <ul class="list-unstyled BaseCatEffect pt-2">
                         <li class="">
 
                             <a [routerLink]="['Products',Categoryitem.id]"
-                                class="text-decoration-none d-flex flex-column align-items-center">
+                                class="text-decoration-none d-flex flex-column ">
 
                                 <div>
                                     <img class="card-img-top imgOfCategory" [src]="Categoryitem.categoryImage"

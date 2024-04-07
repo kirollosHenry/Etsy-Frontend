@@ -1,4 +1,3 @@
-<!-- Need More Powerfull logic ! -->
 <!-- @if(NumberOfCarts == 0){
 
 <div class="container-fluid mb-5 mt-4">
@@ -45,19 +44,19 @@
 
 }@else { -->
 
-<div class="container-fluid mb-5">
-  <div class="ibox container mt-2">
-    <div class="container mt-2 mb-5">
+<div class="container-fluid mb-5 cartComp">
+  <div class="ibox container mt-4">
+    <div class="container  mb-5">
       <div class="ibox-title">
-        <h4>
+        <h4 class=" ">
           <span><strong>{{ NumberOfCarts }}</strong>
             {{ "AllcategoriesComponent.items in your cart" | translate }}
           </span>
         </h4>
       </div>
 
-      <div class="card headerCard">
-        <div class="card-body">
+      <div class="card headerCard mt-2">
+        <div class="card-body ">
           <i class="fa-solid fa-handshake fa-2xl me-2" style="color: #164198"></i>
           <span style="font-size: 14px">
             <span style="font-weight: bold">
@@ -82,6 +81,7 @@
                 <tr>
                   <td>
                     <div class="col d-flex mb-2 test">
+
                       <div class="col-md-3">
                         <img [src]="item.productImage" class="img-fluid CardImage card-img-top" alt="Card image cap" />
                       </div>
@@ -138,9 +138,8 @@
                   <td class="text-end">
                     <h6>
                       <a href="" style="color: black; font-weight: 300">{{
-                        "CartComponent.Contact
-                        shop" | translate
-                        }}</a>
+                        "CartComponent.Contact shop" | translate }}
+                      </a>
                     </h6>
                     <h5>
                       {{

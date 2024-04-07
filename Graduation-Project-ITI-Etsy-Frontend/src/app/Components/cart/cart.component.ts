@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
+import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from "@angular/core";
 import { TranslateModule, TranslateService } from "@ngx-translate/core";
 import { CartService } from "../../Services/Cart/cart.service";
 import { Subscription, interval } from "rxjs";
@@ -14,6 +14,7 @@ import { DatePipe } from '@angular/common';
 import { error } from "jquery";
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { ConfirmComponent } from "../PayPal/confirm/confirm.component";
+import { UnsuccesfullyComponent } from "../PayPal/unsuccesfully/unsuccesfully.component";
 
 declare var paypal: any;
 @Component({
@@ -25,7 +26,7 @@ declare var paypal: any;
 })
 
 
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit  {
 
   @ViewChild('paypalButtonContainer', { static: true }) paypalButtonContainer!: ElementRef;
 
@@ -37,8 +38,7 @@ export class CartComponent implements OnInit {
     private _PaymentService: PaymentService,
     private datePipe: DatePipe,
     private modalService: NgbModal,
-    private router: Router
-
+    private router: Router,
   ) {
     this.deliverTime = new Date(this.currentTime);
     this.deliverTime.setDate(this.currentTime.getDate() + 5);
@@ -63,7 +63,7 @@ export class CartComponent implements OnInit {
     ordersId: 0,
     address: 'Safaga Egypt',
     totalPrice: 200,
-    orderedAt: this.currentTimeForOrder,
+    orderedAt: this.currentTimeForOrder,  //Not Updated Yet
     arrivedOn: this.DeliveredTimeForOrder,
     customerId: 'da679192-b569-458e-a077-452761c0e30a'
   };
@@ -87,7 +87,13 @@ export class CartComponent implements OnInit {
   totalPrice: number = 0;
 
 
-
+  // ngAfterViewInit(): void {
+  //   if (this.paypalButtonContainer) {
+  //     this.renderPayPalButton();
+  //   } else {
+  //     console.error('paypalButtonContainer is not initialized.');
+  //   }
+  // }
 
   ngOnInit(): void {
     // Localization
@@ -105,11 +111,8 @@ export class CartComponent implements OnInit {
 
 
     interval(24 * 60 * 60 * 1000).subscribe(() => {
-
       this.currentTime = new Date();
-
       this.updateDeliverTimeForShowing();
-
     });
 
     this.updateDeliverTimeForShowing();
@@ -163,6 +166,10 @@ export class CartComponent implements OnInit {
           });
         },
         onApprove: (data: any, actions: any) => {
+
+          // For Test Unsuccessful modal !! 
+          // return Promise.reject('Simulated error');
+
           return actions.order.capture().then((details: any) => {
             if (details.status === "COMPLETED") {
               console.log('Payment details:', details);
@@ -191,22 +198,102 @@ export class CartComponent implements OnInit {
               //Delete Cart By CustomerId
               this.sub = this._CartService.DeleteCart(this.CustomerId).subscribe();
               
-              //debugger;
-              //this.modalService.open(ConfirmComponent);
-              this.router.navigate(['/Confirm']);
-
+              // When Success , Modal open ^^
+              this.openModal();
+            
             }
           });
         },
         onError: (err: any) => {
+          
           console.log('Error creating PayPal order:', err);
+          this.openUnsuccessModal();
         }
       }
     ).render(this.paypalButtonContainer.nativeElement);
+  
+  
+
   }
 
 
+  // renderPayPalButton(): void {
+  //   paypal.Buttons(
+  //     {
+  //       style: {
+  //         display: 'inline-block',
+  //         layout: 'horizontal',
+  //         color: 'blue',
+  //         shape: 'rect',
+  //         label: 'paypal',
+  //       },
+
+  //       createOrder: (data: any, actions: any) => {
+  //         return actions.order.create({
+  //           purchase_units: [
+  //             {
+  //               amount: {
+  //                 value: this.totalPrice.toString(),
+  //                 currency_code: 'USD',
+  //                 breakdown: {
+  //                   item_total: {
+  //                     currency_code: "USD",
+  //                     value: this.totalPrice.toString()
+  //                   }
+  //                 }
+  //               }
+  //             }
+  //           ]
+  //         });
+  //       },
+  //       onApprove: (data: any, actions: any) => {
+  //         return actions.order.capture().then((details: any) => {
+  //           if (details.status === "COMPLETED") {
+  //             console.log('Payment details:', details);
+
+  //             //debugger;
+  //             //Create Order Services
+  //             this.sub = this._OrderService.CreateOrder(this.OrderObj).subscribe({
+  //               next: (response: any) => {
+  //                 console.log("Create Order: ", response);
+  //                 this.PaymentObj.orderId = response.ordersId;
+  //                 //Create Payment Services
+  //                 debugger;
+  //                 //Create Payment Services
+  //                 this.sub = this._PaymentService.CreatePayment(this.PaymentObj).subscribe({
+  //                   next: (response) => {
+  //                     console.log("Create Payment: ", response);
+  //                   }
+  //                 })
+  //               },
+  //               error: (error)=>{
+  //                 console.log("Error in Create Order ",error);
+                  
+  //               }
+  //             })
+
+  //             //Delete Cart By CustomerId
+  //             this.sub = this._CartService.DeleteCart(this.CustomerId).subscribe();
+              
+  //             //debugger;
+  //             //this.modalService.open(ConfirmComponent);
+  //             this.router.navigate(['/Confirm']);
+
+  //           }
+  //         });
+  //       },
+  //       onError: (err: any) => {
+  //         console.log('Error creating PayPal order:', err);
+  //       }
+  //     }
+  //   ).render(this.paypalButtonContainer.nativeElement);
+  
+  // }
+
+
   //Select List 
+  
+  
   getNumbersArray(max: number): number[] {
     return Array.from({ length: max }, (_, index) => index + 1);
   }
@@ -260,5 +347,8 @@ export class CartComponent implements OnInit {
     const modalRef = this.modalService.open(ConfirmComponent);
   }
 
+  openUnsuccessModal() {
+    const modalRef = this.modalService.open(UnsuccesfullyComponent);
+  }
 
 }
