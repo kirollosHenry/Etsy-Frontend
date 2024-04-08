@@ -52,9 +52,10 @@
 
 /* Search For Not log in */
 .SearchSection {
-  width: 110%;
+  width: 130%;
   border-radius: 30px;
   margin-left: 10px;
+  border: 1px #222222 solid !important;
 }
 
 /* For logedin */
@@ -63,6 +64,8 @@
   width: 100%;
   border-radius: 30px;
   margin-left: 10px;
+  border: 1px #222222 solid !important;
+
 }
 
 .btnSearch {
@@ -121,11 +124,12 @@
 
 .IconHeaderLogedIn {
   background-color: white !important;
-  padding:10px 10px 0 10px;
+  padding:10px 15px 0 15px;
 
   border-radius: 50%;
   transition: all 0.3s ease;
   cursor: pointer;
+
 }
 
 .IconHeaderLogedIn:hover {
@@ -170,14 +174,49 @@
 }
 
 
+/* DropList Of Localization */
+
+.custom-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  padding-right: 1em;
+  background-image: none !important;
+  width: 100% ; 
+  border: none;
+  padding-top: 3px;
+  padding-bottom: 0%;
+  
+}
+
+.custom-select::-ms-expand {
+  display: none !important; 
+}
+
+
 /* responsive */
 
+@media (max-width: 985px) {
+ .Anothersection{
+  display: none !important;
+ }
 
+ .VisitorCatandBrand{
+  justify-content: space-between !important;
+  width: 90% !important;
+  margin-right: 55px;
+}
 
+.VisitorSignIn{
+justify-content: space-around !important;
+margin-bottom: 10px !important;
 
-@media (max-width: 580px) {
+}
  
 }
+
+
 
 @media (max-width: 800px) {
   .btnSearch {
@@ -185,11 +224,29 @@
     font-size: x-small;
     transform: translate(-130%, 0);
   }
-  /* .ulOfSign {
-    transform: translate(0, 0);
-  } */
+
+
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 620px) {
+  .VisitorCatandBrand{
+   
+    width: 85% !important;
+  }
+  .VisitorSignIn{
+    justify-content: center !important;
+    
+    }
+
+}
+
+@media (max-width: 500px) {
+  .VisitorSignIn{
+
+    display: none !important;
+  }
+  .Visitorsearch{
+    margin-bottom: 10px;
+  }
  
 }

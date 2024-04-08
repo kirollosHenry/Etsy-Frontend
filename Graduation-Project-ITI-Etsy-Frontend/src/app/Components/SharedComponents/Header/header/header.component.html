@@ -6,13 +6,8 @@
 
     <div class="d-flex flex-wrap align-items-center justify-content-center ">
 
-      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-          <use xlink:href="#bootstrap"></use>
-        </svg>
-      </a>
-
-      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+      <!-- Category + Brand -->
+      <ul class="VisitorCatandBrand nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center  ms-5">
 
         <!-- Image Brand -->
         <li>
@@ -24,8 +19,9 @@
         <!-- DropDown List Categories -->
         <li class="nav-item dropdown">
           <button type="button" class="wt-menu__trigger wt-btn wt-btn--transparent header-button wt-mr-xs-1 wt-btn--small btn
-              btn-light btnOfCtegories" aria-haspopup="true" [attr.aria-expanded]="isDropdownOpen ? 'true' : 'false'"
-            (click)="toggleDropdown()" id="navbarDropdownMenuLink" data-overlay-trigger-selector="overlay-trigger-ele">
+              btn-light btnOfCtegories" aria-haspopup="true" [attr.aria-expanded]="isDropdownOpenUser ? 'true' : 'false'"
+            (click)="toggleDropdownUser()" id="navbarDropdownMenuLinkUser" data-overlay-trigger-selector="overlay-trigger-ele">
+            
             <span class="etsy-icon wt-mr-xs-1 wt-icon--smaller ">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" fill="currentColor" class="bi bi-list"
                 viewBox="0 0 16 16" style="font-weight: bolder;">
@@ -33,12 +29,13 @@
                   d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
               </svg>
             </span>
+
             {{'header.Category' | translate}}
           </button>
-          <ul id="dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="display: none;">
+          <ul id="dropdown-menu-user" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkUser" style="display: none;">
             @for (item of BaseCategoryList; track $index) {
             <li><a class="dropdown-item nav-link" [routerLink]="['Category',item.id]"
-              [ngStyle]="{ 'text-align': lang === 'ar' ? 'start' : 'left' }">
+              [ngStyle]="{ 'text-align': lang === 'ar' ? 'start' : 'left' }" (click)="selectItemUser()">
               @if (lang === 'en') {
                 <span> {{item.nameEN}} </span>
                 }@else if (lang === 'ar') {
@@ -51,41 +48,48 @@
       </ul>
 
       <!-- Search -->
-      <form class="d-flex flex-grow-1 ">
-        <input class="form-control me-2 SearchSectionForLogin" type="search" [placeholder]="'header.searchPlaceHolder' | translate" 
+      <div class="Visitorsearch  d-flex flex-grow-1 ">
+        <input class="form-control me-2 SearchSectionForLogin" type="search" 
+        [placeholder]="'header.searchPlaceHolder' | translate" 
+        #filter aria-label="Search">
 
-          aria-label="Search">
         <button class="btn btn-default btn-round btn-submit  rounded-circle" 
-        type="submit" [ngClass]="{ 'btnSearchRTL': lang === 'ar', 'btnSearch': lang === 'en' }">
+        type="submit" [ngClass]="{ 'btnSearchRTL': lang === 'ar', 'btnSearch': lang === 'en' }"
+        (click)="filterResults(filter.value)">
           <i class="fa fa-search icon-lg "></i>
         </button>
-      </form>
-
+      </div>
 
 
       <!-- SignIN  -->
-      <ul class="nav col-12 col-lg-auto me-lg-auto mt-md-2  mt-sm-2 justify-content-lg-start justify-content-md-center
+      <ul class="VisitorSignIn nav col-12 col-lg-auto me-lg-auto mt-md-2  mt-sm-2 justify-content-lg-start justify-content-md-center
       justify-content-sm-center
       mb-2 mb-md-0 ulOfSign">
 
         <!-- hearct icon -->
-        <li class="IconHeaderLogedIn ">
+        <li class="IconHeaderLogedIn me-2">
           <a routerLink="" class="">
             <i class="fa-regular fa-heart " style="color: #000000;"></i>
           </a>
         </li>
 
         <!-- bell  -->
+
         <li>
-          <div class="dropdown" class=" ">
-            <button class="btn dropdown-toggle IconProfileLogedIN"
+          <div class="dropdown" class="me-2 ">
+            <button class="wt-menu__trigger wt-btn wt-btn--transparent header-button wt-mr-xs-1 wt-btn--small  
+            btn dropdown-toggle IconProfileLogedIN" id="navbarDropdownMenuLinkBell"  aria-haspopup="true"
               [attr.aria-expanded]="isDropdownOpenForBell ? 'true' : 'false'" type="button" data-bs-toggle="dropdown"
-              aria-expanded="false" (click)="toggleDropdownBell()">
+              data-overlay-trigger-selector="overlay-trigger-ele"
+               (click)="toggleDropdownBell()">
               <i class="fa-regular fa-bell"></i>
             </button>
-            <ul id="bellDropdownMenu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink"
+            <ul id="bellDropdownMenu"  class="dropdown-menu"  aria-labelledby="navbarDropdownMenuLinkBell"
               style="display: none;">
-              <li><a class="dropdown-item"> Updates</a></li>
+              <li>
+                <a class="dropdown-item" [ngStyle]="{ 'text-align': lang === 'ar' ? 'start' : 'left' }" 
+                 (click)="selectItemBell()"> </a>
+              </li>
 
             </ul>
           </div>
@@ -93,35 +97,54 @@
         </li>
 
         <!-- profile icon -->
-        <li class=" ">
+        <li class=" me-2">
           <div class="dropdown ">
-            <button type="button"
-              class="IconProfileLogedIN btn d-block link-body-emphasis text-decoration-none dropdown-toggle"
+            <button type="button" id="navbarDropdownMenuLinkProfile"
+              class="wt-menu__trigger wt-btn wt-btn--transparent header-button wt-mr-xs-1 wt-btn--small 
+               IconProfileLogedIN btn d-block link-body-emphasis text-decoration-none dropdown-toggle"
               data-bs-toggle="dropdown" [attr.aria-expanded]="isDropdownOpenForProfile ? 'true' : 'false'"
-              aria-expanded="false" (click)="toggleDropdownProfile()">
+              data-overlay-trigger-selector="overlay-trigger-ele"
+              aria-expanded="true" (click)="toggleDropdownProfile()">
               <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
             </button>
-            <ul class="dropdown-menu text-small" id="profileDropdownMenu" aria-labelledby="navbarDropdownMenuLink"
-              style="display: none;">
-              <li><a class="dropdown-item" href="#">Nada</a></li> <!-- User Name -->
-              <li><a class="dropdown-item" href="#">Purchases and Reviews</a></li>
-              <li><a class="dropdown-item" href="#">Messages</a></li>
-              <li><a class="dropdown-item" href="#">Special Offers</a></li>
-              <li><a class="dropdown-item" href="#">Etsy Registry</a></li>
-              <li><a class="dropdown-item" href="#">Sell On Etsy </a></li>
-              <li><a class="dropdown-item" href="#">Account Settings</a></li>
-              <li><a class="dropdown-item" href="#">Profile</a></li>
+            <ul class="dropdown-menu" id="profileDropdownMenu" aria-labelledby="navbarDropdownMenuLinkProfile"
+              [hidden]="!isDropdownOpenForProfile" [ngStyle]="{ 'text-align': lang === 'ar' ? 'start' : 'left' }" >
+              <li><a class="dropdown-item" (click)="selectItemProfile()" routerLink="">Nada</a></li> 
+              <li><a class="dropdown-item" (click)="selectItemProfile()">
+              {{"header.Purchases and Reviews"|translate}}
+              </a></li>
+              <li><a class="dropdown-item" (click)="selectItemProfile()">
+              {{"header.Messages"|translate}}
+              </a></li>
+              <li><a class="dropdown-item" (click)="selectItemProfile()">
+              {{"header.Special Offers"|translate}}
+              </a></li>
+              <li><a class="dropdown-item" (click)="selectItemProfile()">
+              {{"header.Etsy Registry"|translate}}
+              </a></li>
+              <li><a class="dropdown-item" (click)="selectItemProfile()">
+              {{"header.Sell On Etsy"|translate}}
+              </a></li>
+              <li><a class="dropdown-item" (click)="selectItemProfile()">
+              {{"header.Account Settings"|translate}}
+              </a></li>
+              <li><a class="dropdown-item" (click)="selectItemProfile()">
+              {{"header.Profile"|translate}}
+              </a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" (click)="onLogout()">Sign out</a></li>
+              <li><a class="dropdown-item" (click)="onLogout();selectItemProfile()">
+              {{"header.Sign out"|translate}}
+              </a></li>
             </ul>
           </div>
         </li>
-
+   
+      
 
         <!-- cart icon -->
-        <li class="IconHeaderLogedIn ">
+        <li class="IconHeaderLogedIn me-2">
           <a routerLink="Cart" class="navbar-brand position-relative">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart2"
               viewBox="0 0 16 16">
@@ -140,7 +163,7 @@
 
         <!-- Localization -->
         <li>
-          <select class="form-select ms-2" (change)="ChangeLang($event)" aria-label="Default select example" name=""
+          <select class="form-select custom-select mt-2 ms-2 me-2" (change)="ChangeLang($event)" aria-label="Default select example" name=""
             id="" style="width: 105px;">
             <option selected [selected]="lang==='en'" value="en">English</option>
             <option [selected]="lang==='ar'" value="ar">العربيه</option>
@@ -150,7 +173,7 @@
       </ul>
 
       <!-- Another Section -->
-      <div class="d-flex container justify-content-center mt-2">
+      <div class="Anothersection d-flex container justify-content-center mt-2">
         <ul class="nav justify-content-center">
           <li class="nav-item">
             <a class="nav-link btnOfCtegories" type="button" aria-current="page" routerLink="home">{{'header.home Deals'
@@ -173,23 +196,6 @@
 
       </div>
 
-
-      <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..."
-            aria-label="Search">
-        </form>
-
-        <div class="text-end">
-          @if(!isLoggedIn){
-          <button type="button" class="btn btn-outline-light me-2" mat-flat-button color="primary"
-            [routerLink]="['/login']">Login</button>
-          }@if(isLoggedIn){
-          <button type="button" class="btn btn-outline-light me-2" mat-flat-button color="primary"
-            (click)="onLogout()">Log Out</button>
-          }
-          <button type="button" mat-flat-button color="primary" [routerLink]="['/login']">Sign-up</button>
-        </div> -->
-
     </div>
 
 
@@ -206,13 +212,8 @@
 
     <div class="d-flex flex-wrap align-items-center justify-content-center ">
 
-      <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
-          <use xlink:href="#bootstrap"></use>
-        </svg>
-      </a>
 
-      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+      <ul class="VisitorCatandBrand nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center  ms-5">
 
         <!-- Image Brand -->
         <li>
@@ -222,10 +223,13 @@
         </li>
 
         <!-- DropDown List Categories -->
-        <li class="nav-item dropdown">
-          <button type="button" class="wt-menu__trigger wt-btn wt-btn--transparent header-button wt-mr-xs-1 wt-btn--small btn
-              btn-light btnOfCtegories" aria-haspopup="true" [attr.aria-expanded]="isDropdownOpen ? 'true' : 'false'"
-            (click)="toggleDropdown()" id="navbarDropdownMenuLink" data-overlay-trigger-selector="overlay-trigger-ele">
+        <li class="nav-item dropdown ">
+
+          <button type="button" class=" header-button wt-btn--small btn btn-light btnOfCtegories"
+           aria-haspopup="true" 
+            (click)="toggleDropdown()" id="navbarDropdownMenuLinkVistitor" >
+            
+            <!-- Icon = -->
             <span class="etsy-icon wt-mr-xs-1 wt-icon--smaller ">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" fill="currentColor" class="bi bi-list"
                 viewBox="0 0 16 16" style="font-weight: bolder;">
@@ -233,60 +237,62 @@
                   d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
               </svg>
             </span>
+            
             {{'header.Category' | translate}}
           </button>
-          <ul id="dropdown-menu" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" style="display: none;">
+
+          <ul id="dropdown-menu-visitor" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkVistitor" >
+
             @for (item of BaseCategoryList; track $index) {
             <li><a class="dropdown-item " [routerLink]="['Category',item.id]"
-              [ngStyle]="{ 'text-align': lang === 'ar' ? 'start' : 'left' }">
-
+              [ngStyle]="{ 'text-align': lang === 'ar' ? 'start' : 'left' }" (click)="selectItem()">
+              
                 @if (lang === 'en') {
                 <span> {{item.nameEN}} </span>
                 }@else if (lang === 'ar') {
                   <span> {{item.nameAR}} </span>
                 }
 
-              </a></li>
+              </a>
+            </li>
             }
           </ul>
         </li>
       </ul>
 
+
       <!-- Search -->
-      <!-- <form class="d-flex flex-grow-1 "> -->
-      <div class="d-flex flex-grow-1 ">
-        <!-- <form class="d-flex flex-grow-1" (ngSubmit)="filterResults(filter.value)"> -->
+      <div class="Visitorsearch  d-flex flex-grow-1 ">
         <input class="form-control me-2 SearchSection" type="search"  [placeholder]="'header.searchPlaceHolder' | translate" 
           aria-label="Search" #filter>
         <button class="btn btn-default btn-round btn-submit rounded-circle" 
         [ngClass]="{ 'btnSearchRTL': lang === 'ar', 'btnSearch': lang === 'en' }" (click)="filterResults(filter.value)">
           <i class="fa fa-search icon-lg "></i>
         </button>
-      <!-- </form> -->
       </div>
-<!--  (click)="filterResults(filter.value)" -->
 
 
       <!-- SignIN  -->
-      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 mb-md-0 ulOfSign mt-md-2  mt-sm-2 justify-content-center">
+      <ul class="VisitorSignIn nav col-12 col-lg-auto me-lg-auto mb-2 mb-md-0 ulOfSign mt-md-2  mt-sm-2 justify-content-center">
 
-        <li class="nav-item dropdown me-2">
-
-          <a type="button" class=" header-button wt-mr-xs-1 wt-btn--small btn
+        <!-- Sign in button -->
+        <li class="nav-item dropdown me-2 pt-1">
+          <a type="button" class=" header-button btn
               btn-light btnOfCtegories" (click)="openModal()">
             {{"header.Sign in"|translate}}
           </a>
 
         </li>
 
-        <li class="IconHeaderLogedIn ">
+        <!-- Heart Icon -->
+        <li class="IconHeaderLogedIn  me-2">
           <a routerLink="" class="navbar-brand ">
             <i class="fa-regular fa-heart " style="color: #000000;"></i>
           </a>
         </li>
 
         <!-- Cart Icon -->
-        <li class="IconHeaderLogedIn ">
+        <li class="IconHeaderLogedIn  me-2">
           <a routerLink="Cart" class="navbar-brand position-relative">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart2"
               viewBox="0 0 16 16">
@@ -303,17 +309,23 @@
           </a>
         </li>
 
-<!-- Localization -->
+        <!-- Localization -->
         <li>
-          <select class="form-select  ms-2" (change)="ChangeLang($event)" name="" id="" style="width: 105px;">
-            <option selected [selected]="lang==='en'" value="en">English</option>
-            <option [selected]="lang==='ar'" value="ar">العربيه</option>
+          <select class="form-select  custom-select ms-2 mt-2" (change)="ChangeLang($event)" name="" id="" >
+            <option selected [selected]="lang==='en'" value="en"> 
+              English
+            </option>
+            <option [selected]="lang==='ar'" value="ar">
+              العربية
+            </option>
           </select>
         </li>
+
+    
       </ul>
 
       <!-- Another Section -->
-      <div class="d-flex container justify-content-center mt-2">
+      <div class="d-flex container justify-content-center mt-2 Anothersection">
         <ul class="nav justify-content-center">
           <li class="nav-item">
             <a class="nav-link btnOfCtegories" type="button" aria-current="page" routerLink="home">{{'header.home Deals'

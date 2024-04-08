@@ -42,50 +42,14 @@ import { CommonModule } from "@angular/common";
 export class HeaderComponent implements OnInit, OnDestroy {
   lang: string = "";
 
-  // ===============
-  // For DownDrops :
-
-  isDropdownOpen: boolean = false;
-  toggleDropdown() {
-    this.isDropdownOpen = !this.isDropdownOpen;
-    const dropdownMenu = document.getElementById("dropdown-menu");
-    if (dropdownMenu) {
-      dropdownMenu.style.display = this.isDropdownOpen ? "block" : "none";
-    }
-  }
-
-  isDropdownOpenForBell: boolean = false;
-
-  toggleDropdownBell() {
-    this.isDropdownOpen = !this.isDropdownOpen;
-    const dropdownMenu = document.getElementById("bellDropdownMenu");
-    if (dropdownMenu) {
-      dropdownMenu.style.display = this.isDropdownOpen ? "block" : "none";
-    }
-  }
-
-  isDropdownOpenForProfile: boolean = false;
-
-  toggleDropdownProfile() {
-    this.isDropdownOpen = !this.isDropdownOpen;
-    const dropdownMenu = document.getElementById("profileDropdownMenu");
-    if (dropdownMenu) {
-      dropdownMenu.style.display = this.isDropdownOpen ? "block" : "none";
-    }
-  }
-
-  // ====================
-  // For checking if it user Or Not :
-
-  private destroySubject = new Subject();
-  isLoggedIn: boolean = false;
-  constructor(
+    constructor(
     private modalService: NgbModal,
     private authService: AuthService,
     private router: Router,
     private _BaseCategoryService: BaseCategoryService,
     private translationService: TranslationLangService,
-    private _SearchService : SearchService
+    private _SearchService : SearchService,
+    
     
   ) {
     this.authService.authStatus
@@ -94,6 +58,86 @@ export class HeaderComponent implements OnInit, OnDestroy {
         this.isLoggedIn = result;
       });
   }
+  // ===============
+  // For DownDrops :
+
+  // Visitor Category
+  isDropdownOpen: boolean = false;
+  toggleDropdown() {
+    this.isDropdownOpen = !this.isDropdownOpen;
+    const dropdownMenu = document.getElementById("dropdown-menu-visitor");
+    if (dropdownMenu) {
+      dropdownMenu.style.display = this.isDropdownOpen ? "block" : "none";
+    }
+  }
+  selectItem() {
+    this.isDropdownOpen = false;
+    const dropdownMenu = document.getElementById("dropdown-menu-visitor");
+    if (dropdownMenu) {
+      dropdownMenu.style.display = "none";
+    }
+  }
+
+  // User Category
+  isDropdownOpenUser: boolean = false;
+  toggleDropdownUser() {
+    this.isDropdownOpenUser = !this.isDropdownOpenUser;
+    const dropdownMenu = document.getElementById("dropdown-menu-user");
+    if (dropdownMenu) {
+      dropdownMenu.style.display = this.isDropdownOpenUser ? "block" : "none";
+    }
+  }
+  selectItemUser() {
+    this.isDropdownOpenUser = false;
+    const dropdownMenu = document.getElementById("dropdown-menu-user");
+    if (dropdownMenu) {
+      dropdownMenu.style.display = "none";
+    }
+  }
+
+  //User Bell 
+  isDropdownOpenForBell: boolean = false;
+
+  toggleDropdownBell() {
+    this.isDropdownOpenForBell = !this.isDropdownOpenForBell;
+    const dropdownMenu = document.getElementById("bellDropdownMenu");
+    if (dropdownMenu) {
+      dropdownMenu.style.display = this.isDropdownOpenForBell ? "block" : "none";
+    }
+  }
+  selectItemBell() {
+    this.isDropdownOpenUser = false;
+    const dropdownMenu = document.getElementById("bellDropdownMenu");
+    if (dropdownMenu) {
+      dropdownMenu.style.display = "none";
+    }
+  }
+
+  //User Profile
+  isDropdownOpenForProfile: boolean = false;
+
+  toggleDropdownProfile() {
+    this.isDropdownOpenForProfile = !this.isDropdownOpenForProfile;
+    const dropdownMenu = document.getElementById("profileDropdownMenu");
+    if (dropdownMenu) {
+      dropdownMenu.style.display = this.isDropdownOpenForProfile ? "block" : "none";
+    }
+  }
+  selectItemProfile() {
+    this.isDropdownOpenUser = false;
+    const dropdownMenu = document.getElementById("bellDropdownMenu");
+    if (dropdownMenu) {
+      dropdownMenu.style.display = "none";
+    }
+  }
+ 
+  // ====================
+  // For checking if it user Or Not :
+
+  private destroySubject = new Subject();
+  isLoggedIn: boolean = false;
+  
+
 
   // ====================
   // Dropdown List in Base Category
@@ -131,6 +175,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
       localStorage.setItem('lang', selectedLanguage);
       this.translationService.setLanguage(selectedLanguage);
       window.location.reload();
+      
     }
   }
 

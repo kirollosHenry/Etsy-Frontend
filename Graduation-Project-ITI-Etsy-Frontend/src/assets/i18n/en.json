@@ -7,7 +7,16 @@
     "gift Guids": "Gift Guids",
     "registry": "Registry",
     "searchPlaceHolder": "Search for anything",
-    "Sign in":"Sign in"
+    "Sign in":"Sign in",
+    "Purchases and Reviews":"Purchases and Reviews",
+    "Messages":"Messages",
+    "Special Offers":"Special Offers",
+    "Etsy Registry":"Etsy Registry",
+    "Sell On Etsy":"Sell On Etsy",
+    "Account Settings":"Account Settings",
+    "Sign out":"Sign out",
+    "Profile":"Profile"
+
   },
 
   "home-footer-addition": {

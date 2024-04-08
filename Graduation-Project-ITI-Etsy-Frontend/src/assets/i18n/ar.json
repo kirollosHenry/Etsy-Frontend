@@ -7,7 +7,15 @@
         "gift Guids": "أدلة الهدايا",
         "registry": "التسجيل",
         "searchPlaceHolder":"البحث عن أى شئ" ,
-        "Sign in":"تسجيل الدخول"
+        "Sign in":"تسجيل الدخول",
+        "Purchases and Reviews":"المشتريات والمراجعات",
+        "Messages":"رسائل",
+        "Special Offers":"عروض خاصة",
+        "Etsy Registry":"سجل إيتسي",
+        "Sell On Etsy":"البيع على إيتسي",
+        "Account Settings":"إعدادت الحساب",
+        "Profile":"حساب تعريفي",
+        "Sign out":"خروج"
 
     },
     "home-footer-addition":{

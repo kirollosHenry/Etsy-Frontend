@@ -53,14 +53,14 @@ export class CartComponent implements OnInit , AfterViewInit {
   currentTime: Date = new Date();
   deliverTime!: Date;
 
-  // currentTimeForOrder: string = this.currentTime ? this.datePipe.transform(this.currentTime, "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")! : '';
-  // DeliveredTimeForOrder: string = this.currentTime ? this.datePipe.transform(this.currentTime, "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")! : ''; // DeliveredTimeForOrder return undefined
+  currentTimeForOrder: string = this.currentTime ? this.datePipe.transform(this.currentTime, "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")! : '';
+  DeliveredTimeForOrder: string = this.currentTime ? this.datePipe.transform(this.currentTime, "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")! : ''; // DeliveredTimeForOrder return undefined
 
   deliverTimeForShowing: string = '';
 
 
   //Add Order 
-  OrderObj!: Order ;
+  OrderObj!: Order 
 
   PaymentObj!: Payment ;
 
@@ -417,7 +417,7 @@ export class CartComponent implements OnInit , AfterViewInit {
     this.deliverTime = new Date(this.currentTime);
     this.deliverTime.setDate(this.currentTime.getDate() + 5);
     this.deliverTimeForShowing = this.deliverTime ? this.datePipe.transform(this.deliverTime, 'MMM dd yyyy')! : '';
-    // this.DeliveredTimeForOrder = this.deliverTime ? this.datePipe.transform(this.deliverTime, 'yyyy-MM-ddTHH:mm:ss.SSSZ')! : '';
+    this.DeliveredTimeForOrder = this.deliverTime ? this.datePipe.transform(this.deliverTime, 'yyyy-MM-ddTHH:mm:ss.SSSZ')! : '';
     console.log('Updated deliverTimeForShowing:', this.deliverTimeForShowing);
 
   }
