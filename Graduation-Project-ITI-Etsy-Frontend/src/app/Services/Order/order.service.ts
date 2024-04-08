@@ -28,5 +28,9 @@ export class OrderService {
   UpdateOrder(OrderObject: Order): Observable<Order> {
     return this._HttpClient.put<Order>(this.apiOrderURL, OrderObject)
   }
+
+  GetAllOrdersByCustomerId(customerId: string): Observable<IOrderAPI> {
+    return this._HttpClient.get<IOrderAPI>(`${this.apiOrderURL}/Orders/ ${customerId}`)
+  }
 }
 
