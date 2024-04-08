@@ -326,6 +326,11 @@
     "PayPal":"بايبال",
 
     "for your transaction.":"لمعاملتك."
+  },
+
+  "searchComonent":{
+    "We couldn't find any results...":"لم نتمكن من العثور على أي نتائج...",
+    "Try searching for something else instead?":"حاول البحث عن شيء آخر بدلا من ذلك؟"
   }
 
 

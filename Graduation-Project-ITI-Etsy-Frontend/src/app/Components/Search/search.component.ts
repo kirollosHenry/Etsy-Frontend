@@ -12,13 +12,16 @@ import { BaseCategoryService } from '../../Services/BaseCategory/base-category.s
 import { CategoryService } from '../../Services/Category/category.service';
 import { ProductsService } from '../../Services/Products/products.service';
 import { SearchService } from '../../Services/Search/search.service';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { RouterModule } from '@angular/router';
 
 
 
 @Component({
   selector: 'app-search',
   standalone: true,
-  imports: [CommonModule, ProductListComponent, BaseCategoryComponent, AllcategoriesComponent, StarComponent],
+  imports: [CommonModule, RouterModule,
+    TranslateModule,ProductListComponent, BaseCategoryComponent, AllcategoriesComponent, StarComponent],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css'
 })
@@ -29,11 +32,20 @@ CategoryObj!: Category;
 ProductObj!: Products;
 
 Message! : string;
-
+lang: string = "en";
 
 sub!:Subscription;
-constructor(private _BaseCategoryService: BaseCategoryService, private _CategoryService: CategoryService, private _ProductsService: ProductsService,private _SearchService : SearchService){}
+constructor(private _BaseCategoryService: BaseCategoryService,
+     private _CategoryService: CategoryService, 
+     private _ProductsService: ProductsService,
+     private _SearchService : SearchService,
+     private translateService: TranslateService,
+    ){}
   ngOnInit(): void {
+  // Localization
+  this.lang = localStorage.getItem("lang") || "en";
+  this.translateService.use(this.lang);
+
 
     this.sub = this._SearchService.currentMessage.subscribe({
         next : (message)=> {

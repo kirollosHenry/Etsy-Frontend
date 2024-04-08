@@ -314,6 +314,11 @@
     "for your transaction.":"for your transaction."
 
 
+  },
+
+  "searchComonent":{
+    "We couldn't find any results...":"We couldn't find any results...",
+    "Try searching for something else instead?":"Try searching for something else instead?"
   }
 
 

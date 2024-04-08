@@ -86,6 +86,7 @@ export class CartComponent implements OnInit , AfterViewInit {
   ngOnInit(): void {
     // Localization
     this.lang = localStorage.getItem("lang") || "en";
+    
     this.translateService.use(this.lang);
 
     // Get parameters From Product Details 

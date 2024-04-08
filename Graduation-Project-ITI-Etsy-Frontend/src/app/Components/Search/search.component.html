@@ -2,49 +2,68 @@
 
     @if(BaseCategoryobj != null)
     {
-        <div class="container ">
-            <div class="row  justify-content-center">
-                        <div class="col-md-2 " >
-                            <div class="row">
-                                <ul class="list-unstyled BaseCatEffect pt-2">
-                                    <li class="">
-            
-                                        <a routerLink="" class="text-decoration-none d-flex flex-column align-items-center">
-            
-                                            <div>
-                                                <img class="card-img-top imgOfCategory" [src]="BaseCategoryobj.baseCategoryImage"
-                                                    alt="Base Category Card image" style="height: 14rem;">
-                                            </div>
-            
-                                            <div class="text-center mt-2 ">
-                                                <p class="textOfBaseCategory">{{BaseCategoryobj.nameEN}}</p>
-            
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
+    <div class="container ProductsSectionHome mt-5">
+        <div class="row  pt-2 justify-content-center ">
+
+            <div class="col-lg-2  col-md-4 col-sm-4 col-6 product-item ">
+
+                <ul class="list-unstyled ">
+
+                    <li class="ProductEffect">
+
+                        <a [routerLink]="['ProductDetails', BaseCategoryobj.id]"
+                            class="text-decoration-none d-flex flex-column ">
+
+                            <div>
+                                <img class="img-fluid imgOfCard mb-3" [src]="BaseCategoryobj.baseCategoryImage"
+                                    alt="Base Category Card image">
                             </div>
-                        </div>
+
+                            <div class="text-center mt-2 ">
+                                <p class="textOfProduct">
+                                    @if (lang === 'en') {
+                                    <span> {{BaseCategoryobj.nameEN }}</span>
+                                    }
+                                    @else if (lang === 'ar') {
+                                    <span> {{BaseCategoryobj.nameAR }}</span>
+                                    }
+
+                                </p>
+
+                            </div>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
+    </div>
     }
+
 
     @if(CategoryObj != null)
     {
     <div class="container ">
         <div class="row  justify-content-center">
-            <div class="col-md-2 ">
+            <div class="col-lg-2  col-md-4 col-sm-6 col-xs-12 ">
                 <div class="row">
                     <ul class="list-unstyled BaseCatEffect pt-2">
-                        <li class="">
+                        <li class="pb-0">
                             <!-- routerLink]="['Products',CategoryObj.id]" -->
-                            <a class="text-decoration-none d-flex flex-column align-items-center">
+                            <a class="text-decoration-none d-flex flex-column ">
                                 <div>
                                     <img class="card-img-top imgOfCategory" [src]="CategoryObj.categoryImage"
                                         alt="Base Category Card image" style="height: 14rem;">
                                 </div>
                                 <div class="text-center mt-2 ">
-                                    <p class="textOfBaseCategory">{{CategoryObj.nameEN}}</p>
+                                    <p class="textOfBaseCategory">
+                                        @if (lang === 'en') {
+                                        <span> {{ CategoryObj.nameEN }}</span>
+                                        } @else if (lang === 'ar') {
+                                        <span> {{ CategoryObj.nameAR }}</span>
+                                        }
+
+
+                                    </p>
                                 </div>
                             </a>
                         </li>
@@ -55,49 +74,93 @@
     </div>
     }
 
+
+
     @if (ProductObj!=null) {
-    <div class="col-lg-3 col-md-4 col-sm-6 col-12 product-item mb-2">
-        <ul class="list-unstyled">
-            <li class="ProductEffect ">
-                <!-- [routerLink]="['ProductDetails',ProductObj.productId]" -->
-                <a class="d-flex flex-column text-decoration-none">
+    <div class="container  ProductsListSection mb-5 mt-4">
+        <div class="row pt-2 justify-content-center">
 
-                    <div>
-                        <img class="col-3 img-fluid imgOfProduct mb-1 mb-0" [src]="ProductObj.productImage"
-                            alt="Card image cap" style="height: 14rem;">
-                    </div>
-                    <div class="">
-                        <h4 class="DescOfProduct mb-0">{{ProductObj.productDescriptionEN.slice(0,40) }}
-                            {{ProductObj.productDescriptionEN.length > 40 ? '...' : '' }}
-                        </h4>
-                    </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-12 product-item mb-2">
+            <ul class="list-unstyled p-0">
+                <li class="ProductEffect ">
 
-                    <div>
-                        <p class="StarOfProduct d-flex mb-0">
-                            <app-star [rating]="ProductObj.productRating"></app-star>
-                            <small class="text-secondary  ms-1">({{ProductObj.productRating}})</small>
-                        </p>
-                    </div>
-                    <div>
-                        <h4 class="CurrecyOfProduct mb-0">{{ProductObj.productPrice | currency:'EUR' }}</h4>
-                    </div>
+                    <a class="d-flex flex-column text-decoration-none"
+                    [routerLink]="['ProductDetails', ProductObj.productId]">
 
-                    <div>
-                        <small class="text-secondary mb-0">
+                        <div>
+                            <img class="col-3 img-fluid imgOfProduct mb-1 mb-0" [src]="ProductObj.productImage"
+                                alt="Card image cap" style="height: 14rem;">
+                        </div>
+                        <div class="">
+                            <h4 class="DescOfProduct mb-0">
+                                @if (lang === 'en') {
+                                <span> {{ ProductObj.productNameEN.slice(0, 20) }}</span>
+                                } @else if (lang === 'ar') {
+                                <span> {{ ProductObj.productNameAR.slice(0, 50) }}</span>
+                                }
 
-                            Ad by {{ProductObj.productPublisher}}
-                        </small>
+                                {{
+                                ProductObj.productDescriptionEN.length > 40 ? "..." : ""
+                                }}
+                            </h4>
+                        </div>
 
-                    </div>
-                </a>
-            </li>
-        </ul>
+                        <div>
+                            <p class="StarOfProduct d-flex mb-0">
+                                <app-star [rating]="ProductObj.productRating"></app-star>
+                                <small class="text-secondary  ms-1">({{ProductObj.productRating}})</small>
+                            </p>
+                        </div>
+                        <div>
+                            <h4 class="CurrecyOfProduct mb-0"> 
+                                 {{
+                                lang === "ar"
+                                ? (ProductObj.productPrice
+                                | currency : "EGP" : true : "1.2-2")
+                                : (ProductObj.productPrice | currency : "EUR")
+                                }}</h4>
+                        </div>
+
+                        <div>
+                            <small class="text-secondary mb-0">
+
+                                @if (lang === 'en') {
+                                    <span>
+                                        Ad by
+                                        {{
+                                        "ProductListComponent.productPublisher." +
+                                        ProductObj.productPublisher | translate
+                                        }}
+                                    </span>
+                                    } @else if (lang === 'ar') {
+                                    <span>
+                                        إعلان بواسطة
+                                        {{
+                                        "ProductListComponent.productPublisher." +
+                                        ProductObj.productPublisher | translate
+                                        }}
+                                    </span>
+                                    }                           
+                                 </small>
+
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        </div>
     </div>
+
     }
 </div>
 
-<div>
+<div class=" container-fluid ">
     @if(BaseCategoryobj == null && CategoryObj == null &&ProductObj==null){
-        <h1>No Result</h1>
+
+    <div class=" col-12 backNotfound">
+        <p class="txtofResult">{{"searchComonent.We couldn't find any results..."|translate}}</p>
+        <h4 class="txtOfTry">{{"searchComonent.Try searching for something else instead?"|translate}} </h4>
+
+    </div>
     }
 </div>
