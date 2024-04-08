@@ -123,15 +123,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   }
 
-  // ChangeLang(lang:any){
-  //   const selectedLanguage = lang.target.value;
-  //   localStorage.setItem('lang',selectedLanguage);
-  //   this.translateService.use(selectedLanguage);
-  // }
-
-
-
-
   // Localization!!
   ChangeLang(event: any) {
     const selectedLanguage = event?.target?.value;
@@ -159,11 +150,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   // function to get Message search from header
   filterResults(text: string):void {
-    if (!text) {
-       // Search:
-        this._SearchService.changeMessage(text);
-    }
-    debugger;
+    
      this._SearchService.changeMessage(text);
+
+     this.router.navigate(['/search']);
   }
 }

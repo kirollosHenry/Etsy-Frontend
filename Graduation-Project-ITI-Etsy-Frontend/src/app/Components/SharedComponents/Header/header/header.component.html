@@ -253,16 +253,18 @@
       </ul>
 
       <!-- Search -->
-      <form class="d-flex flex-grow-1 ">
+      <!-- <form class="d-flex flex-grow-1 "> -->
+      <div class="d-flex flex-grow-1 ">
+        <!-- <form class="d-flex flex-grow-1" (ngSubmit)="filterResults(filter.value)"> -->
         <input class="form-control me-2 SearchSection" type="search"  [placeholder]="'header.searchPlaceHolder' | translate" 
-
           aria-label="Search" #filter>
-        <button class="btn btn-default btn-round btn-submit rounded-circle" type="submit"
+        <button class="btn btn-default btn-round btn-submit rounded-circle" 
         [ngClass]="{ 'btnSearchRTL': lang === 'ar', 'btnSearch': lang === 'en' }" (click)="filterResults(filter.value)">
           <i class="fa fa-search icon-lg "></i>
         </button>
-      </form>
-
+      <!-- </form> -->
+      </div>
+<!--  (click)="filterResults(filter.value)" -->
 
 
       <!-- SignIN  -->

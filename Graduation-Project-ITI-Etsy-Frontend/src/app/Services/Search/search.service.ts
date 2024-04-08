@@ -12,7 +12,6 @@ export class SearchService {
   constructor() { }
 
   changeMessage(message: string) {
-    debugger;
     this.messageSource.next(message)
   }
 }
