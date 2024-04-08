@@ -1,5 +1,6 @@
 <div class="container">
 
+    <!-- Base Category -->
     @if(BaseCategoryobj != null)
     {
     <div class="container ProductsSectionHome mt-5">
@@ -11,7 +12,7 @@
 
                     <li class="ProductEffect">
 
-                        <a [routerLink]="['ProductDetails', BaseCategoryobj.id]"
+                        <a [routerLink]="['Category', BaseCategoryobj.id]"
                             class="text-decoration-none d-flex flex-column ">
 
                             <div>
@@ -39,18 +40,20 @@
     </div>
     }
 
-
+    <!-- Category -->
     @if(CategoryObj != null)
     {
-    <div class="container ">
+    <div class="container mt-5">
         <div class="row  justify-content-center">
             <div class="col-lg-2  col-md-4 col-sm-6 col-xs-12 ">
                 <div class="row">
                     <ul class="list-unstyled BaseCatEffect pt-2">
                         <li class="pb-0">
-                            <!-- routerLink]="['Products',CategoryObj.id]" -->
-                            <a class="text-decoration-none d-flex flex-column ">
-                                <div>
+                            
+                            <a class="text-decoration-none d-flex flex-column "
+                            [routerLink]="['/search/Category', CategoryObj.id, 'Products', CategoryObj.id]">
+
+                            <div>
                                     <img class="card-img-top imgOfCategory" [src]="CategoryObj.categoryImage"
                                         alt="Base Category Card image" style="height: 14rem;">
                                 </div>
@@ -154,6 +157,7 @@
     }
 </div>
 
+<!-- Not Found -->
 <div class=" container-fluid ">
     @if(BaseCategoryobj == null && CategoryObj == null &&ProductObj==null){
 

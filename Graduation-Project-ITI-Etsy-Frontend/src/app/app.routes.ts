@@ -31,6 +31,12 @@ export const routes: Routes = [
     { path: 'home/Category/:categoryId/Products/:id', component: ProductListComponent, title: 'Products' },
     { path: 'home/Category/:categoryId/Products/:id/ProductDetails/:ProductId', component: ProductDetailsComponent, title: 'Product Details' },
     { path: 'home/ProductDetails/:ProductId', component: ProductDetailsComponent, title: 'Product Details' },
+
+    { path: 'search/Category/:categoryId', component: AllcategoriesComponent, title: 'Categories' },
+    { path: 'search/Category/:categoryId/Products/:id', component: ProductListComponent, title: 'Products' },
+    { path: 'search/Category/:categoryId/Products/:id/ProductDetails/:ProductId', component: ProductDetailsComponent, title: 'Product Details' },
+    { path: 'search/ProductDetails/:ProductId', component: ProductDetailsComponent, title: 'Product Details' },
+    
     { path: 'Confirm', component: ConfirmComponent, title: 'Confirm Payment'/*,canActivate:[userAuthGuard]*/ },
 
 
