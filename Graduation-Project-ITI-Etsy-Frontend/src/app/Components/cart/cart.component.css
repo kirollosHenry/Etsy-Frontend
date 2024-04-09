@@ -1,5 +1,7 @@
 body {
   background: #eeee;
+  overflow: hidden; 
+
 }
 
 .headerCard {
@@ -119,6 +121,42 @@ a {
 
 
 
+/* offcanvas */
+
+.offcanvas {
+  overflow-y: auto; 
+  max-height: calc(100vh - 0px); 
+  width: 35%;
+}
+
+.offcanvas-title{
+  font-family: "Guardian-EgypTT", "Charter", "Charter Bitstream", "Cambria", "Noto Serif Light", "Droid Serif", "Georgia", "serif";
+  font-weight: 300;
+  font-size: 31.01px;
+  line-height: 1.1;
+  letter-spacing: .46515px;
+}
+
+.imgOfEdit{
+height: 500px !important;
+width: 100% !important;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Responsive */
 
 @media screen and (max-width: 750px) {
@@ -134,3 +172,4 @@ a {
   font-size: small;
 }
 }
+
