@@ -86,5 +86,14 @@
   
   
   
+  .btn .svg-icon {
+    width: 1em; /* Adjust the size as needed */
+    height: 1em; /* Adjust the size as needed */
+    vertical-align: middle;
+    margin-right: 0.5em;
+  }
   
+  button > span {
+    vertical-align: middle;
+}
   
