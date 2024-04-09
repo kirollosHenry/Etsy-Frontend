@@ -75,7 +75,7 @@
                 <tr>
                   <td>
                     <div class="col d-flex mb-2 test">
-                      <div class="col-md-3">
+                      <div class="col-md-3 ">
                         <img [src]="item.productImage" class="img-fluid CardImage card-img-top" alt="Card image cap" />
                       </div>
                       <div class="col-md-9 ms-3 card-body">
@@ -254,7 +254,7 @@
                       ? (item.productPrice * item.quantity
                       | currency : "EGP" : "symbol" : "1.2-2")
                       : (item.productPrice * item.quantity
-                      | currency : "EUR" : "symbol" : "1.2-2")
+                      | currency : "USD" : "symbol" : "1.2-2")
                       }}
                     </h5>
                   </td>
@@ -285,11 +285,10 @@
                     </button>
                   </td>
 
-                  <td class="text-end" style="font-size: xx-small">
+                  <td class="text-end " style="font-size: xx-small">
                     {{ "CartComponent.Estimated delivery:" | translate }}
-                    <span style="border-bottom: 1px dashed">{{
-                      deliverTimeForShowing
-                      }}</span>
+                    <h5 style="font-size: xx-small">
+                    {{ deliverTimeForShowing }}</h5>
                     <div>{{ "CartComponent.from Turkey" | translate }}</div>
                   </td>
                 </tr>

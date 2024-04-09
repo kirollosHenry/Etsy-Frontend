@@ -75,12 +75,26 @@ export class CartComponent implements OnInit, AfterViewInit {
   NumberOfCarts!: number;
   lang: string = "en";
 
+  // Total Price
   productId!: number;
   quantityUserChoose!: number;
   totalPrice: number = 0;
 
-  
+  // OffCnvas
+  selectedProductIndex: number = -1;
+
+
   ngOnInit(): void {
+    // Check if navigation is coming from the guard
+    const navigationFromGuard = this.route.snapshot.queryParams['fromGuard'];
+    if (navigationFromGuard) {
+      // Clear the query parameter to prevent re-triggering
+      this.router.navigate([], {
+        queryParams: { fromGuard: null },
+        queryParamsHandling: 'merge' // Preserve existing query parameters
+      });
+    }
+
     // Localization
     this.lang = localStorage.getItem("lang") || "en";
     this.translateService.use(this.lang);
@@ -196,6 +210,7 @@ export class CartComponent implements OnInit, AfterViewInit {
   
   
   }
+
 
 
   //Fpr Button PayPaL
@@ -355,8 +370,6 @@ export class CartComponent implements OnInit, AfterViewInit {
 
   // Offcanvas :
 
-  selectedProductIndex: number = -1;
-
   openOffcanvas(index: number): void {
     console.log("Opening offcanvas for index:", index);
 
@@ -371,3 +384,4 @@ export class CartComponent implements OnInit, AfterViewInit {
   }
 
 }
+

@@ -57,11 +57,11 @@
           <h2 class="name text-success">
 
             {{ lang === 'ar' ? (ProductDetails.productPrice | currency:'EGP':'symbol':'1.2-2') :
-            (ProductDetails.productPrice| currency:'EUR':'symbol':'1.2-2') }}
+            (ProductDetails.productPrice| currency:'USD':'symbol':'1.2-2') }}
 
           </h2>
           <small style="text-decoration: line-through" class="text-secondary mt-2 ms-1">
-            {{ lang === 'ar' ? ( 14.90 | currency:'EGP':'symbol':'1.2-2') : (14.90 | currency:'EUR':'symbol':'1.2-2') }}
+            {{ lang === 'ar' ? ( ProductDetails.productPrice +10 | currency:'EGP':'symbol':'1.2-2') : (ProductDetails.productPrice +10 | currency:'USD':'symbol':'1.2-2') }}
           </small>
         </div>
 
