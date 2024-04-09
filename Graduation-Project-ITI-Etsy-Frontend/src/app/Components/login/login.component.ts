@@ -66,48 +66,6 @@ export class LoginComponent implements OnInit {
       userNameRegister: new FormControl("", Validators.required),
     });
   }
-
-//   Login() {
-//     var loginRequest = <Login>{};
-//     loginRequest.email = this.form.controls["email"].value;
-//     loginRequest.password = this.form.controls["password"].value;
-
-//     this.authService.login(loginRequest).subscribe({
-//       next: (response: LoginResult) => {
-//         if (response.isAuthenticated) {
-//           // Handle successful authentication
-// <<<<<<< HEAD
-//           console.log('Login successful');
-//           console.log('Token:',response.token);
-//           if (response.customer) {
-//             console.log('Email:', response.customer.email);
-//           } else {
-//             console.log('Customer data not found in response');
-//           }
-//           this.router.navigate(['/Category']);
-//           // Redirect or perform other actions here
-//         } else {
-          
-//           this.error =  'An unknown error occurred';
-// =======
-//           console.log("Login successful");
-//           console.log("Token:", response.token);
-
-//           this.router.navigate(["/Category"]);
-//           // Redirect or perform other actions here
-//         } else {
-//           this.error = "An unknown error occurred";
-// >>>>>>> 3fd711c251abf782114bc0c7d5f893b04a306dc9
-//         }
-//       },
-//       error: (error) => {
-//         this.error = "An error occurred while logging in";
-//       },
-//     });
-//   }
-
-
-
 Login() {
   var loginRequest = <Login>{};
   loginRequest.email = this.form.controls['email'].value;

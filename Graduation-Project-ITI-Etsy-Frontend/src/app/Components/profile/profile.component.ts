@@ -4,6 +4,7 @@ import { UserDto } from '../../Models/Accout/UserDto';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-profile',
   standalone: true,
@@ -23,7 +24,7 @@ export class ProfileComponent implements OnInit {
     // You can add logic here to save the updated profile data
     this.editing = false;
   }
-  constructor(private user:UserService ,private fb: FormBuilder){}
+  constructor(private user:UserService ,private fb: FormBuilder ,private router:Router){}
   ngOnInit(): void {
     this.user.userData$.subscribe(userData => {
       this.userData = userData;

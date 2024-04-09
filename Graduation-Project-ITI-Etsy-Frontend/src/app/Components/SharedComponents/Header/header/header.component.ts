@@ -126,6 +126,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   selectItemProfile() {
     this.isDropdownOpenUser = false;
     const dropdownMenu = document.getElementById("bellDropdownMenu");
+    this.router.navigate(["/userprofile"]);
     if (dropdownMenu) {
       dropdownMenu.style.display = "none";
     }
@@ -148,8 +149,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   Message! : string;
 
   onLogout(): void {
+    this.router.navigate(["/home"]);
     this.authService.logout();
-    this.router.navigate(["/"]);
   }
 
   ngOnInit(): void {

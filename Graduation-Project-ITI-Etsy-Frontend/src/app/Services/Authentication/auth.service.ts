@@ -10,7 +10,7 @@ import { environment } from '../../../environment/environment';
   providedIn: 'root'
 })
 export class AuthService {
-  private AccountApiUrl = environment.AccountApiUrl;
+  private AccountApiUrl = environment.LocalApiAccount;
 
   private tokenKey: string = "token";
   private _authStatus = new BehaviorSubject<boolean>(false);
