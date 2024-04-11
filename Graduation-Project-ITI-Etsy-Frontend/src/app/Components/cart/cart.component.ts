@@ -259,6 +259,7 @@ export class CartComponent implements OnInit, AfterViewInit {
                 totalPrice: this.totalPrice,
                 orderedAt: this.currentTime, //Not Updated Yet
                 arrivedOn: this.deliverTime,
+                status : "Placed",
                 customerId: "da679192-b569-458e-a077-452761c0e30a",
               };
               this.sub = this._OrderService

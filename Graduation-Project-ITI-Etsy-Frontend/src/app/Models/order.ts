@@ -9,6 +9,8 @@ export interface Order {
 
     arrivedOn: Date,
 
+    status: string,
+
     customerId: string
 }
 
