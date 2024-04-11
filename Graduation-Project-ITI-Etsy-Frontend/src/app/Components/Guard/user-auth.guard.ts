@@ -19,6 +19,8 @@ export const userAuthGuard: CanActivateFn = (route, state) => {
   //   //router.navigate(['/Cart']);      // Navigate to cart show error (Cart already is added so we must navigate)
   //   return false;
   // }
+
+  
   if (UserAuthService.UserState) {
     return true; // User is authenticated, allow access
   } else {
@@ -33,14 +35,14 @@ export const userAuthGuard: CanActivateFn = (route, state) => {
       () => {
         // Login modal closed without authentication, reject navigation
         // return router.parseUrl('/home');
-        return  router.navigate(['/Cart']);
+        return  router.navigate(['/ProductDetails']);
           
       }
     ).catch(() => {
       // Handle any error during authentication process
       // router.navigate(['Cart']);
       // return false
-      return router.parseUrl('/Cart'); 
+      return router.parseUrl('/home'); 
     });
   }
 

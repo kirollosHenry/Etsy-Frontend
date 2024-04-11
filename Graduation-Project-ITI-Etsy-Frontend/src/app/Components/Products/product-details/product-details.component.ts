@@ -18,6 +18,7 @@ import { CartService } from "../../../Services/Cart/cart.service";
 import { FormsModule } from "@angular/forms";
 import { CartComponent } from "../../cart/cart.component";
 import { HttpResponse } from "@angular/common/http";
+import { AuthService } from "../../../Services/Authentication/auth.service";
 
 @Component({
   selector: "app-product-details",
@@ -67,7 +68,8 @@ export class ProductDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private translateService: TranslateService,
     private _cartService: CartService,
-    private router: Router
+    private router: Router,
+    private UserAuthService : AuthService
   ) {
 
     this.images = [];
@@ -159,18 +161,25 @@ export class ProductDetailsComponent implements OnInit {
     };
 
 
-    this._cartService.AddToCart(cartItem).subscribe({
-      next: () => {
-        this.router.navigate(["/Cart"], {
-          queryParams: {
-            productId: cartItem.ProductId,
-            quantity: cartItem.Quantity,
-          },
-        });
-      },
-      error: (error) => {
-        console.log("Error occurred:", error);
-      },
-    });
+    debugger;
+    if (this.UserAuthService.UserState) {
+      this._cartService.AddToCart(cartItem).subscribe({
+        next: () => {
+          this.router.navigate(["/Cart"], {
+            queryParams: {
+              productId: cartItem.ProductId,
+              quantity: cartItem.Quantity,
+            },
+          });
+        },
+        error: (error) => {
+          console.log("Error occurred:", error);
+        },
+      });
+    }
+    else{
+      this.router.navigate(["/Cart"]);
+    }
+    
   }
 }

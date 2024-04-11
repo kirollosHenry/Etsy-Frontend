@@ -1,5 +1,5 @@
 export const environment = {
-    LocalApiAccount:'http://localhost:5104/api/Account',
+    LocalApiAccount:'http://16.171.140.138/estyservice/api/Account',
     AccountApiUrl: 'http://16.171.140.138/estyservice/api/Account',
     ProductApiUrl: 'http://16.171.140.138/estyservice/api/Product',
     BaseCategoryApiUrl: 'http://16.171.140.138/estyservice/api/BaseCategory',

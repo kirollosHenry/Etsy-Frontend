@@ -77,7 +77,8 @@ Login() {
         // Handle successful authentication
         console.log('Login successful');
         console.log('Token:',response.token);
-        this.activeModal.dismiss('Cross click');
+        // this.activeModal.dismiss('Cross click');
+        this.closeModal();
         //this.router.navigate(['/Cart']);
         
         // Redirect or perform other actions here
@@ -104,7 +105,8 @@ Login() {
           console.log("Login successful");
           console.log("Token:", response.token);
           //this.router.navigate(["/Cart"]);
-          this.activeModal.dismiss('Cross click');
+          // this.activeModal.dismiss('Cross click');
+          this.closeModal();
           // Redirect or perform other actions here
         } else {
           this.error = "An unknown error occurred";
