@@ -243,7 +243,7 @@ margin-bottom: 10px !important;
 @media (max-width: 500px) {
   .VisitorSignIn{
 
-    display: none !important;
+    /* display: none !important; */
   }
   .Visitorsearch{
     margin-bottom: 10px;

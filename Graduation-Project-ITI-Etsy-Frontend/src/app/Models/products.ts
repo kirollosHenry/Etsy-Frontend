@@ -37,3 +37,9 @@ export interface IOneProductAPI {
     message : string
 }
 
+export interface ProductChangeStockAPI{
+    
+    productId: number,
+    
+    productStock : number
+}

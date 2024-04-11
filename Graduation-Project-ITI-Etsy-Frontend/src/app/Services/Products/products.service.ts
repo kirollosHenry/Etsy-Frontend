@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../../environment/environment';
-import { IOneProductAPI, IProductAPI } from '../../Models/products';
+import { IOneProductAPI, IProductAPI, ProductChangeStockAPI } from '../../Models/products';
 
 
 @Injectable({
@@ -40,5 +40,10 @@ export class ProductsService {
   GatProductsByName(ProductName : string) : Observable<IOneProductAPI>
   {
     return this._HttpClient.get<IOneProductAPI>(`${this.apiProductURL}/${ProductName}`)
+  }
+
+  ChangeProductStockNumber(productDTO : ProductChangeStockAPI) : Observable<ProductChangeStockAPI>
+  {
+    return this._HttpClient.post<ProductChangeStockAPI>(this.apiProductURL,productDTO);
   }
 }
