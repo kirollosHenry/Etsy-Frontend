@@ -23,6 +23,8 @@ import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { ConfirmComponent } from "../PayPal/confirm/confirm.component";
 import { UnsuccesfullyComponent } from "../PayPal/unsuccesfully/unsuccesfully.component";
 import { StarComponent } from "../SharedComponents/star/star.component";
+import { ProductsService } from "../../Services/Products/products.service";
+import { ProductChangeStockAPI } from "../../Models/products";
 
 declare var paypal: any;
 @Component({
@@ -50,7 +52,8 @@ export class CartComponent implements OnInit, AfterViewInit {
     private _PaymentService: PaymentService,
     private datePipe: DatePipe,
     private modalService: NgbModal,
-    private router: Router ,
+    private router: Router,
+    private changeProductStockNumber: ProductsService
   ) {
     this.deliverTime = new Date(this.currentTime);
     this.deliverTime.setDate(this.currentTime.getDate() + 5);
@@ -83,15 +86,14 @@ export class CartComponent implements OnInit, AfterViewInit {
   // OffCnvas
   selectedProductIndex: number = -1;
 
-
   ngOnInit(): void {
     // Check if navigation is coming from the guard
-    const navigationFromGuard = this.route.snapshot.queryParams['fromGuard'];
+    const navigationFromGuard = this.route.snapshot.queryParams["fromGuard"];
     if (navigationFromGuard) {
       // Clear the query parameter to prevent re-triggering
       this.router.navigate([], {
         queryParams: { fromGuard: null },
-        queryParamsHandling: 'merge' // Preserve existing query parameters
+        queryParamsHandling: "merge", // Preserve existing query parameters
       });
     }
 
@@ -128,9 +130,6 @@ export class CartComponent implements OnInit, AfterViewInit {
         console.log(response);
       },
     });
-
-
-
 
     // PayPal //
     // paypal.Buttons(
@@ -207,13 +206,9 @@ export class CartComponent implements OnInit, AfterViewInit {
     //     }
     //   }
     // ).render(this.paypalButtonContainer.nativeElement);
-  
-  
   }
 
-
-
-  //Fpr Button PayPaL
+  //For Button PayPaL
   ngAfterViewInit(): void {
     paypal
       .Buttons({
@@ -257,9 +252,9 @@ export class CartComponent implements OnInit, AfterViewInit {
                 ordersId: 0,
                 address: "Cairo Egypt",
                 totalPrice: this.totalPrice,
-                orderedAt: this.currentTime, //Not Updated Yet
+                orderedAt: this.currentTime,
                 arrivedOn: this.deliverTime,
-                status : "Placed",
+                status: "Placed",
                 customerId: "da679192-b569-458e-a077-452761c0e30a",
               };
               this.sub = this._OrderService
@@ -293,6 +288,25 @@ export class CartComponent implements OnInit, AfterViewInit {
                     console.log("Error in Create Order ", error);
                   },
                 });
+
+                // TO Change Product Stock Number
+              for (const cartItem of this.CartsList) {
+                const productDTO: ProductChangeStockAPI = {
+                  productId: cartItem.productId,
+                  productStock: cartItem.quantity, 
+                };
+
+                this.sub = this.changeProductStockNumber
+                  .ChangeProductStockNumber(productDTO)
+                  .subscribe({
+                    next: (response) => {
+                      console.log(" ChangeProductStockNumber: ", response);
+                    },
+                    error: (rsponce) => {
+                      console.log("Error in ChangeProductStockNumber: ", rsponce);
+                    },
+                  });
+              }
 
               //Delete Cart By CustomerId
               this.sub = this._CartService
@@ -336,10 +350,8 @@ export class CartComponent implements OnInit, AfterViewInit {
         this.CartsList = CartsDateAPI.entities.map((cart) => ({
           ...cart,
           quantity: cart.quantity,
-        
         }));
 
-        
         this.NumberOfCarts = CartsDateAPI.count;
         this.calculateTotalPrice();
       },
@@ -368,21 +380,16 @@ export class CartComponent implements OnInit, AfterViewInit {
     const modalRef = this.modalService.open(UnsuccesfullyComponent);
   }
 
-
   // Offcanvas :
 
   openOffcanvas(index: number): void {
     console.log("Opening offcanvas for index:", index);
 
-      this.selectedProductIndex = index;
-   
+    this.selectedProductIndex = index;
   }
 
   // Function to determine if the offcanvas should be open for a specific product
   isOffcanvasOpen(index: number): boolean {
-    
     return this.selectedProductIndex === index;
   }
-
 }
-
