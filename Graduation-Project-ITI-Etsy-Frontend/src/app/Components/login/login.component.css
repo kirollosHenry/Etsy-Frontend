@@ -97,3 +97,33 @@
     vertical-align: middle;
 }
   
+
+
+/* Responsive */
+
+@media screen and (max-width: 430px) {
+
+  ::ng-deep .modal-content {
+    max-width: 85%;
+  }
+
+  .custom-close-button {
+ 
+    right: -40px !important;
+  }
+
+}
+
+@media screen and (max-width: 330px) {
+
+  ::ng-deep .modal-content {
+    max-width: 95%;
+  }
+
+  .custom-close-button {
+    top: -15px !important;
+    right: -2px !important;
+    color: black;
+  }
+
+}

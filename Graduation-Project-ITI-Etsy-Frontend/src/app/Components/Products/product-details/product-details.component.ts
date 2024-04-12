@@ -161,7 +161,6 @@ export class ProductDetailsComponent implements OnInit {
     };
 
 
-    debugger;
     if (this.UserAuthService.UserState) {
       this._cartService.AddToCart(cartItem).subscribe({
         next: () => {

@@ -62,12 +62,12 @@
 
 
       <!-- SignIN  -->
-      <ul class="VisitorSignIn nav col-12 col-lg-auto me-lg-auto mt-md-2  mt-sm-2 justify-content-lg-start justify-content-md-center
-      justify-content-sm-center
-      mb-2 mb-md-0 ulOfSign">
+      <ul class="VisitorSignIn signInUL nav col-12 col-lg-auto me-lg-auto mt-md-2  mt-sm-2 justify-content-center
 
-        <!-- hearct icon -->
-        <li class="IconHeaderLogedIn me-2">
+      mb-2 mb-md-0 ">
+
+        <!-- heart icon -->
+        <li class="hideHeart IconHeaderLogedIn me-2 VisitorSignIn">
           <a routerLink="" class="">
             <i class="fa-regular fa-heart " style="color: #000000;"></i>
           </a>
@@ -76,7 +76,7 @@
         <!-- bell  -->
 
         <li>
-          <div class="dropdown" class="me-2 ">
+          <div class="dropdown" class="me-2 VisitorSignIn">
             <button class="wt-menu__trigger wt-btn wt-btn--transparent header-button wt-mr-xs-1 wt-btn--small  
             btn dropdown-toggle IconProfileLogedIN" id="navbarDropdownMenuLinkBell"  aria-haspopup="true"
               [attr.aria-expanded]="isDropdownOpenForBell ? 'true' : 'false'" type="button" data-bs-toggle="dropdown"
@@ -97,7 +97,7 @@
         </li>
 
         <!-- profile icon -->
-        <li class=" me-2">
+        <li class=" me-2 VisitorSignIn">
           <div class="dropdown ">
             <button type="button" id="navbarDropdownMenuLinkProfile"
               class="wt-menu__trigger wt-btn wt-btn--transparent header-button wt-mr-xs-1 wt-btn--small 
@@ -145,7 +145,7 @@
       
 
         <!-- cart icon -->
-        <li class="IconHeaderLogedIn me-2">
+        <li class="IconHeaderLogedIn me-2 VisitorSignIn">
           <a routerLink="Cart" class="navbar-brand position-relative">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart2"
               viewBox="0 0 16 16">
@@ -163,7 +163,7 @@
 
 
         <!-- Localization -->
-        <li>
+        <li class="VisitorSignIn">
           <select class="form-select custom-select mt-2 ms-2 me-2" (change)="ChangeLang($event)" aria-label="Default select example" name=""
             id="" style="width: 105px;">
             <option selected [selected]="lang==='en'" value="en">English</option>
@@ -286,7 +286,7 @@
         </li>
 
         <!-- Heart Icon -->
-        <li class="IconHeaderLogedIn  me-2">
+        <li class=" hideHeart IconHeaderLogedIn  me-2">
           <a routerLink="" class="navbar-brand ">
             <i class="fa-regular fa-heart " style="color: #000000;"></i>
           </a>

@@ -42,7 +42,7 @@
   <div class="ibox container mt-4">
     <div class="container mb-5">
       <div class="ibox-title">
-        <h4 class=" ">
+        <h4 class="smallscreen ">
           <span><strong>{{ NumberOfCarts }}</strong>
             {{ "AllcategoriesComponent.items in your cart" | translate }}
           </span>
@@ -50,7 +50,7 @@
       </div>
 
       <div class="card headerCard mt-2">
-        <div class="card-body">
+        <div class="card-body addingPadding">
           <i class="fa-solid fa-handshake fa-2xl me-2" style="color: #164198"></i>
           <span style="font-size: 14px">
             <span style="font-weight: bold">
@@ -78,16 +78,16 @@
                       <div class="col-md-3 ">
                         <img [src]="item.productImage" class="img-fluid CardImage card-img-top" alt="Card image cap" />
                       </div>
-                      <div class="col-md-9 ms-3 card-body">
+                      <div class="col-md-9 ms-3 removepaddingside card-body">
                         <h6 class="small mb-0">
                           <a href="#" class="text-reset card-title">
                             @if (lang === 'en') {
                             <span>
-                              {{ item.productNameEN | translate }}
+                              {{ item.productNameEN.slice(0,20)| translate }}
                             </span>
                             } @else if (lang === 'ar') {
                             <span>
-                              {{ item.productNameAR | translate }}
+                              {{ item.productNameAR.slice(0,20) | translate }}
                             </span>
                             }
                           </a>
@@ -110,10 +110,11 @@
 
                           <!-- Edit !!! -->
                           <!-- data-bs-target="#offcanvasRight" -->
-                          <button class="ms-1" style="background-color: white; border: none" data-bs-toggle="offcanvas"
-                             aria-controls="offcanvasRight"
-                            (click)="openOffcanvas($index)" [attr.data-bs-target]="'#offcanvasRight_' + $index">
-                            <i class="fa-solid fa-edit me-1" style="color: black"></i><span
+                          <button class="ms-1 editFont" style="background-color: white; border: none" data-bs-toggle="offcanvas"
+                            aria-controls="offcanvasRight" (click)="openOffcanvas($index)"
+                            [attr.data-bs-target]="'#offcanvasRight_' + $index">
+                            <i class="fa-solid fa-edit me-1" style="color: black"></i>
+                            <span 
                               style="text-decoration: underline">{{
                               "CartComponent.Edit" | translate
                               }}</span>
@@ -123,7 +124,7 @@
 
                           @if (isOffcanvasOpen($index)) {
                           <div class="offcanvas offcanvas-end " data-bs-scroll="true" tabindex="-1"
-                             [attr.id]="'offcanvasRight_' + $index" aria-labelledby="offcanvasRightLabel">
+                            [attr.id]="'offcanvasRight_' + $index" aria-labelledby="offcanvasRightLabel">
                             <div class="offcanvas-header">
                               <h5 class="offcanvas-title" id="offcanvasRightLabel">
                                 {{
@@ -238,6 +239,7 @@
                             {{ "CartComponent.Remove" | translate }}
                           </button>
                         </div>
+
                       </div>
                     </div>
                   </td>
@@ -245,10 +247,10 @@
                   <td></td>
                   <td class="text-end">
                     <h6>
-                      <a href="" style="color: black; font-weight: 300">{{ "CartComponent.Contact shop" | translate }}
+                      <a class="sizeOfThirdColContact" style="color: black; font-weight: 300">{{ "CartComponent.Contact shop" | translate }}
                       </a>
                     </h6>
-                    <h5>
+                    <h5 class="sizeOfThirdCol">
                       {{
                       lang === "ar"
                       ? (item.productPrice * item.quantity
@@ -285,10 +287,10 @@
                     </button>
                   </td>
 
-                  <td class="text-end " style="font-size: xx-small">
+                  <td class="text-end fontsizeEstimate" style="font-size: xx-small">
                     {{ "CartComponent.Estimated delivery:" | translate }}
-                    <h5 style="font-size: xx-small">
-                    {{ deliverTimeForShowing }}</h5>
+                    <h5 style="font-size: xx-small" class="text-end fontsizeEstimate">
+                      {{ deliverTimeForShowing }}</h5>
                     <div>{{ "CartComponent.from Turkey" | translate }}</div>
                   </td>
                 </tr>
