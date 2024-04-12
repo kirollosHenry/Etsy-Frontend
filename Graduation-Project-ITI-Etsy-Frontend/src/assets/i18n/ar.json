@@ -308,7 +308,11 @@
     "Continue with Google":"متابعة مع جوجل",
     "Registration is easy.":"التسجيل سهل.",
     "Create your account":"إنشاء حسابك",
-    "User name":"اسم المستخدم"
+    "User name":"اسم المستخدم",
+    "Email is not correct":"البريد الإلكتروني غير صحيح",
+    "Email is Required":"البريد الالكتروني مطلوب",
+    "Password is Required":"كلمة المرور مطلوبة",
+    "User Name is Required":"اسم المستخدم مطلوب"
 
   },
   

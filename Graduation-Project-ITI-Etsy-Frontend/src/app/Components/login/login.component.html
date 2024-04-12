@@ -43,7 +43,20 @@
                 width="100%"
                 required
                 formControlName="email"
+                name="email"
+                [ngClass]="{
+                  'is-invalid':
+                    (emailLogIn?.touched || emailLogIn?.dirty) && emailLogIn?.invalid
+                }"
               />
+
+              <span class="invalid-feedback">
+                @if(emailLogIn?.errors?.['required']) {
+                <span>{{"LoginComponent.Email is Required"|translate}}</span>
+                } @else if(emailLogIn?.errors) {
+                  <span>{{"LoginComponent.Email is not correct"|translate}}</span>
+                  }
+              </span>
             </div>
 
             <!-- Password input -->
@@ -60,7 +73,18 @@
                 type="password"
                 id="form1Example23"
                 class="form-control form-control-lg"
+                name="password"
+                [ngClass]="{
+                  'is-invalid':
+                    (passwordLogIn?.touched || passwordLogIn?.dirty) && passwordLogIn?.invalid
+                }"
               />
+              <span class="invalid-feedback">
+                @if(passwordLogIn?.errors?.['required']) {
+                <span>{{"LoginComponent.Password is Required"|translate}}</span>
+                }
+              </span>
+
             </div>
 
             <div class="d-flex justify-content-around align-items-center mb-4">
@@ -203,7 +227,19 @@
                 width="100%"
                 formControlName="emailRegister"
                 required
+                name="emailRegister"
+                [ngClass]="{
+                  'is-invalid':
+                    (emailRegisterGetter?.touched || emailRegisterGetter?.dirty) && emailRegisterGetter?.invalid
+                }"
               />
+              <span class="invalid-feedback">
+                @if(emailRegisterGetter?.errors?.['required']) {
+                <span>{{"LoginComponent.Email is Required"|translate}}</span>
+                } @else if(emailRegisterGetter?.errors) {
+                  <span>{{"LoginComponent.Email is not correct"|translate}}</span>
+                  }
+              </span>
             </div>
 
             <!-- User NAME input -->
@@ -215,14 +251,25 @@
                 >{{"LoginComponent.User name"|translate}}</label
               >
               <input
-                type="email"
+                type="text"
                 id="form2Example14"
                 class="form-control form-control-xl"
                 width="100%"
                 formControlName="userNameRegister"
                 required
+                name="userNameRegister"
+                [ngClass]="{
+                  'is-invalid':
+                    (userNameRegisterGetter?.touched || userNameRegisterGetter?.dirty) && userNameRegisterGetter?.invalid
+                }"
               />
+              <span class="invalid-feedback">
+                @if(userNameRegisterGetter?.errors?.['required']) {
+                <span>{{"LoginComponent.User Name is Required"|translate}}</span>
+                }
+              </span>
             </div>
+
             <!-- Password input -->
             <div class="form-outline mb-3">
               <label
@@ -237,7 +284,17 @@
                 type="password"
                 id="form2Example23"
                 class="form-control form-control-lg"
+                name="passwordRegister"
+                [ngClass]="{
+                  'is-invalid':
+                    (passwordRegisterGetter?.touched || passwordRegisterGetter?.dirty) && passwordRegisterGetter?.invalid
+                }"
               />
+              <span class="invalid-feedback">
+                @if(passwordRegisterGetter?.errors?.['required']) {
+                <span>{{"LoginComponent.Password is Required"|translate}}</span>
+                }
+              </span>
             </div>
 
             <!-- Policy  -->

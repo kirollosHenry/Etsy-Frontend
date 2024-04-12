@@ -266,6 +266,7 @@
     "Save":"Save",
     "Edit Item":"Edit Item"
     
+    
         
   },
 
@@ -290,7 +291,11 @@
     "Continue with Google":"Continue with Google",
     "Registration is easy.":"Registration is easy.",
     "Create your account":"Create your account",
-    "User name":"User name"
+    "User name":"User name",
+    "Email is not correct":"Email is not correct",
+    "Email is Required":"Email is Required",
+    "Password is Required":"Password is Required",
+    "User Name is Required":"User Name is Required"
     
   },
 

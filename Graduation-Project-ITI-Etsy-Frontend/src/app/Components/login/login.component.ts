@@ -1,4 +1,4 @@
-import { JsonPipe, NgFor } from "@angular/common";
+import { CommonModule, JsonPipe, NgFor } from "@angular/common";
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import {
   FormBuilder,
@@ -20,15 +20,17 @@ import { TranslateModule, TranslateService } from "@ngx-translate/core";
 @Component({
   selector: "app-login",
   standalone: true,
-  imports: [NgFor, ReactiveFormsModule, JsonPipe,TranslateModule],
+  imports: [
+    NgFor,
+    ReactiveFormsModule,
+    JsonPipe,
+    TranslateModule,
+    CommonModule,
+  ],
   templateUrl: "./login.component.html",
   styleUrl: "./login.component.css",
 })
-
-
 export class LoginComponent implements OnInit {
-
-  
   email: string = "";
   password: string = "";
   error!: string;
@@ -47,50 +49,69 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private register: ResgisterService,
     public activeModal: NgbActiveModal,
-    private translateService: TranslateService,
+    private translateService: TranslateService
   ) {} //    private modalService: NgbModal
 
   ngOnInit() {
-
     this.lang = localStorage.getItem("lang") || "en";
     this.translateService.use(this.lang);
 
     this.form = new FormGroup({
-      email: new FormControl("", Validators.required),
+      email: new FormControl("", [Validators.required, Validators.email]),
       password: new FormControl("", Validators.required),
     });
 
     this.formRegister = new FormGroup({
-      emailRegister: new FormControl("", Validators.required),
+      emailRegister: new FormControl("", [Validators.required, Validators.email]),
       passwordRegister: new FormControl("", Validators.required),
       userNameRegister: new FormControl("", Validators.required),
     });
   }
-Login() {
-  var loginRequest = <Login>{};
-  loginRequest.email = this.form.controls['email'].value;
-  loginRequest.password = this.form.controls['password'].value;
 
-  this.authService.login(loginRequest).subscribe({
-    next: (response: LoginResult) => {
-      if (response.isAuthenticated) {
-        // Handle successful authentication
-        console.log('Login successful');
-        console.log('Token:',response.token);
-        // this.activeModal.dismiss('Cross click');
-        this.closeModal();
-        //this.router.navigate(['/Cart']);
-        
-        // Redirect or perform other actions here
-      } else {
-        this.error =  'An unknown error occurred';
-      }
-    },
-    error: error => {
-      this.error = 'An error occurred while logging in';
-    }
-  });   
-}
+  //Getters
+  //LogIn
+  get emailLogIn() {
+    return this.form.get("email");
+  }
+  get passwordLogIn() {
+    return this.form.get("password");
+  }
+  //Regiser :
+  get emailRegisterGetter() {
+    return this.formRegister.get("emailRegister");
+  }
+  get passwordRegisterGetter() {
+    return this.formRegister.get("passwordRegister");
+  }
+  get userNameRegisterGetter() {
+    return this.formRegister.get("userNameRegister");
+  }
+
+  Login() {
+    var loginRequest = <Login>{};
+    loginRequest.email = this.form.controls["email"].value;
+    loginRequest.password = this.form.controls["password"].value;
+
+    this.authService.login(loginRequest).subscribe({
+      next: (response: LoginResult) => {
+        if (response.isAuthenticated) {
+          // Handle successful authentication
+          console.log("Login successful");
+          console.log("Token:", response.token);
+          // this.activeModal.dismiss('Cross click');
+          this.closeModal();
+          //this.router.navigate(['/Cart']);
+
+          // Redirect or perform other actions here
+        } else {
+          this.error = "An unknown error occurred";
+        }
+      },
+      error: (error) => {
+        this.error = "An error occurred while logging in";
+      },
+    });
+  }
 
   Register() {
     var Request = <Register>{};
@@ -143,9 +164,8 @@ Login() {
   //   }
   // }
 
-
   // Modal !!
   closeModal() {
-    this.activeModal.dismiss('Cross click');
+    this.activeModal.dismiss("Cross click");
   }
 }
