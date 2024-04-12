@@ -6,10 +6,8 @@ import { UserDto } from '../../Models/Accout/UserDto';
   providedIn: 'root'
 })
 export class UserService {
-
-  
   private userDataSubject = new BehaviorSubject<UserDto>
-  ({email :"not avaliable",phoneNumber:"011111111",image:"http://",userName:"not avaliable",address:"ُDefault"});
+  ({email :"User@example.com",phoneNumber:"012776432995",image:"Heelo.png",userName:"john Smith",address:"Cairo"});
   userData$ = this.userDataSubject.asObservable();
   constructor() { }
   setUserData(userData: UserDto) {

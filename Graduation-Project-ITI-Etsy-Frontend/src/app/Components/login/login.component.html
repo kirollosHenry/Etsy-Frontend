@@ -203,6 +203,7 @@
 <!-- Register Form  -->
   <!-- Header -->
   <div >
+    {{messageerr}}
     <h5 class="modal-title mt-3 ms-2" style="font-size: large;">{{"LoginComponent.Create your account"|translate}}</h5>
     <p class=" ms-2">{{"LoginComponent.Registration is easy."|translate}}</p>
   </div>
@@ -291,6 +292,7 @@
                 }"
               />
               <span class="invalid-feedback">
+                {{messageerr}}
                 @if(passwordRegisterGetter?.errors?.['required']) {
                 <span>{{"LoginComponent.Password is Required"|translate}}</span>
                 }

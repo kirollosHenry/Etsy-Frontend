@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
   emailRegister: string = "";
   userNameRegister: string = "";
   passwordRegister: string = "";
-
+  messageerr:string="";
   lang: string = "en";
 
   constructor(
@@ -95,14 +95,8 @@ export class LoginComponent implements OnInit {
     this.authService.login(loginRequest).subscribe({
       next: (response: LoginResult) => {
         if (response.isAuthenticated) {
-          // Handle successful authentication
-          console.log("Login successful");
-          console.log("Token:", response.token);
-          // this.activeModal.dismiss('Cross click');
+    
           this.closeModal();
-          //this.router.navigate(['/Cart']);
-
-          // Redirect or perform other actions here
         } else {
           this.error = "An unknown error occurred";
         }
@@ -122,8 +116,9 @@ export class LoginComponent implements OnInit {
     this.register.login(Request).subscribe({
       next: (response: LoginResult) => {
         if (response.isAuthenticated) {
-          // Handle successful authentication
-          console.log("Login successful");
+      
+         this.messageerr=response.message;
+         console.log(response.message);
           console.log("Token:", response.token);
           //this.router.navigate(["/Cart"]);
           // this.activeModal.dismiss('Cross click');

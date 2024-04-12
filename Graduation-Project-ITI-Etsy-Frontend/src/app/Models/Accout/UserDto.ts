@@ -7,3 +7,9 @@ export interface UserDto {
         phoneNumber :string      
            
 }
+export interface ResultFromEdit {
+
+        entity:UserDto,
+        message:string    
+           
+}

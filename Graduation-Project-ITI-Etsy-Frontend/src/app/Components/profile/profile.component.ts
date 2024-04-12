@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UserService } from '../../Services/Authentication/user.service';
 import { UserDto } from '../../Models/Accout/UserDto';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { EditProfileService } from '../../Services/Authentication/Profile/edit-profile.service';
+import { Subscription} from 'rxjs';
+import { NotExpr } from '@angular/compiler';
 @Component({
   selector: 'app-profile',
   standalone: true,
@@ -12,35 +15,74 @@ import { Router } from '@angular/router';
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
-export class ProfileComponent implements OnInit {
+export class ProfileComponent implements OnInit ,OnDestroy{
   editing:boolean =false;
    userData!: UserDto;
-  email:string = "";
-  userForm!: FormGroup;
+   userForm!: FormGroup;
+  
+  
    editProfile() {
     this.editing = !this.editing;
   }
-  saveProfile() {
-    // You can add logic here to save the updated profile data
-    this.editing = false;
-  }
-  constructor(private user:UserService ,private fb: FormBuilder ,private router:Router){}
+
+  sub!:Subscription;
+ 
+  constructor(private user:UserService ,private fb: FormBuilder ,private router:Router, private edit :EditProfileService){}
+ 
   ngOnInit(): void {
     this.user.userData$.subscribe(userData => {
       this.userData = userData;
     });
     this.userForm = this.fb.group({
-      username: ['', [Validators.required, Validators.minLength(5)]],
+      Image:['image', Validators.required],
+      username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      address: ['', [Validators.required, Validators.minLength(5)]],
-      phone: ['', [Validators.required, Validators.pattern('^[0-9]+$')]]
+      address: ['', Validators.required],
+      phone: ['',Validators.required]
     });
+   
+  }
+  
+
+  nmessage:string = '';
+
+  onSubmit(){
     
-  }
+    if (this.userForm.valid) {
+      const formData = this.userForm.value;
+      this.userData.userName = formData.username;
+      this.userData.email = formData.email;
+      this.userData.address = formData.address;
+      this.userData.phoneNumber = formData.phone;
 
-  onSubmit() {
-    // Logic to handle form submission
-    console.log(this.userForm.value);
-  }
+      this.userData.image = "sadasasx.jpg";
+      console.log(formData);
+      this.sub = this.edit.EditProfile(this.userData).subscribe({
+        next: (res) => {
+          console.log(formData);
+          console.log(res.message);
+        }
+      });
 
+      console.log(formData);
+    } else {
+      console.log('Form is invalid');
+    }
+  }
+  delete(){
+    this.sub = this.edit.DeleteProfile().subscribe({
+      next:(res) => {
+        console.log(res.message);
+      }
+
+    })
+
+}
+
+  ngOnDestroy(): void {
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
+  }
+ 
 }

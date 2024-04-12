@@ -2,13 +2,14 @@ import { APP_INITIALIZER, ApplicationConfig, importProvidersFrom } from '@angula
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { AppTranslateModule } from './app-translate.module';
 import { TranslationLangService } from './Services/translation/translationLang.service';
 import { DatePipe } from '@angular/common';
+import { authInterceptor } from './Services/Authentication/interceptor/auth.interceptor';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes),provideHttpClient(withFetch()),
+  providers: [provideRouter(routes),provideHttpClient(withInterceptors([ authInterceptor])),
     importProvidersFrom(HttpClientModule),
   importProvidersFrom(AppTranslateModule.forRoot()),
 

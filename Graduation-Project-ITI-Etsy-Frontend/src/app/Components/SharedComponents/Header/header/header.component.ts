@@ -21,6 +21,7 @@ import { TranslationLangService } from "../../../../Services/translation/transla
 import { SearchService } from "../../../../Services/Search/search.service";
 import { CommonModule } from "@angular/common";
 import { BadgeCartService } from "../../../../Services/Cart/badge-cart.service";
+import { ResgisterService } from "../../../../Services/Authentication/resgister.service";
 
 @Component({
   selector: "app-header",
@@ -49,11 +50,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private _BaseCategoryService: BaseCategoryService,
     private translationService: TranslationLangService,
     private _SearchService : SearchService,
-    private BadgeCartService:BadgeCartService
+    private BadgeCartService:BadgeCartService,
+    private register:ResgisterService
     
   ) {
     this.authService.authStatus
       .pipe(takeUntil(this.destroySubject))
+      .subscribe((result) => {
+        this.isLoggedIn = result;
+      });
+      this.register.authStatus.pipe(takeUntil(this.destroySubject))
       .subscribe((result) => {
         this.isLoggedIn = result;
       });
@@ -138,8 +144,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   private destroySubject = new Subject();
   isLoggedIn: boolean = false;
   
-
-
   // ====================
   // Dropdown List in Base Category
   BaseCategoryList: BaseCategory[] = [];
@@ -162,6 +166,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.lang = localStorage.getItem("lang") || "en";
 
     this.isLoggedIn = this.authService.isAuthenticated();
+    this.isLoggedIn=this.register.isAuthenticated();
     this.sub = this._BaseCategoryService.GatAllBaseCategories().subscribe({
       next: (Categories) => {
         this.BaseCategoryList = Categories.entities;
@@ -185,9 +190,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
       
     }
   }
-
-  
-
   ngOnDestroy() {
     this.destroySubject.next(true);
     this.destroySubject.complete();

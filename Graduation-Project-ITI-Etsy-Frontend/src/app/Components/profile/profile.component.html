@@ -1,19 +1,14 @@
 <div class="container">
-    <div class="main-body">
-    
-          <!-- Breadcrumb -->
-          <nav aria-label="breadcrumb" class="main-breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-              <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
-              <li class="breadcrumb-item active" aria-current="page">User Profile</li>
-            </ol>
-          </nav>
-          <!-- /Breadcrumb -->
-    
-          <div class="row gutters-sm">
-            <div class="col-md-4 mb-3">
+         
+  <div class="col-md-4 mb-3">
               <div class="card">
+                <nav aria-label="breadcrumb" class="main-breadcrumb">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
+                  </ol>
+                </nav> 
+      
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
                     <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
@@ -25,10 +20,11 @@
                   </div>
                 </div>
               </div>
-            
-            </div>
-             <form  [formGroup]="userForm"  (ngSubmit)="onSubmit()">
-            <div class="col-md-8">
+  </div>
+            <span class="mx-3"></span>
+  <div class="col-md-10 mb-4 ">
+    <form  [formGroup]="userForm"  (ngSubmit)="onSubmit()">
+      <div class="col-md-10">
               <div class="card mb-3">
                 <div class="card-body">
                   <div class="row">
@@ -40,21 +36,21 @@
                         {{userData.userName}}
                       }
                     @if(editing){
-                      <input type="email" class="form-control mb-2" [(ngModel)]="userData.userName"  value="{{userData.userName}}">
+                   <input type="text" class="form-control" id="username" formControlName="username" placeholder="Enter username">
                     }
                     </div>
                   </div>
                   <hr>
                   <div class="row">
                     <div class="col-sm-3">
-                      <h6 class="mb-0">ُEmail</h6>
+                      <h6 class="mb-0">Email</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
                       @if(!editing){
                         {{userData.email}}
                       }
                     @if(editing){
-                      <input type="email" class="form-control mb-2" [(ngModel)]="userData.email"  value="{{userData.email}}">
+                      <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter email">
                     }
                     </div>
                   
@@ -71,7 +67,7 @@
                       }
                   
                     @if(editing){
-                      <input type="email" class="form-control mb-2" [(ngModel)]="userData.phoneNumber"  value="{{userData.phoneNumber}}">
+                         <input type="text" class="form-control" id="phone" formControlName="phone" placeholder="Enter phone">
                     }
                     </div>
                   </div>
@@ -88,20 +84,28 @@
                       }
                   
                     @if(editing){
-                      <input type="email" class="form-control mb-2" [(ngModel)]="userData.address"  value=" {{userData.address}}">
+                <input type="text" class="form-control" id="address" formControlName="address" placeholder="Enter address">
                     }
                     </div>
                   </div>
                   <hr>
                   <div class="row">
-                    <div class="col-sm-12">
-                      <a class="btn btn-info " target="__blank"  (click)="editing ? saveProfile() : editProfile()">  {{ editing ? 'Save' : 'Edit' }}</a>
+                    <div class="col-sm-12 ">
+                    <a class="btn btn-primary " target="__blank"  (click)="editing ? onSubmit() : editProfile()">  {{ editing ? 'Save' : 'Edit' }}</a>
+                    <span class="mx-3"></span>
+                    <a  class="btn btn-warning " (click)="delete()" style="background: rgb(207, 91, 91); color: aliceblue;">Delete</a>
                     </div>
                   </div>
+                  
                 </div>
               </div>
-            </div>
-          </form>
-          </div>
-        </div>
-    </div>
+      </div>
+    </form>
+  </div>  
+</div> 
+
+
+       
+
+  
+
