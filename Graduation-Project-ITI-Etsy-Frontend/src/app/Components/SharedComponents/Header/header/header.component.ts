@@ -20,7 +20,7 @@ import { LoginComponent } from "../../../login/login.component";
 import { TranslationLangService } from "../../../../Services/translation/translationLang.service";
 import { SearchService } from "../../../../Services/Search/search.service";
 import { CommonModule } from "@angular/common";
-
+import { BadgeCartService } from "../../../../Services/Cart/badge-cart.service";
 
 @Component({
   selector: "app-header",
@@ -49,7 +49,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private _BaseCategoryService: BaseCategoryService,
     private translationService: TranslationLangService,
     private _SearchService : SearchService,
-    
+    private BadgeCartService:BadgeCartService
     
   ) {
     this.authService.authStatus
@@ -148,6 +148,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   // Message Saearch
   Message! : string;
 
+
+  //numberOfCarts
+  numberOfCarts!:number;
+
   onLogout(): void {
     this.router.navigate(["/home"]);
     this.authService.logout();
@@ -164,8 +168,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
       },
     });
 
-   
-
+    //Badge (numberOfCarts):
+    this.BadgeCartService.cartCount$.subscribe(count => {
+      this.numberOfCarts = count;
+    });
   }
 
   // Localization!!

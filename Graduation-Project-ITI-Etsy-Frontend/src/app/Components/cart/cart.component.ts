@@ -125,6 +125,9 @@ export class CartComponent implements OnInit, AfterViewInit {
 
         this.NumberOfCarts = CartsDateAPI.count;
         this.calculateTotalPrice();
+        
+        localStorage.setItem('NumberOfCarts', this.NumberOfCarts.toString());
+
       },
       error: (response) => {
         console.log(response);
