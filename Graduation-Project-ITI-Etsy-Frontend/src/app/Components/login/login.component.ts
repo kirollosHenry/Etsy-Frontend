@@ -86,7 +86,7 @@ export class LoginComponent implements OnInit {
   get userNameRegisterGetter() {
     return this.formRegister.get("userNameRegister");
   }
-
+   errorLoginMessage:string = '';
   Login() {
     var loginRequest = <Login>{};
     loginRequest.email = this.form.controls["email"].value;
@@ -94,19 +94,27 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(loginRequest).subscribe({
       next: (response: LoginResult) => {
-        if (response.isAuthenticated) {
-    
+        if (response.isAuthenticated==true) {
+
           this.closeModal();
-        } else {
+        } else if(response.isAuthenticated === false) {
+          console.log(response.message);
+          this.errorLoginMessage=response.message;
           this.error = "An unknown error occurred";
         }
       },
       error: (error) => {
-        this.error = "An error occurred while logging in";
-      },
+        if (error.status === 400) {
+          this.errorLoginMessage='Invalid Email or password '
+          console.log(error)
+          this.error = "Invalid credentials. Please try again.";
+        } else {
+          this.error = "An error occurred while logging in";
+        }
+      }
     });
   }
-
+ registerErrorMessage:string='';
   Register() {
     var Request = <Register>{};
     Request.Email = this.formRegister.controls["emailRegister"].value;
@@ -125,12 +133,24 @@ export class LoginComponent implements OnInit {
           this.closeModal();
           // Redirect or perform other actions here
         } else {
+          console.log(response.message);
           this.error = "An unknown error occurred";
         }
       },
       error: (error) => {
-        this.error = "An error occurred while logging in";
-      },
+        if (error.status === 400) {
+          // Handle 400 Bad Request error
+          this.registerErrorMessage = error.error.message;
+          console.log(this.registerErrorMessage) // Access the error message from the response body
+          const isAuthenticated = error.error.isAuthenticated; // Access the isAuthenticated property from the response body
+          this.error = this.registerErrorMessage || "Invalid credentials. Please try again.";
+          if (isAuthenticated === false) {
+            this.errorLoginMessage = this.registerErrorMessage; // Show the message in your UI
+          }
+        } else {
+          this.error = "An error occurred while logging in";
+        }
+      }
     });
   }
 
