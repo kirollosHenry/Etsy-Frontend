@@ -3,7 +3,7 @@
 </div>}
 
 <div class="container">
-         
+
   <div class="col-md-4 mb-3">
               <div class="card">
                 <nav aria-label="breadcrumb" class="main-breadcrumb">
@@ -25,10 +25,13 @@
                 </div>
               </div>
   </div>
-            <span class="mx-3"></span>
-  <div class="col-md-10 mb-4 ">
-    <form  [formGroup]="userForm"  (ngSubmit)="onSubmit()">
+
+  <span class="mx-3"></span>
+
+  <div class="col-md-8 mb-4 ">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
       <div class="col-md-10">
+
               <div class="card mb-3">
                 <div class="card-body">
                   <div class="row">
@@ -101,15 +104,49 @@
                     </div>
                   </div>
                   
-                </div>
-              </div>
+             </div>
+
+     </div>
       </div>
     </form>
-  </div>  
-</div> 
+  </div>
 
 
-       
+</div>
 
-  
+<div class="container my-5">
 
+  <div class="card col-lg-12">
+
+    <div class="card-body">
+      <h5 class="card-title"> Tracking Orders</h5>
+      <p class="card-text">
+
+        Rest assured, your order is being carefully tracked every step of the way to ensure its safe and timely delivery.
+      
+      </p>
+    </div>
+
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">OrderId</th>
+          <th scope="col">Status</th>
+          <th scope="col">Arrive Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of OrdersList ; track $index) {
+
+        <tr>
+          <th scope="row">{{item.ordersId}}</th>
+          <td>{{item.status}}</td>
+          <td>{{item.arrivedOn}}</td>
+        </tr>
+        }
+
+      </tbody>
+    </table>
+
+  </div>
+</div>

@@ -8,7 +8,7 @@
             <div class="container d-flex justify-content-between mb-2">
 
                 <!-- Filter  -->
-                <div class="dropdown FilterdropdownEg" [ngClass]="{ 'Filterdropdown': lang === 'ar'}">
+                <!-- <div class="dropdown FilterdropdownEg" [ngClass]="{ 'Filterdropdown': lang === 'ar'}">
                     <button class="btn btnOfFilter dropdown-toggle" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         <i class="fa-solid fa-sliders fa-sm" style="color: #000000"></i>
@@ -23,7 +23,7 @@
                         </li>
                     
                     </ul>
-                </div>
+                </div> -->
 
                 <!-- Sort  -->
                 <div class="dropdown Sortdropdown d-flex">
@@ -68,14 +68,14 @@
                                 "ProductListComponent.Top Customer Reviews" | translate
                                 }}</a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a class="dropdown-item" (click)="FilterProduct('Recent')"
                             [ngStyle]="{ 'text-align': lang === 'ar' ? 'start' : 'left' }">
                                 {{
                                 "ProductListComponent.Most
                                 Recent" | translate
                                 }}</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
