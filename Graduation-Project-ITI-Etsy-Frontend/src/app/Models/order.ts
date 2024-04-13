@@ -1,20 +1,23 @@
 export interface Order {
-    ordersId: number,
+  ordersId: number;
 
-    address: string,
+  address: string;
 
-    totalPrice: number,
+  totalPrice: number;
 
-    orderedAt: Date,
+  orderedAt: Date;
 
-    arrivedOn: Date,
+  arrivedOn: Date;
 
-    status: string,
+  status: string;
 
-    customerId: string
+  customerId: string;
 }
 
 export interface IOrderAPI {
-    entity: Order,
-    message: string
+  order: {
+    entities: Order[];
+    count: number;
+    message: string;
+  };
 }

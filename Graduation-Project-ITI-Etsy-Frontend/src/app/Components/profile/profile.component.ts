@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 import { EditProfileService } from '../../Services/Authentication/Profile/edit-profile.service';
 import { Subscription} from 'rxjs';
 import { NotExpr } from '@angular/compiler';
+import { OrderService } from '../../Services/Order/order.service';
+import { IOrderAPI, Order } from '../../Models/order';
 @Component({
   selector: 'app-profile',
   standalone: true,
@@ -26,8 +28,16 @@ export class ProfileComponent implements OnInit ,OnDestroy{
   }
 
   sub!:Subscription;
- 
-  constructor(private user:UserService ,private fb: FormBuilder ,private router:Router, private edit :EditProfileService){}
+  CustomerId!:string;
+  // CustomerId: string = "913c9e97-3462-4385-a981-95fec22b9fdc";
+  
+  
+  OrdersList!:Order[];
+
+  constructor(private user:UserService ,private fb: FormBuilder ,
+    private router:Router, private edit :EditProfileService,
+    private OrderService:OrderService
+  ){}
  
   ngOnInit(): void {
     this.user.userData$.subscribe(userData => {
@@ -41,6 +51,19 @@ export class ProfileComponent implements OnInit ,OnDestroy{
       phone: ['',Validators.required]
     });
    
+   //GetAllOrdersByCustomerId
+   this.sub = this.OrderService.GetAllOrdersByCustomerId(this.CustomerId).subscribe({
+    next: (OrderAPI: IOrderAPI) => {
+      // debugger;
+      console.log(OrderAPI);
+      
+      this.OrdersList = OrderAPI.order.entities;
+    },
+    error: (error)=>{
+      console.log("Error: ",error);
+      
+    }
+   })
   }
   
 
