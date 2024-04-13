@@ -96,6 +96,7 @@ export class ProfileComponent implements OnInit ,OnDestroy{
            this.editing = false;
           }
           else {
+
             this.nmessage="The Profile Can't Be Modified  Call Customer Service"
           }
         }
@@ -103,6 +104,7 @@ export class ProfileComponent implements OnInit ,OnDestroy{
 
       console.log(formData);
     } else {
+      this.nmessage="The Form Invalid"
       console.log('Form is invalid');
     }
   }

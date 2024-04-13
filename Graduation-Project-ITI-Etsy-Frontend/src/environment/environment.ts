@@ -8,15 +8,15 @@ export const environment = {
     // OrderApiUrl: 'http://16.171.140.138/estyservice/api/Order',
     // CartApiUrl: 'http://16.171.140.138/estyservice/api/Cart',
     // PaymentApiUrl: 'http://16.171.140.138/estyservice/api/payments'
-    LocalApiAccount:'http://localhost:28835/api/Account',
-    ProfileAPI:'http://localhost:28835/api/Profile',
-    AccountApiUrl: 'http://localhost:28835/api/Account',
-    ProductApiUrl: 'http://localhost:28835/api/Product',
-    BaseCategoryApiUrl: 'http://localhost:28835/api/BaseCategory',
-    CategoryApiUrl: 'http://localhost:28835/api/Category',
-    OrderApiUrl: 'http://localhost:28835/api/Order',
-    CartApiUrl: 'http://localhost:28835/api/Cart',
-    PaymentApiUrl: 'http://localhost:28835/api/payments'
+    LocalApiAccount:'https://etsyecommerce.somee.com/api/Account',
+    ProfileAPI:'https://etsyecommerce.somee.com/api/Profile',
+    AccountApiUrl: 'https://etsyecommerce.somee.com/api/Account',
+    ProductApiUrl: 'https://etsyecommerce.somee.com/api/Product',
+    BaseCategoryApiUrl: 'https://etsyecommerce.somee.com/api/BaseCategory',
+    CategoryApiUrl: 'https://etsyecommerce.somee.com/api/Category',
+    OrderApiUrl: 'https://etsyecommerce.somee.com/api/Order',
+    CartApiUrl: 'https://etsyecommerce.somee.com/api/Cart',
+    PaymentApiUrl: 'https://etsyecommerce.somee.com/api/payments'
 
     // LocalApiAccount:'http://16.171.140.138/estyservice/api/Account',
     // AccountApiUrl: 'http://16.171.140.138/estyservice/api/Account',
