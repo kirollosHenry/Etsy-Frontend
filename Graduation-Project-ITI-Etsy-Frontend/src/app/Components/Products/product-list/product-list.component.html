@@ -5,7 +5,7 @@
         <div class="row pt-2 justify-content-center">
 
 
-            <div class="container d-flex justify-content-between mb-2">
+            <div class="container d-flex justify-content-end mb-2">
 
                 <!-- Filter  -->
                 <!-- <div class="dropdown FilterdropdownEg" [ngClass]="{ 'Filterdropdown': lang === 'ar'}">
@@ -78,6 +78,8 @@
                         </li> -->
                     </ul>
                 </div>
+
+                
             </div>
 
 
@@ -118,7 +120,7 @@
                                     lang === "ar"
                                     ? (ProductItem.productPrice
                                     | currency : "EGP" : true : "1.2-2")
-                                    : (ProductItem.productPrice | currency : "EUR")
+                                    : (ProductItem.productPrice | currency : "USD")
                                     }}
                                 </h4>
                             </div>

@@ -16,12 +16,11 @@
           </a>
         </li>
 
+
         <!-- DropDown List Categories -->
         <li class="nav-item dropdown">
-          <button type="button" class="wt-menu__trigger wt-btn wt-btn--transparent header-button wt-mr-xs-1 wt-btn--small btn
-              btn-light btnOfCtegories" aria-haspopup="true" [attr.aria-expanded]="isDropdownOpenUser ? 'true' : 'false'"
-            (click)="toggleDropdownUser()" id="navbarDropdownMenuLinkUser" data-overlay-trigger-selector="overlay-trigger-ele">
-            
+
+          <button class="btn btnOfCtegories " (click)="toggleDropdown()" type="button" data-bs-toggle="dropdown">
             <span class="etsy-icon wt-mr-xs-1 wt-icon--smaller ">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" fill="currentColor" class="bi bi-list"
                 viewBox="0 0 16 16" style="font-weight: bolder;">
@@ -32,16 +31,16 @@
 
             {{'header.Category' | translate}}
           </button>
-          <ul id="dropdown-menu-user" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkUser" style="display: none;">
+          <ul class="dropdown-menu" id="filter-dropdown-menu">
             @for (item of BaseCategoryList; track $index) {
             <li><a class="dropdown-item nav-link" [routerLink]="['Category',item.id]"
-              [ngStyle]="{ 'text-align': lang === 'ar' ? 'start' : 'left' }" (click)="selectItemUser()">
-              @if (lang === 'en') {
+                [ngStyle]="{ 'text-align': lang === 'ar' ? 'start' : 'left' }" >
+                @if (lang === 'en') {
                 <span> {{item.nameEN}} </span>
                 }@else if (lang === 'ar') {
-                  <span > {{item.nameAR}} </span>
-                }            
-            </a></li>
+                <span> {{item.nameAR}} </span>
+                }
+              </a></li>
             }
           </ul>
         </li>
@@ -49,13 +48,12 @@
 
       <!-- Search -->
       <div class="Visitorsearch  d-flex flex-grow-1 ">
-        <input class="form-control me-2 SearchSectionForLogin" type="search" 
-        [placeholder]="'header.searchPlaceHolder' | translate" 
-        #filter aria-label="Search">
+        <input class="form-control me-2 SearchSectionForLogin" type="search"
+          [placeholder]="'header.searchPlaceHolder' | translate" #filter aria-label="Search">
 
-        <button class="btn btn-default btn-round btn-submit  rounded-circle" 
-        type="submit" [ngClass]="{ 'btnSearchRTL': lang === 'ar', 'btnSearch': lang === 'en' }"
-        (click)="filterResults(filter.value)">
+        <button class="btn btn-default btn-round btn-submit  rounded-circle" type="submit"
+          [ngClass]="{ 'btnSearchRTL': lang === 'ar', 'btnSearch': lang === 'en' }"
+          (click)="filterResults(filter.value)">
           <i class="fa fa-search icon-lg "></i>
         </button>
       </div>
@@ -76,19 +74,15 @@
         <!-- bell  -->
 
         <li>
-          <div class="dropdown" class="me-2 VisitorSignIn">
-            <button class="wt-menu__trigger wt-btn wt-btn--transparent header-button wt-mr-xs-1 wt-btn--small  
-            btn dropdown-toggle IconProfileLogedIN" id="navbarDropdownMenuLinkBell"  aria-haspopup="true"
-              [attr.aria-expanded]="isDropdownOpenForBell ? 'true' : 'false'" type="button" data-bs-toggle="dropdown"
-              data-overlay-trigger-selector="overlay-trigger-ele"
-               (click)="toggleDropdownBell()">
+          <div class="dropdown" class="me-2 VisitorSignIn mt-1">
+
+            <button class="btn IconProfileLogedIN " (click)="toggleDropdown()" type="button" data-bs-toggle="dropdown">
               <i class="fa-regular fa-bell"></i>
             </button>
-            <ul id="bellDropdownMenu"  class="dropdown-menu"  aria-labelledby="navbarDropdownMenuLinkBell"
-              style="display: none;">
+
+            <ul class="dropdown-menu" id="filter-dropdown-menu">
               <li>
-                <a class="dropdown-item" [ngStyle]="{ 'text-align': lang === 'ar' ? 'start' : 'left' }" 
-                 (click)="selectItemBell()"> </a>
+                <a class="dropdown-item" [ngStyle]="{ 'text-align': lang === 'ar' ? 'start' : 'left' }"> </a>
               </li>
 
             </ul>
@@ -99,50 +93,52 @@
         <!-- profile icon -->
         <li class=" me-2 VisitorSignIn">
           <div class="dropdown ">
-            <button type="button" id="navbarDropdownMenuLinkProfile"
-              class="wt-menu__trigger wt-btn wt-btn--transparent header-button wt-mr-xs-1 wt-btn--small 
-               IconProfileLogedIN btn d-block link-body-emphasis text-decoration-none dropdown-toggle"
-              data-bs-toggle="dropdown" [attr.aria-expanded]="isDropdownOpenForProfile ? 'true' : 'false'"
-              data-overlay-trigger-selector="overlay-trigger-ele"
-              aria-expanded="true" (click)="toggleDropdownProfile()">
-              <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+            <button class="btn IconProfileLogedIN text-decoration-none" (click)="toggleDropdown()" type="button"
+              data-bs-toggle="dropdown">
+
+              <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="mdo" width="32" height="32"
+                class="rounded-circle">
             </button>
-            <ul class="dropdown-menu" id="profileDropdownMenu" aria-labelledby="navbarDropdownMenuLinkProfile"
-              [hidden]="!isDropdownOpenForProfile" [ngStyle]="{ 'text-align': lang === 'ar' ? 'start' : 'left' }" >
-              <li><a class="dropdown-item" (click)="selectItemProfile()" routerLink="">Nada</a></li> 
+           
+            <ul class="dropdown-menu" id="filter-dropdown-menu bellDropdownMenu"
+              [ngStyle]="{ 'text-align': lang === 'ar' ? 'start' : 'left' }">
+
+
+              <!-- <li><a class="dropdown-item" (click)="selectItemProfile()" routerLink="">{{"User"|translate}}</a></li>  -->
+
               <li><a class="dropdown-item" (click)="selectItemProfile()">
-              {{"header.Purchases and Reviews"|translate}}
-              </a></li>
+                  {{"header.Purchases and Reviews"|translate}}
+                </a></li>
               <li><a class="dropdown-item" (click)="selectItemProfile()">
-              {{"header.Messages"|translate}}
-              </a></li>
+                  {{"header.Messages"|translate}}
+                </a></li>
               <li><a class="dropdown-item" (click)="selectItemProfile()">
-              {{"header.Special Offers"|translate}}
-              </a></li>
+                  {{"header.Special Offers"|translate}}
+                </a></li>
               <li><a class="dropdown-item" (click)="selectItemProfile()">
-              {{"header.Etsy Registry"|translate}}
-              </a></li>
+                  {{"header.Etsy Registry"|translate}}
+                </a></li>
               <li><a class="dropdown-item" (click)="selectItemProfile()">
-              {{"header.Sell On Etsy"|translate}}
-              </a></li>
-              <li><a class="dropdown-item" [routerLink]="['/userprofile']"  (click)="selectItemProfile()">
-              {{"header.Account Settings"|translate}}
-              </a></li>
+                  {{"header.Sell On Etsy"|translate}}
+                </a></li>
+              <li><a class="dropdown-item" [routerLink]="['/userprofile']" (click)="selectItemProfile()">
+                  {{"header.Account Settings"|translate}}
+                </a></li>
               <li><a class="dropdown-item" (click)="selectItemProfile()">
-              {{"header.Profile"|translate}}
-              </a></li>
+                  {{"header.Profile"|translate}}
+                </a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
               <li><a class="dropdown-item" (click)="onLogout()">
-                <!-- selectItemProfile -->
-              {{"header.Sign out"|translate}}
-              </a></li>
+                  <!-- selectItemProfile -->
+                  {{"header.Sign out"|translate}}
+                </a></li>
             </ul>
           </div>
         </li>
-   
-      
+
+
 
         <!-- cart icon -->
         <li class="IconHeaderLogedIn me-2 VisitorSignIn">
@@ -164,8 +160,8 @@
 
         <!-- Localization -->
         <li class="VisitorSignIn">
-          <select class="form-select custom-select mt-2 ms-2 me-2" (change)="ChangeLang($event)" aria-label="Default select example" name=""
-            id="" style="width: 105px;">
+          <select class="form-select custom-select mt-2 ms-2 me-2" (change)="ChangeLang($event)"
+            aria-label="Default select example" name="" id="" style="width: 105px;">
             <option selected [selected]="lang==='en'" value="en">English</option>
             <option [selected]="lang==='ar'" value="ar">العربيه</option>
           </select>
@@ -226,11 +222,10 @@
         <!-- DropDown List Categories -->
         <li class="nav-item dropdown ">
 
-          <button type="button" class=" header-button wt-btn--small btn btn-light btnOfCtegories"
-           aria-haspopup="true" 
-            (click)="toggleDropdown()" id="navbarDropdownMenuLinkVistitor" >
-            
-            <!-- Icon = -->
+            <button class="btn btnOfCtegories " (click)="toggleDropdown()" type="button"
+            data-bs-toggle="dropdown" >
+
+            <!-- List Icon = -->
             <span class="etsy-icon wt-mr-xs-1 wt-icon--smaller ">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="19" fill="currentColor" class="bi bi-list"
                 viewBox="0 0 16 16" style="font-weight: bolder;">
@@ -238,20 +233,20 @@
                   d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
               </svg>
             </span>
-            
+
             {{'header.Category' | translate}}
           </button>
 
-          <ul id="dropdown-menu-visitor" class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkVistitor" >
+          <ul class="dropdown-menu" id="filter-dropdown-menu">
 
             @for (item of BaseCategoryList; track $index) {
             <li><a class="dropdown-item " [routerLink]="['Category',item.id]"
-              [ngStyle]="{ 'text-align': lang === 'ar' ? 'start' : 'left' }" (click)="selectItem()">
-              
+                [ngStyle]="{ 'text-align': lang === 'ar' ? 'start' : 'left' }">
+
                 @if (lang === 'en') {
                 <span> {{item.nameEN}} </span>
                 }@else if (lang === 'ar') {
-                  <span> {{item.nameAR}} </span>
+                <span> {{item.nameAR}} </span>
                 }
 
               </a>
@@ -264,17 +259,19 @@
 
       <!-- Search -->
       <div class="Visitorsearch  d-flex flex-grow-1 ">
-        <input class="form-control me-2 SearchSection" type="search"  [placeholder]="'header.searchPlaceHolder' | translate" 
-          aria-label="Search" #filter>
-        <button class="btn btn-default btn-round btn-submit rounded-circle" 
-        [ngClass]="{ 'btnSearchRTL': lang === 'ar', 'btnSearch': lang === 'en' }" (click)="filterResults(filter.value)">
+        <input class="form-control me-2 SearchSection" type="search"
+          [placeholder]="'header.searchPlaceHolder' | translate" aria-label="Search" #filter>
+        <button class="btn btn-default btn-round btn-submit rounded-circle"
+          [ngClass]="{ 'btnSearchRTL': lang === 'ar', 'btnSearch': lang === 'en' }"
+          (click)="filterResults(filter.value)">
           <i class="fa fa-search icon-lg "></i>
         </button>
       </div>
 
 
       <!-- SignIN  -->
-      <ul class="VisitorSignIn nav col-12 col-lg-auto me-lg-auto mb-2 mb-md-0 ulOfSign mt-md-2  mt-sm-2 justify-content-center">
+      <ul
+        class="VisitorSignIn nav col-12 col-lg-auto me-lg-auto mb-2 mb-md-0 ulOfSign mt-md-2  mt-sm-2 justify-content-center">
 
         <!-- Sign in button -->
         <li class="nav-item dropdown me-2 pt-1">
@@ -300,14 +297,14 @@
               <path
                 d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5M3.14 5l1.25 5h8.22l1.25-5zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0m9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0" />
             </svg>
-            
+
           </a>
         </li>
 
         <!-- Localization -->
         <li>
-          <select class="form-select  custom-select ms-2 mt-2" (change)="ChangeLang($event)" name="" id="" >
-            <option selected [selected]="lang==='en'" value="en"> 
+          <select class="form-select  custom-select ms-2 mt-2" (change)="ChangeLang($event)" name="" id="">
+            <option selected [selected]="lang==='en'" value="en">
               English
             </option>
             <option [selected]="lang==='ar'" value="ar">
@@ -316,7 +313,7 @@
           </select>
         </li>
 
-    
+
       </ul>
 
       <!-- Another Section -->

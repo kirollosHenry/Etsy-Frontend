@@ -337,6 +337,33 @@
   "searchComonent":{
     "We couldn't find any results...":"لم نتمكن من العثور على أي نتائج...",
     "Try searching for something else instead?":"حاول البحث عن شيء آخر بدلا من ذلك؟"
+  },
+
+  "ProfileComponent" :{
+    "Home":"بيت",
+    "User":"مستخدم",
+    "Full Name":"الاسم الكامل",
+    "Email":"بريد إلكتروني",
+    "PhoneNumber":"رقم التليفون",
+    "Address":"عنوان",
+    "Rest assured, your order is being carefully tracked every step of the way to ensure its safe and timely delivery.":
+    "كن مطمئنًا، يتم متابعة طلبك بعناية في كل خطوة على الطريق لضمان تسليمه بشكل آمن وفي الوقت المناسب.",
+
+    "Tracking Orders":"تتبع الطلبات",
+    "Save":"يحفظ",
+    "Edit":"يحرر",
+    "Status":"حالة",
+    "Arrive Date":"تاريخ الوصول",
+    "OrderId":"رقم التعريف الخاص بالطلب",
+
+    "Whichstatus":{
+        "Placed":"وضعت",
+        "Confirm":"تأكيد",
+        "Return":"العودة",
+        "Canceled":"تم الإلغاء",
+        "Delivered":"تم التسليم",
+        "Shipped":"تم الشحن"
+      }
   }
 
 

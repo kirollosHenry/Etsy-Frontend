@@ -70,6 +70,11 @@ body{
     background-color: #d0f4c0;
 }
 
+.msg-danger {
+    background-color: #f4c4c0;
+
+}
+
 .clear {
     min-height: 1%;
 }

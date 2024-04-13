@@ -20,6 +20,7 @@
   width: 300px;
   color: #222222;
   background-color: white !important;
+  cursor: pointer;
 }
 
 .dropdown-item:hover {
@@ -33,7 +34,7 @@
   position: absolute;
   left: 100%;
   transform: translate(-45%, 0);
-  display: none;
+  /* display: none; */
   padding: 5px 0;
   border-radius: 5px;
   margin-top: 12px;

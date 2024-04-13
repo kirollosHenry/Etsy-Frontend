@@ -11,6 +11,7 @@ import { HomeSection2BaseCategoryComponent } from './Components/BaseCategory/hom
 import { ConfirmComponent } from './Components/PayPal/confirm/confirm.component';
 import { userAuthGuard } from './Components/Guard/user-auth.guard';
 import { ProfileComponent } from './Components/profile/profile.component';
+import { ContactUsComponent } from './Components/ContactUs/contact-us/contact-us.component';
 
 
 export const routes: Routes = [
@@ -43,6 +44,8 @@ export const routes: Routes = [
 
 
     {path:'userprofile', component:ProfileComponent, title:'User Profile', canActivate:[userAuthGuard]},
+
+    {path:'ContactUs', component:ContactUsComponent, title:'Contact Us'},
     //{path:'register', component:RegisterComponent, title:'register'},
 
     //{path:'**', component:NotFoundComponent, title:'Not Found'}

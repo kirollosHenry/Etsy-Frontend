@@ -25,6 +25,7 @@ import { UnsuccesfullyComponent } from "../PayPal/unsuccesfully/unsuccesfully.co
 import { StarComponent } from "../SharedComponents/star/star.component";
 import { ProductsService } from "../../Services/Products/products.service";
 import { ProductChangeStockAPI } from "../../Models/products";
+import bootstrap from "bootstrap";
 
 declare var paypal: any;
 @Component({
@@ -42,6 +43,8 @@ declare var paypal: any;
 })
 export class CartComponent implements OnInit, AfterViewInit {
   @ViewChild("paypalButtonContainer", { static: false })
+
+
   paypalButtonContainer!: ElementRef;
 
   constructor(
@@ -395,4 +398,7 @@ export class CartComponent implements OnInit, AfterViewInit {
   isOffcanvasOpen(index: number): boolean {
     return this.selectedProductIndex === index;
   }
+
+ 
+
 }

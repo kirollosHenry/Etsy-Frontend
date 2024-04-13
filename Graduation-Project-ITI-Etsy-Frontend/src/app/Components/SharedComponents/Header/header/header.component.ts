@@ -67,70 +67,16 @@ export class HeaderComponent implements OnInit, OnDestroy {
   // ===============
   // For DownDrops :
 
-  // Visitor Category
-  isDropdownOpen: boolean = false;
-  toggleDropdown() {
-    this.isDropdownOpen = !this.isDropdownOpen;
-    const dropdownMenu = document.getElementById("dropdown-menu-visitor");
-    if (dropdownMenu) {
-      dropdownMenu.style.display = this.isDropdownOpen ? "block" : "none";
-    }
-  }
-  selectItem() {
-    this.isDropdownOpen = false;
-    const dropdownMenu = document.getElementById("dropdown-menu-visitor");
-    if (dropdownMenu) {
-      dropdownMenu.style.display = "none";
-    }
-  }
+    // For Dropdown List :
+    isDropdownOpen2: boolean = false;
 
-  // User Category
-  isDropdownOpenUser: boolean = false;
-  toggleDropdownUser() {
-    this.isDropdownOpenUser = !this.isDropdownOpenUser;
-    const dropdownMenu = document.getElementById("dropdown-menu-user");
-    if (dropdownMenu) {
-      dropdownMenu.style.display = this.isDropdownOpenUser ? "block" : "none";
+    toggleDropdown() {
+      this.isDropdownOpen2 = !this.isDropdownOpen2;
     }
-  }
-  selectItemUser() {
-    this.isDropdownOpenUser = false;
-    const dropdownMenu = document.getElementById("dropdown-menu-user");
-    if (dropdownMenu) {
-      dropdownMenu.style.display = "none";
-    }
-  }
 
-  //User Bell 
-  isDropdownOpenForBell: boolean = false;
 
-  toggleDropdownBell() {
-    this.isDropdownOpenForBell = !this.isDropdownOpenForBell;
-    const dropdownMenu = document.getElementById("bellDropdownMenu");
-    if (dropdownMenu) {
-      dropdownMenu.style.display = this.isDropdownOpenForBell ? "block" : "none";
-    }
-  }
-  selectItemBell() {
-    this.isDropdownOpenUser = false;
-    const dropdownMenu = document.getElementById("bellDropdownMenu");
-    if (dropdownMenu) {
-      dropdownMenu.style.display = "none";
-    }
-  }
-
-  //User Profile
-  isDropdownOpenForProfile: boolean = false;
-
-  toggleDropdownProfile() {
-    this.isDropdownOpenForProfile = !this.isDropdownOpenForProfile;
-    const dropdownMenu = document.getElementById("profileDropdownMenu");
-    if (dropdownMenu) {
-      dropdownMenu.style.display = this.isDropdownOpenForProfile ? "block" : "none";
-    }
-  }
   selectItemProfile() {
-    this.isDropdownOpenUser = false;
+    this.isDropdownOpen2 = false;
     const dropdownMenu = document.getElementById("bellDropdownMenu");
     this.router.navigate(["/userprofile"]);
     if (dropdownMenu) {
@@ -156,6 +102,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   //numberOfCarts
   numberOfCarts!:number;
 
+
+
+
   onLogout(): void {
     this.router.navigate(["/home"]);
     this.authService.logout();
@@ -165,6 +114,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
     this.lang = localStorage.getItem("lang") || "en";
 
+    
+   
     this.isLoggedIn = this.authService.isAuthenticated();
     this.isLoggedIn=this.register.isAuthenticated();
     this.sub = this._BaseCategoryService.GatAllBaseCategories().subscribe({

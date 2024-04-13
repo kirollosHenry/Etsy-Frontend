@@ -1,0 +1,13 @@
+
+
+.ImgOFCard{
+    /* object-fit: cover; */
+    height: 20rem;
+    padding-top: 10px;
+    border-radius: 20px;
+}
+
+.socialLink{
+    text-decoration: none;
+    color: #222222;
+}

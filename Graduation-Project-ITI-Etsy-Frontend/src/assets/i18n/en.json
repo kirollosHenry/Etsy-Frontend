@@ -325,8 +325,37 @@
   "searchComonent":{
     "We couldn't find any results...":"We couldn't find any results...",
     "Try searching for something else instead?":"Try searching for something else instead?"
-  }
+  },
 
+
+  "ProfileComponent" :{
+    "Home":"Home",
+    "User":"User",
+    "Full Name":"Full Name",
+    "Email":"Email",
+    "PhoneNumber":"PhoneNumber",
+    "Address":"Address",
+    "Tracking Orders":"Tracking Orders",
+    "Rest assured, your order is being carefully tracked every step of the way to ensure its safe and timely delivery.":
+    "Rest assured, your order is being carefully tracked every step of the way to ensure its safe and timely delivery.",
+
+    "Edit":"Edit",
+    "Save":"Save",
+    "OrderId":"OrderId",
+    "Arrive Date":"Arrive Date",
+    "Status":"Status",
+
+    "Whichstatus":{
+      "Placed":"Placed",
+      "Confirm":"Confirm",
+      "Return":"Return",
+      "Canceled":"Canceled",
+      "Delivered":"Delivered",
+      "Shipped":"Shipped"
+    }
+
+    
+  }
 
 
 }

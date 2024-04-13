@@ -26,6 +26,8 @@ export class HomeProductsComponent implements OnInit, OnDestroy {
   private destroySubject = new Subject();
   isLoggedIn: boolean = false;
 
+  userData!: any;
+
   constructor(
     private _ProductsService: ProductsService,
     private authService: AuthService,
@@ -54,6 +56,12 @@ export class HomeProductsComponent implements OnInit, OnDestroy {
         console.log(response);
       },
     });
+
+    const LocalStorage = localStorage.getItem("userData") as string;
+    if (localStorage) {
+      this.userData = JSON.parse(LocalStorage);
+    }
+
   }
 
   // ChangeLang(lang:any){
