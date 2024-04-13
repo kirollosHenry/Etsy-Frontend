@@ -47,6 +47,7 @@ export class AuthService {
      }
     logout() {
     localStorage.removeItem(this.tokenKey);
+    localStorage.removeItem("userData");
     this.setAuthStatus(false);
      }
 

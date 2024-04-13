@@ -9,7 +9,7 @@ import { ResultFromEdit, UserDto } from '../../../Models/Accout/UserDto';
   providedIn: 'root'
 })
 export class EditProfileService {
-  private EditProfileApiUrl = environment.LocalApiAccount;
+  private EditProfileApiUrl = environment.ProfileAPI;
 
   constructor(private http:HttpClient) { }
 

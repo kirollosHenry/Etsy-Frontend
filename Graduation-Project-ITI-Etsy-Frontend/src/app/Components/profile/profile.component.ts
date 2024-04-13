@@ -17,12 +17,16 @@ import { NotExpr } from '@angular/compiler';
 })
 export class ProfileComponent implements OnInit ,OnDestroy{
   editing:boolean =false;
-   userData!: UserDto;
+   userData!: any;
    userForm!: FormGroup;
   
   
    editProfile() {
     this.editing = !this.editing;
+    this.user.userData$.subscribe(userData => {
+      this.userData = userData;
+    });
+
   }
 
   sub!:Subscription;
@@ -30,15 +34,18 @@ export class ProfileComponent implements OnInit ,OnDestroy{
   constructor(private user:UserService ,private fb: FormBuilder ,private router:Router, private edit :EditProfileService){}
  
   ngOnInit(): void {
-    this.user.userData$.subscribe(userData => {
-      this.userData = userData;
-    });
+    const LocalStorage = localStorage.getItem('userData')  as string;
+    if(localStorage){
+      this.userData= JSON.parse(LocalStorage)
+    }
+   
+    this.nmessage= '';
     this.userForm = this.fb.group({
       Image:['image', Validators.required],
-      username: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      address: ['', Validators.required],
-      phone: ['',Validators.required]
+      username: [this.userData.userName, Validators.required],
+      email: [this.userData.email, [Validators.required, Validators.email]],
+      address: [this.userData.address, Validators.required],
+      phone: [this.userData.phoneNumber,Validators.required]
     });
    
   }
@@ -55,12 +62,19 @@ export class ProfileComponent implements OnInit ,OnDestroy{
       this.userData.address = formData.address;
       this.userData.phoneNumber = formData.phone;
 
-      this.userData.image = "sadasasx.jpg";
+      this.userData.image = "image.jpg";
       console.log(formData);
       this.sub = this.edit.EditProfile(this.userData).subscribe({
         next: (res) => {
-          console.log(formData);
-          console.log(res.message);
+          if(res.message === "The Profile Updated Sucessfully")
+
+            { this.nmessage=res.message;
+              this.user.setUserData(this.userData)
+           this.editing = false;
+          }
+          else {
+            this.nmessage="The Profile Can't Be Modified  Call Customer Service"
+          }
         }
       });
 
@@ -83,6 +97,7 @@ export class ProfileComponent implements OnInit ,OnDestroy{
     if (this.sub) {
       this.sub.unsubscribe();
     }
+    this.nmessage='';
   }
  
 }

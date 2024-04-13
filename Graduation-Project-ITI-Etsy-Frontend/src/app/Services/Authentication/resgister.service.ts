@@ -24,8 +24,7 @@ export class ResgisterService {
   getToken() : string | null {
     return localStorage.getItem(this.tokenKey);
   }
-  constructor(private http: HttpClient) { }
-
+  constructor(private http: HttpClient,private userService: UserService) { }
 
 
   init() : void {
@@ -38,6 +37,7 @@ export class ResgisterService {
          .pipe(tap(loginResult => {
     if (loginResult.isAuthenticated && loginResult.token) {
     localStorage.setItem(this.tokenKey, loginResult.token);
+    this.userService.setUserData(loginResult.customer)
     this.setAuthStatus(true);
            }
          }));
@@ -47,6 +47,7 @@ export class ResgisterService {
      
     logout() {
     localStorage.removeItem(this.tokenKey);
+    localStorage.removeItem("userData");
     this.setAuthStatus(false);
      }
 
