@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import {  Component, OnDestroy, OnInit } from "@angular/core";
 import { UserService } from "../../Services/Authentication/user.service";
 import { UserDto } from "../../Models/Accout/UserDto";
 import {
@@ -31,8 +31,10 @@ export class ProfileComponent implements OnInit, OnDestroy {
 
   editProfile() {
     this.editing = !this.editing;
-    this.user.userData$.subscribe((userData) => {
+    this.user.userData$.subscribe(userData => {
+
       this.userData = userData;
+
     });
   }
 
@@ -40,7 +42,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   CustomerId!: string;
 
   OrdersList!: Order[];
-  orderApi!: IOrderAPI;
+  orderApiCount!: number;
 
   lang: string = "en";
 
@@ -52,7 +54,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     private OrderService: OrderService,
     private translateService: TranslateService
   ) {}
-
+  
   ngOnInit(): void {
     // Localization
     this.lang = localStorage.getItem("lang") || "en";
@@ -72,21 +74,29 @@ export class ProfileComponent implements OnInit, OnDestroy {
       phone: [this.userData.phoneNumber, Validators.required],
     });
 
-    //GetAllOrdersByCustomerId
-    this.sub = this.OrderService.GetAllOrdersByCustomerId(
+     //GetAllOrdersByCustomerId
+     this.sub = this.OrderService.GetAllOrdersByCustomerId(
       this.CustomerId
     ).subscribe({
       next: (OrderAPI: IOrderAPI) => {
         // debugger;
         console.log(OrderAPI);
-        this.orderApi = OrderAPI;
+
         this.OrdersList = OrderAPI.order.entities;
+        console.log(this.OrdersList);
+        
+        this.orderApiCount = OrderAPI.order.count;
+        console.log(this.orderApiCount);
+
       },
       error: (error) => {
         console.log("Error: ", error);
       },
     });
   }
+
+ 
+
 
   nmessage: string = "";
 
@@ -111,6 +121,10 @@ export class ProfileComponent implements OnInit, OnDestroy {
               "The Profile Can't Be Modified  Call Customer Service";
           }
         },
+        error: (error)=>{
+          this.nmessage =
+          "User Name Or Email Already Exist! , Try Again";
+        }
       });
 
       console.log(formData);

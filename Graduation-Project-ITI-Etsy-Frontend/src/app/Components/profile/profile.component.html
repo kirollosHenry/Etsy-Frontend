@@ -1,7 +1,8 @@
 @if (nmessage!='')
 {
-<div class="msg msg-success clear " id="messages"
-[ngClass]="{'msg-success': nmessage === 'The Profile Updated Sucessfully', 'msg-danger': nmessage == 'The Form Invalid'}" >
+<div class="msg clear" id="messages"
+[ngClass]="{'msg-success': nmessage === 'The Profile Updated Sucessfully', 
+ 'msg-danger': nmessage === 'The Form Invalid' || nmessage === 'User Name Or Email Already Exist! , Try Again' }" >
   <h1>{{nmessage}}</h1>
 </div>
 }
@@ -125,41 +126,41 @@
 </div>
 
 
-@if (orderApi.order.count != 0) {
-<div class="container my-5">
+@if (orderApiCount != null) 
+{
+  <div class="container my-5">
 
-  <div class="card col-lg-12">
-
-    <div class="card-body">
-      <h5 class="card-title"> {{"ProfileComponent.Tracking Orders"|translate}}</h5>
-      <p class="card-text">
-
-        {{"ProfileComponent.Rest assured, your order is being carefully tracked every step of the way to ensure its safe
-        and timely delivery."|translate}}
-
-      </p>
+    <div class="card col-lg-12">
+  
+      <div class="card-body">
+        <h5 class="card-title"> {{"ProfileComponent.Tracking Orders"|translate}}</h5>
+        <p class="card-text">
+  
+          {{"ProfileComponent.Rest assured, your order is being carefully tracked every step of the way to ensure its safe and timely delivery."|translate}}
+  
+        </p>
+      </div>
+  
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th scope="col">{{"ProfileComponent.OrderId"|translate}}</th>
+            <th scope="col">{{"ProfileComponent.Status"|translate}}</th>
+            <th scope="col">{{"ProfileComponent.Arrive Date"|translate}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of OrdersList ; track $index) {
+          <tr>
+            <th scope="row">{{item.ordersId}}</th>
+            <td>{{ 'ProfileComponent.Whichstatus.' + item.status | translate }}</td>
+            <td>{{item.arrivedOn}}</td>
+          </tr>
+          }
+  
+        </tbody>
+      </table>
+  
     </div>
-
-    <table class="table table-striped table-hover">
-      <thead>
-        <tr>
-          <th scope="col">{{"ProfileComponent.OrderId"|translate}}</th>
-          <th scope="col">{{"ProfileComponent.Status"|translate}}</th>
-          <th scope="col">{{"ProfileComponent.Arrive Date"|translate}}</th>
-        </tr>
-      </thead>
-      <tbody>
-        @for (item of OrdersList ; track $index) {
-        <tr>
-          <th scope="row">{{item.ordersId}}</th>
-          <td>{{ 'ProfileComponent.Whichstatus.' + item.status | translate }}</td>
-          <td>{{item.arrivedOn}}</td>
-        </tr>
-        }
-
-      </tbody>
-    </table>
-
   </div>
-</div>
 }
