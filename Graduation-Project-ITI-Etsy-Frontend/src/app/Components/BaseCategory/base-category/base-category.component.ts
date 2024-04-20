@@ -21,7 +21,7 @@ export class BaseCategoryComponent implements OnInit {
   BaseCategoryList: BaseCategory[] = [];
   extendedBaseCategoryItems: BaseCategory[] = []; 
   showRemainProducts: boolean = false;
-
+  RemainedNum !:number;
 
   constructor(private _BaseCategoryService: BaseCategoryService,private translateService:TranslateService ) {}
 
@@ -35,6 +35,8 @@ export class BaseCategoryComponent implements OnInit {
 
       next: (Categories) => {
         this.BaseCategoryList = Categories.entities;
+        this.RemainedNum = this.BaseCategoryList.length - 12 ;
+
 
       },
     });
@@ -59,6 +61,9 @@ export class BaseCategoryComponent implements OnInit {
 showMore() {
   this.showRemainProducts = !this.showRemainProducts; 
 }
+
+
+//For show more :
 
 
 
